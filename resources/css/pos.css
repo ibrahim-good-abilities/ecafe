@@ -157,4 +157,54 @@ th {
 .qty-dec{
     float: right;
 }
+.card-content::after{
 
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 2px;
+        width: 102%;
+        height: 100%;
+        background-color: #337ab7;
+        opacity: 0.7;
+        
+}
+.card.animate {
+right: auto;
+    left: auto;
+    width: 25%;
+    margin-left: auto;
+    border-radius: 8px;
+    height: 120px;
+    width: 120px;
+    border-radius: 8px;
+    text-align: center;
+    background-size: cover;
+    margin-top: 20px;
+    color: #fff;
+    overflow: hidden;
+
+}
+.card.animate.fadeUp.product-box.col.s6.m4.l3{background-size: cover;}
+.card-content {
+    background-size: cover;
+}
+h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-weight: 700;
+    font-size: x-large;
+   
+}
+button.btn-floating.mb-1.waves-effect.waves-light.product{
+    background-color: #ff4081;
+    text-align: center;
+    
+}
+h6.col.s12.m12.l8.mt-3.rtl {
+ 
+    width: 140px;
+    font-size: large;
+    font-family: cursive;
+}
