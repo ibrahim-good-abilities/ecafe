@@ -1,12 +1,15 @@
-<?php 
+<?php
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
- 
-class IndexController extends Controller {
-     
+use Illuminate\Http\Request;
+class IndexController extends Controller
+{
+
     //For Index Page
-    public function index(){
+    public function index()
+    {
         return view('index');
     }
+
 }
 ?>

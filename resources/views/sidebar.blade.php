@@ -6,6 +6,27 @@
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
         <li class="bold"><a class="waves-effect waves-cyan " href="{{route('home')}}"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="">Welcome</span><span class="badge badge pill orange float-right mr-10">0</span></a>
         </li>
+        <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">photo_filter</i>
+            <span class="menu-title" data-i18n="">Categories</span></a>
+            <div class="collapsible-body">
+              <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                <li><a class="collapsible-body" href="{{route('add_category')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Add Category</span></a>
+                </li>
+                <li><a class="collapsible-body" href="#" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Edit Category</span></a>
+                </li>
+                <!--items-->
+
+
+
     </ul>
-    <div class="navigation-background"></div><a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out"><i class="material-icons">menu</i></a>
+
+<li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">photo_filter</i><span class="menu-title" data-i18n="">Items</span></a>
+            <div class="collapsible-body">
+              <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                <li><a class="collapsible-body" href="{{route('add_item')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Add Item</span></a>
+                </li>
+                <li><a class="collapsible-body" href="#" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Edit Item</span></a>
+                </li>
+
 </aside>
+
