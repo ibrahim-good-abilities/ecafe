@@ -11,8 +11,8 @@ class Category extends Model
     //
     protected $fillable = ['category_name', 'src'];
     //
-    public function Item()
+    public function items()
     {
-        return $this->hasMany(Item::class);
+        return $this->hasMany('App\Item');
     }
 }
