@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Item;
 
 class ItemController extends Controller
 {
@@ -37,30 +38,30 @@ class ItemController extends Controller
     {
         $vaidator=$request->validate([
             'Item_Name'     =>'required',
-            'Item_Unit'     =>'required',
+            'Item_unit'     =>'required',
             'category'      =>'required',
             'alert'         =>'required',
             'price'         =>'required',
             'cost'          =>'required',
+            'category'      =>'required',
             'image'         =>'required|image|mimes:jpeg,png'
-
-
         ]);
 
-        $Item = new Category();
+        $Item = new Item();
         $Item->name = request('Item_Name');
-        $Item->unit =request('Item_Unit');
-        $Item->category_id=request('category');
+        $Item->unit =request('Item_unit');
         $Item->alert_number=request('alert');
         $Item->price = request('price');
         $Item->cost=request('cost');
         $Item->has_stock= request('has_stock');
+        $Item->category_id=request('category');
         $image = $request->file('image');
         $name_img = time() . '.' . $image->getClientOriginalExtension();
         $destinationPath = public_path('/images/items/');
         $image->move($destinationPath, $name_img);
         $Item->src = '/images/items/'.$name_img;
         $Item->update(['image' => $name_img]);
+
         $Item->save();
         return redirect()->back()->with('success','Item created successfully!');
     }

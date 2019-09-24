@@ -5,7 +5,7 @@
 @section('middle_content')
 @if ($message = Session::get('success'))
 <div class="card-alert card green lighten-5">
-        <div class="card-content black-text">
+        <div class="card-content green-text">
 	<button type="button" class="close" data-dismiss="alert">×</button>
         <strong  >{{ $message }}</strong>
         </div>
@@ -28,11 +28,11 @@
 
               <div class="row">
                  <div class="input-name col s12">
-                    <input placeholder="Item_Name" id="item_name" type="text" class="validate">
+                    <input  name="Item_Name" id="item_name" type="text" class="validate">
                     <label for="first_name">Item Name</label>
                  </div>
                  <div class="input-unit col s12">
-                    <input placeholder="Item_Unit" id="item-unit" type="number" class="validate">
+                    <input  name="Item_unit" id="item-unit" type="number" class="validate">
                     <label  >Item Unit</label>
                  </div>
               </div>
@@ -40,9 +40,9 @@
                  <div class="item-category col s12 ">
                     <select class="icons" name="category">
                     <option value="" disabled selected>Choose your Category</option>
-                    <option value="" data-icon="../../app-assets/images/avatar/avatar-7.png" class="circle">Category 1</option>
-                    <option value="" data-icon="../../app-assets/images/avatar/avatar-5.png" class="circle">Category 2</option>
-                    <option value="" data-icon="../../app-assets/images/avatar/avatar-3.png" class="circle">Category 3</option>
+                    <option value="1" data-icon="../../app-assets/images/avatar/avatar-7.png" name="category" class="circle">Category 1</option>
+                    <option value="2" data-icon="../../app-assets/images/avatar/avatar-5.png" name="category" class="circle">Category 2</option>
+                    <option value="3" data-icon="../../app-assets/images/avatar/avatar-3.png" name="category" class="circle">Category 3</option>
                     </select>
                     <label>Item Category</label>
                  </div>
@@ -53,13 +53,13 @@
                           <label>Has Stock</label>
                        <p>
                           <label>
-                          <input name="has_stock" type="radio" checked/>
+                          <input name="has_stock" type="radio" value="1" checked/>
                           <span>yes</span>
                           </label>
                        </p>
                        <p>
                           <label>
-                          <input name="has_stock" type="radio" />
+                          <input name="has_stock" type="radio"  value="0"/>
                           <span>no</span>
                           </label>
                        </p>
@@ -67,30 +67,30 @@
                  </div>
                  <div class="row">
                     <div class="input-alert col s12">
-                          <input placeholder="Alert Number" name="alert" id="alert-number" type="number" class="validate">
+                          <input name="alert" id="alert-number" type="number" class="validate">
                           <label  >Alert Number</label>
                        </div>
                  </div>
                  <div class="row">
                     <div class="input-price col s12">
-                          <input placeholder="Price"  name="price" id="price" type="number" class="validate">
+                          <input   name="price" id="price" type="number" class="validate">
                           <label  >Price</label>
                        </div>
                  </div>
                  <div class="row">
                     <div class="input-cost col s12">
-                          <input placeholder="Cost" name="cost" id="cost" type="number" class="validate">
+                          <input  name="cost" id="cost" type="number" class="validate">
                           <label  >Cost</label>
                        </div>
                  </div>
                  <div class="row">
                  <div class="col s12 file-field input-field">
-                 <div class="btn float-right">
+                 <div class="btn float-left">
                     <span>Image</span>
                     <input type="file" name="image">
                  </div>
                  <div class="file-path-wrapper">
-                    <input placeholder="Add Image" class="file-path validate" type="text">
+                    <input class="file-path validate" type="text">
                  </div>
                  </div>
                  </div>

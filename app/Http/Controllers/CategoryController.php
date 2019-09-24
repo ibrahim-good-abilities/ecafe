@@ -53,7 +53,7 @@ class CategoryController extends Controller
         $category->src = '/images/categories/'.$name_img;
         $category->update(['image' => $name_img]);
         $category->save();
-        return redirect()->back()->with('success','Item created successfully!');
+        return redirect()->back()->with('success','Category created successfully!');
     }
 
     /**

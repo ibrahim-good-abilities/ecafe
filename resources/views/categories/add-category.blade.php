@@ -15,13 +15,12 @@
 @endif
 @if ($message = Session::get('success'))
 <div class="card-alert card green lighten-5">
-        <div class="card-content black-text">
+        <div class="card-content green-text">
 	<button type="button" class="close" data-dismiss="alert">×</button>
         <strong  >{{ $message }}</strong>
         </div>
 </div>
 @endif
-
 <form action="store" method="post"   enctype="multipart/form-data">
                 @csrf
 <div class="card">
