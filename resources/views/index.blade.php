@@ -1,16 +1,13 @@
 @extends('layout')
-@section('title', 'Page Title')    
+@section('title', 'E-Café')
 @section('page_css')
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/slick/slick.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/slick/slick-theme.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/jquery.dataTables.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/extensions/responsive/css/responsive.dataTables.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/select.dataTables.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/fontawesome/css/fontawesome.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/fontawesome/css/regular.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/fontawesome/css/solid.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/css/pos.css')}}">
-@endsection 
+@endsection
 @section('middle_content')
 <!-- Point of sale make order screen -->
 
@@ -35,5 +32,5 @@
 <script src="{{asset('resources/vendors/data-tables/js/dataTables.select.min.js')}}" type="text/javascript"></script>
 <script src="{{ asset('resources/vendors/slick/slick.min.js')}}" type="text/javascript"></script>
 <script src="{{ asset('resources/js/pos.js')}}" type="text/javascript"></script>
-@endsection 
+@endsection
 @endsection

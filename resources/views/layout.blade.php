@@ -9,7 +9,7 @@
     <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google.">
     <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template, eCommerce dashboard, analytic dashboard">
     <meta name="author" content="ThemeSelect">
-    <title>E-Café</title>
+    <title>@yield('title')</title>
     <link rel="apple-touch-icon" href="{{asset('resources/images/favicon/apple-icon-152x152.png')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('resources/images/favicon/favicon-32x32.png')}}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -19,6 +19,9 @@
     <!-- BEGIN: Page Level CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('resources/css/themes/vertical-modern-menu-template/materialize.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('resources/css/themes/vertical-modern-menu-template/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/fontawesome/css/fontawesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/fontawesome/css/regular.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/fontawesome/css/solid.min.css')}}">
     <!-- END: Page Level CSS-->
     @yield("page_css")
     <!-- BEGIN: Custom CSS-->
@@ -27,15 +30,15 @@
 </head>
 <!-- END: Head-->
 
-<body class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu 2-columns @yield('body_classes')" data-open="click" data-menu="vertical-modern-menu" data-col="2-columns">    
-    
+<body class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu 2-columns @yield('body_classes')" data-open="click" data-menu="vertical-modern-menu" data-col="2-columns">
+
     <!-- BEGIN: Header-->
-    @include('header')  {{-- Include header file --}} 
+    @include('header')  {{-- Include header file --}}
     <!-- END: Header-->
 
 
     <!-- BEGIN: SideNav-->
-    @include('sidebar') {{-- Include sidebar file --}}  
+    @include('sidebar') {{-- Include sidebar file --}}
     <!-- END: SideNav-->
 
     <!-- BEGIN: Page Main-->
@@ -47,7 +50,8 @@
     <!-- BEGIN: Footer-->
     @include('footer') {{-- Include footer file --}}
     <!-- END: Footer-->
-    
+@yield('categories.categories')
+
     <!-- BEGIN VENDOR JS-->
     <script src="{{asset('resources/js/vendors.min.js')}}" type="text/javascript"></script>
     <!-- BEGIN VENDOR JS-->
