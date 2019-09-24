@@ -31,7 +31,9 @@
 <!-- END: Head-->
 
 <body class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu 2-columns @yield('body_classes')" data-open="click" data-menu="vertical-modern-menu" data-col="2-columns">
-
+    <script>
+        var base_url = '{{ route("home") }}';
+    </script>
     <!-- BEGIN: Header-->
     @include('header')  {{-- Include header file --}}
     <!-- END: Header-->

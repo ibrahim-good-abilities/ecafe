@@ -55,14 +55,14 @@
         </div>
 </div>
 
-<div class="products-box row active " category="2" >
+<div class="products-box row" category="2" >
         <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('resources/images/gallery/coffe.png')}}">     
            <div class="card-content" >
               <div class="row center-align">
-                  <h3 >Coffe 2<h3>
+                  <h3 >Coffe 3<h3>
                   <h6 class="col s12 m12 l8 mt-3 rtl">50<sup>ج</sup> </h6>
               </div>
-                 <button class="btn-floating mb-1 waves-effect waves-light product"  price="50" p-id="2">
+                 <button class="btn-floating mb-1 waves-effect waves-light product"  price="50" p-id="3">
                        <i class="material-icons">add</i>
                  </button>
                 </div>
@@ -104,7 +104,7 @@
                 </div>
         </div>
 </div>
-<div class="products-box row active " category="3" >
+<div class="products-box row" category="3" >
         <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('resources/images/gallery/coffe.png')}}">     
            <div class="card-content" >
               <div class="row center-align">
