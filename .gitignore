@@ -6,7 +6,7 @@ yarn-error.log
 
 # Laravel 5 & Lumen specific
 public/storage
-public/images/*
+resources/images/*
 public/hot
 storage/*.key
 .env
