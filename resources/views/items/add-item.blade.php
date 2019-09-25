@@ -36,8 +36,8 @@
                     <label  >{{ __('Item Unit') }}</label>
                  </div>
                  <div class="input-unit col s12">
-                    <input  name="current_stock" id="item-unit" type="number" class="validate">
-                    <label  >Current Stock</label>
+                    <input  name="current_stock" id="item-unit" type="number" class="validate" placeholder="{{ __('Add Current Stock') }}">
+                    <label  >{{ __('Current Stock') }}</label>
                  </div>
               </div>
               <div class="row">
@@ -70,19 +70,19 @@
                  </div>
                  <div class="row">
                     <div class="input-alert col s12">
-                          <input name="alert" id="alert-number" type="number" class="validate">
+                          <input name="alert" id="alert-number" type="number" class="validate" placeholder="{{ __('Add Alert Number') }}">
                           <label  >{{ __('Alert Number') }}</label>
                        </div>
                  </div>
                  <div class="row">
                     <div class="input-price col s12">
-                          <input   name="price" id="price" type="number" class="validate">
+                          <input   name="price" id="price" type="number" class="validate" placeholder="{{ __('Add Price') }}">
                           <label  >{{ __('Price') }}</label>
                        </div>
                  </div>
                  <div class="row">
                     <div class="input-cost col s12">
-                          <input  name="cost" id="cost" type="number" class="validate">
+                          <input  name="cost" id="cost" type="number" class="validate" placeholder="{{ __('Add Cost') }}">
                           <label  >{{ __('Cost') }}</label>
                        </div>
                  </div>

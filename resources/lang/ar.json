@@ -8,21 +8,25 @@
     "Item Name": "اسم المنتج",
     "Add Item Unit": "أدخل وحده المنتج ",
     "Item Unit": " وحده المنتج ",
-    "Choose your Category": "أختار صنفك ",
+    "Choose your Category": "أختار الصنف ",
     "Has Stock": "لديه مخزون",
     "yes": "نعم",
     "no": "لا",
     "Alert Number": "رقم التنبيه",
     "Price": "السعر",
-    "Cost": "تكلفه",
+    "Cost": "التكلفه",
     "Explore The Menu":"استكشف القائمة",
     "Categories": "الاصناف",
     "All Categories": " كل الاصناف",
     "All Items": "كل المنتجات",
     "Add  new Item": "اضافه منتج جديد",
     "Add new Category": "اضافه صنف جديد",
-    "Welcome": "مرحبا",
-    "Items": "المنتجات"
-    
+    "Welcome": "لوحه التحكم",
+    "Items": "المنتجات",
+    "Current Stock": "المخزون الحالي",
+    "Add Current Stock": "ادخل المخزون الحالي",
+    "Add Alert Number": "ادخل رقم التنبيه ",
+    "Add Price": "ادخل السعر ",
+    "Add Cost": "ادخل التكلفه"
  
 }
