@@ -23,6 +23,7 @@
                     <th>صوره المنتج</th>
                     <th>اسم المنتج</th>
                     <th>وحده المنتج</th>
+                    <th>قيمة المخزون</th>
                     <th>فئه المنتج</th>
                     <th>قيمه مخزون</th>
                     <th>رقم التنبيه</th>
@@ -40,6 +41,7 @@
 
                     <td>{{ $item->name}}</td>
                     <td>{{ $item->unit}}</td>
+                    <th>{{$item->current_stock}}</th>
                     <td> {{ $item->category_name}}</td>
                     <td> @if($item->has_stock==1){{"yes"}} @else
                         {{"no"}}
