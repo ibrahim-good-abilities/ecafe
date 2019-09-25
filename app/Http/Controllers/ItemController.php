@@ -123,9 +123,9 @@ class ItemController extends Controller
             'category'      =>'required',
             'image'         =>'required|image|mimes:jpeg,png'
         ]);
-            //dd($id);
+
         $Item = Item::find($id);
-       // dd($Item);
+
         $Item->name = request('Item_Name');
         $Item->unit =request('Item_unit');
         $Item->alert_number=request('alert');

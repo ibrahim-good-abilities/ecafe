@@ -22,8 +22,12 @@ Route::get('/inventory-sheet', 'InventoryController@index')->name('inventory-she
 Route::get('/categories/index','CategoryController@index')->name('all_categories');
 Route::get('/categories/create','CategoryController@create')->name('add_category');
 Route::get('/categories/delete/{id}','CategoryController@destroy')->name('delete_category');
+Route::get('/categories/edit/{id}','CategoryController@edit')->name('edit_category');
+Route::post('/categories/update/{id}','CategoryController@update')->name('category_update');
+
 Route::get('/items/create','ItemController@create')->name('add_item');
 Route::post('/categories/store', 'CategoryController@store')->name('store');
+
 Route::post('/items/add','ItemController@store');
 Route::get('/items/index', 'ItemController@index')->name('items_index');
 Route::get('items/edit/{id}', 'ItemController@edit')->name('item_edit');

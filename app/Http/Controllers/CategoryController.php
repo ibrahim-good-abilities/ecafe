@@ -78,6 +78,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
+        $category = Category::find($id);
+        return view('categories.edit')->with('category',$category);
     }
 
     /**
@@ -89,7 +91,21 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $validator = $request->validate([
+            'category_name'=>'required',
+            'img'          =>'required|image|mimes:jpeg,png'
+         ]);
+         $category = Category::find($id);
+         $category->category_name = request('category_name');
+        $image = $request->file('img');
+        $name_img = time() . '.' . $image->getClientOriginalExtension();
+        $destinationPath = public_path('/images/categories/');
+        $image->move($destinationPath, $name_img);
+        $category->src = '/images/categories/'.$name_img;
+        $category->update(['image' => $name_img]);
+        $category->save();
+        return redirect()->back()->with('success','Category created successfully!');
     }
 
     /**
