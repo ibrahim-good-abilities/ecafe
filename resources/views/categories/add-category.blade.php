@@ -32,7 +32,7 @@
                         <div class="col s12">
 
                             <div class="input-field">
-                                <input placeholder="Placeholder" id="first_name" type="text" class="validate" name="category_name">
+                                <input placeholder="{{ __('Add Category Name') }}" id="first_name" type="text" class="validate" name="category_name">
                                 <label for="first_name">{{ __('Category Name') }}</label>
 
                             </div>
