@@ -6,7 +6,14 @@
 
 @endsection
 @section('middle_content')
-
+@if ($message = Session::get('success'))
+<div class="card-alert card green lighten-5">
+        <div class="card-content green-text">
+	<button type="button" class="close" data-dismiss="alert">×</button>
+        <strong  >{{ $message }}</strong>
+        </div>
+</div>
+@endif
 <div class="row">
     <h4 class="card-title">قائمه الاصناف</h4>
     <div class="col s12">
@@ -44,8 +51,8 @@
                         <a class="btn-floating mb-1 btn-flat waves-effect waves-light pink accent-2 white-text" href="{{route('item_edit',$item->id)}}">
                             <i class="material-icons">edit</i>
                         </a>
-                        <a class="btn-floating mb-1 waves-effect waves-light ">
-                            <i class="material-icons">clear</i>
+                        <a class="btn-floating mb-1 waves-effect waves-light " href="{{route('item_delete',$item->id)}}">
+                            <i class="material-icons">delete</i>
                         </a>
                     </td>
                 </tr>

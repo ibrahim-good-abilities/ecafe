@@ -135,7 +135,7 @@ class ItemController extends Controller
         $Item->category_id=request('category');
         $image = $request->file('image');
         $name_img = time() . '.' . $image->getClientOriginalExtension();
-        $destinationPath = public_path('/images/items/');
+        $destinationPath = public_path('git /images/items/');
         $image->move($destinationPath, $name_img);
         $Item->src = '/images/items/'.$name_img;
         $Item->update(['image' => $name_img]);
@@ -153,5 +153,10 @@ class ItemController extends Controller
     public function destroy($id)
     {
         //
+        $item =Item::find($id);
+        $item->delete();
+        return redirect()->back()->with('success', 'item deleted successfully');
+
+
     }
 }
