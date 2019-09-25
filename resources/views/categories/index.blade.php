@@ -15,15 +15,14 @@
 </div>
 @endif
 <div class="row">
-    <h4 class="card-title">قائمه الاصناف</h4>
     <div class="col s12">
+    <h4 class="card-title">قائمة الاصناف</h4>
         <table id="data-table-simple" class="display">
             <thead>
                 <tr>
                     <th>صوره المنتج</th>
                     <th> اسم المنتج </th>
-
-
+                    <th> الأعدادات </th>
                 </tr>
             </thead>
 
@@ -45,14 +44,6 @@
                 </tr>
                 @endforeach
             </tbody>
-            <tfoot>
-                <tr>
-                    <th>اسم المنتج</th>
-
-                    <th>صوره المنتج</th>
-
-                </tr>
-            </tfoot>
         </table>
     </div>
 </div>
