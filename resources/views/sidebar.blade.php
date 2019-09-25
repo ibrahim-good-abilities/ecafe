@@ -10,10 +10,11 @@
                 <span class="menu-title" data-i18n="">Categories</span></a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                <li><a class="collapsible-body" href="{{route('all_categories')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>All Categories</span></a>
+                    </li>
                     <li><a class="collapsible-body" href="{{route('add_category')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Add Category</span></a>
                     </li>
-                    <li><a class="collapsible-body" href="#" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Edit Category</span></a>
-                    </li>
+
                     <!--items-->
 
 

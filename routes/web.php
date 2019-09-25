@@ -19,7 +19,8 @@ use Illuminate\Routing\Router;
 
 Route::get('/', 'IndexController@index')->name('home');
 Route::get('/inventory-sheet', 'InventoryController@index')->name('inventory-sheet');
-Route::get('/categories/create','CategoryController@index')->name('add_category');
+Route::get('/categories/index','CategoryController@index')->name('all_categories');
+Route::get('/categories/create','CategoryController@create')->name('add_category');
 Route::get('/items/create','ItemController@create')->name('add_item');
 Route::post('/categories/store', 'CategoryController@store')->name('store');
 Route::post('/items/add','ItemController@store');
