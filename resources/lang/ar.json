@@ -2,5 +2,27 @@
     "Add Category": "أضافة صنف",
     "Upload Image": "تحميل صورة",
     "Submit": "ادخال",
-    "Category Name": "اسم الصنف"
+    "Category Name": "اسم الصنف",
+    "Add Category Name": "أدخل اسم الصنف",
+    "Add Item Name": "أدخل اسم المنتج",
+    "Item Name": "اسم المنتج",
+    "Add Item Unit": "أدخل وحده المنتج ",
+    "Item Unit": " وحده المنتج ",
+    "Choose your Category": "أختار صنفك ",
+    "Has Stock": "لديه مخزون",
+    "yes": "نعم",
+    "no": "لا",
+    "Alert Number": "رقم التنبيه",
+    "Price": "السعر",
+    "Cost": "تكلفه",
+    "Explore The Menu":"استكشف القائمة",
+    "Categories": "الاصناف",
+    "All Categories": " كل الاصناف",
+    "All Items": "كل المنتجات",
+    "Add  new Item": "اضافه منتج جديد",
+    "Add new Category": "اضافه صنف جديد",
+    "Welcome": "مرحبا",
+    "Items": "المنتجات"
+    
+ 
 }
