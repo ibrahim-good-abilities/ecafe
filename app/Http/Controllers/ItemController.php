@@ -34,7 +34,9 @@ class ItemController extends Controller
     public function create()
     {
         //
-        return view('items.add-item');
+        $categoy_name = Category::select('category_name','id')->get();
+        //dd($categoy_name);
+        return view('items.add-item')->with('categories_name',$categoy_name);
 
     }
 
@@ -61,6 +63,7 @@ class ItemController extends Controller
         //$Item->   Category()->category_name;
         $Item->name = request('Item_Name');
         $Item->unit =request('Item_unit');
+        $Item->current_stock=request('current_stock');
         $Item->alert_number=request('alert');
         $Item->price = request('price');
         $Item->cost=request('cost');
@@ -128,6 +131,7 @@ class ItemController extends Controller
 
         $Item->name = request('Item_Name');
         $Item->unit =request('Item_unit');
+        $Item->current_stock=request('current_stock');
         $Item->alert_number=request('alert');
         $Item->price = request('price');
         $Item->cost=request('cost');

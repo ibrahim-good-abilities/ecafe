@@ -32,8 +32,12 @@
                     <label for="first_name">Item Name</label>
                  </div>
                  <div class="input-unit col s12">
-                    <input  name="Item_unit" id="item-unit" type="number" class="validate">
+                    <input  name="Item_unit" id="item-unit" type="text" class="validate">
                     <label  >Item Unit</label>
+                 </div>
+                 <div class="input-unit col s12">
+                    <input  name="current_stock" id="item-unit" type="number" class="validate">
+                    <label  >Current stock</label>
                  </div>
               </div>
               <div class="row">
@@ -56,8 +60,7 @@
                           <input name="has_stock" type="radio" value="1" checked/>
                           <span>yes</span>
                           </label>
-                       </p>
-                       <p>
+
                           <label>
                           <input name="has_stock" type="radio"  value="0"/>
                           <span>no</span>
