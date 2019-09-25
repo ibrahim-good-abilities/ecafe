@@ -23,17 +23,17 @@
                 </div>
         </div>
         @endif
-        <form action="store" method="post"   enctype="multipart/form-data">
+        <form action="store" method="post" enctype="multipart/form-data">
         @csrf
             <div class="card">
                 <div class="card-content">
-                    <h4 class="card-title">Add Category</h4>
+                    <h4 class="card-title">{{ __('Add Category') }}</h4>
                     <div class="row">
                         <div class="col s12">
 
                             <div class="input-field">
                                 <input placeholder="Placeholder" id="first_name" type="text" class="validate" name="category_name">
-                                <label for="first_name">First Name</label>
+                                <label for="first_name">{{ __('Category Name') }}</label>
 
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                         <div class="col s12">
                             <div class="file-field input-field">
                                 <div class="btn">
-                                    <span>Image</span>
+                                    <span>{{ __('Upload Image') }}</span>
                                     <input type="file" name="img">
                                     <span></span>
                                 </div>
@@ -52,7 +52,7 @@
                         </div>
                         <div class="col s12">
                             <div class="input-field col s12">
-                                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">{{ __('Submit') }}
                                 <i class="material-icons right">send</i>
                                 </button>
                             </div>
