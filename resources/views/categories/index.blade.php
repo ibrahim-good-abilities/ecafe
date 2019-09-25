@@ -38,7 +38,7 @@
                         <a class="btn-floating mb-1 btn-flat waves-effect waves-light pink accent-2 white-text" href="#">
                             <i class="material-icons">edit</i>
                         </a>
-                        <a class="btn-floating mb-1 waves-effect waves-light " href="#">
+                        <a class="btn-floating mb-1 waves-effect waves-light " href="{{route('delete_category',$category->id)}}">
                             <i class="material-icons">delete</i>
                         </a>
                     </td>

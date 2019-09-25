@@ -21,10 +21,10 @@ Route::get('/', 'IndexController@index')->name('home');
 Route::get('/inventory-sheet', 'InventoryController@index')->name('inventory-sheet');
 Route::get('/categories/index','CategoryController@index')->name('all_categories');
 Route::get('/categories/create','CategoryController@create')->name('add_category');
+Route::get('/categories/delete/{id}','CategoryController@destroy')->name('delete_category');
 Route::get('/items/create','ItemController@create')->name('add_item');
 Route::post('/categories/store', 'CategoryController@store')->name('store');
 Route::post('/items/add','ItemController@store');
-//
 Route::get('/items/index', 'ItemController@index')->name('items_index');
 Route::get('items/edit/{id}', 'ItemController@edit')->name('item_edit');
 Route::post('items/edit/{id}', 'ItemController@update')->name('item_update');
