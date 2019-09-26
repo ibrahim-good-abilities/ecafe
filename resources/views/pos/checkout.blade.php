@@ -29,6 +29,6 @@
 
 <div id="buttons">
     <button type="button" id="clear" class="btn btn-danger">إلغاء</button>
-    <button type="button" id="go-pay" class="btn btn-success" data-toggle="modal" data-target="#payment">تنفيذ</button>
+    <button type="button" id="payment" class="btn btn-success">تنفيذ</button>
 </div>
 

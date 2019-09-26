@@ -1,158 +1,27 @@
 <div class="categories col-12">
-    <button class="waves-effect waves-light  btn box-shadow-none border-round category ml-5px active"  target="1">أسم الصنف 1</button>
-    <button class="waves-effect waves-light  btn box-shadow-none border-round category ml-5px"  target="2">أسم الصنف 2</button>
-    <button class="waves-effect waves-light  btn box-shadow-none border-round category ml-5px"  target="3">أسم الصنف 3</button>
+   @foreach($categories as $category)
+    <button class="waves-effect waves-light  btn box-shadow-none border-round category ml-5px {{ $loop->iteration == 1? 'active':'' }}"  target="{{ $category->id }}">{{ $category->category_name }}</button>
+   @endforeach
 </div>
 
 <div class="products-list">
-<div class="products-box row active " category="1" >
-        <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('resources/images/gallery/coffe.png')}}">     
-           <div class="card-content" >
-              <div class="row center-align">
-                  <h3 >Coffe 2<h3>
-                  <h6 class="col s12 m12 l8 mt-3 rtl">50<sup>ج</sup> </h6>
-              </div>
-                 <button class="btn-floating mb-1 waves-effect waves-light product"  price="50" p-id="2">
-                       <i class="material-icons">add</i>
-                 </button>
-                </div>
-        </div>
-        <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('resources/images/gallery/coffe.png')}}">
-                
-           <div class="card-content" >
-              <div class="row center-align">
-              <h3 >Coffe 2<h3>
-                 <h6 class="col s12 m12 l8 mt-3 rtl">50<sup>ج</sup> </h6>
-              </div>
-                 <button class="btn-floating mb-1 waves-effect waves-light product"  price="50" p-id="2">
-                       <i class="material-icons">add</i>
-                 </button>
-                </div>
-        </div>
-        <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('resources/images/gallery/coffe.png')}}">
-                 
-           <div class="card-content" >
-              <div class="row center-align">
-              <h3 >Coffe 2<h3>
-                 <h6 class="col s12 m12 l8 mt-3 rtl">50<sup>ج</sup> </h6>
-              </div>
-                 <button class="btn-floating mb-1 waves-effect waves-light product"  price="50" p-id="2">
-                       <i class="material-icons">add</i>
-                 </button>
-                </div>
-        </div>
-        <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('resources/images/gallery/coffe.png')}}">
-                
-           <div class="card-content" >
-              <div class="row center-align">
-              <h3 >Coffe 2<h3>
-                 <h6 class="col s12 m12 l8 mt-3 rtl">50<sup>ج</sup> </h6>
-              </div>
-                 <button class="btn-floating mb-1 waves-effect waves-light product"  price="50" p-id="2">
-                       <i class="material-icons">add</i>
-                 </button>
-                </div>
-        </div>
+   @foreach($item_groups as $key => $items)
+   <div class="products-box row active " category="{{ $key }}" >
+      @foreach($items as $item)
+         <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('public'.$item->src)}}">     
+            <div class="card-content" >
+               <div class="row center-align">
+                     <h3 class="product-name">{{ $item->name }}<h3>
+                     <h6 class="col s12 m12 l8 mt-3 rtl">{{ $item->price }}<sup>ج</sup> </h6>
+               </div>
+               <button class="btn-floating mb-1 waves-effect waves-light product"  price="{{ $item->price }}" p-id="{{ $item->id }}">
+                     <i class="material-icons">add</i>
+               </button>
+            </div>
+         </div>
+      @endforeach
+   </div>
+   @endforeach
 </div>
-
-<div class="products-box row" category="2" >
-        <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('resources/images/gallery/coffe.png')}}">     
-           <div class="card-content" >
-              <div class="row center-align">
-                  <h3 >Coffe 3<h3>
-                  <h6 class="col s12 m12 l8 mt-3 rtl">50<sup>ج</sup> </h6>
-              </div>
-                 <button class="btn-floating mb-1 waves-effect waves-light product"  price="50" p-id="3">
-                       <i class="material-icons">add</i>
-                 </button>
-                </div>
-        </div>
-        <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('resources/images/gallery/coffe.png')}}">
-                
-           <div class="card-content" >
-              <div class="row center-align">
-              <h3 >Coffe 2<h3>
-                 <h6 class="col s12 m12 l8 mt-3 rtl">50<sup>ج</sup> </h6>
-              </div>
-                 <button class="btn-floating mb-1 waves-effect waves-light product"  price="50" p-id="2">
-                       <i class="material-icons">add</i>
-                 </button>
-                </div>
-        </div>
-        <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('resources/images/gallery/coffe.png')}}">
-                 
-           <div class="card-content" >
-              <div class="row center-align">
-              <h3 >Coffe 2<h3>
-                 <h6 class="col s12 m12 l8 mt-3 rtl">50<sup>ج</sup> </h6>
-              </div>
-                 <button class="btn-floating mb-1 waves-effect waves-light product"  price="50" p-id="2">
-                       <i class="material-icons">add</i>
-                 </button>
-                </div>
-        </div>
-        <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('resources/images/gallery/coffe.png')}}">
-                
-           <div class="card-content" >
-              <div class="row center-align">
-              <h3 >Coffe 2<h3>
-                 <h6 class="col s12 m12 l8 mt-3 rtl">50<sup>ج</sup> </h6>
-              </div>
-                 <button class="btn-floating mb-1 waves-effect waves-light product"  price="50" p-id="2">
-                       <i class="material-icons">add</i>
-                 </button>
-                </div>
-        </div>
-</div>
-<div class="products-box row" category="3" >
-        <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('resources/images/gallery/coffe.png')}}">     
-           <div class="card-content" >
-              <div class="row center-align">
-                  <h3 >Coffe 2<h3>
-                  <h6 class="col s12 m12 l8 mt-3 rtl">50<sup>ج</sup> </h6>
-              </div>
-                 <button class="btn-floating mb-1 waves-effect waves-light product"  price="50" p-id="2">
-                       <i class="material-icons">add</i>
-                 </button>
-                </div>
-        </div>
-        <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('resources/images/gallery/coffe.png')}}">
-                
-           <div class="card-content" >
-              <div class="row center-align">
-              <h3 >Coffe 2<h3>
-                 <h6 class="col s12 m12 l8 mt-3 rtl">50<sup>ج</sup> </h6>
-              </div>
-                 <button class="btn-floating mb-1 waves-effect waves-light product"  price="50" p-id="2">
-                       <i class="material-icons">add</i>
-                 </button>
-                </div>
-        </div>
-        <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('resources/images/gallery/coffe.png')}}">
-                 
-           <div class="card-content" >
-              <div class="row center-align">
-              <h3 >Coffe 2<h3>
-                 <h6 class="col s12 m12 l8 mt-3 rtl">50<sup>ج</sup> </h6>
-              </div>
-                 <button class="btn-floating mb-1 waves-effect waves-light product"  price="50" p-id="2">
-                       <i class="material-icons">add</i>
-                 </button>
-                </div>
-        </div>
-        <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('resources/images/gallery/coffe.png')}}">
-                
-           <div class="card-content" >
-              <div class="row center-align">
-              <h3 >Coffe 2<h3>
-                 <h6 class="col s12 m12 l8 mt-3 rtl">50<sup>ج</sup> </h6>
-              </div>
-                 <button class="btn-floating mb-1 waves-effect waves-light product"  price="50" p-id="2">
-                       <i class="material-icons">add</i>
-                 </button>
-                </div>
-        </div>
-</div>
-    </div>
 
 </div>

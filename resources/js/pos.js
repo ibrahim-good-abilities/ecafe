@@ -43,17 +43,16 @@ $(document).ready(function() {
         increasePrice(parseFloat(price));
         changeCountBy(1);
         //
-        if ($('[data-product-id="'+p_id+'"]').length>0)
-        {
-            var qty =$('[data-product-id="'+p_id+'"]').html();
-            qty ++;
-            $('[data-product-id="'+p_id+'"]').html(qty);
-        }else{
+        if ($('[data-product-id="' + p_id + '"]').length > 0) {
+            var qty = $('[data-product-id="' + p_id + '"]').html();
+            qty++;
+            $('[data-product-id="' + p_id + '"]').html(qty);
+        } else {
             t.row.add([
                 '<span  class="delete fas fa-trash-alt"></span>',
                 '<span  class="price" > ' + price + '</span>',
                 `<span  class=" qty-inc"><i class="fas fa-plus-square"></i></span>
-                 <span  class="qty" data-product-id="`+p_id+`"> 1 </span>
+                 <span  class="qty" data-product-id="` + p_id + `"> 1 </span>
                  <span  class=" qty-dec"><i class="fas fa-minus-square"></i></span>`,
                 '<span  class="categoryName">' + categoryName + '</span>',
                 '<span  class="name">' + name + '</span>',
@@ -70,23 +69,6 @@ $(document).ready(function() {
         changePriceBy(-1 * quantity * parseFloat(price));
         changeCountBy(-1 * quantity);
     });
-
-    //allow editable spans
-    // $('#order').on('click', '.qty', function() {
-    //     $(this).attr('contentEditable', true);
-    //     oldvalue = parseInt($(this).text());
-    // });
-
-    // $('#order').on('click', '.price', function() {
-    //     $(this).attr('contentEditable', true);
-    //     oldprice = parseFloat($(this).text());
-    // });
-
-    // //allow editable spans
-    // $('#discount').on('click', function() {
-    //     $(this).attr('contentEditable', true);
-    //     olddiscount = parseFloat($(this).text());
-    // });
 
     // Trigger on change events
     $('#order').on('focusout', '.qty', function() {
@@ -145,6 +127,30 @@ $(document).ready(function() {
         $('#count').html('0');
         $('#total').html('0');
     });
+
+
+    $("#payment").on('click', function() {
+        var items = [];
+        t.rows().every(function(index, element) {
+            var row = this.data();
+            var product_id = $(row[5]).html(); // Index 6 - the 7th column in the table
+            var quantity = $(this.node()).find('td').eq(2).text();
+            items.push({ 'product_id': product_id.trim(), 'quantity': quantity.trim() });
+        });
+
+        var data = {
+            'items': items,
+            'customer_id': '1',
+        };
+        $.post(base_url + '/orders/add-new', data, function(response) {
+            if (response) {
+                t.clear()
+                    .draw();
+                $('#count').html('0');
+                $('#total').html('0');
+            }
+        });
+    });
     //custom functions
     //increase price
     function increasePrice(price) {
@@ -177,26 +183,25 @@ $(document).ready(function() {
     });
 
 
-    $(document).on("click", '.qty-inc', function (qty) {
+    $(document).on("click", '.qty-inc', function(qty) {
         var qty = $(this).closest('td').find('.qty').first().html();
-        qty ++;
+        qty++;
         $(this).closest('td').find('.qty').first().html(qty);
         //
-        var price =$('.price').html();
+        var price = $('.price').html();
         increasePrice(parseFloat(price));
         changeCountBy(1);
 
     });
-    $(document).on("click", '.qty-dec', function (qty) {
+    $(document).on("click", '.qty-dec', function(qty) {
         var qty = $(this).closest('td').find('.qty').first().html();
         //
-        if(qty==1)
-        {
+        if (qty == 1) {
             return false;
         }
-        qty --;
+        qty--;
         $(this).closest('td').find('.qty').first().html(qty);
-        var price =$('.price').html();
+        var price = $('.price').html();
         increasePrice(parseFloat(-price));
         changeCountBy(-1);
 
