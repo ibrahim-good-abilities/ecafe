@@ -21,31 +21,24 @@
                         <th> {{ __('Date Created') }}</th>
                         <th>{{ __('Status ') }}</th>
                         <th> {{ __('Total ') }}</th>
-                        <th></th>
+                        <th>{{__('setting')}}</th>
                     </tr>
                 </thead>
                 <tbody>
+                @foreach($orders as $order)
                     <tr>
-                        <td>#25</td>
-                        <td>ABC Fintech LTD.</td>
-                        <td>Jan 1,2019</td>
+                        <td>{{$order->id}}</td>
+                        <td>{{$order->customer_name}}</td>
+                        <td>{{$order->created_at}}</td>
                         <td><span class="badge pink lighten-5 pink-text text-accent-2">Cancelled</span></td>
                         <td>200000</td>
                         <td class="center-align"><a href="#"><i class="material-icons pink-text">clear</i></a>
-                            <a href="{{route('edit_order')}}"><i class="material-icons dp48">visibility</i></a>
+                            <a href="{{route('edit_order',$order->id)}}"><i class="material-icons dp48">visibility</i></a>
                         </td>
                     </tr>
+                    @endforeach
 
-                    <tr>
-                        <td>#27</td>
-                        <td>Collboy Tech LTD.</td>
-                        <td>Jan 12,2019</td>
-                        <td><span class="badge green lighten-5 green-text text-accent-4">Processing</span></td>
-                        <td>300000</td>
-                        <td class="center-align"><a href="#"><i class="material-icons pink-text">clear</i></a>
-                            <a href="#"><i class="material-icons dp48">visibility</i></a>
-                        </td>
-                    </tr>
+                   
 
                 </tbody>
             </table>

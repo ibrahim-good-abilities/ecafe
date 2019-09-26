@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use App\Orders;
 
 class OrderController extends Controller
@@ -15,7 +16,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders =Orders::all();
+      
+        $orders = DB::table('orders')->join('customers','customers.id','=','orders.customer_id')
+        ->select('orders.*','customers.customer_name')->get();
         return view('orders.index')->with('orders',$orders);
     }
 
@@ -58,7 +61,7 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()//$id)
+    public function edit($id)
     {
         //
         return view('orders.edit');
