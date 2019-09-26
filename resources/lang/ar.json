@@ -4,6 +4,7 @@
     "Submit": "ادخال",
     "Category Name": "اسم الصنف",
     "Add Category Name": "أدخل اسم الصنف",
+    "Add Item": "أضافة منتج",
     "Add Item Name": "أدخل اسم المنتج",
     "Item Name": "اسم المنتج",
     "Add Item Unit": "أدخل وحده المنتج ",
@@ -15,7 +16,7 @@
     "Alert Number": "رقم التنبيه",
     "Price": "السعر",
     "Cost": "التكلفه",
-    "Explore The Menu":"استكشف القائمة",
+    "Explore The Menu": "استكشف القائمة",
     "Categories": "الاصناف",
     "All Categories": " كل الاصناف",
     "All Items": "كل المنتجات",
@@ -27,6 +28,17 @@
     "Add Current Stock": "ادخل المخزون الحالي",
     "Add Alert Number": "ادخل رقم التنبيه ",
     "Add Price": "ادخل السعر ",
-    "Add Cost": "ادخل التكلفه"
- 
+    "Add Cost": "ادخل التكلفه",
+    "Category Image": "صورة الصنف",
+    "Edit Category": "تعديل الصنف",
+    "Edit Item": "تعديل المنتج",
+    "Orders": "الطلبيات",
+    "All Orders": "جميع الطلبيات",
+    "Order Id": "رقم الطلب",
+    "Customer Name": "أسم العميل",
+    "Date Created": "تاريخ الطلب",
+    "Status": "الحالة",
+    "Total": "الأجمالى",
+    "Settings": "الأعدادات"
+
 }
