@@ -15,8 +15,8 @@
 </div>
 @endif
 <div class="row">
-    <h4 class="card-title">قائمه الاصناف</h4>
     <div class="col s12">
+        <h4 class="card-title">قائمه المنتجات</h4>
         <table id="data-table-simple" class="display">
             <thead>
                 <tr>
@@ -60,19 +60,6 @@
                 </tr>
                 @endforeach
             </tbody>
-            <tfoot>
-                <tr>
-                    <th>صوره المنتج</th>
-                    <th>اسم المنتج</th>
-                    <th>وحده المنتج</th>
-                    <th>فئه المنتج</th>
-                    <th>لديه مخزون</th>
-                    <th>رقم التنبيه</th>
-                    <th>السعر</th>
-                    <th>التكلفه</th>
-                    <th>الاعدادات</th>
-                </tr>
-            </tfoot>
         </table>
     </div>
 </div>
