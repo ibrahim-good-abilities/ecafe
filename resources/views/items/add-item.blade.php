@@ -32,7 +32,7 @@
                     <label for="first_name">{{ __('Item Name') }}</label>
                  </div>
                  <div class="input-unit col s12">
-                    <input  name="Item_unit" id="item-unit" type="number" class="validate" placeholder="{{ __('Add Item Unit') }}">
+                    <input  name="Item_unit" id="item-unit" type="text" class="validate" placeholder="{{ __('Add Item Unit') }}">
                     <label  >{{ __('Item Unit') }}</label>
                  </div>
                  <div class="input-unit col s12">
