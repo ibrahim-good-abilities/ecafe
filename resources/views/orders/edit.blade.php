@@ -10,22 +10,22 @@
 <div class="card-content">
     <div id="Form-advance" class="card card card-default scrollspy">
         <div class="card-content">
-            <h5 class="card-title">Order Details</h5>
+            <h5 class="card-title">{{__('Order Details')}}</h5>
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col m6 s12">
-                        <h6>Order Id : <span id="content">#20</span></h4>
+                        <h6>{{__('Order Id')}}: <span id="content">#20</span></h4>
                     </div>
                     <div class="input-field col m6 s12">
-                        <h6>Customer Name : <span id="content">mohamed</span></h6>
+                        <h6>{{__('Customer Name')}} : <span id="content">mohamed</span></h6>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col m6 s12">
-                        <h6>Item Name : <span id="content">cofe</span></h6>
+                        <h6>{{__('Item Name')}} : <span id="content">cofe</span></h6>
                     </div>
                     <div class="input-field col m6 s12">
-                        <h6>Date created : <span id="content">Jan 1,2019</span></h6>
+                        <h6>{{__('Date created')}} : <span id="content">Jan 1,2019</span></h6>
                     </div>
                 </div>
 
@@ -36,12 +36,12 @@
             <table class="subscription-table responsive-table highlight">
                 <thead>
                     <tr>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                        <th>Sub Total</th>
-                        <th>Discount</th>
-                        <th>Total</th>
+                        <th>{{__('Quantity')}}</th>
+                        <th>{{__('Price')}}</th>
+                        <th>{{__('Status')}}</th>
+                        <th>{{__('Sub Total')}}</th>
+                        <th>{{__('Discount')}}</th>
+                        <th>{{ __('Total') }}</th>
                         <th></th>
 
                     </tr>
