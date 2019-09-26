@@ -6,7 +6,8 @@
 @endsection
 @section('middle_content')
 <!-- orders table -->
-
+<div class="row">
+    <div class="col s12">
         <div class="card subscriber-list-card animate fadeRight">
             <div class="card-content pb-1">
 
@@ -49,6 +50,8 @@
                 </tbody>
             </table>
         </div>
+    </div>
+</div>
 
 
         <!-- orders table -->

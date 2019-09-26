@@ -99,10 +99,13 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
+           //
+           $categoy_name = Category::select('category_name','id')->get();
+
         //
         $item = Item::find($id);
 
-        return view('items.edit')->with('item',$item);
+        return view('items.edit')->with('item',$item)->with('categories_name',$categoy_name);
 
     }
 
@@ -126,6 +129,7 @@ class ItemController extends Controller
             'category'      =>'required',
             'image'         =>'required|image|mimes:jpeg,png'
         ]);
+
 
         $Item = Item::find($id);
 
