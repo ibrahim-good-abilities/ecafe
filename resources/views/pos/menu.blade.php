@@ -6,7 +6,7 @@
 
 <div class="products-list">
    @foreach($item_groups as $key => $items)
-   <div class="products-box row active " category="{{ $key }}" >
+   <div class="products-box row {{ $key == $categories[0]->id? 'active':'' }}" category="{{ $key }}" >
       @foreach($items as $item)
          <div class="card animate fadeUp product-box col s6 m4 l3" style=" background-image: url({{asset('public'.$item->src)}}">     
             <div class="card-content" >

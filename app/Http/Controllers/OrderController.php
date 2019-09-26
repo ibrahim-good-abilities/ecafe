@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Order;
+use App\Item;
 
 
 class OrderController extends Controller
@@ -18,8 +19,12 @@ class OrderController extends Controller
     public function index()
     {
       
-        $orders = DB::table('orders')->join('customers','customers.id','=','orders.customer_id')
-        ->select('orders.*','customers.customer_name')->get();
+        $orders = DB::table('orders')
+        ->select('orders.id','orders.status','orders.created_at','customers.customer_name',DB::raw('sum(order_line.quantity * order_line.price) as total'))
+        ->join('order_line','orders.id','=','order_line.order_id')
+        ->leftJoin('customers','customers.id','=','orders.customer_id')
+        ->groupBy('orders.id','orders.status','orders.created_at','customer_name')
+        ->get();
         return view('orders.index')->with('orders',$orders);
     }
 
@@ -33,11 +38,13 @@ class OrderController extends Controller
         $order = new Order();
         $order->discount =0;
         $order->customer_id =request('customer_id ');
+        $order->status ='Pending';
         $order->save();
         $items = request('items');
         
         foreach($items as $item){
-            $order->items()->attach([$item['product_id']=>['quantity'=>$item['quantity'],'cost'=>0,'price'=>0]]);
+            $itemObj = Item::find($item['product_id']);
+            $order->items()->attach([$item['product_id']=>['quantity'=>$item['quantity'],'cost'=>$itemObj->cost,'price'=>$itemObj->price]]);
          }
          dd($items);
     }
@@ -74,11 +81,18 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
-        $orders = DB::table('orders')->join('customers','customers.id','=','orders.customer_id')
-        ->join('items')
-        ->select('orders.*','customers.customer_name')->get();
-        return view('orders.edit');
+        $order = DB::table('orders')
+        ->select('orders.*','customers.customer_name')
+        ->leftJoin('customers','customers.id','=','orders.customer_id')
+        ->where('orders.id', $id)
+        ->first();
+
+        $items = DB::table('items')
+        ->select('items.name','order_line.price','order_line.quantity')
+        ->join('order_line','items.id','=','order_line.item_id')
+        ->where('order_line.order_id', $id)
+        ->get();
+        return view('orders.edit')->with('order',$order )->with('items',$items );
     }
 
     /**

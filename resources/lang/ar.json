@@ -39,6 +39,11 @@
     "Date Created": "تاريخ الطلب",
     "Status": "الحالة",
     "Total": "الأجمالى",
-    "Settings": "الأعدادات"
+    "Settings": "الأعدادات",
+    "Pending": "انتظار",
+    "Guest": "زائر",
+    "Quantity": "الكمية",
+    "Order Details": "تفاصيل الطلب",
+    "Edit Order": "تعديل الطلب"
 
 }

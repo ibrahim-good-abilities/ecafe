@@ -4,13 +4,13 @@ $(document).ready(function() {
 
 
     $('#orders').DataTable({
-        "responsive": true,
+        "responsive": false,
 
         "language": {
             "url": language
         },
         columnDefs: [
-            { orderable: false, targets: -1 }
+            { orderable: false, targets: 5 }
         ]
     });
 

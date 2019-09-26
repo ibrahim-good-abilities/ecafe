@@ -49,12 +49,12 @@
 
 
             <div class="input-price col s12">
-               <input   name="price" id="price" type="number" class="validate" placeholder="{{ __('Add Price') }}">
+               <input   name="price" id="price" type="number" step="0.5" min=".5" class="validate" placeholder="{{ __('Add Price') }}">
                <label  >{{ __('Price') }}</label>
             </div>
 
             <div class="input-cost col s12">
-                  <input  name="cost" id="cost" type="number" class="validate" placeholder="{{ __('Add Cost') }}">
+                  <input  name="cost" id="cost" type="number"  step="0.5" min=".5" class="validate" placeholder="{{ __('Add Cost') }}">
                   <label  >{{ __('Cost') }}</label>
             </div>
 

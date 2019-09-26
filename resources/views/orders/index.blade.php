@@ -28,10 +28,10 @@
                         @foreach($orders as $order)
                             <tr>
                                 <td>{{$order->id}}</td>
-                                <td>{{$order->customer_name}}</td>
-                                <td>{{$order->created_at}}</td>
-                                <td><span class="badge pink lighten-5 pink-text text-accent-2">Cancelled</span></td>
-                                <td>200000</td>
+                                <td>{{ $order->customer_name !="" ? $order->customer_name:__('Guest')}}</td>
+                                <td>{{ $order->created_at }}</td>
+                                <td><span class="badge grey lighten-5 grey-text text-accent-2">{{ __($order->status) }}</span></td>
+                                <td>{{ $order->total }}</td>
                                 <td class="center-align"><a href="#"><i class="material-icons pink-text">clear</i></a>
                                     <a href="{{route('edit_order',$order->id)}}"><i class="material-icons dp48">visibility</i></a>
                                 </td>
