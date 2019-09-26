@@ -141,6 +141,7 @@ $(document).ready(function() {
         var data = {
             'items': items,
             'customer_id': '1',
+            '_token':$('#_order_token').val()
         };
         $.post(base_url + '/orders/add-new', data, function(response) {
             if (response) {

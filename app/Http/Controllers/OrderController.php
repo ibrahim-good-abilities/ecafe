@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use App\Orders;
+use App\Order;
 
 
 class OrderController extends Controller
@@ -30,14 +30,16 @@ class OrderController extends Controller
      */
     public function create(Request $request)
     {
-        $order = new Orders();
+        $order = new Order();
         $order->discount =0;
         $order->customer_id =request('customer_id ');
         $order->save();
         $items = request('items');
+        
         foreach($items as $item){
-        $order->items()->attach([$item['product_id']=>['quantity'=>$item['quantity']]]);
-        }
+            $order->items()->attach([$item['product_id']=>['quantity'=>$item['quantity'],'cost'=>0,'price'=>0]]);
+         }
+         dd($items);
     }
 
     /**

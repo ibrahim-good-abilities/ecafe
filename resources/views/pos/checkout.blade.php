@@ -1,4 +1,5 @@
 <div class="order-box">
+    <input type="hidden" id ="_order_token" value="{{ csrf_token()}}"/>
     <table id="order" class="display"  width="100%">
         <thead>
             <tr>

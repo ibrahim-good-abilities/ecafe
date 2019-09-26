@@ -27,10 +27,10 @@ Route::post('/categories/store', 'CategoryController@store')->name('store');
 
 Route::post('/items/add','ItemController@store');
 Route::get('/items/index', 'ItemController@index')->name('items_index');
-Route::get('items/edit/{id}', 'ItemController@edit')->name('item_edit');
-Route::post('items/edit/{id}', 'ItemController@update')->name('item_update');
-Route::get('items/delete/{id}','ItemController@destroy')->name('item_delete');
+Route::get('/items/edit/{id}', 'ItemController@edit')->name('item_edit');
+Route::post('/items/edit/{id}', 'ItemController@update')->name('item_update');
+Route::get('/items/delete/{id}','ItemController@destroy')->name('item_delete');
 //orders
-Route::get('orders/index','OrderController@index')->name('orders');
-Route::get('orders/edit/{id}','OrderController@edit')->name('edit_order');
+Route::get('/orders/index','OrderController@index')->name('orders');
+Route::get('/orders/edit/{id}','OrderController@edit')->name('edit_order');
 Route::post('orders/add-new','OrderController@create');
