@@ -36,11 +36,11 @@
 
 
                 </ul>
-                <li class="bold"><a class="collapsible-header waves-effect waves-cyan "href="#"><i class="material-icons">photo_filter</i><span class="menu-title" data-i18n="">orders</span></a>
+                <li class="bold"><a class="collapsible-header waves-effect waves-cyan "href="#"><i class="material-icons">photo_filter</i><span class="menu-title" data-i18n="">{{ __('Orders') }}</span></a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
                 <li>
-                        <a class="collapsible-body" href="{{route('orders')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span> All orders</span></a>
+                        <a class="collapsible-body" href="{{route('orders')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span> {{ __('All Orders') }}</span></a>
                     </li>
 
 
