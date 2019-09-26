@@ -41,12 +41,13 @@
                  </div>
               </div>
               <div class="row">
-                 <div class="item-category col s12 ">
+              <div class="item-category col s12 ">
                     <select class="icons" name="category">
-                    <option value="" disabled selected>Choose your Category</option>
-                    <option value="1" data-icon="../../app-assets/images/avatar/avatar-7.png" name="category" class="circle">Category 1</option>
-                    <option value="2" data-icon="../../app-assets/images/avatar/avatar-5.png" name="category" class="circle">Category 2</option>
-                    <option value="3" data-icon="../../app-assets/images/avatar/avatar-3.png" name="category" class="circle">Category 3</option>
+                    <option value="" disabled selected>{{ __('Choose your Category') }}</option>
+                    @foreach($categories_name as $category_name)
+
+                    <option  value="{{$category_name->id}}" data-icon="../../app-assets/images/avatar/avatar-7.png" name="category" class="circle"> {{$category_name->category_name}} </option>
+                @endforeach
                     </select>
                     <label>Item Category</label>
                  </div>
