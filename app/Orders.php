@@ -11,4 +11,7 @@ class Orders extends Model
         return $this->belongsTo('App\Customer');
 
     }
+    public function items(){
+        return $this->belongsToMany('App\Item');
+    }
 }

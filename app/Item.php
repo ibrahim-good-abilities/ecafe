@@ -13,4 +13,7 @@ class Item extends Model
     {
         return $this->belongsTo('App\Category');
     }
+    public function order(){
+        return $this->belongsToMany('App\Order');
+    }
 }

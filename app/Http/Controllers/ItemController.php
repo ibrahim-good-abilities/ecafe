@@ -60,7 +60,6 @@ class ItemController extends Controller
         ]);
 
         $Item = new Item();
-        //$Item->   Category()->category_name;
         $Item->name = request('Item_Name');
         $Item->unit =request('Item_unit');
         $Item->current_stock=request('current_stock');

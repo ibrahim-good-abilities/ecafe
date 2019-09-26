@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Orders;
 
+
 class OrderController extends Controller
 {
     /**
@@ -27,10 +28,16 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
-
+        $order = new Orders();
+        $order->discount =0;
+        $order->customer_id =request('customer_id ');
+        $order->save();
+        $items = request('items');
+        foreach($items as $item){
+        $order->items()->attach([$item['product_id']=>['quantity'=>$item['quantity']]]);
+        }
     }
 
     /**
@@ -42,6 +49,8 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
+       
+        
     }
 
     /**
@@ -64,6 +73,9 @@ class OrderController extends Controller
     public function edit($id)
     {
         //
+        $orders = DB::table('orders')->join('customers','customers.id','=','orders.customer_id')
+        ->join('items')
+        ->select('orders.*','customers.customer_name')->get();
         return view('orders.edit');
     }
 
