@@ -16,4 +16,11 @@ class Item extends Model
     public function order(){
         return $this->belongsToMany('App\Order','order_line');
     }
+    // relation with transaction
+    public function transactions()
+        {
+            return $this->belongsToMany('App\Transaction');
+        }
+
+    
 }

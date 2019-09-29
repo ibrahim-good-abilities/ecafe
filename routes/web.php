@@ -33,4 +33,6 @@ Route::get('/items/delete/{id}','ItemController@destroy')->name('item_delete');
 //orders
 Route::get('/orders/index','OrderController@index')->name('orders');
 Route::get('/orders/edit/{id}','OrderController@edit')->name('edit_order');
-Route::post('orders/add-new','OrderController@create');
+Route::post('/orders/add-new','OrderController@create');
+//stock
+Route::get('/stock/index','ItemController@stock')->name('stock');

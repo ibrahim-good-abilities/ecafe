@@ -5,20 +5,21 @@
     </div>
 
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
-        <li class="bold"><a class="waves-effect waves-cyan " href="{{route('home')}}"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="">{{ __('Welcome') }}</span><span class="badge badge pill orange float-right mr-10">0</span></a>
-        </li>
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">photo_filter</i>
+            <li class="bold">
+                <a class="waves-effect waves-cyan " href="{{route('home')}}"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="">{{ __('Welcome') }}</span><span class="badge badge pill orange float-right mr-10">0</span></a>
+            </li>
+             <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">photo_filter</i>
                 <span class="menu-title" data-i18n="">{{ __('Categories') }}</span></a>
+                
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-                <li><a class="collapsible-body" href="{{route('all_categories')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ __('All Categories') }}</span></a>
+                    <li>
+                        <a class="collapsible-body" href="{{route('all_categories')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ __('All Categories') }}</span></a>
                     </li>
-                    <li><a class="collapsible-body" href="{{route('add_category')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ __('Add new Category') }}</span></a>
+                    <li>
+                        <a class="collapsible-body" href="{{route('add_category')}}" data-i18n="">
+                        <i class="material-icons">radio_button_unchecked</i><span>{{ __('Add new Category') }}</span></a>
                     </li>
-
-                    <!--items-->
-
-
 
                 </ul>
 
@@ -31,21 +32,39 @@
                     <li>
                         <a class="collapsible-body" href="{{route('add_item')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ __('Add  new Item') }}</span></a>
                     </li>
-
-
-
-
                 </ul>
-                <li class="bold"><a class="collapsible-header waves-effect waves-cyan "href="#"><i class="material-icons">photo_filter</i><span class="menu-title" data-i18n="">{{ __('Orders') }}</span></a>
+                <li class="bold"><a class="collapsible-header waves-effect waves-cyan "href="#"><i class="material-icons">photo_filter</i>
+                <span class="menu-title" data-i18n="">{{ __('Orders') }}</span></a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
                 <li>
-                        <a class="collapsible-body" href="{{route('orders')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span> {{ __('All Orders') }}</span></a>
+                        <a class="collapsible-body" href="{{route('orders')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i>
+                        <span> {{ __('All Orders') }}</span></a>
                     </li>
+        
 
 
                 </ul>
+                
+
             </div>
+          
+            <li class="bold"><a class="collapsible-header waves-effect waves-cyan "href="#"><i class="material-icons">photo_filter</i>
+                <span class="menu-title" data-i18n="">{{ __('stock') }}</span></a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                <li>
+                        <a class="collapsible-body" href="{{route('stock')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i>
+                        <span> {{ __('main stock') }}</span></a>
+                    </li>
+        
+
+
+                </ul>
+
+          
+            
+            
             <!---->
 
 

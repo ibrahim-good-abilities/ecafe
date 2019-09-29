@@ -57,17 +57,21 @@
                   <input  name="cost" id="cost" type="number"  step="0.5" min=".5" class="validate" placeholder="{{ __('Add Cost') }}">
                   <label  >{{ __('Cost') }}</label>
             </div>
-
+            <div class="input-cost col s12">
+                  <input  name="quantity" id="cost" type="number"  step="0.1" min=".5" class="validate" placeholder="{{ __('Add Quantity') }}">
+                  <label  >{{ __('Quantity') }}</label>
+            </div>
+       
             <div class="input-Checkbox col s12">
-               <label>{{ __('Has Stock') }}</label>
+               <label>{{ __('Stock') }}</label>
                <p>
                   <label>
-                     <input name="has_stock" type="radio" value="1" checked/>
-                     <span>{{ __('yes') }}</span>
+                     <input name="stock" type="radio" value="main" checked/>
+                     <span>{{ __('main stock') }}</span>
                   </label>
                   <label>
-                     <input name="has_stock" type="radio"  value="0"/>
-                     <span>{{ __('no') }}</span>
+                     <input name="stock" type="radio"  value="available "/>
+                     <span>{{ __('available stock') }}</span>
                   </label>
                </p>
             </div>
@@ -82,6 +86,7 @@
                <label  >{{ __('Alert Number') }}</label>
             </div>
             
+            
             <div class="col s12 file-field input-field">
                <div class="btn float-left">
                   <span>{{ __('Upload Image') }}</span>
@@ -91,12 +96,14 @@
                   <input class="file-path validate" type="text">
                </div>
             </div>
+           
 
             <div class="input-field col s12">
                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">{{ __('Submit') }}
                   <i class="material-icons right">send</i>
                </button>
             </div>
+         
          </div>
       </div>
    </div>

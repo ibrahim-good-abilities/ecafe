@@ -62,11 +62,23 @@ class ItemController extends Controller
         $Item = new Item();
         $Item->name = request('Item_Name');
         $Item->unit =request('Item_unit');
-        $Item->current_stock=request('current_stock');
+       // $Item->current_stock=request('current_stock');
         $Item->alert_number=request('alert');
         $Item->price = request('price');
         $Item->cost=request('cost');
-        $Item->has_stock= request('has_stock');
+        if(request('stock')=='main')
+        {
+            $Item->main_stock=request('quantity');
+            $Item->available_stock=0.0;
+
+        }
+        else
+        {
+            $Item->available_stock=request('quantity');
+            $Item->main_stock=0.0;
+
+        }
+    
         $Item->category_id=request('category');
         $image = $request->file('image');
         $name_img = time() . '.' . $image->getClientOriginalExtension();
@@ -164,6 +176,13 @@ class ItemController extends Controller
         $item->delete();
         return redirect()->back()->with('success', 'item deleted successfully');
 
+
+    }
+    public function stock()
+    {
+       
+        
+       return view('stock.main');
 
     }
 }
