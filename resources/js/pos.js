@@ -122,10 +122,10 @@ $(document).ready(function() {
     });
 
     $("#clear").on('click', function() {
-        t.clear()
-            .draw();
+        t.clear().draw();
         $('#count').html('0');
         $('#total').html('0');
+        
     });
 
 
@@ -185,11 +185,14 @@ $(document).ready(function() {
 
 
     $(document).on("click", '.qty-inc', function(qty) {
+       
+
         var qty = $(this).closest('td').find('.qty').first().html();
         qty++;
         $(this).closest('td').find('.qty').first().html(qty);
-        //
+        
         var price = $('.price').html();
+        console.log("price :"+price);
         increasePrice(parseFloat(price));
         changeCountBy(1);
 

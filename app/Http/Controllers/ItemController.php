@@ -120,14 +120,13 @@ class ItemController extends Controller
     public function update(Request $request, $id)
     {
 
-        $vaidator = $request->validate([
+         $request->validate([
             'Item_Name'     =>'required',
             'Item_unit'     =>'required',
             'category'      =>'required',
             'alert'         =>'required',
             'price'         =>'required',
             'cost'          =>'required',
-            'category'      =>'required',
         ]);
 
 
