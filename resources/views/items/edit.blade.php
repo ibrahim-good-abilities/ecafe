@@ -78,19 +78,22 @@
                </p>
             </div>
             <div class="input-alert col s12">
-               <input name="alert" id="alert-number" type="number" class="validate" placeholder="{{ __('Add Alert Number') }}"
-               value="{{$item->alert_number}}">
+               <input name="alert" id="alert-number" type="number" class="validate" placeholder="{{ __('Add Alert Number') }}"value="{{$item->alert_number}}">
                <label  >{{ __('Alert Number') }}</label>
             </div>
-            
             <div class="col s12 file-field input-field">
-               <div class="btn float-left">
-                  <span>{{ __('Upload Image') }}</span>
-                  <input type="file" name="image">
-               </div>
-               <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text">
-               </div>
+                  <div class="row">
+                        <div class ="col s6 ">
+                                 <img src="{{asset('public'.$item->src)}}">
+                        </div>
+                        <div class="btn float-left col s6">
+                           <span>{{ __('Change Image') }}</span>
+                           <input type="file" name="image">
+                        </div>
+                        <div class="file-path-wrapper">
+                           <input class="file-path validate" type="text">
+                        </div>
+                  <div>      
             </div>
 
             <div class="input-field col s12">

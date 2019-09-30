@@ -28,6 +28,7 @@
                     <th>رقم التنبيه</th>
                     <th>السعر</th>
                     <th>التكلفه</th>
+                    <th>العمليات</th>
                     <th> الاعدادات</th>
 
                 </tr>
@@ -45,12 +46,16 @@
                     <td>{{ $item->alert_number}}</td>
                     <td>${{ $item->price}}</td>
                     <td>${{ $item->cost}}</td>
-                    <td>
-                        <a class="btn-floating mb-1 btn-flat waves-effect waves-light pink accent-2 white-text" href="{{route('item_edit',['name'=>'available','id'=>$item->id])}}">
+                    <td class="center-align">
+                                    <a class=" modal-trigger"  href="#transfer"><i class="material-icons" >autorenew</i></a>
+                                    <a class=" modal-trigger" href="#operations"><i class="material-icons">compare_arrows</i></a>
+                                </td>
+                    <td class="center-align">
+                        <a  href="{{route('item_edit',['name'=>'available','id'=>$item->id])}}">
                             <i class="material-icons">edit</i>
                         </a>
-                        <a class="btn-floating mb-1 waves-effect waves-light " href="{{route('item_delete',$item->id)}}">
-                            <i class="material-icons">delete</i>
+                        <a   href="{{route('item_delete',$item->id)}}">
+                            <i class="material-icons pink-text">cleare</i>
                         </a>
                     </td>
                 </tr>

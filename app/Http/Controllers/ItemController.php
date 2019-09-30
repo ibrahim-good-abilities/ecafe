@@ -128,7 +128,6 @@ class ItemController extends Controller
             'price'         =>'required',
             'cost'          =>'required',
             'category'      =>'required',
-            'image'         =>'required|image|mimes:jpeg,png'
         ]);
 
 
