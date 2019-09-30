@@ -213,3 +213,12 @@ h6.col.s12.m12.l8.mt-3.rtl {
     font-family: cursive;
     color: white;
 }
+.categories-box{
+    height: 65vh;
+        background-color: #9e9e9e21;
+        margin: 0 auto;
+        padding: 1px;
+}
+.category-box {
+    width: 100% !important;
+}
