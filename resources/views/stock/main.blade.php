@@ -38,10 +38,10 @@
                           <td>{{$item->main_stock}}</td>
                           <td class="center-align">
                                     <a class=" modal-trigger"  href="#transfer"><i class="material-icons" >autorenew</i></a>
-                                    <a class=" modal-trigger" href="#Operations"><i class="material-icons">compare_arrows</i></a>
+                                    <a class=" modal-trigger" href="#operations"><i class="material-icons">compare_arrows</i></a>
                                 </td>
                           <td class="center-align">
-                             <a ><i class="material-icons pink-text">cleare</i></a>
+                             <a  href="{{route('item_delete',$item->id)}}"><i class="material-icons pink-text">cleare</i></a>
                              <a href="{{route('item_edit',['name'=>'main','id'=>$item->id])}}" ><i class="material-icons">edit</i></a>
                              </td>
                       </tr>
@@ -64,7 +64,7 @@
     
     </div>
   </div>
-  <div id="Operations" class="modal">
+  <div id="operations" class="modal">
       <div class="modal-content">
             <h4>نوع العمليه</h4>
          <div class="row">
