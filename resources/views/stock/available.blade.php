@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'items')
+@section('title', 'available stock')
 @section('page_css')
 <link rel="stylesheet" type="text/css" href="{{asset('resources/css/items.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/jquery.dataTables.min.css')}}">
@@ -16,15 +16,15 @@
 @endif
 <div class="row">
     <div class="col s12">
-        <h4 class="card-title">قائمه المنتجات</h4>
+        <h4 class="card-title">{{ __('available stock') }} </h4>
         <table id="data-table-simple" class="display">
             <thead>
                 <tr>
                     <th>صوره المنتج</th>
                     <th>اسم المنتج</th>
-                    <th>وحده المنتج</th>
-                
                     <th>فئه المنتج</th>
+                    <th>وحده المنتج</th>
+                    <th>كمية المنتج</th>
                     <th>رقم التنبيه</th>
                     <th>السعر</th>
                     <th>التكلفه</th>
@@ -41,7 +41,7 @@
                     <td>{{ $item->name}}</td>
                     <td>{{ $item->unit}}</td>
                     <td> {{ $item->category_name}}</td>
-                    
+                    <td>{{$item->available_stock}}</td>
                     <td>{{ $item->alert_number}}</td>
                     <td>${{ $item->price}}</td>
                     <td>${{ $item->cost}}</td>

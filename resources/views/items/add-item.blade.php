@@ -59,7 +59,7 @@
             </div>
             <div class="input-cost col s12">
                   <input  name="quantity" id="cost" type="number"  step="0.1" min=".5" class="validate" placeholder="{{ __('Add Quantity') }}">
-                  <label  >{{ __('Quantity') }}</label>
+                  <label  >{{ __('quantity') }}</label>
             </div>
        
             <div class="input-Checkbox col s12">
@@ -74,11 +74,6 @@
                      <span>{{ __('available stock') }}</span>
                   </label>
                </p>
-            </div>
-
-            <div class="input-unit col s12">
-               <input  name="current_stock" id="item-unit" type="number" class="validate" placeholder="{{ __('Add Current Stock') }}">
-               <label  >{{ __('Current Stock') }}</label>
             </div>
 
             <div class="input-alert col s12">

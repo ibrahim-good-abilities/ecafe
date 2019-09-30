@@ -20,9 +20,9 @@ class ItemController extends Controller
         // $items = Item::all();
         //
         $result = DB::table('items')->join('categories','categories.id','=','category_id')
-        ->select('items.*','categories.category_name')->get();
+        ->select('items.*','categories.category_name')->where('available_stock','>','0')->get();
 
-        return view('items.index')->with('items', $result);
+        return view('stock.available')->with('items', $result);
 
     }
 
@@ -33,11 +33,8 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
         $categoy_name = Category::select('category_name','id')->get();
-        //dd($categoy_name);
         return view('items.add-item')->with('categories_name',$categoy_name);
-
     }
 
     /**
@@ -62,7 +59,6 @@ class ItemController extends Controller
         $Item = new Item();
         $Item->name = request('Item_Name');
         $Item->unit =request('Item_unit');
-       // $Item->current_stock=request('current_stock');
         $Item->alert_number=request('alert');
         $Item->price = request('price');
         $Item->cost=request('cost');
@@ -70,15 +66,12 @@ class ItemController extends Controller
         {
             $Item->main_stock=request('quantity');
             $Item->available_stock=0.0;
-
         }
         else
         {
             $Item->available_stock=request('quantity');
             $Item->main_stock=0.0;
-
         }
-    
         $Item->category_id=request('category');
         $image = $request->file('image');
         $name_img = time() . '.' . $image->getClientOriginalExtension();
@@ -110,12 +103,9 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-           //
-           $categoy_name = Category::select('category_name','id')->get();
-
-        //
+        
+        $categoy_name = Category::select('category_name','id')->get();
         $item = Item::find($id);
-
         return view('items.edit')->with('item',$item)->with('categories_name',$categoy_name);
 
     }
@@ -146,15 +136,23 @@ class ItemController extends Controller
 
         $Item->name = request('Item_Name');
         $Item->unit =request('Item_unit');
-        $Item->current_stock=request('current_stock');
         $Item->alert_number=request('alert');
         $Item->price = request('price');
         $Item->cost=request('cost');
-        $Item->has_stock= request('has_stock');
         $Item->category_id=request('category');
+        if(request('stock')=='main')
+        {
+            $Item->main_stock=request('quantity');
+            $Item->available_stock=0.0;
+        }
+        else
+        {
+            $Item->available_stock=request('quantity');
+            $Item->main_stock=0.0;
+        }
         $image = $request->file('image');
         $name_img = time() . '.' . $image->getClientOriginalExtension();
-        $destinationPath = public_path('git /images/items/');
+        $destinationPath = public_path('/images/items/');
         $image->move($destinationPath, $name_img);
         $Item->src = '/images/items/'.$name_img;
         $Item->update(['image' => $name_img]);

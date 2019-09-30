@@ -27,7 +27,8 @@
          <h4 class="card-title">{{ __('Edit Item') }}</h4>
          <div class="row">
             <div class="input-name col s12">
-               <input  name="Item_Name" id="item_name" type="text" class="validate" placeholder="{{ __('Add Item Name') }}">
+               <input  name="Item_Name" id="item_name" type="text" class="validate" placeholder="{{ __('Add Item Name') }}"
+               value="{{$item->name}}">
                <label for="first_name">{{ __('Item Name') }}</label>
             </div>
 
@@ -42,43 +43,46 @@
             </div>
 
             <div class="input-unit col s12">
-               <input  name="Item_unit" id="item-unit" type="text" class="validate" placeholder="{{ __('Add Item Unit') }}">
+               <input  name="Item_unit" id="item-unit" type="text" class="validate" placeholder="{{ __('Add Item Unit') }}" 
+               value="{{$item->unit}}">
                <label  >{{ __('Item Unit') }}</label>
             </div>
 
 
 
             <div class="input-price col s12">
-               <input   name="price" id="price" type="number" class="validate" placeholder="{{ __('Add Price') }}">
+               <input   name="price" id="price" type="number" class="validate" placeholder="{{ __('Add Price') }}"
+               value="{{$item->price}}">
                <label  >{{ __('Price') }}</label>
             </div>
 
             <div class="input-cost col s12">
-                  <input  name="cost" id="cost" type="number" class="validate" placeholder="{{ __('Add Cost') }}">
+                  <input  name="cost" id="cost" type="number" class="validate" placeholder="{{ __('Add Cost') }}"
+                  value="{{$item->cost}}">
                   <label  >{{ __('Cost') }}</label>
             </div>
 
+            <div class="input-cost col s12">
+                  <input  name="quantity" id="cost" type="number"  step="0.1" min=".5" class="validate" placeholder="{{ __('Add Quantity') }}">
+                  <label  >{{ __('quantity') }}</label>
+            </div>
+
             <div class="input-Checkbox col s12">
-               <label>{{ __('Has Stock') }}</label>
+               <label>{{ __('Stock') }}</label>
                <p>
                   <label>
-                     <input name="has_stock" type="radio" value="1" checked/>
-                     <span>{{ __('yes') }}</span>
+                     <input name="stock" type="radio" value="main" checked/>
+                     <span>{{ __('main stock') }}</span>
                   </label>
                   <label>
-                     <input name="has_stock" type="radio"  value="0"/>
-                     <span>{{ __('no') }}</span>
+                     <input name="stock" type="radio"  value="available "/>
+                     <span>{{ __('available stock') }}</span>
                   </label>
                </p>
             </div>
-
-            <div class="input-unit col s12">
-               <input  name="current_stock" id="item-unit" type="number" class="validate" placeholder="{{ __('Add Current Stock') }}">
-               <label  >{{ __('Current Stock') }}</label>
-            </div>
-
             <div class="input-alert col s12">
-               <input name="alert" id="alert-number" type="number" class="validate" placeholder="{{ __('Add Alert Number') }}">
+               <input name="alert" id="alert-number" type="number" class="validate" placeholder="{{ __('Add Alert Number') }}"
+               value="{{$item->alert_number}}">
                <label  >{{ __('Alert Number') }}</label>
             </div>
             
