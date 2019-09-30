@@ -55,7 +55,7 @@
                             <i class="material-icons">edit</i>
                         </a>
                         <a   href="{{route('item_delete',$item->id)}}">
-                            <i class="material-icons pink-text">cleare</i>
+                            <i class="material-icons pink-text">clear</i>
                         </a>
                     </td>
                 </tr>

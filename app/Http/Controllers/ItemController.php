@@ -127,7 +127,6 @@ class ItemController extends Controller
             'alert'         =>'required',
             'price'         =>'required',
             'cost'          =>'required',
-            'category'      =>'required',
         ]);
 
 
