@@ -15,7 +15,7 @@
           <div id="button-trigger" class="card card card-default scrollspy">
              <!-- main store -->
             <div class="card-content">
-              <h4 class="card-title">Main Store</h4>
+              <h4 class="card-title">{{ __('Main Store') }}</h4>
                   <table id="main_inventory_table" class="display">
                     <thead>
                       <tr>
@@ -35,8 +35,8 @@
                           </td>
                           <td>20</td>
                           <td class="center-align">
-                             <a class=" modal-trigger" href="#modal2"><i class="material-icons pink-text">clear</i></a>
-                             <a class=" modal-trigger" href="#modal1"><i class="material-icons dp48">visibility</i></a>
+                             <a class=" modal-trigger" href="#transfer"><i class="material-icons pink-text">clear</i></a>
+                             <a class=" modal-trigger" href="#Operations"><i class="material-icons dp48">visibility</i></a>
                              </td>
                       </tr>
                     
@@ -45,24 +45,45 @@
             </div>
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal">
-<div class="modal-content">
-  <h4>Modal Header</h4>
-  <p>A bunch of text</p>
-</div>
-<div class="modal-footer">
-  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-</div>
-</div>
-<div id="modal2" class="modal">
-<div class="modal-content">
-  <h4>Modal 22222</h4>
-  <p>A bunch of text</p>
-</div>
-<div class="modal-footer">
-  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-</div>
-</div>
+<div id="transfer" class="modal">
+    <div class="modal-content">
+      <h4>نقل مخزون</h4>
+      
+      <label for="contactNum" class="">أدخل الكميه: <span class="red-text">*</span></label>
+      <input type="number" class="validate invalid" name="contactNum" id="contactNum" required="">
+    </div>
+    <div class="modal-footer">
+         <a href="#!" class="modal-close waves-effect waves-green btn-flat"><h5>الغاء</h5></a>
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat"><h5>نقل</h5></a>
+    
+    </div>
+  </div>
+  <div id="Operations" class="modal">
+      <div class="modal-content">
+            <h4>نوع العمليه</h4>
+         <div class="row">
+              <div class="input-field col m6 s6">
+                    <label for="contactNum" class="">أدخل الكميه: <span class="red-text">*</span></label>
+                    <input type="number" class="validate invalid" name="contactNum" id="contactNum" required="">
+              </div>
+
+           <div class="input-field col m6 s6">
+               <select>
+                     <option value="" disabled selected>نوع العمليه</option>
+                     <option value="1">اضافه</option>
+                     <option value="2">اهلاك</option>
+                    
+                   </select>
+           </div>
+         </div>
+     
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat"><h5>الغاء</h5></a>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat"><h5>تنفيذ</h5></a>
+              </div>
+      </div>
+  </div>
+  
 
                   <!-- main store -->
           </div>

@@ -2,4 +2,6 @@
     width: 38px;
    
 }
-
+div#main_inventory_table_length {
+    display: none;
+}

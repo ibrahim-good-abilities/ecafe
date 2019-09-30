@@ -44,6 +44,9 @@
     "Guest": "زائر",
     "Quantity": "الكمية",
     "Order Details": "تفاصيل الطلب",
-    "Edit Order": "تعديل الطلب"
+    "Edit Order": "تعديل الطلب",
+    "Main Store": "المخزن الرئيسي",
+    "main stock": "المخزن الرئيسي",
+    "stock": "المخزن"
 
 }
