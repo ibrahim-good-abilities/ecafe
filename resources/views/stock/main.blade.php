@@ -22,24 +22,30 @@
                           <th>الرقم التسلسلي</th>
                           <th>اسم المنتج</th>
                           <th>الكميه</th>
+                          <th>العمليات</th>
                           <th>الاعدادات</th>
                       </tr>
                     </thead>
                     <tbody>
-                      
+                    @foreach ($items as $item)
+  
                       <tr>
-                          <td>20</td>
+                          <td>{{$item->id}}</td>
                           <td>
-                            <span class="avatar-item "><img src="../../../app-assets/images/avatar/avatar-1.png" alt="avatar"></span>
-                          قهوه
+                            <span class="avatar-item "><img src="{{asset('public'.$item->src)}}" alt="avatar"></span>
+                           
                           </td>
-                          <td>20</td>
+                          <td>{{$item->main_stock}}</td>
                           <td class="center-align">
-                             <a class=" modal-trigger" href="#transfer"><i class="material-icons pink-text">clear</i></a>
-                             <a class=" modal-trigger" href="#Operations"><i class="material-icons dp48">visibility</i></a>
+                                    <a class=" modal-trigger"  href="#transfer"><i class="material-icons" >autorenew</i></a>
+                                    <a class=" modal-trigger" href="#Operations"><i class="material-icons">compare_arrows</i></a>
+                                </td>
+                          <td class="center-align">
+                             <a ><i class="material-icons pink-text">cleare</i></a>
+                             <a ><i class="material-icons">edit</i></a>
                              </td>
                       </tr>
-                    
+                      @endforeach
                     </tbody>
                   </table>
             </div>

@@ -179,8 +179,10 @@ class ItemController extends Controller
     public function stock()
     {
        
-        
-       return view('stock.main');
+        $result = DB::table('items')->join('categories','categories.id','=','category_id')
+        ->select('items.*','categories.category_name')->where('main_stock','>','0')->get();
+
+       return view('stock.main')->with('items',$result);
 
     }
 }

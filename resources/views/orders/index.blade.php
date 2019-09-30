@@ -39,7 +39,7 @@
                                 </td>
                                 <td class="center-align">
                                     <a href="#"><i class="material-icons pink-text">clear</i></a>
-                                    <a href="{{route('edit_order',$order->id)}}"><i class="material-icons dp48">visibility</i></a>
+                                    <a href="{{route('edit_order',$order->id)}}"><i class="material-icons">create</i></a>
                                 </td>
                             </tr>
                         @endforeach
