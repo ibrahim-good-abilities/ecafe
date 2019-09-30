@@ -42,7 +42,7 @@
                                 </td>
                           <td class="center-align">
                              <a ><i class="material-icons pink-text">cleare</i></a>
-                             <a ><i class="material-icons">edit</i></a>
+                             <a href="{{route('item_edit',['name'=>'main','id'=>$item->id])}}" ><i class="material-icons">edit</i></a>
                              </td>
                       </tr>
                       @endforeach

@@ -60,7 +60,7 @@
 
             <div class="input-cost col s12">
                   <input  name="quantity" id="cost" type="number"  step="0.1" min=".5" class="validate" 
-                  placeholder="{{ __('Add Quantity') }}" value="{{$type='available'?$item->available_stock:$item->main_stock}}">
+                  placeholder="{{ __('Add quantity') }}" value="{{$type=='available'?$item->available_stock:$item->main_stock}}">
                   <label  >{{ __('quantity') }}</label>
             </div>
 
