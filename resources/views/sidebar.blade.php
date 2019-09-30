@@ -36,7 +36,7 @@
                 </div>
         </li>   
             
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan "href="#"><i class="material-icons">photo_filter</i>
+        <li class="bold"><a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)"><i class="material-icons">photo_filter</i>
                 <span class="menu-title" data-i18n="">{{ __('stock') }}</span></a>
                 <div class="collapsible-body">
                     <ul class="collapsible collapsible-sub" data-collapsible="accordion">
