@@ -15,7 +15,7 @@
           <div id="button-trigger" class="card card card-default scrollspy">
              <!-- main store -->
             <div class="card-content">
-              <h4 class="card-title">Main Store</h4>
+              <h4 class="card-title">{{ __('Main Store') }}</h4>
                   <table id="main_inventory_table" class="display">
                     <thead>
                       <tr>
