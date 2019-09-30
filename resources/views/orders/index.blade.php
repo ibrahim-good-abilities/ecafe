@@ -21,6 +21,7 @@
                             <th> {{ __('Date Created') }}</th>
                             <th>{{ __('Status') }}</th>
                             <th> {{ __('Total') }}</th>
+                            <th>{{__('transformations')}}</th>
                             <th>{{__('Settings')}}</th>
                         </tr>
                     </thead>
@@ -32,7 +33,12 @@
                                 <td>{{ $order->created_at }}</td>
                                 <td><span class="badge grey lighten-5 grey-text text-accent-2">{{ __($order->status) }}</span></td>
                                 <td>{{ $order->total }}</td>
-                                <td class="center-align"><a href="#"><i class="material-icons pink-text">clear</i></a>
+                                <td class="center-align">
+                                    <a><i class="material-icons">autorenew</i></a>
+                                    <a><i class="material-icons">compare_arrows</i></a>
+                                </td>
+                                <td class="center-align">
+                                    <a href="#"><i class="material-icons pink-text">clear</i></a>
                                     <a href="{{route('edit_order',$order->id)}}"><i class="material-icons dp48">visibility</i></a>
                                 </td>
                             </tr>
