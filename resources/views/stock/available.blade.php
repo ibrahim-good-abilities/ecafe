@@ -46,7 +46,7 @@
                     <td>${{ $item->price}}</td>
                     <td>${{ $item->cost}}</td>
                     <td>
-                        <a class="btn-floating mb-1 btn-flat waves-effect waves-light pink accent-2 white-text" href="{{route('item_edit',$item->id)}}">
+                        <a class="btn-floating mb-1 btn-flat waves-effect waves-light pink accent-2 white-text" href="{{route('item_edit',['name'=>'available','id'=>$item->id])}}">
                             <i class="material-icons">edit</i>
                         </a>
                         <a class="btn-floating mb-1 waves-effect waves-light " href="{{route('item_delete',$item->id)}}">

@@ -101,12 +101,12 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($name,$id)
     {
-        
+        $type=$name;
         $categoy_name = Category::select('category_name','id')->get();
         $item = Item::find($id);
-        return view('items.edit')->with('item',$item)->with('categories_name',$categoy_name);
+        return view('items.edit')->with('item',$item)->with('categories_name',$categoy_name)->with('type',$type);
 
     }
 

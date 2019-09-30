@@ -27,8 +27,7 @@
          <h4 class="card-title">{{ __('Edit Item') }}</h4>
          <div class="row">
             <div class="input-name col s12">
-               <input  name="Item_Name" id="item_name" type="text" class="validate" placeholder="{{ __('Add Item Name') }}"
-               value="{{$item->name}}">
+               <input  name="Item_Name" id="item_name" type="text" class="validate" placeholder="{{ __('Add Item Name') }}"value="{{$item->name}}">
                <label for="first_name">{{ __('Item Name') }}</label>
             </div>
 
@@ -41,29 +40,27 @@
                </select>
                <label>{{ __('Item Category') }}</label>
             </div>
-
             <div class="input-unit col s12">
-               <input  name="Item_unit" id="item-unit" type="text" class="validate" placeholder="{{ __('Add Item Unit') }}" 
-               value="{{$item->unit}}">
+               <input  name="Item_unit" id="item-unit" type="text" class="validate" placeholder="{{ __('Add Item Unit') }}"  value="{{$item->unit}}">
                <label  >{{ __('Item Unit') }}</label>
             </div>
+            
 
 
 
             <div class="input-price col s12">
-               <input   name="price" id="price" type="number" class="validate" placeholder="{{ __('Add Price') }}"
-               value="{{$item->price}}">
+               <input   name="price" id="price" type="number" class="validate" placeholder="{{ __('Add Price') }}"value="{{$item->price}}">
                <label  >{{ __('Price') }}</label>
             </div>
 
             <div class="input-cost col s12">
-                  <input  name="cost" id="cost" type="number" class="validate" placeholder="{{ __('Add Cost') }}"
-                  value="{{$item->cost}}">
+                  <input  name="cost" id="cost" type="number" class="validate" placeholder="{{ __('Add Cost') }}"value="{{$item->cost}}">
                   <label  >{{ __('Cost') }}</label>
             </div>
 
             <div class="input-cost col s12">
-                  <input  name="quantity" id="cost" type="number"  step="0.1" min=".5" class="validate" placeholder="{{ __('Add Quantity') }}">
+                  <input  name="quantity" id="cost" type="number"  step="0.1" min=".5" class="validate" 
+                  placeholder="{{ __('Add Quantity') }}" value="{{$type='available'?$item->available_stock:$item->main_stock}}">
                   <label  >{{ __('quantity') }}</label>
             </div>
 

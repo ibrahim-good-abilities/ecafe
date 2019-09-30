@@ -27,7 +27,7 @@ Route::post('/categories/store', 'CategoryController@store')->name('store');
 
 Route::post('/items/add','ItemController@store');
 Route::get('/items/index', 'ItemController@index')->name('items_index');
-Route::get('/items/edit/{id}', 'ItemController@edit')->name('item_edit');
+Route::get('/items/edit/{name}/{id}', 'ItemController@edit')->name('item_edit');
 Route::post('/items/edit/{id}', 'ItemController@update')->name('item_update');
 Route::get('/items/delete/{id}','ItemController@destroy')->name('item_delete');
 //orders
