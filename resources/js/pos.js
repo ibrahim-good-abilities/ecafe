@@ -122,10 +122,10 @@ $(document).ready(function() {
     });
 
     $("#clear").on('click', function() {
-        t.clear()
-            .draw();
+        t.clear().draw();
         $('#count').html('0');
         $('#total').html('0');
+
     });
 
 
@@ -141,7 +141,7 @@ $(document).ready(function() {
         var data = {
             'items': items,
             'customer_id': '1',
-            '_token':$('#_order_token').val()
+            '_token': $('#_order_token').val()
         };
         $.post(base_url + '/orders/add-new', data, function(response) {
             if (response) {
@@ -185,15 +185,18 @@ $(document).ready(function() {
 
 
     $(document).on("click", '.qty-inc', function(qty) {
+
+
         var qty = $(this).closest('td').find('.qty').first().html();
         qty++;
         $(this).closest('td').find('.qty').first().html(qty);
         //
-        var price = $('.price').html();
+        var price = $(this).closest('tr').find('.price').first().html();
         increasePrice(parseFloat(price));
         changeCountBy(1);
 
     });
+
     $(document).on("click", '.qty-dec', function(qty) {
         var qty = $(this).closest('td').find('.qty').first().html();
         //
@@ -202,7 +205,7 @@ $(document).ready(function() {
         }
         qty--;
         $(this).closest('td').find('.qty').first().html(qty);
-        var price = $('.price').html();
+        var price = $(this).closest('tr').find('.price').first().html();
         increasePrice(parseFloat(-price));
         changeCountBy(-1);
 
