@@ -14,4 +14,8 @@ class Order extends Model
     public function items(){
         return $this->belongsToMany('App\Item','order_line');
     }
+    public function coupon()
+    {
+        return $this->belongsTo('App\Coupon');
+    }
 }
