@@ -172,6 +172,17 @@ th {
         z-index: -1;
         
 }
+.category-content::after{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 2px;
+    width: 102%;
+    height: 100%;
+    background-color: #ff9800a3;
+    opacity: 0.7;
+    z-index: -1;
+}
 .card.animate {
 right: auto;
     left: auto;
@@ -213,11 +224,14 @@ h6.col.s12.m12.l8.mt-3.rtl {
     font-family: cursive;
     color: white;
 }
-.categories-box{
+
+.categories-box {
     height: 65vh;
-        background-color: #9e9e9e21;
-        margin: 0 auto;
-        padding: 1px;
+    background-color: #9e9e9e21;
+    margin: 0 auto;
+    padding: 1px;
+    overscroll-behavior-y: auto;
+    overflow-y: auto;
 }
 .category-box {
     width: 100% !important;
