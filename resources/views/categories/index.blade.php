@@ -1,7 +1,7 @@
 @extends('layout')
 @section('title', 'قائمة الاصناف')
 @section('page_css')
-<link rel="stylesheet" type="text/css" href="{{asset('resources/css/items.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('resources/css/category.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/jquery.dataTables.min.css')}}">
 @endsection
 @section('middle_content')
@@ -16,7 +16,7 @@
     </button>
 </div>
 @endif
-        <table id="data-table-simple" class="display">
+        <table id="category-table" class="subscription-table responsive-table highlight">
             <thead>
                 <tr>
                     <th>صوره المنتج</th>
@@ -38,7 +38,7 @@
             </tbody>
         </table>
 @section('page_js')
-<script src="{{asset('resources/js/scripts/data-tables.js')}}" type="text/javascript"></script>
+<script src="{{asset('resources/js/category.js')}}" type="text/javascript"></script>
 <script src="{{asset('resources/vendors/data-tables/js/jquery.dataTables.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('resources/vendors/data-tables/extensions/responsive/js/dataTables.responsive.min.js')}}" type="text/javascript"></script>
 @endsection

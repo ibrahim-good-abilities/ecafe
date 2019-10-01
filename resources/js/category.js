@@ -9,15 +9,13 @@ $(function () {
 
 
   $('#category-table').DataTable({
-    "responsive": true,
-   
+    "responsive": false,
+
     "language": {
         "url": language
-    } ,
-    columnDefs: [
-      { orderable: false, targets: -1 }
-   ]
-   });
+    },
+    
+});
 
 
   

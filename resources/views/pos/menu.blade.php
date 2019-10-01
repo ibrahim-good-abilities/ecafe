@@ -1,8 +1,3 @@
-<!-- <div class="categories col-12">
-   @foreach($categories as $category)
-    <button class="waves-effect waves-light  btn box-shadow-none border-round category ml-5px {{ $loop->iteration == 1? 'active':'' }}"  target="{{ $category->id }}">{{ $category->category_name }}</button>
-   @endforeach
-</div> -->
 
 <div class="products-list">
    @foreach($item_groups as $key => $items)

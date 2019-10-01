@@ -27,7 +27,15 @@
     </tr>
     </table>
 </div>
-
+    <div class="row coupon-box">
+    <div class="col s6 ">
+            <input  id="coupon" type="text" class="validate">
+     
+    </div>
+    <div class="col s6">
+            <h6>لديك كوبون خصم؟</h6>
+    </div>
+</div>
 <div id="buttons">
     <button type="button" id="clear" class="btn btn-danger">إلغاء</button>
     <button type="button" id="payment" class="btn btn-success">تنفيذ</button>

@@ -247,3 +247,14 @@ h6.col.s12.m12.l8.mt-3.rtl {
 .category-box.active .category-content::after {
     background-color: #ff4181;
 }
+.row.coupon-box {
+    height: 50px;
+    background-color: #9e9e9e21;
+    width: 100%;
+    margin-left: 0px;
+}
+.row.coupon-box h6{
+    color: black;
+    margin-top: 25px;
+    font-weight: bold
+}
