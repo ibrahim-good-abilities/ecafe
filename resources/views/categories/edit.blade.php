@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Add Item')
+@section('title', __('Edit Category'))
 @section('page_css')
 @endsection
 @section('middle_content')
@@ -24,9 +24,6 @@
       @endif
       <form action="{{ route('category_update',$category->id) }}" method="post" enctype="multipart/form-data" >
          @csrf
-         <div class="card">
-            <div class="card-content">
-               <h4 class="card-title">{{ __('Edit Category') }}</h4>
                <div class="row">
                   <div class="input-name col s12">
                      <input  name="category_name" id="category_name" type="text" class="validate">
@@ -54,6 +51,4 @@
       </form>
       @section('page_js')
       @endsection
-   </div>
-</div>
 @endsection

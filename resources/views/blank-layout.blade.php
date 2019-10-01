@@ -45,34 +45,7 @@
 
     <!-- BEGIN: Page Main-->
     <div id="main">
-        <div class="row">
-            <div class="content-wrapper-before gradient-45deg-indigo-purple"></div>
-            <div class="breadcrumbs-dark pb-0 pt-4" id="breadcrumbs-wrapper">
-                <!-- Search for small screen-->
-                <div class="container">
-                    <div class="row">
-                        <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title mt-0 mb-0">@yield('title')</h5>
-                            <ol class="breadcrumbs mb-0">
-                                @yield('breadcrumbs')
-                            </ol>
-                        </div>
-                        @yield('settings')
-                    </div>
-                </div>
-            </div>
-            <div class="col s12">
-                <div class="container">
-                    <div class="section">
-                        <div class="card">
-                            <div class="card-content">
-                                @yield("middle_content")
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @yield("middle_content")
     </div>
     <!-- END: Page Main-->
 
