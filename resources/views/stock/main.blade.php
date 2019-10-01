@@ -35,7 +35,7 @@
                                 </td>
                           <td class="center-align">
                                     <a href="{{route('item_edit',['name'=>'main','id'=>$item->id])}}" ><i class="material-icons">edit</i></a>
-                                    <a  href="{{route('item_delete',$item->id)}}"><i class="material-icons pink-text">cleare</i></a>
+                                    <a class="delete-with-confirmation"  href="{{route('item_delete',$item->id)}}"><i class="material-icons pink-text">clear</i></a>
                           </td>
                       </tr>
                       @endforeach
@@ -52,7 +52,7 @@
       <input type="number" class="validate invalid" name="contactNum" id="contactNum" required="">
     </div>
     <div class="modal-footer">
-         <a href="#!" class="modal-close waves-effect waves-green btn-flat"><h5>الغاء</h5></a>
+         <a href="#!" class="modal-close waves-effect waves-green btn-flat "><h5>الغاء</h5></a>
       <a href="#!" class="modal-close waves-effect waves-green btn-flat"><h5>نقل</h5></a>
     
     </div>
