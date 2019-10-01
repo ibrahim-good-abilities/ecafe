@@ -4,13 +4,13 @@
 @endsection
 @section('middle_content')
 @if ($message = Session::get('success'))
-<div class="card-alert card green lighten-5">
-        <div class="card-content green-text">
-	<button type="button" class="close" data-dismiss="alert">×</button>
-        <strong  >{{ $message }}</strong>
+        <div class="card-alert card green lighten-5">
+                <div class="card-content green-text">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong  >{{ $message }}</strong>
+                </div>
         </div>
-</div>
-@endif
+        @endif
 @if($errors->any())
       <div class="card-alert card red lighten-5 card-content red-text">
         <ul>
@@ -42,7 +42,7 @@
             <div class="coupon-type col s12 ">
                <select class="icons" name="type">
                         <option value="" disabled selected>{{ __('Choose your type') }}</option>
-                        <option  value="fixed" name="type" class="circle"> fixed </option>
+                        <option  value="fixed" name="type" class="circle"> Fixed </option>
                         <option  value="Percentage" name="type" class="circle"> Percentage </option>
                </select>
                <label>{{ __('coupon Type') }}</label>
@@ -51,16 +51,16 @@
             <div class="coupon-status col s12 ">
                <select class="icons" name="status">
                         <option value="" disabled selected>{{ __('Choose your status') }}</option>
-                        <option  value="active"   name="status" class="circle"> active   </option>
-                        <option  value="used"     name="status" class="circle"> used     </option>
-                        <option  value="expired"  name="status" class="circle"> expired  </option>
-                        <option  value="disabled" name="status" class="circle"> disabled </option>
+                        <option  value="active"   name="status" class="circle"> Active   </option>
+                        <option  value="used"     name="status" class="circle"> Used     </option>
+                        <option  value="expired"  name="status" class="circle"> Expired  </option>
+                        <option  value="disabled" name="status" class="circle"> Disabled </option>
                </select>
                <label>{{ __('coupon status') }}</label>
             </div>
 
             <div class="input-unit col s12">
-               <input  name="coupon_date" id="coupon-unit" type="date" class="validate" placeholder="{{ __(' coupon date') }}">
+               <input  class="validate datepicker" name="coupon_date" id="coupon-unit" type="text" placeholder="{{ __(' coupon date') }}">
                <label  >{{ __('coupon date') }}</label>
             </div>
 
@@ -71,5 +71,7 @@
             </div>
 </form>
 @section('page_js')
+<script src="{{asset('resources/js/coupons-add.js')}}" type="text/javascript"></script>
+
 @endsection
 @endsection

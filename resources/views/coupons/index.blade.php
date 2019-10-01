@@ -7,15 +7,15 @@
 @endsection
 @section('middle_content')
 @if ($message = Session::get('success'))
-<div class="card-alert card green lighten-5">
-        <div class="card-content green-text">
-	<button type="button" class="close" data-dismiss="alert">×</button>
-        <strong  >{{ $message }}</strong>
+        <div class="card-alert card green lighten-5">
+                <div class="card-content green-text">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong  >{{ $message }}</strong>
+                </div>
         </div>
-</div>
 @endif
 
-        <table id="data-table-simple" class="display">
+        <table id="coupons" class="display">
             <thead>
                 <tr>
                     <th>اسم الكوبون</th>
@@ -40,7 +40,7 @@
                             <i class="material-icons">edit</i>
                         </a>
                         <a   href="{{route('coupon_delete',$coupon->id)}}">
-                            <i class="material-icons pink-text">clear</i>
+                            <i class="material-icons pink-text delete-with-confirmation">clear</i>
                         </a>
                          <a>
                          <i class="material-icons">not_interested</i>
@@ -53,7 +53,7 @@
   
 
 @section('page_js')
-<script src="{{asset('resources/js/scripts/data-tables.js')}}" type="text/javascript"></script>
+<script src="{{asset('resources/js/coupons.js')}}" type="text/javascript"></script>
 <script src="{{asset('resources/vendors/data-tables/js/jquery.dataTables.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('resources/vendors/data-tables/extensions/responsive/js/dataTables.responsive.min.js')}}" type="text/javascript"></script>
 @endsection
