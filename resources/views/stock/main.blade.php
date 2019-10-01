@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Main store')
+@section('title', __('Main Store'))
 @section('page_css')
 <link rel="stylesheet" type="text/css" href="{{asset('resources/css/main_store.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/css/jquery.dataTables.min.css')}}">
@@ -9,13 +9,6 @@
 
 @endsection
 @section('middle_content')
-
-     <div class="row">
-        <div class="col s12">
-          <div id="button-trigger" class="card card card-default scrollspy">
-             <!-- main store -->
-            <div class="card-content">
-              <h4 class="card-title">{{ __('Main Store') }}</h4>
                   <table id="main_inventory_table" class="display">
                     <thead>
                       <tr>
@@ -92,10 +85,7 @@
   
 
                   <!-- main store -->
-          </div>
-        </div>
-      </div>
-</div>
+
  @section('page_js')
  <script>
     var language = "{{asset('resources/json/Arabic.json')}}";

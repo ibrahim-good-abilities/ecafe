@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'available stock')
+@section('title', __('Available Stock'))
 @section('page_css')
 <link rel="stylesheet" type="text/css" href="{{asset('resources/css/items.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/jquery.dataTables.min.css')}}">
@@ -14,9 +14,7 @@
         </div>
 </div>
 @endif
-<div class="row">
-    <div class="col s12">
-        <h4 class="card-title">{{ __('available stock') }} </h4>
+
         <table id="data-table-simple" class="display">
             <thead>
                 <tr>
@@ -62,8 +60,7 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
-</div>
+  
 
 @section('page_js')
 <script src="{{asset('resources/js/scripts/data-tables.js')}}" type="text/javascript"></script>

@@ -1,9 +1,8 @@
 @extends('layout')
-@section('title', 'items')
+@section('title', 'قائمة الاصناف')
 @section('page_css')
 <link rel="stylesheet" type="text/css" href="{{asset('resources/css/items.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/jquery.dataTables.min.css')}}">
-
 @endsection
 @section('middle_content')
 @if ($message = Session::get('success'))
@@ -14,9 +13,6 @@
     </div>
 </div>
 @endif
-<div class="row">
-    <div class="col s12">
-    <h4 class="card-title">قائمة الاصناف</h4>
         <table id="data-table-simple" class="display">
             <thead>
                 <tr>
@@ -25,14 +21,11 @@
                     <th> الأعدادات </th>
                 </tr>
             </thead>
-
             <tbody>
                 @foreach ($categories as $category)
                 <tr>
                     <td><img src="{{asset('public'.$category->src)}}" class="circle" style="max-width: 55px"></td>
-
                     <td>{{ $category->category_name}}</td>
-
                     <td>
                         <a class="btn-floating mb-1 btn-flat waves-effect waves-light pink accent-2 white-text" href="{{route('edit_category',$category->id)}}">
                             <i class="material-icons">edit</i>
@@ -45,9 +38,6 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
-</div>
-
 @section('page_js')
 <script src="{{asset('resources/js/scripts/data-tables.js')}}" type="text/javascript"></script>
 <script src="{{asset('resources/vendors/data-tables/js/jquery.dataTables.min.js')}}" type="text/javascript"></script>

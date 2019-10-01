@@ -7,12 +7,7 @@
 @endsection
 
 @section('middle_content')
-<div class="row">
-    <div class="col s12">
-        <div class="card-content">
-            <div id="Form-advance" class="card card card-default scrollspy">
-                <div class="card-content">
-                    <h5 class="card-title">{{ __('Order Details') }}</h5>
+
                     <div class="col s12 dir_rtl">
                         <div class="row">
                             <div class="input-field col m6 s12">
@@ -53,11 +48,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+              
 <!-- orders Details -->
 
 @endsection

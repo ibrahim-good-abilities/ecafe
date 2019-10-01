@@ -23,9 +23,6 @@
 @endif
 <form action="{{ route('item_update',$item->id) }}" method="post" enctype="multipart/form-data" >
    @csrf
-   <div class="card">
-      <div class="card-content">
-         <h4 class="card-title">{{ __('Edit Item') }}</h4>
          <div class="row">
             <div class="input-name col s12">
                <input  name="Item_Name" id="item_name" type="text" class="validate" placeholder="{{ __('Add Item Name') }}"value="{{$item->name}}">
@@ -101,8 +98,7 @@
                </button>
             </div>
          </div>
-      </div>
-   </div>
+    
 </form>
 @section('page_js')
 @endsection

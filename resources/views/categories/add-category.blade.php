@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Add Category')
+@section('title', __('Add Category'))
 @section('page_css')
 @endsection
 @section('middle_content')
@@ -25,9 +25,6 @@
         @endif
         <form action="store" method="post" enctype="multipart/form-data">
         @csrf
-            <div class="card">
-                <div class="card-content">
-                    <h4 class="card-title">{{ __('Add Category') }}</h4>
                     <div class="row">
                         <div class="col s12">
 
@@ -61,9 +58,6 @@
                 </div>
             </div>
         </form>
-    </div>
-</div>
-
 @section('page_js')
 @endsection
 @endsection
