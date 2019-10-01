@@ -52,7 +52,7 @@ class ItemController extends Controller
             'alert'         =>'required',
             'price'         =>'required',
             'cost'          =>'required',
-            'category'      =>'required',
+            'quantity'      =>'required',
             'image'         =>'required|image|mimes:jpeg,png'
         ]);
 

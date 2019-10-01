@@ -7,12 +7,15 @@
 @endsection
 @section('middle_content')
 @if ($message = Session::get('success'))
-        <div class="card-alert card green lighten-5">
-                <div class="card-content green-text">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong  >{{ $message }}</strong>
-                </div>
-        </div>
+<div class="card-alert card gradient-45deg-green-teal">
+    <div class="card-content white-text">
+        <p>
+        <i class="material-icons">check</i> {{ $message }}</p>
+</div>
+    <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
 @endif
 
         <table id="coupons" class="display">
@@ -39,7 +42,7 @@
                         <a  href="{{route('coupon_edit',$coupon->id)}}">
                             <i class="material-icons">edit</i>
                         </a>
-                        <a   href="{{route('coupon_delete',$coupon->id)}}">
+                        <a  class="delete-with-confirmation" href="{{route('coupon_delete',$coupon->id)}}">
                             <i class="material-icons pink-text delete-with-confirmation">clear</i>
                         </a>
                          <a>

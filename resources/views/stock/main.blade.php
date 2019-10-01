@@ -9,6 +9,17 @@
 
 @endsection
 @section('middle_content')
+@if ($message = Session::get('success'))
+<div class="card-alert card gradient-45deg-green-teal">
+    <div class="card-content white-text">
+        <p>
+        <i class="material-icons">check</i> {{ $message }}</p>
+</div>
+    <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+@endif
                   <table id="main_inventory_table" class="display">
                     <thead>
                       <tr>
@@ -24,7 +35,7 @@
   
                       <tr>
                           <td>
-                            <span class="avatar-item "><img src="{{asset('public'.$item->src)}}" alt="avatar"></span>
+                            <img src="{{asset('public'.$item->src)}}" alt="avatar" class="item-image"> 
                            
                           </td>
                           <td>{{$item->name}}</td>

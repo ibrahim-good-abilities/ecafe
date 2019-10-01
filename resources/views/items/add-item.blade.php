@@ -3,12 +3,16 @@
 @section('page_css')
 @endsection
 @section('middle_content')
+
 @if ($message = Session::get('success'))
-<div class="card-alert card green lighten-5">
-        <div class="card-content green-text">
-	<button type="button" class="close" data-dismiss="alert">×</button>
-        <strong  >{{ $message }}</strong>
-        </div>
+<div class="card-alert card gradient-45deg-green-teal">
+    <div class="card-content white-text">
+        <p>
+        <i class="material-icons">check</i> {{ $message }}</p>
+</div>
+    <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
 </div>
 @endif
 @if($errors->any())
