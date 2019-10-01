@@ -237,6 +237,36 @@ class ItemController extends Controller
         }
 
     }
+     public function availableStockOperations(Request $request){
+        $validatedData = $request->validate([
+            'item_id' => 'required',
+            'quantity' => 'required',
+            'operation' => 'required',
+            'operastion' => 'required',
+        ]);
+        
+        $item_id = request('item_id');
+        $quantity = request('quantity');
+        $operation = request('operation');
+        $item =Item::find($item_id);
+        if($operation == 1){
+            $item->main_stock = $item->main_stock + $quantity;
+            $item->save();
+            return redirect()->back()->with('success', 'Quantity added successfully.');
+        }elseif($operation == 2){
+            if($item->main_stock >= $quantity){
+                $item->main_stock = $item->main_stock - $quantity;
+                $item->save();
+                return redirect()->back()->with('success', 'Quantity reduced successfully.');
+            }else{
+                return redirect()->back()->with('error', 'The selected quantity exceeds quantity available in stock.');
+            }
+
+        }else{
+            return redirect()->back()->with('error', 'The selected operation is not valid.');
+        }
+
+    }
 
     
 }
