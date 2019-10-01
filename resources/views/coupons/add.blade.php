@@ -42,8 +42,8 @@
             <div class="coupon-type col s12 ">
                <select class="icons" name="type">
                         <option value="" disabled selected>{{ __('Choose your type') }}</option>
-                        <option  value="fixed" name="type" class="circle"> Fixed </option>
-                        <option  value="percentage" name="type" class="circle"> Percentage </option>
+                        <option  value="fixed" name="type" class="circle"> {{ __('Fixed') }} </option>
+                        <option  value="percentage" name="type" class="circle">{{ __('Percentage') }} </option>
                </select>
                <label>{{ __('coupon Type') }}</label>
             </div>
@@ -51,16 +51,16 @@
             <div class="coupon-status col s12 ">
                <select class="icons" name="status">
                         <option value="" disabled selected>{{ __('Choose your status') }}</option>
-                        <option  value="active"   name="status" class="circle"> Active   </option>
-                        <option  value="used"     name="status" class="circle"> Used     </option>
-                        <option  value="expired"  name="status" class="circle"> Expired  </option>
-                        <option  value="disabled" name="status" class="circle"> Disabled </option>
+                        <option  value="active"   name="status" class="circle"> {{ __('Active') }}   </option>
+                        <option  value="used"     name="status" class="circle"> {{ __('Used') }}     </option>
+                        <option  value="expired"  name="status" class="circle"> {{ __('Expired') }}  </option>
+                        <option  value="disabled" name="status" class="circle"> {{ __('Disabled') }} </option>
                </select>
                <label>{{ __('coupon status') }}</label>
             </div>
 
             <div class="input-unit col s12">
-               <input  class="validate datepicker" name="coupon_date" id="coupon-unit" type="text" placeholder="{{ __(' coupon date') }}">
+               <input  class="validate datepicker" name="coupon_date" id="coupon-unit" type="text" placeholder="{{ __('coupon date') }}">
                <label  >{{ __('coupon date') }}</label>
             </div>
 
