@@ -37,16 +37,16 @@
         </li>   
             
         <li class="bold"><a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)"><i class="material-icons">photo_filter</i>
-                <span class="menu-title" data-i18n="">{{ __('stock') }}</span></a>
+                <span class="menu-title" data-i18n="">{{ __('Stock') }}</span></a>
                 <div class="collapsible-body">
                     <ul class="collapsible collapsible-sub" data-collapsible="accordion">
                             <li>
                                 <a class="collapsible-body" href="{{route('stock')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i>
-                                <span> {{ __('main stock') }}</span></a>
+                                <span> {{ __('Main Stock') }}</span></a>
                             </li>
                             <li>
                                 <a class="collapsible-body" href="{{route('items_index')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i>
-                                <span> {{ __('available stock') }}</span></a>
+                                <span> {{ __('Available Stock') }}</span></a>
                             </li>
                             <li>
                               <a class="collapsible-body" href="{{route('add_item')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ __('Add  new Item') }}</span></a>
