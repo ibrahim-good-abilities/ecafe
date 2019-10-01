@@ -82,9 +82,16 @@
         <input type="hidden" name="item_id" value=""/>
     </div>
     <div class="modal-footer">
-         <a href="#!" class="modal-close waves-effect waves-green btn-flat "><h5>الغاء</h5></a>
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat"><h5>نقل</h5></a>
-    
+      <div class="button-wrapper">
+        <a class="modal-close btn red waves-effect waves-light right">{{ __('Cancel') }}
+          <i class="material-icons right">cancel</i>
+        </a>
+      </div>
+      <div class="button-wrapper">
+        <button class="btn cyan waves-effect waves-light right" type="submit">{{ __('Transfer') }}
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
     </div>
   </form>
 </div>
@@ -128,7 +135,7 @@
 </div>
   
 
-                  <!-- main store -->
+  <!-- main store -->
 
  @section('page_js')
  <script>

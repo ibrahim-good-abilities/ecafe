@@ -52,15 +52,15 @@
     "Transfer": "تحويل",
     "Execute": "تنفيذ",
     "Execute An Operation": "تنفيذ عملية",
-    "Coupon" :"كوبون",
-    "All Coupon" :"الكوبونات",
-    "Add  new Coupon" :"اضافه كوبون جديد",
-    "Add Coupon" :"اضافه كوبون",
-    "coupon Name" :"اسم الكوبون",
-    "coupon code" :"كود الكوبون",
-    "Add coupon Name" :"ادخل اسم الكوبون",
-    "Add coupon Code" :"ادخل كود الكوبون",
-    "Add Value" :"ادخل القيمه",
+    "Coupon": "كوبون",
+    "All Coupons": "الكوبونات",
+    "Add  new Coupon": "اضافه كوبون جديد",
+    "Add Coupon": "اضافه كوبون",
+    "coupon Name": "اسم الكوبون",
+    "coupon code": "كود الكوبون",
+    "Add coupon Name": "ادخل اسم الكوبون",
+    "Add coupon Code": "ادخل كود الكوبون",
+    "Add Value": "ادخل القيمه",
     "Value": "القيمه",
     "Choose your type": "اختار النوع",
     "coupon Type": "نوع الكوبون",
@@ -74,7 +74,4 @@
     "Used": "مستخدم",
     "Expired": "منتهي الصلاحيه",
     "Disabled": "غير فعال"
-
-    
-
 }

@@ -8,7 +8,7 @@
             <li class="bold">
                 <a class="waves-effect waves-cyan " href="{{route('home')}}"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="">{{ __('Welcome') }}</span><span class="badge badge pill orange float-right mr-10">0</span></a>
             </li>
-             <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">photo_filter</i>
+             <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">label</i>
                 <span class="menu-title" data-i18n="">{{ __('Categories') }}</span></a>
                 
                 <div class="collapsible-body">
@@ -24,7 +24,7 @@
                 </div>
             </li>
        
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan "href="#"><i class="material-icons">photo_filter</i>
+        <li class="bold"><a class="collapsible-header waves-effect waves-cyan "href="#"><i class="material-icons">shopping_cart</i>
                 <span class="menu-title" data-i18n="">{{ __('Orders') }}</span></a>
                 <div class="collapsible-body">
                     <ul class="collapsible collapsible-sub" data-collapsible="accordion">
@@ -36,7 +36,7 @@
                 </div>
         </li>   
             
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)"><i class="material-icons">photo_filter</i>
+        <li class="bold"><a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)"><i class="material-icons">local_shipping</i>
                 <span class="menu-title" data-i18n="">{{ __('Stock') }}</span></a>
                 <div class="collapsible-body">
                     <ul class="collapsible collapsible-sub" data-collapsible="accordion">
@@ -54,13 +54,13 @@
                     </ul>
                 </div>
         </li>
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)"><i class="material-icons">photo_filter</i>
-                <span class="menu-title" data-i18n="">{{ __('Coupon') }}</span></a>
+        <li class="bold"><a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)"><i class="material-icons">card_giftcard</i>
+                <span class="menu-title" data-i18n="">{{ __('All Coupons') }}</span></a>
                 <div class="collapsible-body">
                     <ul class="collapsible collapsible-sub" data-collapsible="accordion">
                             <li>
                                 <a class="collapsible-body" href="{{route('coupons')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i>
-                                <span> {{ __('All Coupon') }}</span></a>
+                                <span> {{ __('All Coupons') }}</span></a>
                             </li>
                             <li>
                               <a class="collapsible-body" href="{{route('add_coupon')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ __('Add  new Coupon') }}</span></a>

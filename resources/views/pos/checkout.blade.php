@@ -27,13 +27,10 @@
     </tr>
     </table>
 </div>
-    <div class="row coupon-box">
-    <div class="col s6 ">
-            <input  id="coupon" type="text" class="validate">
-     
-    </div>
-    <div class="col s6">
-            <h6>لديك كوبون خصم؟</h6>
+<div class="row">
+    <div class="input-field col s12">
+        <input id="coupon" type="text">
+        <label for="coupon" class="">لديك كوبون خصم؟</label>
     </div>
 </div>
 <div id="buttons">

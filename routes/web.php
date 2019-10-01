@@ -40,8 +40,8 @@ Route::get('/stock/index','ItemController@stock')->name('stock');
 Route::post('/stock/main/transfer','ItemController@transferMainStock')->name('transfer_main_stock');
 Route::post('/stock/main/operations','ItemController@mainStockOperations')->name('main_stock_operations');
 
-Route::post('/stock/available/transfer','ItemController@transferAvailableStock')->name('transfer_availbale_stock');
-Route::post('/stock/available/operations','ItemController@mainStockOperations')->name('available_stock_operations');
+Route::post('/stock/available/transfer','ItemController@transferAvailableStock')->name('transfer_available_stock');
+Route::post('/stock/available/operations','ItemController@availableStockOperations')->name('available_stock_operations');
 
 //coupons
 Route::get('/coupons/index','CouponController@index')->name('coupons');

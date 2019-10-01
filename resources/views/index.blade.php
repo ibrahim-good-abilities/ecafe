@@ -12,15 +12,15 @@
 <!-- Point of sale make order screen -->
 
 <div class="row" id="pos-container">
-    <div class="col s4 l4">
+    <div class="col s5">
         <!-- checkout page -->
         @include('pos.checkout')
     </div>
-    <div class="col s6 17">
+    <div class="col s5">
         <!-- Products menu -->
         @include('pos.menu')
     </div>
-    <div class="col s2 11 ">
+    <div class="col s2">
         <!-- Products menu -->
         @include('pos.category')
     </div>

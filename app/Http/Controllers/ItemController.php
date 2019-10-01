@@ -212,7 +212,6 @@ class ItemController extends Controller
             'item_id' => 'required',
             'quantity' => 'required',
             'operation' => 'required',
-            'operastion' => 'required',
         ]);
         
         $item_id = request('item_id');
@@ -248,8 +247,8 @@ class ItemController extends Controller
         $quantity = request('quantity');
         $item =Item::find($item_id);
         if($item->available_stock >= $quantity){
-            $available_stock_new_quantity = $item->$available_stock - $quantity;
-            $main_stock_new_quantity = $item->$main_stock + $quantity;
+            $available_stock_new_quantity = $item->available_stock - $quantity;
+            $main_stock_new_quantity = $item->main_stock + $quantity;
             $item->available_stock = $available_stock_new_quantity;
             $item->main_stock = $main_stock_new_quantity;
             $item->save();
@@ -265,7 +264,6 @@ class ItemController extends Controller
             'item_id' => 'required',
             'quantity' => 'required',
             'operation' => 'required',
-            'operastion' => 'required',
         ]);
         
         $item_id = request('item_id');
