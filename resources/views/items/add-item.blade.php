@@ -57,7 +57,7 @@
             </div>
             <div class="input-cost col s12">
                   <input  name="quantity" id="cost" type="number"  step="0.1" min=".5" class="validate" placeholder="{{ __('Add Quantity') }}">
-                  <label  >{{ __('quantity') }}</label>
+                  <label  >{{ __('Quantity') }}</label>
             </div>
        
             <div class="input-Checkbox col s12">

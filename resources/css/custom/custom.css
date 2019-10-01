@@ -37,3 +37,7 @@ span.order_label {
 img.item-image {
     width: 50px;
 }
+
+.button-wrapper {
+    display: inline-block;
+}

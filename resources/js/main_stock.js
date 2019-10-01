@@ -21,21 +21,17 @@ $(function() {
 
 
     $(document).on('click', 'a[href="#transfer"]', function(e) {
-
+        var product_id = $(this).closest('tr').data('item_id');
+        $("#transfer input[name='item_id']").val(product_id);
         e.preventDefault();
     });
 
     $(document).on('click', 'a[href="#operations"]', function(e) {
-
+        var product_id = $(this).closest('tr').data('item_id');
+        $("#operations input[name='item_id']").val(product_id);
         e.preventDefault();
     });
 
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     var elems = document.querySelectorAll('.modal');
-    //     var instances = M.Modal.init(elems, options);
-    // });
-
-    // // Or with jQuery
 
     $(document).ready(function() {
         $('.modal').modal();

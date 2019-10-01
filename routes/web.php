@@ -36,6 +36,8 @@ Route::get('/orders/edit/{id}','OrderController@edit')->name('edit_order');
 Route::post('/orders/add-new','OrderController@create');
 //stock
 Route::get('/stock/index','ItemController@stock')->name('stock');
+Route::post('/stock/transfer','ItemController@transferMainStock')->name('transfer_main_stock');
+Route::post('/stock/operations','ItemController@mainStockOperations')->name('main_stock_operations');
 //coupons
 Route::get('/coupons/index','CouponController@index')->name('coupons');
 Route::get('/coupons/edit/{id}','CouponController@edit')->name('coupon_edit');

@@ -9,6 +9,37 @@
 
 @endsection
 @section('middle_content')
+  <!-- Point of sale make order screen -->
+  @if($errors->any())
+      <div class="card-alert card red lighten-5 card-content red-text">
+          <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div><br />
+  @endif
+  @if ($message = Session::get('success'))
+    <div class="card-alert card gradient-45deg-green-teal">
+        <div class="card-content white-text">
+            <p>
+            <i class="material-icons">check</i> {{ $message }}</p>
+        </div>
+        <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+  @elseif ($message = Session::get('error'))
+    <div class="card-alert card gradient-45deg-red-pink">
+      <div class="card-content white-text">
+        <p>
+          <i class="material-icons">error</i> {{ $message }}</p>
+      </div>
+      <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  @endif
   <table id="main_inventory_table" class="display">
     <thead>
       <tr>
@@ -28,12 +59,12 @@
           <td>{{$item->name}}</td>
           <td>{{$item->main_stock}}</td>
           <td class="left-align">
-              <a class="modal-trigger" href="#transfer"><i class="material-icons" >autorenew</i></a>
-              <a class="modal-trigger" href="#operations"><i class="material-icons">compare_arrows</i></a>
+              <a class="modal-trigger" href="#transfer"><i class="material-icons" >compare_arrows</i></a>
+              <a class="modal-trigger" href="#operations"><i class="material-icons">autorenew</i></a>
           </td>
           <td class="left-align">
               <a href="{{route('item_edit',['name'=>'main','id'=>$item->id])}}" ><i class="material-icons">edit</i></a>
-              <a  href="{{route('item_delete',$item->id)}}"><i class="material-icons pink-text">cleare</i></a>
+              <a  href="{{route('item_delete',$item->id)}}" class="delete-with-confirmation"><i class="material-icons pink-text">cleare</i></a>
           </td>
       </tr>
       @endforeach
@@ -42,43 +73,65 @@
 
 <!-- Modal Structure -->
 <div id="transfer" class="modal">
-  <div class="modal-content">
-    {{ Form::open(array('url' => 'foo/bar')) }}
-      <h4>نقل مخزون</h4>
-      <label for="contactNum" class="">أدخل الكميه: <span class="red-text">*</span></label>
-      <input type="number" class="validate invalid" name="contactNum" id="contactNum" required="">
-    {{ Form::close() }}
-  </div>
-  <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat"><h5>الغاء</h5></a>
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat"><h5>نقل</h5></a>
-  </div>
+  <form action="{{ route('transfer_main_stock') }}" method="post">
+    @csrf
+    <div class="modal-content">
+        <h4>نقل مخزون</h4>
+        <label for="quantity" class="">أدخل الكميه</label>
+        <input type="number" class="validate" name="quantity" id="quantity" required="">
+        <input type="hidden" name="item_id" value=""/>
+    </div>
+    <div class="modal-footer">
+      <div class="button-wrapper">
+        <a class="modal-close btn red waves-effect waves-light right">{{ __('Cancel') }}
+          <i class="material-icons right">cancel</i>
+        </a>
+      </div>
+      <div class="button-wrapper">
+        <button class="btn cyan waves-effect waves-light right" type="submit">{{ __('Transfer') }}
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </div>
+  </form>
 </div>
 
 <div id="operations" class="modal">
-  <div class="modal-content">
-    <h4>نوع العمليه</h4>
-    <div class="row">
-        <div class="input-field col m6 s6">
-              <label for="contactNum" class="">أدخل الكميه: <span class="red-text">*</span></label>
-              <input type="number" class="validate invalid" name="contactNum" id="contactNum" required="">
-        </div>
+  <form action="{{ route('main_stock_operations') }}" method="post">
+    @csrf
+    <div class="modal-content">
+      <h4>{{ __('Execute An Operation') }}</h4>
+      <div class="row">
+          <div class="input-field col m6 s6">
+                <label for="quantity" class="">أدخل الكميه</label>
+                <input type="number" name="quantity" id="quantity" required="">
+          </div>
 
-        <div class="input-field col m6 s6">
-          <select>
-                <option value="" disabled selected>نوع العمليه</option>
-                <option value="1">اضافه</option>
-                <option value="2">اهلاك</option>
-              
-          </select>
+          <div class="input-field col m6 s6">
+            <select name="operation">
+                  <option value="" disabled selected>نوع العمليه</option>
+                  <option value="1">اضافه</option>
+                  <option value="2">اهلاك</option>
+                
+            </select>
+            <input type="hidden" name="item_id" value=""/>
+          </div>
         </div>
-      </div>
-     
+        
         <div class="modal-footer">
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat"><h5>الغاء</h5></a>
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat"><h5>تنفيذ</h5></a>
+          <div class="button-wrapper">
+            <a class="modal-close btn red waves-effect waves-light right">{{ __('Cancel') }}
+              <i class="material-icons right">cancel</i>
+            </a>
+          </div>
+          <div class="button-wrapper">
+            <button class="btn cyan waves-effect waves-light right" type="submit">{{ __('Execute') }}
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
         </div>
-  </div>
+    </div>
+  </form>
 </div>
   
 
