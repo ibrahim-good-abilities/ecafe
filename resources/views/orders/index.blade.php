@@ -6,6 +6,17 @@
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/select.dataTables.min.css')}}">
 @endsection
 @section('middle_content')
+@if ($message = Session::get('success'))
+<div class="card-alert card gradient-45deg-green-teal">
+    <div class="card-content white-text">
+        <p>
+        <i class="material-icons">check</i> {{ $message }}</p>
+</div>
+    <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+@endif
 <!-- orders table -->
 <table id="orders" class="subscription-table responsive-table highlight">
     <thead>
@@ -28,7 +39,7 @@
                 <td>{{ $order->total }}</td>
                 
                 <td class="left-align">
-                    <a href="#"><i class="material-icons pink-text">clear</i></a>
+                    <a  class="delete-with-confirmation" href="{{route('delete_order',$order->id)}}"><i class="material-icons pink-text">clear</i></a>
                     <a href="{{route('edit_order',$order->id)}}"><i class="material-icons">create</i></a>
                 </td>
             </tr>

@@ -7,11 +7,14 @@
 @endsection
 @section('middle_content')
 @if ($message = Session::get('success'))
-<div class="card-alert card green lighten-5">
-        <div class="card-content green-text">
-	<button type="button" class="close" data-dismiss="alert">×</button>
-        <strong  >{{ $message }}</strong>
-        </div>
+<div class="card-alert card gradient-45deg-green-teal">
+    <div class="card-content white-text">
+        <p>
+        <i class="material-icons">check</i> {{ $message }}</p>
+</div>
+    <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
 </div>
 @endif
 
@@ -35,7 +38,7 @@
             <tbody>
                 @foreach ($items as $item)
                 <tr>
-                    <td><img src="{{asset('public'.$item->src)}}" class="circle" style="max-width: 55px"></td>
+                    <td><img src="{{asset('public'.$item->src)}}" class="item-image" ></td>
 
                     <td>{{ $item->name}}</td>
                     <td>{{ $item->unit}}</td>

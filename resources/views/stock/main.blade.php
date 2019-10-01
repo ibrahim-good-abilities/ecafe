@@ -9,6 +9,52 @@
 
 @endsection
 @section('middle_content')
+<<<<<<< HEAD
+@if ($message = Session::get('success'))
+<div class="card-alert card gradient-45deg-green-teal">
+    <div class="card-content white-text">
+        <p>
+        <i class="material-icons">check</i> {{ $message }}</p>
+</div>
+    <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+@endif
+                  <table id="main_inventory_table" class="display">
+                    <thead>
+                      <tr>
+                          <th>صورة المنتج</th>
+                          <th>اسم المنتج</th>
+                          <th>الكميه</th>
+                          <th>العمليات</th>
+                          <th>الاعدادات</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($items as $item)
+  
+                      <tr>
+                          <td>
+                            <img src="{{asset('public'.$item->src)}}" alt="avatar" class="item-image"> 
+                           
+                          </td>
+                          <td>{{$item->name}}</td>
+                          <td>{{$item->main_stock}}</td>
+                          <td class="center-align">
+                                    <a class=" modal-trigger"  href="#transfer"><i class="material-icons" >autorenew</i></a>
+                                    <a class=" modal-trigger" href="#operations"><i class="material-icons">compare_arrows</i></a>
+                                </td>
+                          <td class="center-align">
+                                    <a href="{{route('item_edit',['name'=>'main','id'=>$item->id])}}" ><i class="material-icons">edit</i></a>
+                                    <a class="delete-with-confirmation"  href="{{route('item_delete',$item->id)}}"><i class="material-icons pink-text">clear</i></a>
+                          </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+            </div>
+=======
   <!-- Point of sale make order screen -->
   @if($errors->any())
       <div class="card-alert card red lighten-5 card-content red-text">
@@ -70,6 +116,7 @@
       @endforeach
     </tbody>
   </table>
+>>>>>>> 15fdcb54a2fa8ba74431247b9f7965ad0da1d481
 
 <!-- Modal Structure -->
 <div id="transfer" class="modal">

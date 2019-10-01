@@ -79,8 +79,8 @@ class CouponController extends Controller
      */
     public function edit($id)
     {
-        //
-        return "edit view will be ISA";
+        $coupon = Coupon::find($id);
+        return view('coupons.edit')->with('coupon',$coupon);
     }
 
     /**

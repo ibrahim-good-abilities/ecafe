@@ -26,19 +26,23 @@
          @csrf
                <div class="row">
                   <div class="input-name col s12">
-                     <input  name="category_name" id="category_name" type="text" class="validate">
+                     <input  name="category_name" id="category_name" type="text" class="validate" value="{{$category->category_name}}">
                      <label for="first_name">{{ __('Category Name') }}</label>
                   </div>
 
                   <div class="col s12 file-field input-field">
-                        <div class="btn float-left">
-                           <span>{{ __('Category Image') }}</span>
-                           <input type="file" name="img">
+                  <div class="row">
+                        <div class ="col s6 ">
+                                 <img src="{{asset('public'.$category->src)}}" class="" style="max-width: 100px">
                         </div>
-                        <div class="file-path-wrapper">
-                           <input class="file-path validate" type="text">
+                        <div class="btn float-left col s2">
+                           <span>{{ __('Change Image') }}</span>
+                           <input type="file" name="image">
                         </div>
-                  </div>
+                       
+                  <div>      
+            </div>
+
 
                   <div class="input-field col s12">
                      <button class="btn cyan waves-effect waves-light right" type="submit" name="action">{{ __('Submit') }}
