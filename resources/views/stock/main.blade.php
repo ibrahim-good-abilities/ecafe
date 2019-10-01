@@ -82,22 +82,9 @@
         <input type="hidden" name="item_id" value=""/>
     </div>
     <div class="modal-footer">
-<<<<<<< HEAD
-      <div class="button-wrapper">
-        <a class="modal-close btn red waves-effect waves-light right">{{ __('Cancel') }}
-          <i class="material-icons right">cancel</i>
-        </a>
-      </div>
-      <div class="button-wrapper">
-        <button class="btn cyan waves-effect waves-light right" type="submit">{{ __('Transfer') }}
-          <i class="material-icons right">send</i>
-        </button>
-      </div>
-=======
          <a href="#!" class="modal-close waves-effect waves-green btn-flat "><h5>الغاء</h5></a>
       <a href="#!" class="modal-close waves-effect waves-green btn-flat"><h5>نقل</h5></a>
     
->>>>>>> 860ffd755a57819b882201d77ff4144216304622
     </div>
   </form>
 </div>

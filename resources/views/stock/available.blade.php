@@ -47,10 +47,10 @@
                     <td>{{ $item->alert_number}}</td>
                     <td>${{ $item->price}}</td>
                     <td>${{ $item->cost}}</td>
-                    <td class="center-align">
-                                    <a class=" modal-trigger"  href="#transfer"><i class="material-icons" >autorenew</i></a>
-                                    <a class=" modal-trigger" href="#operations"><i class="material-icons">compare_arrows</i></a>
-                                </td>
+                    <td class="left-align">
+              <a class="modal-trigger" href="#transfer"><i class="material-icons" >compare_arrows</i></a>
+              <a class="modal-trigger" href="#operations"><i class="material-icons">autorenew</i></a>
+          </td>
                     <td class="center-align">
                         <a  href="{{route('item_edit',['name'=>'available','id'=>$item->id])}}">
                             <i class="material-icons">edit</i>
@@ -63,6 +63,62 @@
                 @endforeach
             </tbody>
         </table>
+        
+<div id="transfer" class="modal">
+  <form action="{{ route('transfer_availbale_stock') }}" method="post">
+    @csrf
+    <div class="modal-content">
+        <h4>نقل مخزون</h4>
+        <label for="quantity" class="">أدخل الكميه</label>
+        <input type="number" class="validate" name="quantity" id="quantity" required="">
+        <input type="hidden" name="item_id" value=""/>
+    </div>
+    <div class="modal-footer">
+         <a href="#!" class="modal-close waves-effect waves-green btn-flat "><h5>الغاء</h5></a>
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat"><h5>نقل</h5></a>
+    
+    </div>
+  </form>
+</div>
+
+<div id="operations" class="modal">
+  <form action="{{ route('available_stock_operations') }}" method="post">
+    @csrf
+    <div class="modal-content">
+      <h4>{{ __('Execute An Operation') }}</h4>
+      <div class="row">
+          <div class="input-field col m6 s6">
+                <label for="quantity" class="">أدخل الكميه</label>
+                <input type="number" name="quantity" id="quantity" required="">
+          </div>
+
+          <div class="input-field col m6 s6">
+            <select name="operation">
+                  <option value="" disabled selected>نوع العمليه</option>
+                  <option value="1">اضافه</option>
+                  <option value="2">اهلاك</option>
+                
+            </select>
+            <input type="hidden" name="item_id" value=""/>
+          </div>
+        </div>
+        
+        <div class="modal-footer">
+          <div class="button-wrapper">
+            <a class="modal-close btn red waves-effect waves-light right">{{ __('Cancel') }}
+              <i class="material-icons right">cancel</i>
+            </a>
+          </div>
+          <div class="button-wrapper">
+            <button class="btn cyan waves-effect waves-light right" type="submit">{{ __('Execute') }}
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+    </div>
+  </form>
+</div>
+  
   
 
 @section('page_js')

@@ -237,7 +237,30 @@ class ItemController extends Controller
         }
 
     }
-     public function availableStockOperations(Request $request){
+    
+    public function transferAvailableStock(Request $request){
+        $validator=$request->validate([
+            'item_id'     =>'required',
+            'quantity'     =>'required',
+        ]);
+        
+        $item_id = request('item_id');
+        $quantity = request('quantity');
+        $item =Item::find($item_id);
+        if($item->available_stock >= $quantity){
+            $available_stock_new_quantity = $item->$available_stock - $quantity;
+            $main_stock_new_quantity = $item->$main_stock + $quantity;
+            $item->available_stock = $available_stock_new_quantity;
+            $item->main_stock = $main_stock_new_quantity;
+            $item->save();
+            return redirect()->back()->with('success', 'Quantity transfered successfully.');
+        }else{
+            return redirect()->back()->with('error', 'The selected quantity exceeds quantity available in stock.');
+        }
+
+    }
+    
+    public function availableStockOperations(Request $request){
         $validatedData = $request->validate([
             'item_id' => 'required',
             'quantity' => 'required',
@@ -250,12 +273,12 @@ class ItemController extends Controller
         $operation = request('operation');
         $item =Item::find($item_id);
         if($operation == 1){
-            $item->main_stock = $item->main_stock + $quantity;
+            $item->available_stock = $item->available_stock + $quantity;
             $item->save();
             return redirect()->back()->with('success', 'Quantity added successfully.');
         }elseif($operation == 2){
-            if($item->main_stock >= $quantity){
-                $item->main_stock = $item->main_stock - $quantity;
+            if($item->available_stock >= $quantity){
+                $item->available_stock = $item->available_stock - $quantity;
                 $item->save();
                 return redirect()->back()->with('success', 'Quantity reduced successfully.');
             }else{
@@ -268,5 +291,6 @@ class ItemController extends Controller
 
     }
 
+  
     
 }
