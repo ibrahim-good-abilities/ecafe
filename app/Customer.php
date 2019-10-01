@@ -8,6 +8,6 @@ class Customer extends Model
 {
     public function orders()
     {
-        return $this->hasMany('App\Orders');
+        return $this->hasMany('App\Order');
     }
 }

@@ -45,7 +45,7 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        $vaidator=$request->validate([
+        $validator=$request->validate([
             'Item_Name'     =>'required',
             'Item_unit'     =>'required',
             'category'      =>'required',
@@ -183,4 +183,60 @@ class ItemController extends Controller
        return view('stock.main')->with('items',$result);
 
     }
+
+    public function transferMainStock(Request $request){
+        $validator=$request->validate([
+            'item_id'     =>'required',
+            'quantity'     =>'required',
+        ]);
+        
+        $item_id = request('item_id');
+        $quantity = request('quantity');
+        $item =Item::find($item_id);
+        if($item->main_stock >= $quantity){
+            $main_stock_new_quantity = $item->main_stock - $quantity;
+            $available_stock_new_quantity = $item->available_stock + $quantity;
+            $item->main_stock = $main_stock_new_quantity;
+            $item->available_stock = $available_stock_new_quantity;
+            $item->save();
+            return redirect()->back()->with('success', 'Quantity transfered successfully.');
+        }else{
+            return redirect()->back()->with('error', 'The selected quantity exceeds quantity available in stock.');
+        }
+
+    }
+
+
+    public function mainStockOperations(Request $request){
+        $validatedData = $request->validate([
+            'item_id' => 'required',
+            'quantity' => 'required',
+            'operation' => 'required',
+            'operastion' => 'required',
+        ]);
+        
+        $item_id = request('item_id');
+        $quantity = request('quantity');
+        $operation = request('operation');
+        $item =Item::find($item_id);
+        if($operation == 1){
+            $item->main_stock = $item->main_stock + $quantity;
+            $item->save();
+            return redirect()->back()->with('success', 'Quantity added successfully.');
+        }elseif($operation == 2){
+            if($item->main_stock >= $quantity){
+                $item->main_stock = $item->main_stock - $quantity;
+                $item->save();
+                return redirect()->back()->with('success', 'Quantity reduced successfully.');
+            }else{
+                return redirect()->back()->with('error', 'The selected quantity exceeds quantity available in stock.');
+            }
+
+        }else{
+            return redirect()->back()->with('error', 'The selected operation is not valid.');
+        }
+
+    }
+
+    
 }

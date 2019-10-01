@@ -27,7 +27,7 @@
                 <td><span class="badge grey lighten-5 grey-text text-accent-2">{{ __($order->status) }}</span></td>
                 <td>{{ $order->total }}</td>
                 
-                <td class="center-align">
+                <td class="left-align">
                     <a href="#"><i class="material-icons pink-text">clear</i></a>
                     <a href="{{route('edit_order',$order->id)}}"><i class="material-icons">create</i></a>
                 </td>

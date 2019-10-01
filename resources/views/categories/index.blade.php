@@ -6,11 +6,14 @@
 @endsection
 @section('middle_content')
 @if ($message = Session::get('success'))
-<div class="card-alert card green lighten-5">
-    <div class="card-content green-text">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
+<div class="card-alert card gradient-45deg-green-teal">
+    <div class="card-content white-text">
+        <p>
+        <i class="material-icons">check</i> {{ $message }}</p>
     </div>
+    <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
 </div>
 @endif
         <table id="data-table-simple" class="display">
@@ -24,15 +27,11 @@
             <tbody>
                 @foreach ($categories as $category)
                 <tr>
-                    <td><img src="{{asset('public'.$category->src)}}" class="circle" style="max-width: 55px"></td>
+                    <td><img src="{{asset('public'.$category->src)}}" class="item-image"></td>
                     <td>{{ $category->category_name}}</td>
-                    <td>
-                        <a class="btn-floating mb-1 btn-flat waves-effect waves-light pink accent-2 white-text" href="{{route('edit_category',$category->id)}}">
-                            <i class="material-icons">edit</i>
-                        </a>
-                        <a class="btn-floating mb-1 waves-effect waves-light " href="{{route('delete_category',$category->id)}}">
-                            <i class="material-icons">delete</i>
-                        </a>
+                    <td class="left-align">
+                        <a href="{{route('edit_category',$category->id)}}"><i class="material-icons">create</i></a>
+                        <a class="delete-with-confirmation" href="{{ route('delete_category',$category->id) }}"><i class="material-icons pink-text">clear</i></a>
                     </td>
                 </tr>
                 @endforeach
