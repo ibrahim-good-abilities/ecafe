@@ -47,6 +47,9 @@
     "Edit Order": "تعديل الطلب",
     "Main Stock": "المخزن الرئيسي",
     "Stock": "المخزن",
-    "Available Stock": "المخزون المتاح"
-
+    "Available Stock": "المخزون المتاح",
+    "Cancel": "الغاء",
+    "Transfer": "تحويل",
+    "Execute": "تنفيذ",
+    "Execute An Operation": "تنفيذ عملية"
 }
