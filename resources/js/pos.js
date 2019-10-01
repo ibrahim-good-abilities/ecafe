@@ -13,10 +13,13 @@ $(document).ready(function() {
 
 
     //activate certain category
-    $('.category').on('click', function(e) {
+    $('.category-box').on('click', function(e) {
         e.preventDefault();
-        $('.category').removeClass('active');
+        $('.category-box').removeClass('active');
         $(this).addClass('active');
+        var target = $(this).attr('target');
+        $(".products-box").removeClass('active');
+        $(".products-box[category=" + target + "]").addClass('active');
     });
 
 
@@ -113,12 +116,6 @@ $(document).ready(function() {
             $(this).blur();
         }
         return e.which != 13;
-    });
-
-    $(".category").on('click', function() {
-        var target = $(this).attr('target');
-        $(".products-box").removeClass('active');
-        $(".products-box[category=" + target + "]").addClass('active');
     });
 
     $("#clear").on('click', function() {
