@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Order;
 use App\Item;
-use APP\Coupon;
+use App\Coupon;
 
 class OrderController extends Controller
 {
@@ -41,24 +41,43 @@ class OrderController extends Controller
         $order->status ='Pending';
         $order->save();
         $items = request('items');
+        $order_total = 0;
+        foreach($items as $item){
+            $itemObj = Item::find($item['product_id']);
+            $order->items()->attach([$item['product_id']=>['quantity'=>$item['quantity'],'cost'=>$itemObj->cost,'price'=>$itemObj->price]]);
+            $order_total += $itemObj->price * $item['quantity'];
+        }
+        
         $coupon_code = request('coupon_code');
-        $coupon =DB::table('coupons')->select('code','status','id')->where('code','=',$coupon_code)->first();
+        $coupon = Coupon::where('code','=',$coupon_code)->first();
         if(!$coupon)
         {
             //
         }
         elseif ($coupon->status=='active') {
             $order->coupon_id=$coupon->id;
+            if($coupon->type =="fixed"){
+                if($coupon->value > $order_total ){
+                    $order->discount = $order_total;
+                }else{
+                    $order->discount = $coupon->value;
+                }
+                $order->save();
+            }else{
+                $coupon_dicount = $order_total * ($coupon->value/100);
+                if($coupon_dicount > $order_total ){
+                    $order->discount = $order_total;
+                }else{
+                    $order->discount = $coupon_dicount;
+                }
+                $order->save();
+            }
         }
         else
         {
             //
         }
-        foreach($items as $item){
-            $itemObj = Item::find($item['product_id']);
-            $order->items()->attach([$item['product_id']=>['quantity'=>$item['quantity'],'cost'=>$itemObj->cost,'price'=>$itemObj->price,]]);
-         }
-        
+
     }
 
     /**
