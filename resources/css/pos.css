@@ -13,10 +13,6 @@
     z-index: 1;
 }
 
-.products-list {
-    margin-top: 5px;
-}
-
 .products-box {
     height: 65vh;
     background-color: #9e9e9e21;
@@ -300,8 +296,11 @@ h3.product-name {
 }
 
 h3.category-name {
-    white-space: nowrap;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    word-break: break-word;
+    font-size: medium;
+}
+
+table.dataTable tbody td {
+    word-break: break-word;
+    vertical-align: top;
 }

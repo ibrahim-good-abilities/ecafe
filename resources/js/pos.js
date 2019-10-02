@@ -32,10 +32,32 @@ $(document).ready(function() {
         "ordering": false,
         "language": {
             "url": language
-        }
+        },
+        scrollY: "300px",
+        scrollX: true,
+        scrollCollapse: true,
+        columnDefs: [{
+                "targets": [3],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [5],
+                "visible": false
+            },
+            {
+                width: '20%',
+                targets: 0
+            },
+            {
+                width: '50px',
+                targets: 4
+            }
+        ],
+        fixedColumns: true
     });
-    t.column(5).visible(false);
-    t.column(3).visible(false);
+    // t.column(5).visible(false);
+    // t.column(3).visible(false);
     //add certain product
     $('.product').on('click', function() {
         var price = $(this).attr('price');
