@@ -81,7 +81,9 @@ class ItemController extends Controller
         $Item->update(['image' => $name_img]);
 
         $Item->save();
-        return redirect()->back()->with('success','Item created successfully!');
+        //
+        return redirect()->route('item_edit',[request('stock'),$Item->id])->with('success','Item created successfully!');
+        //return route('item_edit');
     }
 
     /**
@@ -104,9 +106,9 @@ class ItemController extends Controller
     public function edit($name,$id)
     {
         $type=$name;
-        $categoy_name = Category::select('category_name','id')->get();
+        $categories_name = Category::select('category_name','id')->get();
         $item = Item::find($id);
-        return view('items.edit')->with('item',$item)->with('categories_name',$categoy_name)->with('type',$type);
+        return view('items.edit')->with('item',$item)->with('categories_name',$categories_name)->with('type',$type);
 
     }
 

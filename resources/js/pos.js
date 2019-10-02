@@ -138,6 +138,7 @@ $(document).ready(function() {
         var data = {
             'items': items,
             'customer_id': '1',
+            'coupon_code':$('#coupon').val(),
             '_token': $('#_order_token').val()
         };
         $.post(base_url + '/orders/add-new', data, function(response) {
@@ -169,16 +170,6 @@ $(document).ready(function() {
         $('#total').text(total + value);
     }
 
-    $("#go-pay").on('click', function() {
-        var net = parseFloat($("#total").text());
-        var discount = parseFloat($("#discount").text());
-        $("#bill-total").text(net + discount);
-        $("#bill-pay").text(net);
-        $("#bill-discount").text(discount);
-        $("#bill-count").text($("#count").text());
-
-
-    });
 
 
     $(document).on("click", '.qty-inc', function(qty) {

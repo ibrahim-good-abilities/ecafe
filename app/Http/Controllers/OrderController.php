@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Order;
 use App\Item;
-
+use APP\Coupon;
 
 class OrderController extends Controller
 {
@@ -41,10 +41,26 @@ class OrderController extends Controller
         $order->status ='Pending';
         $order->save();
         $items = request('items');
+        $coupon_code = request('coupon_code');
+        $coupon =DB::table('coupons')->select('code','status','id')->where('code','=',$coupon_code)->first();
+        dd($coupon->status);
         
+        if($coupon)
+        {
+
+        }
+        elseif ($coupon->status=='active') {
+            # code...
+            //$order->coupon_id=$coupon->id;
+
+        }
+        else
+        {
+
+        }
         foreach($items as $item){
             $itemObj = Item::find($item['product_id']);
-            $order->items()->attach([$item['product_id']=>['quantity'=>$item['quantity'],'cost'=>$itemObj->cost,'price'=>$itemObj->price]]);
+            $order->items()->attach([$item['product_id']=>['quantity'=>$item['quantity'],'cost'=>$itemObj->cost,'price'=>$itemObj->price,]]);
          }
         
     }
