@@ -10,26 +10,29 @@
 </div>
 @endsection
 @section('middle_content')
-      @if ($message = Session::get('success'))
-      <div class="card-alert card gradient-45deg-green-teal">
-         <div class="card-content white-text">
-            <p>
-            <i class="material-icons">check</i> {{ $message }}</p>
-      </div>
-         <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-         </button>
-      </div>>
-      @endif
-      @if($errors->any())
+<div class="row">
+    <div class="col s12">
+        <!-- Point of sale make order screen -->
+        @if($errors->any())
             <div class="card-alert card red lighten-5 card-content red-text">
-            <ul>
-                  @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                  @endforeach
-            </ul>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div><br />
-      @endif
+        @endif
+        @if ($message = Session::get('success'))
+        <div class="card-alert card gradient-45deg-green-teal">
+            <div class="card-content white-text">
+                <p>
+                <i class="material-icons">check</i> {{ $message }}</p>
+            </div>
+            <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        @endif
       <form action="{{ route('category_update',$category->id) }}" method="post" enctype="multipart/form-data" >
          @csrf
                <div class="row">
@@ -61,6 +64,8 @@
             </div>
          </div>
       </form>
+   </div>
+</div>
       @section('page_js')
       @endsection
 @endsection

@@ -43,7 +43,6 @@ class CategoryController extends Controller
             'category_name'=>'required',
             'img'          =>'required|image|mimes:jpeg,png'
          ]);
-        // \App\Form::create($validator);
 
 
         $category = new Category();
@@ -55,7 +54,8 @@ class CategoryController extends Controller
         $category->src = '/images/categories/'.$name_img;
         $category->update(['image' => $name_img]);
         $category->save();
-        return redirect()->back()->with('success','Category created successfully!');
+        return redirect()->route('edit_category',$category->id)->with('success','Item created successfully!');
+
     }
 
     /**
@@ -94,18 +94,20 @@ class CategoryController extends Controller
 
         $validator = $request->validate([
             'category_name'=>'required',
-            'img'          =>'required|image|mimes:jpeg,png'
          ]);
          $category = Category::find($id);
          $category->category_name = request('category_name');
-        $image = $request->file('img');
-        $name_img = time() . '.' . $image->getClientOriginalExtension();
-        $destinationPath = public_path('/images/categories/');
-        $image->move($destinationPath, $name_img);
-        $category->src = '/images/categories/'.$name_img;
-        $category->update(['image' => $name_img]);
-        $category->save();
-        return redirect()->back()->with('success','Category created successfully!');
+         if($request->hasFile('image')){
+                $image = $request->file('image');
+                $name_img = time() . '.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('/images/categories/');
+                $image->move($destinationPath, $name_img);
+                $category->src = '/images/categories/'.$name_img;
+                $category->update(['image' => $name_img]);
+         }
+         $category->save();
+
+        return redirect()->back()->with('success','Category updated successfully!');
     }
 
     /**

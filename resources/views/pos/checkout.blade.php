@@ -30,7 +30,7 @@
 <div class="row">
     <div class="input-field col s12">
         <input id="coupon" type="text">
-        <label for="coupon" class="">لديك كوبون خصم؟</label>
+        <label for="coupon" >لديك كوبون خصم؟</label>
     </div>
 </div>
 <div id="buttons">
