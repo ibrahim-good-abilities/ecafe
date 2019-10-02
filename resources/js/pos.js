@@ -44,7 +44,15 @@ $(document).ready(function() {
             {
                 "targets": [5],
                 "visible": false
-            }, { width: '20%', targets: 0 }
+            },
+            {
+                width: '20%',
+                targets: 0
+            },
+            {
+                width: '50px',
+                targets: 4
+            }
         ],
         fixedColumns: true
     });
