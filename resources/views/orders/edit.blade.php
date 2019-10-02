@@ -3,7 +3,14 @@
 @section('page_css')
 <link rel="stylesheet" type="text/css" href="{{asset('resources/css/pages/dashboard-modern.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/css/order-details.css')}}">
+@endsection
 
+@section('settings')
+<div class="col s2 m6 l6 right-align">
+    <a class="btn mb-1 waves-effect waves-light" href="{{ route('orders') }}">{{__('Back') }}
+        <i class="material-icons right">keyboard_return</i>
+    </a>
+</div>
 @endsection
 
 @section('middle_content')

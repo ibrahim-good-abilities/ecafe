@@ -2,6 +2,13 @@
 @section('title',  __('Add Coupon'))
 @section('page_css')
 @endsection
+@section('settings')
+<div class="col s2 m6 l6 right-align">
+    <a class="btn mb-1 waves-effect waves-light" href="{{ route('coupons') }}">{{__('Back') }}
+        <i class="material-icons right">keyboard_return</i>
+    </a>
+</div>
+@endsection
 @section('middle_content')
 @if ($message = Session::get('success'))
 <div class="card-alert card gradient-45deg-green-teal">
