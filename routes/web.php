@@ -48,8 +48,12 @@ Route::get('/coupons/index','CouponController@index')->name('coupons');
 Route::get('/coupons/edit/{id}','CouponController@edit')->name('coupon_edit');
 Route::get('/coupons/delete/{id}','CouponController@destroy')->name('coupon_delete');
 Route::get('/coupons/add-new','CouponController@create')->name('add_coupon');
-
 Route::post('/coupons/add-new','CouponController@store')->name('store_coupon');
+//user
+Route::get('/welcome','IndexController@welcome')->name('welcome');
+//parista
+Route::get('/parista','IndexController@parista');
+
 
 
 
