@@ -36,12 +36,12 @@
          <div class="row">
             <div class="input-name col s12">
                <input  name="coupon_Name" id="coupon_name" type="text" class="validate" placeholder="{{ __('Add coupon Name') }}">
-               <label >{{ __('coupon Name') }}</label>
+               <label >{{ __('Coupon Name') }}</label>
             </div>
 
             <div class="input-name col s12">
                <input  name="coupon_code" id="coupon_code" type="text" class="validate" placeholder="{{ __('Add coupon Code') }}">
-               <label >{{ __('coupon code') }}</label>
+               <label >{{ __('Coupon Code') }}</label>
             </div>
             
            <div class="input-price col s12">
@@ -51,22 +51,22 @@
 
             <div class="coupon-type col s12 ">
                <select class="icons" name="type">
-                        <option value="" disabled selected>{{ __('Choose your type') }}</option>
+                        <option value="" disabled selected>{{ __('Choose Your Type') }}</option>
                         <option  value="fixed" name="type" class="circle"> {{ __('Fixed') }} </option>
                         <option  value="percentage" name="type" class="circle">{{ __('Percentage') }} </option>
                </select>
-               <label>{{ __('coupon Type') }}</label>
+               <label>{{ __('Coupon Type') }}</label>
             </div>
 
             <div class="coupon-status col s12 ">
                <select class="icons" name="status">
-                        <option value="" disabled selected>{{ __('Choose your status') }}</option>
+                        <option value="" disabled selected>{{ __('Choose Your Status') }}</option>
                         <option  value="active"   name="status" class="circle"> {{ __('Active') }}   </option>
                         <option  value="used"     name="status" class="circle"> {{ __('Used') }}     </option>
                         <option  value="expired"  name="status" class="circle"> {{ __('Expired') }}  </option>
                         <option  value="disabled" name="status" class="circle"> {{ __('Disabled') }} </option>
                </select>
-               <label>{{ __('coupon status') }}</label>
+               <label>{{ __('Coupon Status') }}</label>
             </div>
 
             <div class="input-unit col s12">

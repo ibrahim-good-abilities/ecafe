@@ -63,7 +63,7 @@
                                 <span> {{ __('All Coupons') }}</span></a>
                             </li>
                             <li>
-                              <a class="collapsible-body" href="{{route('add_coupon')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ __('Add  new Coupon') }}</span></a>
+                              <a class="collapsible-body" href="{{route('add_coupon')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ __('Add  New Coupon') }}</span></a>
                             </li>
                     </ul>
                 </div>

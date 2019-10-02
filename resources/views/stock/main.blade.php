@@ -53,6 +53,9 @@
           <th>صورة المنتج</th>
           <th>اسم المنتج</th>
           <th>الكميه</th>
+          <th>رقم التنبيه</th>
+          <th>السعر</th>
+          <th>التكلفه</th>
           <th>العمليات</th>
           <th>الاعدادات</th>
       </tr>
@@ -65,10 +68,14 @@
           </td>
           <td>{{$item->name}}</td>
           <td>{{$item->main_stock}}</td>
+          <td>{{ $item->alert_number}}</td>
+          <td>{{ $item->price}}</td>
+          <td>{{ $item->cost}}</td>
           <td class="left-align">
               <a class="modal-trigger" href="#transfer"><i class="material-icons" >compare_arrows</i></a>
               <a class="modal-trigger" href="#operations"><i class="material-icons">autorenew</i></a>
           </td>
+          
           <td class="left-align">
               <a href="{{route('item_edit',['name'=>'main','id'=>$item->id])}}" ><i class="material-icons">edit</i></a>
               <a  href="{{route('item_delete',$item->id)}}" class="delete-with-confirmation"><i class="material-icons pink-text">cleare</i></a>
