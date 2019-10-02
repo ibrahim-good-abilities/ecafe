@@ -24,6 +24,7 @@
 
 .products-box .card {
     margin-top: 1px;
+    background-size: cover;
 }
 
 .order-box {
