@@ -46,6 +46,7 @@ Route::post('/stock/available/operations','ItemController@availableStockOperatio
 //coupons
 Route::get('/coupons/index','CouponController@index')->name('coupons');
 Route::get('/coupons/edit/{id}','CouponController@edit')->name('coupon_edit');
+Route::post('/coupons/update/{id}','CouponController@update')->name('update_coupon');
 Route::get('/coupons/delete/{id}','CouponController@destroy')->name('coupon_delete');
 Route::get('/coupons/add-new','CouponController@create')->name('add_coupon');
 Route::post('/coupons/add-new','CouponController@store')->name('store_coupon');

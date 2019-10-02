@@ -22,7 +22,16 @@
         </ul>
       </div><br />
 @endif
-<form action="{{route('store_coupon')}}" method="post" enctype="multipart/form-data" >
+@section('settings')
+<div class="col s2 m6 l6 right-align">
+    <a class="btn mb-1 waves-effect waves-light" href="{{ route('coupons') }}">{{__('Back') }}
+        <i class="material-icons right">keyboard_return</i>
+    </a>
+</div>
+
+@endsection
+@section('middle_content')
+<form action="{{route('update_coupon',$coupon->id)}}" method="post" enctype="multipart/form-data" >
    @csrf
    
          <div class="row">
@@ -67,7 +76,7 @@
             </div>
 
             <div class="input-field col s12">
-               <button class="btn cyan waves-effect waves-light right" type="submit" name="action">{{ __('Submit') }}
+               <button class="btn cyan waves-effect waves-light right" type="submit" name="action">{{ __('Edit') }}
                   <i class="material-icons right">send</i>
                </button>
             </div>

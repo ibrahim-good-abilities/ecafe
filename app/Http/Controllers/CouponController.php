@@ -55,9 +55,9 @@ class CouponController extends Controller
         $coupon->status=request('status');
         $coupon->expiry_date=request('coupon_date');
         $coupon->save();
-      
+        return view('coupons.edit')->with('coupon',$coupon)->with('success','coupon created successfully');
         
-        return redirect()->back()->with('success','coupon created successfully');
+        //return redirect()->back()->with('success','coupon created successfully');
     }
 
     /**
@@ -92,7 +92,24 @@ class CouponController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator=$request->validate([
+            'coupon_Name'    =>'required',
+            'coupon_code'    =>'required',
+            'value'          =>'required',
+            'type'           =>'required',
+            'status'         =>'required',
+            'coupon_date'    =>'required'
+     ]);
+     $coupon = Coupon::find($id);
+     $coupon->name = request('coupon_Name');
+        $coupon->code =request('coupon_code');
+        $coupon->value=request('value');
+        $coupon->type=request('type');
+        $coupon->status=request('status');
+        $coupon->expiry_date=request('coupon_date');
+        $coupon->save();
+        return view('coupons.edit')->with('coupon',$coupon)->with('success','coupon created successfully');
+
     }
 
     /**
