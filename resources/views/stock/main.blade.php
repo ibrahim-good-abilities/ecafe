@@ -8,6 +8,13 @@
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/select.dataTables.min.css')}}">
 
 @endsection
+@section('settings')
+<div class="col s2 m6 l6 right-align">
+    <a class="btn mb-1 waves-effect waves-light" href="{{ route('add_item') }}">{{__('Add New') }}
+        <i class="material-icons right">add</i>
+    </a>
+</div>
+@endsection
 @section('middle_content')
   <!-- Point of sale make order screen -->
   @if($errors->any())
@@ -25,7 +32,7 @@
             <p>
             <i class="material-icons">check</i> {{ $message }}</p>
         </div>
-        <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+        <button type="button" class="close white-text" data-dismwiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
     </div>

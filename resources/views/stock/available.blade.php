@@ -5,6 +5,13 @@
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/jquery.dataTables.min.css')}}">
 
 @endsection
+@section('settings')
+<div class="col s2 m6 l6 right-align">
+    <a class="btn mb-1 waves-effect waves-light" href="{{ route('add_item') }}">{{__('Add New') }}
+        <i class="material-icons right">add</i>
+    </a>
+</div>
+@endsection
 @section('middle_content')
 @if($errors->any())
     <div class="card-alert card red lighten-5 card-content red-text">

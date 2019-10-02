@@ -3,6 +3,15 @@
 @section('page_css')
 <link rel="stylesheet" type="text/css" href="{{asset('resources/css/edite-blade.css')}}">
 @endsection
+
+@section('settings')
+<div class="col s2 m6 l6 right-align">
+    <a class="btn mb-1 waves-effect waves-light" href="{{ route('items_index') }}">{{__('Back') }}
+        <i class="material-icons right">keyboard_return</i>
+    </a>
+</div>
+
+@endsection
 @section('middle_content')
 @if ($message = Session::get('success'))
 <div class="card-alert card gradient-45deg-green-teal">
