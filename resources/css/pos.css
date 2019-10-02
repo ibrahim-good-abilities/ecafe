@@ -203,12 +203,12 @@ th {
 .card-content {
     background-size: cover;
 }
-h3 {
+h3{
     margin-top: 10px;
     margin-bottom: 10px;
     display: inline-block;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 17px;
     color: white;
    
 }
@@ -219,7 +219,7 @@ button.btn-floating.mb-1.waves-effect.waves-light.product{
 }
 h6.col.s12.m12.l8.mt-3.rtl {
  
-    width: 140px;
+    width: 100%;
 
     font-family: cursive;
     color: white;
@@ -258,3 +258,43 @@ h6.col.s12.m12.l8.mt-3.rtl {
     margin-top: 25px;
     font-weight: bold
 }
+
+@media only screen and (max-width: 640px) {
+    span.qty-dec {
+        margin: -8px;
+        margin-top: 0px;
+    }
+    h6.col.s12.m12.l8.mt-3.rtl {
+        width: 73px;
+    }
+    .category-box {
+        height: 92px;
+    }
+    h3.category-name{
+        font-size: 17px;
+        margin-top: 34px;
+    }
+    h3.product-name {
+        display: inline-block;
+        white-space: pre;
+    }
+  }
+
+h3.product-name {
+    white-space: nowrap;
+    width: 116px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: rtl;
+}
+h3.category-name{
+    white-space: nowrap;
+    width: 116px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+
+
+
+
