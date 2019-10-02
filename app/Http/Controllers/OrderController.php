@@ -43,20 +43,16 @@ class OrderController extends Controller
         $items = request('items');
         $coupon_code = request('coupon_code');
         $coupon =DB::table('coupons')->select('code','status','id')->where('code','=',$coupon_code)->first();
-        dd($coupon->status);
-        
-        if($coupon)
+        if(!$coupon)
         {
-
+            //
         }
         elseif ($coupon->status=='active') {
-            # code...
-            //$order->coupon_id=$coupon->id;
-
+            $order->coupon_id=$coupon->id;
         }
         else
         {
-
+            //
         }
         foreach($items as $item){
             $itemObj = Item::find($item['product_id']);

@@ -32,9 +32,6 @@ $(document).ready(function() {
         "ordering": false,
         "language": {
             "url": language
-<<<<<<< HEAD
-        }
-=======
         },
         scrollY: "300px",
         scrollX: true,
@@ -58,10 +55,7 @@ $(document).ready(function() {
             }
         ],
         fixedColumns: true
->>>>>>> 92e8bbd326028bc8aac83e9956ec0ffbb20c9080
     });
-    t.column(5).visible(false);
-    t.column(3).visible(false);
     //add certain product
     $('.product').on('click', function() {
         var price = $(this).attr('price');
@@ -164,7 +158,7 @@ $(document).ready(function() {
         var data = {
             'items': items,
             'customer_id': '1',
-            'coupon_code':$('#coupon').val(),
+            'coupon_code': $('#coupon').val(),
             '_token': $('#_order_token').val()
         };
         $.post(base_url + '/orders/add-new', data, function(response) {
