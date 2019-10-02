@@ -52,9 +52,6 @@
             <th>فئه المنتج</th>
             <th>وحده المنتج</th>
             <th>كمية المنتج</th>
-            <th>رقم التنبيه</th>
-            <th>السعر</th>
-            <th>التكلفه</th>
             <th>العمليات</th>
             <th> الاعدادات</th>
 
@@ -69,9 +66,7 @@
             <td>{{ $item->unit}}</td>
             <td>{{ $item->category_name}}</td>
             <td>{{$item->available_stock}}</td>
-            <td>{{ $item->alert_number}}</td>
-            <td>{{ $item->price}}</td>
-            <td>{{ $item->cost}}</td>
+            غ
             <td class="left-align">
               <a class="modal-trigger" href="#transfer"><i class="material-icons" >compare_arrows</i></a>
               <a class="modal-trigger" href="#operations"><i class="material-icons">autorenew</i></a>
