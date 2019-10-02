@@ -148,13 +148,14 @@ class ItemController extends Controller
             $Item->available_stock=request('quantity');
             $Item->main_stock=0.0;
         }
+        if($request->hasFile('image')){
         $image = $request->file('image');
         $name_img = time() . '.' . $image->getClientOriginalExtension();
         $destinationPath = public_path('/images/items/');
         $image->move($destinationPath, $name_img);
         $Item->src = '/images/items/'.$name_img;
         $Item->update(['image' => $name_img]);
-
+        }
         $Item->save();
         return redirect()->back()->with('success', 'item update successfully');
     }

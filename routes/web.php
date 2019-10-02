@@ -52,7 +52,7 @@ Route::post('/coupons/add-new','CouponController@store')->name('store_coupon');
 //user
 Route::get('/welcome','IndexController@welcome')->name('welcome');
 //parista
-Route::get('/parista','IndexController@parista');
+Route::get('/parista','OrderController@parista')->name('parista');
 
 
 

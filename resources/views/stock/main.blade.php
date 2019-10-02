@@ -25,7 +25,7 @@
             <p>
             <i class="material-icons">check</i> {{ $message }}</p>
         </div>
-        <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+        <button type="button" class="close white-text" data-dismwiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
     </div>
