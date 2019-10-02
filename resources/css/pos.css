@@ -203,12 +203,12 @@ th {
 .card-content {
     background-size: cover;
 }
-h3{
+h3.category-name,h3.product-name{
     margin-top: 10px;
     margin-bottom: 10px;
     display: inline-block;
     font-weight: 700;
-    font-size: 17px;
+    font-size: medium;
     color: white;
    
 }
@@ -282,14 +282,14 @@ h6.col.s12.m12.l8.mt-3.rtl {
 
 h3.product-name {
     white-space: nowrap;
-    width: 116px;
+    width:100%;
     overflow: hidden;
     text-overflow: ellipsis;
     direction: rtl;
 }
 h3.category-name{
     white-space: nowrap;
-    width: 116px;
+    width: 60px;
     overflow: hidden;
     text-overflow: ellipsis;
     
