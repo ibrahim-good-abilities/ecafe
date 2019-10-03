@@ -2,7 +2,7 @@
 namespace App\Events;
 require base_path() . '/pusher-vendor/autoload.php';
 
-class NewOrder 
+class NewNotification 
 {
 
   public function __construct($channel,$event,$data)

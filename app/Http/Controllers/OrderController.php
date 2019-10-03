@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Order;
 use App\Item;
 use App\Coupon;
-use App\Events\NewOrder;
+use App\Events\NewNotification;
 
 class OrderController extends Controller
 {
@@ -57,7 +57,7 @@ class OrderController extends Controller
         $order->customer_id =request('customer_id ');
         $order->status ='pending';
         $order->save();
-        new NewOrder('parista','new-order',['message'=>'new_order','order_id'=>$order->id]);
+        new NewNotification('parista','new-order',['message'=>'new_order','order_id'=>$order->id]);
         $response['order']['id'] = $order->id;
         $response['order']['status'] = __('Pending');
         $response['order']['success'] = __('We have successfully received your order.');
@@ -179,6 +179,7 @@ class OrderController extends Controller
             ]);
         $order = Order::find($id);
         $order->status=request('status');
+        new NewNotification('customer_'.$id,'order-status',['status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
         $order->save();
         return redirect()->back()->with('success', 'Order update successfully');
 

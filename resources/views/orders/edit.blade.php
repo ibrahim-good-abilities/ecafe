@@ -79,26 +79,27 @@
 </div>
 
 
-
-<table class="subscription-table responsive-table highlight">
-    <thead>
-        <tr>
-            <th>{{__('Item Name')}}</th>
-            <th>{{__('Quantity')}}</th>
-            <th>{{__('Price')}}</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($items as $item)
-        <tr>
-            <td>{{ $item->name }}</td>
-            <td>{{ $item->quantity }}</td>
-            <td>{{ $item->price }}</td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
-<div id="update-order-section">
+<div class="col s12">
+    <table class="highlight">
+        <thead>
+            <tr>
+                <th>{{__('Item Name')}}</th>
+                <th>{{__('Quantity')}}</th>
+                <th>{{__('Price')}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($items as $item)
+            <tr>
+                <td>{{ $item->name }}</td>
+                <td>{{ $item->quantity }}</td>
+                <td>{{ $item->price }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+<div class="col s12" id="update-order-section">
     <h5 class="right-align">{{ __('Update Order Status')}}</h5>
     <form action="{{ route('order_update_status',$order->id) }}" method="post">
         @csrf
@@ -128,5 +129,8 @@
 </div>
               
 <!-- orders Details -->
-
+@section('page_js')
+<script src="https://js.pusher.com/5.0/pusher.min.js" type="text/javascript"></script>
+<script src="{{ asset('resources/js/order.js')}}" type="text/javascript"></script>
+@endsection
 @endsection
