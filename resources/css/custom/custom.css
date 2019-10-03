@@ -49,3 +49,7 @@ img.item-image {
 div#update-order-section {
     margin-top: 40px;
 }
+
+div#main.no-padding {
+    padding-left: 0px;
+}

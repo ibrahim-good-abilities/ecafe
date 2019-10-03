@@ -1,7 +1,6 @@
 {
     "Add Category": "أضافة صنف",
     "Upload Image": "تحميل صورة",
-    "Submit": "ادخال",
     "Category Name": "اسم الصنف",
     "Add Category Name": "أدخل اسم الصنف",
     "Add Item": "أضافة منتج",
@@ -38,7 +37,7 @@
     "Customer Name": "أسم العميل",
     "Date Created": "تاريخ الطلب",
     "Status": "الحالة",
-    "Total": "الأجمالى",
+    "Total": "الصافي",
     "Settings": "الأعدادات",
     "Pending": "انتظار",
     "Guest": "زائر",
@@ -81,5 +80,6 @@
     "Order Status": "حالة الطلب",
     "Processing": "جارى التنفيذ",
     "Ready": "جاهز",
-    "Completed": "اكتمل"
+    "Completed": "اكتمل",
+    "Subtotal": "الإجمالي"
 }

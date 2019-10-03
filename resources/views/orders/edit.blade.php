@@ -14,6 +14,16 @@
 @endsection
 
 @section('middle_content')
+<!-- Point of sale make order screen -->
+@if($errors->any())
+    <div class="card-alert card red lighten-5 card-content red-text">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div><br />
+@endif
 @if ($message = Session::get('success'))
 <div class="card-alert card gradient-45deg-green-teal">
     <div class="card-content white-text">
@@ -78,19 +88,19 @@
 </table>
 <div id="update-order-section">
     <h5 class="right-align">{{ __('Update Order Status')}}</h5>
-    <form action="#" method="post">
+    <form action="{{ route('order_update_status',$order->id) }}" method="post">
         @csrf
         <div class="row">
 
             <div class="col s12 l6 right-align">
-                <button class="mb-6 btn waves-effect waves-light green darken-1">
+                <button type="submit" class="mb-6 btn waves-effect waves-light green darken-1">
                     <i class="material-icons right">done</i> {{ __('Execute') }}
                 </button>
             </div>
 
             <div class="col s12 l6">
                 <div class="input-field">
-                <select>
+                <select name="status">
                     <option value="" disabled selected>{{ __('Choose order status') }}</option>
                     <option value="pending">{{ __('Pending') }}</option>
                     <option value="processing">{{ __('Processing') }}</option>
