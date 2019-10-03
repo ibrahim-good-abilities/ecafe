@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Order;
 use App\Item;
 use App\Coupon;
+use App\Events\NewOrder;
 
 class OrderController extends Controller
 {
@@ -56,6 +57,7 @@ class OrderController extends Controller
         $order->customer_id =request('customer_id ');
         $order->status ='pending';
         $order->save();
+        new NewOrder('parista','new-order',['message'=>'new_order','order_id'=>$order->id]);
         $response['order']['id'] = $order->id;
         $response['order']['status'] = __('Pending');
         $response['order']['success'] = __('We have successfully received your order.');
