@@ -196,7 +196,9 @@ $(document).ready(function() {
                 $("#status").html(response.order.status);
                 swal("Success", response.order.success, "success")
 
-                $("#checkout-processing").hide();
+                $("#checkout-processing,.qty-inc,.qty-dec").hide();
+                $(".delete").removeClass('delete');
+                $(".product").addClass('disabled');
                 $("#order-status").show();
             }
         });
