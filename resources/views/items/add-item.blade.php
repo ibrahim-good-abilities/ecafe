@@ -72,19 +72,6 @@
                   <label  >{{ __('Quantity') }}</label>
             </div>
        
-            <div class="input-Checkbox col s12">
-               <label>{{ __('Stock') }}</label>
-               <p>
-                  <label>
-                     <input name="stock" type="radio" value="main" checked/>
-                     <span>{{ __('main stock') }}</span>
-                  </label>
-                  <label>
-                     <input name="stock" type="radio"  value="available "/>
-                     <span>{{ __('available stock') }}</span>
-                  </label>
-               </p>
-            </div>
 
             <div class="input-alert col s12">
                <input name="alert" id="alert-number" type="number" class="validate" placeholder="{{ __('Add Alert Number') }}">

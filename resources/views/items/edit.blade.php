@@ -44,8 +44,8 @@
             <div class="item-category col s12 ">
                <select class="icons" name="category">
                   <option value="" disabled selected>{{ __('Choose your Category') }}</option>
-                  @foreach($categories_name as $category_name)
-                        <option  value="{{$category_name->id}}" data-icon="../../app-assets/images/avatar/avatar-7.png" name="category" class="circle"> {{$category_name->category_name}} </option>
+                  @foreach($categories_name as $category)
+                        <option  value="{{$category->id}}"  name="category" class="circle"  {{ $category->id == $item->category_id ? 'selected':''}} > {{$category->category_name}} </option>
                   @endforeach
                </select>
                <label>{{ __('Item Category') }}</label>
@@ -67,26 +67,17 @@
                   <input  name="cost" id="cost" type="number" class="validate" placeholder="{{ __('Add Cost') }}"value="{{$item->cost}}">
                   <label  >{{ __('Cost') }}</label>
             </div>
-
+            
+            @if($type == 'main')
             <div class="input-cost col s12">
                   <input  name="quantity" id="cost" type="number"  step="0.1" min=".5" class="validate" 
-                  placeholder="{{ __('Add quantity') }}" value="{{$type=='available'?$item->available_stock:$item->main_stock}}">
+                  placeholder="{{ __('Add quantity') }}" value="{{$item->main_stock}}">
                   <label  >{{ __('quantity') }}</label>
             </div>
+            @else
+               <input  name="quantity"  type="hidden"  value="{{$item->main_stock}}"/>
+            @endif
 
-            <div class="input-Checkbox col s12">
-               <label>{{ __('Stock') }}</label>
-               <p>
-                  <label>
-                     <input name="stock" type="radio" value="main" checked/>
-                     <span>{{ __('main stock') }}</span>
-                  </label>
-                  <label>
-                     <input name="stock" type="radio"  value="available "/>
-                     <span>{{ __('available stock') }}</span>
-                  </label>
-               </p>
-            </div>
             <div class="input-alert col s12">
                <input name="alert" id="alert-number" type="number" class="validate" placeholder="{{ __('Add Alert Number') }}"value="{{$item->alert_number}}">
                <label  >{{ __('Alert Number') }}</label>

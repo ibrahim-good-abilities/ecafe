@@ -66,7 +66,6 @@
             <td>{{ $item->unit}}</td>
             <td>{{ $item->category_name}}</td>
             <td>{{$item->available_stock}}</td>
-            غ
             <td class="left-align">
               <a class="modal-trigger" href="#transfer"><i class="material-icons" >compare_arrows</i></a>
               <a class="modal-trigger" href="#operations"><i class="material-icons">autorenew</i></a>
