@@ -24,6 +24,7 @@
             <th>{{ __('Order Id') }}</th>
             <th>{{ __('Customer Name') }}</th>
             <th> {{ __('Date Created') }}</th>
+            <th> {{ __('Time Created') }}</th>
             <th>{{__('Coupon Name')}}</th>
             <th>{{ __('Status') }}</th>
             <th>{{__('Subtotal')}}</th>
@@ -34,10 +35,14 @@
     </thead>
     <tbody>
         @foreach($orders as $order)
+        
+        <?php  $date_parts= explode(" ",  $order->created_at); ?>
+
             <tr>
                 <td>{{$order->id}}</td>
                 <td>{{ $order->customer_name !="" ? $order->customer_name:__('Guest')}}</td>
-                <td>{{ $order->created_at }}</td>
+                <td>{{ $date_parts[0] }}</td>
+                <td>{{ $date_parts[1] }}</td>
                 <td>{{$order->name}}</td>
                 <td><span class="badge grey lighten-5 grey-text text-accent-2">{{ __($order->status) }}</span></td>
 
