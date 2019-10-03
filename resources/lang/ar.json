@@ -74,5 +74,12 @@
     "Used": "مستخدم",
     "Expired": "منتهي الصلاحيه",
     "Disabled": "غير فعال",
-    "Edit":"تعديل"
+    "Edit": "تعديل",
+    "Discount": "الخصم",
+    "Update Order Status": "تغيير حالة الطلب",
+    "Choose order status": "أختيار حالة الطلب",
+    "Order Status": "حالة الطلب",
+    "Processing": "جارى التنفيذ",
+    "Ready": "جاهز",
+    "Completed": "اكتمل"
 }

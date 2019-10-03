@@ -41,6 +41,11 @@ img.item-image {
 .button-wrapper {
     display: inline-block;
 }
-#main-blank{
-        min-height: calc(100% - 125px);
+
+#main-blank {
+    min-height: calc(100% - 125px);
+}
+
+div#update-order-section {
+    margin-top: 40px;
 }
