@@ -47,7 +47,19 @@
         </div>
 
         <div class="input-field col m4 s12">
-            <span class="order_label"> {{__('Status')}}: </span><span class="badge grey lighten-5 grey-text text-accent-2">{{ __($order->status) }}</span>
+            <?php
+                $status_classes = '';
+                if($order->status == 'pending'){
+                    $status_classes = 'grey';
+                }else if($order->status == 'processing'){
+                    $status_classes = 'blue';
+                }else if($order->status == 'ready'){
+                    $status_classes = 'yellow';
+                }else if($order->status == 'completed'){
+                    $status_classes = 'green';
+                }
+            ?>
+            <span class="order_label"> {{__('Status')}}: </span><span class="badge text-accent-2 {{ $status_classes }}">{{ __( ucfirst($order->status)) }}</span>
         </div>
 
         <div class="input-field col m4 s12">
