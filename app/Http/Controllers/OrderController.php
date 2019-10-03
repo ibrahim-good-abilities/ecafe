@@ -120,6 +120,17 @@ class OrderController extends Controller
         //
     }
 
+    public  function updateStatus(Request $request ,$id)
+    {
+        $request->validate([
+                'status'  =>'required'
+            ]);
+        $order = Order::find($id);
+        $order->status=request('status');
+        $order->save();
+        return redirect()->back()->with('success', 'Order update successfully');
+
+    }
     /**
      * Remove the specified resource from storage.
      *
