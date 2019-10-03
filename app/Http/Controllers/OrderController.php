@@ -20,10 +20,11 @@ class OrderController extends Controller
     {
       
         $orders = DB::table('orders')
-        ->select('orders.id','orders.status','orders.created_at','customers.customer_name',DB::raw('sum(order_line.quantity * order_line.price) as total'))
+        ->select('orders.id','orders.status','orders.created_at','orders.discount','customers.customer_name','coupons.name',DB::raw('sum(order_line.quantity * order_line.price) as total'))
         ->join('order_line','orders.id','=','order_line.order_id')
         ->leftJoin('customers','customers.id','=','orders.customer_id')
-        ->groupBy('orders.id','orders.status','orders.created_at','customer_name')
+        ->leftJoin('coupons','coupons.id','=','orders.coupon_id')
+        ->groupBy('orders.id','orders.status','orders.created_at','customer_name','orders.discount','coupons.name')
         ->get();
         return view('orders.index')->with('orders',$orders);
     }

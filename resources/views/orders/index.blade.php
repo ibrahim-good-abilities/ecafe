@@ -24,6 +24,8 @@
             <th>{{ __('Order Id') }}</th>
             <th>{{ __('Customer Name') }}</th>
             <th> {{ __('Date Created') }}</th>
+            <th>{{__('Coupon Name')}}
+            <th>{{__('Discount')}}</th>
             <th>{{ __('Status') }}</th>
             <th> {{ __('Total') }}</th>
             <th>{{__('Settings')}}</th>
@@ -35,6 +37,8 @@
                 <td>{{$order->id}}</td>
                 <td>{{ $order->customer_name !="" ? $order->customer_name:__('Guest')}}</td>
                 <td>{{ $order->created_at }}</td>
+                <td>{{$order->name}}</td>
+                <td>{{$order->discount}}</td>
                 <td><span class="badge grey lighten-5 grey-text text-accent-2">{{ __($order->status) }}</span></td>
                 <td>{{ $order->total }}</td>
                 
