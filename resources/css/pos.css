@@ -267,6 +267,15 @@ h6.col.s12.m12.l8.mt-3.rtl {
     margin-top: 0px;
 }
 
+#checkout-processing {
+    display: none;
+}
+
+div#order-status {
+    margin-top: 10px;
+    display: none;
+}
+
 @media only screen and (max-width: 640px) {
     span.qty-dec {
         margin: -8px;

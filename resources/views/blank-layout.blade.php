@@ -22,6 +22,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/fontawesome/css/fontawesome.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/fontawesome/css/regular.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/fontawesome/css/solid.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/sweetalert/sweetalert.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('resources/css/loading.css')}}">
     <!-- END: Page Level CSS-->
     @yield("page_css")
     <!-- BEGIN: Custom CSS-->
@@ -54,18 +56,11 @@
     <!-- END: Footer-->
 @yield('categories.categories')
 
-    <!-- BEGIN VENDOR JS-->
     <script src="{{asset('resources/js/vendors.min.js')}}" type="text/javascript"></script>
-    <!-- BEGIN VENDOR JS-->
-    <!-- BEGIN PAGE VENDOR JS-->
-    <!-- END PAGE VENDOR JS-->
-    <!-- BEGIN THEME  JS-->
+    <script src="{{ asset('resources/vendors/sweetalert/sweetalert.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('resources/js/plugins.js')}}" type="text/javascript"></script>
     @yield("page_js")
     <script src="{{asset('resources/js/custom/custom-script.js')}}" type="text/javascript"></script>
-    <!-- END THEME  JS-->
-    <!-- BEGIN PAGE LEVEL JS-->
-    <!-- END PAGE LEVEL JS-->
 </body>
 
 </html>

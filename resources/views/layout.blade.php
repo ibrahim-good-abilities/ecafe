@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/fontawesome/css/regular.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/fontawesome/css/solid.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/sweetalert/sweetalert.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('resources/css/loading.css')}}">
     <!-- END: Page Level CSS-->
     @yield("page_css")
     <!-- BEGIN: Custom CSS-->

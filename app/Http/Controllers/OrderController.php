@@ -36,11 +36,29 @@ class OrderController extends Controller
      */
     public function create(Request $request)
     {
+        $response = ['order'=>[],'coupon'=>[]];
+        $coupon = null;
+        $coupon_code = request('coupon_code');
+        if($coupon_code){
+            $coupon = Coupon::where('code','=',$coupon_code)->first();
+            if(!$coupon)
+            {
+                $response['coupon']['error'] = 'Coupon code doesn\'t exist.';
+                return response()->json($response);
+            }elseif($coupon->status!='active') {
+                $response['coupon']['error'] = 'Coupon code is no longer valid.';
+                return response()->json($response);
+            }
+        }
+
         $order = new Order();
         $order->discount =0;
         $order->customer_id =request('customer_id ');
-        $order->status ='Pending';
+        $order->status ='pending';
         $order->save();
+        $response['order']['id'] = $order->id;
+        $response['order']['status'] = __('Pending');
+        $response['order']['success'] = __('We have successfully received your order.');
         $items = request('items');
         $order_total = 0;
         foreach($items as $item){
@@ -49,13 +67,8 @@ class OrderController extends Controller
             $order_total += $itemObj->price * $item['quantity'];
         }
         
-        $coupon_code = request('coupon_code');
-        $coupon = Coupon::where('code','=',$coupon_code)->first();
-        if(!$coupon)
-        {
-            //
-        }
-        elseif ($coupon->status=='active') {
+        if ($coupon) {
+            $response['coupon']['code'] = $coupon->code;
             $order->coupon_id=$coupon->id;
             if($coupon->type =="fixed"){
                 if($coupon->value > $order_total ){
@@ -64,6 +77,7 @@ class OrderController extends Controller
                     $order->discount = $coupon->value;
                 }
                 $order->save();
+                $response['coupon']['discount'] = $order->discount ;
             }else{
                 $coupon_dicount = $order_total * ($coupon->value/100);
                 if($coupon_dicount > $order_total ){
@@ -72,12 +86,14 @@ class OrderController extends Controller
                     $order->discount = $coupon_dicount;
                 }
                 $order->save();
+                $response['coupon']['discount'] = $order->discount ;
             }
+
+            $coupon->status = 'used';
+            $coupon->save();
         }
-        else
-        {
-            //
-        }
+
+        return response()->json($response);
 
     }
 

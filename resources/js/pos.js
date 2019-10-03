@@ -155,6 +155,17 @@ $(document).ready(function() {
             items.push({ 'product_id': product_id.trim(), 'quantity': quantity.trim() });
         });
 
+        if (items.length == 0) {
+            swal({
+                title: 'Your order is empty!',
+                icon: 'error'
+            });
+            return false;
+        }
+
+        $("#checkout-from").hide();
+        $("#checkout-processing").show();
+
         var data = {
             'items': items,
             'customer_id': '1',
@@ -163,10 +174,30 @@ $(document).ready(function() {
         };
         $.post(base_url + '/orders/add-new', data, function(response) {
             if (response) {
-                t.clear()
-                    .draw();
-                $('#count').html('0');
-                $('#total').html('0');
+                debugger;
+                if (Object.keys(response.coupon).length != 0) {
+                    if (typeof(response.coupon.error) !== "undefined") {
+                        swal({
+                            title: response.coupon.error,
+                            icon: 'error'
+                        });
+                        $("#checkout-from").show();
+                        $("#checkout-processing").hide();
+                        return false;
+                    } else {
+                        $("#coupon_code").html(response.coupon.code);
+                        $("#discount_value").html(response.coupon.discount);
+                    }
+                } else {
+                    $("#coupon_info").hide();
+                }
+
+                $("#order_number").html(response.order.id);
+                $("#status").html(response.order.status);
+                swal("Success", response.order.success, "success")
+
+                $("#checkout-processing").hide();
+                $("#order-status").show();
             }
         });
     });

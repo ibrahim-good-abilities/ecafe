@@ -27,14 +27,37 @@
     </tr>
     </table>
 </div>
-<div class="row">
+<div class="row" id="checkout-from">
     <div class="input-field col s12">
         <input id="coupon" type="text">
         <label for="coupon" >لديك كوبون خصم؟</label>
     </div>
+    <div class="col s12">
+        <div id="buttons">
+            <button type="button" id="clear" class="btn btn-danger">إلغاء</button>
+            <button type="button" id="payment" class="btn btn-success">تنفيذ</button>
+        </div>
+    </div>
 </div>
-<div id="buttons">
-    <button type="button" id="clear" class="btn btn-danger">إلغاء</button>
-    <button type="button" id="payment" class="btn btn-success">تنفيذ</button>
+<div id="checkout-processing">
+    <div class="col s12">
+        <div class="loader">Proccesing...</div>
+    </div>
+</div>
+<div id="order-status">
+        <table>
+            <tr>
+                <td id="status"></td>
+                <th>الحالة</th>
+                <td id="order_number"></td>
+                <th>رقم الأوردر</th>
+            </tr>
+            <tr id="coupon_info">
+                <td id="discount_value"></td>
+                <th>قيمة الخصم</th>
+                <td id="coupon_code"></td>
+                <th>كود الخصم</th>
+            </tr>
+        </table>
 </div>
 
