@@ -1,4 +1,4 @@
-@extends('welcome-layout')
+@extends('parista-layout')
 @section('title', __('All Orders'))
 @section('page_css')
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/jquery.dataTables.min.css')}}">
