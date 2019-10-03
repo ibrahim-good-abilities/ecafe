@@ -24,9 +24,10 @@
             <th>{{ __('Order Id') }}</th>
             <th>{{ __('Customer Name') }}</th>
             <th> {{ __('Date Created') }}</th>
-            <th>{{__('Coupon Name')}}
-            <th>{{__('Discount')}}</th>
+            <th>{{__('Coupon Name')}}</th>
             <th>{{ __('Status') }}</th>
+            <th>{{__('Subtotal')}}</th>
+            <th>{{__('Discount')}}</th>
             <th> {{ __('Total') }}</th>
             <th>{{__('Settings')}}</th>
         </tr>
@@ -38,9 +39,11 @@
                 <td>{{ $order->customer_name !="" ? $order->customer_name:__('Guest')}}</td>
                 <td>{{ $order->created_at }}</td>
                 <td>{{$order->name}}</td>
-                <td>{{$order->discount}}</td>
                 <td><span class="badge grey lighten-5 grey-text text-accent-2">{{ __($order->status) }}</span></td>
-                <td>{{ $order->total }}</td>
+
+                <td>{{$order->subtotal}}</td>
+                <td>{{$order->discount}}</td>
+                <td>{{ $order->subtotal - $order->discount }}</td>
                 
                 <td class="left-align">
                     <a  class="delete-with-confirmation" href="{{route('delete_order',$order->id)}}"><i class="material-icons pink-text">clear</i></a>

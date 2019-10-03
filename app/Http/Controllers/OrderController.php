@@ -20,7 +20,7 @@ class OrderController extends Controller
     {
       
         $orders = DB::table('orders')
-        ->select('orders.id','orders.status','orders.created_at','orders.discount','customers.customer_name','coupons.name',DB::raw('sum(order_line.quantity * order_line.price) as total'))
+        ->select('orders.id','orders.status','orders.created_at','orders.discount','customers.customer_name','coupons.name',DB::raw('sum(order_line.quantity * order_line.price) as subtotal'))
         ->join('order_line','orders.id','=','order_line.order_id')
         ->leftJoin('customers','customers.id','=','orders.customer_id')
         ->leftJoin('coupons','coupons.id','=','orders.coupon_id')
