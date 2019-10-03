@@ -35,7 +35,7 @@
     "All Orders": "جميع الطلبيات",
     "Order Id": "رقم الطلب",
     "Customer Name": "أسم العميل",
-    "Date Created": "تاريخ الطلب",
+    "Date Created": "تاريخ الانشاء",
     "Status": "الحالة",
     "Total": "الصافي",
     "Settings": "الأعدادات",
@@ -75,6 +75,7 @@
     "Disabled": "غير فعال",
     "Edit":"تعديل",
     "Discount":"الخصم",
-    "Subtotal":"الإجمالي"
+    "Subtotal":"الإجمالي",
+    "Time Created": "وقت الانشاء"
 
 }
