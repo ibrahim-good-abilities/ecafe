@@ -53,3 +53,10 @@ div#update-order-section {
 div#main.no-padding {
     padding-left: 0px;
 }
+
+
+/* datatables */
+
+div#category-table_length {
+    display: none;
+}
