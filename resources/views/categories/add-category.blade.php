@@ -13,6 +13,7 @@
 <div class="row">
     <div class="col s12">
         <!-- Point of sale make order screen -->
+        
         @if($errors->any())
             <div class="card-alert card red lighten-5 card-content red-text">
                 <ul>
@@ -22,6 +23,7 @@
                 </ul>
             </div><br />
         @endif
+
         @if ($message = Session::get('success'))
         <div class="card-alert card gradient-45deg-green-teal">
             <div class="card-content white-text">
