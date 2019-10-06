@@ -33,10 +33,11 @@ Route::get('/items/delete/{id}','ItemController@destroy')->name('item_delete');
 //orders
 Route::get('/orders/index','OrderController@index')->name('orders');
 Route::post('/orders/add-new','OrderController@create');
-Route::get('/orders/edit/{id}','OrderController@edit')->name('edit_order');
+
 Route::get('/orders/delete/{id}','OrderController@destroy')->name('delete_order');
 Route::post('/orders/update/status/{id}','OrderController@updateStatus')->name('order_update_status');
 Route::get('/orders/edit/status/{id}','OrderController@editStatus')->name('order_edit_status');
+Route::get('/orders/edit/{id}/{notification_id?}','OrderController@edit')->name('edit_order');
 //stock
 Route::get('/stock/index','ItemController@stock')->name('stock');
 Route::post('/stock/main/transfer','ItemController@transferMainStock')->name('transfer_main_stock');

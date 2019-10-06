@@ -22,26 +22,35 @@ class NewNotification
         $options
       );
       if($event=='new-order'){
-        $this->store('parista',false,'New order #'.$data['order_id'].' has been placed',"");
+        $this->store('parista',false,'New order #'.$data['order_id'].' has been placed',"",$data['order_id']);
 
       }
       elseif($event=='order-status')
       {
-          $this->store('customer',false,'We have successfully received your order.',"");
+          $this->store('customer',false,'We have successfully received your order.',"",'');
       }
 
 
       $pusher->trigger($channel,$event, $data);
   }
-  public function store(string $type ,bool $status ,string $title,string $body){
+  public function store(string $type ,bool $status ,string $title,string $body ,string $object_id = ''){
     $newNotification = new Notification();
 
     $newNotification->type   =  $type;
     $newNotification->status =  $status;
     $newNotification->title  =  $title;
     $newNotification->body   = $body;
-
     $newNotification->save();
+    if($object_id=='')
+    {
+        $newNotification->target='javascript:void(0)';
+    }
+    elseif($newNotification->type=='parista'){
+
+        $newNotification->target  = route('edit_order',[$object_id,$newNotification->id]);
+    }
+    $newNotification->save();
+
 }
 
 
