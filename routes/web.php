@@ -56,7 +56,9 @@ Route::post('/coupons/add-new','CouponController@store')->name('store_coupon');
 Route::get('/welcome','IndexController@welcome')->name('welcome');
 //parista
 Route::get('/parista','OrderController@parista')->name('parista');
-//
+//Packing Units
+Route::resource('packing-units', 'PackingUnitController');
+
 
 
 
