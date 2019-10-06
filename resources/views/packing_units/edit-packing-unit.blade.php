@@ -4,7 +4,7 @@
 @endsection
 @section('settings')
 <div class="col s2 m6 l6 right-align">
-    <a class="btn mb-1 waves-effect waves-light" href="{{ route('all_categories') }}">{{__('Back') }}
+    <a class="btn mb-1 waves-effect waves-light" href="{{ route('packing-units.index') }}">{{__('Back') }}
         <i class="material-icons right">keyboard_return</i>
     </a>
 </div>

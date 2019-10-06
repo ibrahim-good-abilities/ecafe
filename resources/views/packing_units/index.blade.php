@@ -35,7 +35,7 @@
                     <td>{{ $unit->name}}</td>
                     <td class="left-align">
                         <a href="{{route('packing-units.edit',$unit->id)}}"><i class="material-icons">create</i></a>
-                        <a class="delete-with-confirmation" href="{{ route('packing-units.destroy',$unit->id) }}"><i class="material-icons pink-text">clear</i></a>
+                        <a class="delete-with-confirmation" href="{{ route('packing_unit_delete',$unit->id) }}"><i class="material-icons pink-text">clear</i></a>
                     </td>
                 </tr>
                 @endforeach

@@ -98,6 +98,10 @@ class PackingUnitController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $packingUnit = packingUnit::find($id);
+        $packingUnit->delete();
+        return redirect()->back()->with('success','packingUnit detelted successfully');
+       
     }
+
 }
