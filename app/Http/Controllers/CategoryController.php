@@ -41,13 +41,8 @@ class CategoryController extends Controller
     {
         $validator = $request->validate([
             'category_name'=>'required',
-            'img'          =>'required|image_file|mimes:jpeg,png'
+            'img'          =>'required|image|mimes:jpeg,png'
          ]);
-
-        //     $request->validate([
-        //     'category_name'=>'required',
-        //     'img'          =>'required|image|mimes:jpeg,png'
-        //  ]);
 
         $category = new Category();
         $category->category_name = request('category_name');
