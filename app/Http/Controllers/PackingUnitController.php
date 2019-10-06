@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\PackingUnit;
+
 class PackingUnitController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class PackingUnitController extends Controller
     public function index()
     {
         $units = PackingUnit::all();
-        return view('packing_units.index')->with('units',$categories);
+        return view('packing_units.index')->with('units',$units);
     }
 
     /**
