@@ -26,7 +26,7 @@ class PackingUnitController extends Controller
      */
     public function create()
     {
-        //
+        return view('packing_units.add-packing-unit');
     }
 
     /**
@@ -37,7 +37,15 @@ class PackingUnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = $request->validate([
+            'name'=>'required',
+         ]);
+
+        $packingUnit = new PackingUnit();
+        $packingUnit->name = request('name');
+        $packingUnit->save();
+        return redirect()->route('packing-units.edit',$packingUnit->id)->with('success','Packing unit created successfully!');
+
     }
 
     /**
@@ -59,7 +67,8 @@ class PackingUnitController extends Controller
      */
     public function edit($id)
     {
-        //
+            $packingUnit = packingUnit::find($id);
+            return view('packing_units.edit-packing-unit')->with('packingUnit',$packingUnit);
     }
 
     /**
@@ -71,7 +80,14 @@ class PackingUnitController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = $request->validate([
+            'name'=>'required',
+        ]);
+        $packingUnit = packingUnit::find($id);
+        $packingUnit->name = request('name');
+        $packingUnit->save();
+
+        return redirect()->back()->with('success','Packing unit updated successfully!');
     }
 
     /**
@@ -82,6 +98,10 @@ class PackingUnitController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $packingUnit = packingUnit::find($id);
+        $packingUnit->delete();
+        return redirect()->back()->with('success','packingUnit detelted successfully');
+       
     }
+
 }

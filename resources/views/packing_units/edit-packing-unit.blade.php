@@ -33,13 +33,14 @@
             </button>
         </div>
         @endif
-        <form action="{{ route('packing-units.store') }}" method="post">
+        <form action="{{ route('packing-units.update',$packingUnit->id) }}" method="post">
+        @method('PUT')
         @csrf
                     <div class="row">
                         <div class="col s12">
 
                             <div class="input-field">
-                                <input placeholder="{{ __('Enter Packing Unit Name') }}" id="name" type="text" class="validate" name="name">
+                                <input placeholder="{{ __('Enter Packing Unit Name') }}" id="name" value="{{ $packingUnit->name }}" type="text" class="validate" name="name">
                                 <label for="first_name">{{ __('Packing Unit Name') }}</label>
 
                             </div>

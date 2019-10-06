@@ -5,7 +5,7 @@
 @endsection
 @section('settings')
 <div class="col s2 m6 l6 right-align">
-    <a class="btn mb-1 waves-effect waves-light" href="{{ route('add_category') }}">{{__('Add New') }}
+    <a class="btn mb-1 waves-effect waves-light" href="{{ route('packing-units.create') }}">{{__('Add New') }}
         <i class="material-icons right">add</i>
     </a>
 </div>
@@ -35,7 +35,7 @@
                     <td>{{ $unit->name}}</td>
                     <td class="left-align">
                         <a href="{{route('packing-units.edit',$unit->id)}}"><i class="material-icons">create</i></a>
-                        <a class="delete-with-confirmation" href="{{ route('photos.destroy',$unit->id) }}"><i class="material-icons pink-text">clear</i></a>
+                        <a class="delete-with-confirmation" href="{{ route('packing_unit_delete',$unit->id) }}"><i class="material-icons pink-text">clear</i></a>
                     </td>
                 </tr>
                 @endforeach

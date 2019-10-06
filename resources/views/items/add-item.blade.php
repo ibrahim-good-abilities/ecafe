@@ -51,12 +51,6 @@
                <label>{{ __('Item Category') }}</label>
             </div>
 
-            <div class="input-unit col s12">
-               <input  name="Item_unit" id="item-unit" type="text" class="validate" placeholder="{{ __('Add Item Unit') }}">
-               <label  >{{ __('Item Unit') }}</label>
-            </div>
-
-
 
             <div class="input-price col s12">
                <input   name="price" id="price" type="number" step="0.5" min=".5" class="validate" placeholder="{{ __('Add Price') }}">
@@ -67,11 +61,21 @@
                   <input  name="cost" id="cost" type="number"  step="0.5" min=".5" class="validate" placeholder="{{ __('Add Cost') }}">
                   <label  >{{ __('Cost') }}</label>
             </div>
+
             <div class="input-cost col s12">
                   <input  name="quantity" id="cost" type="number"  step="0.1" min=".5" class="validate" placeholder="{{ __('Add Quantity') }}">
                   <label  >{{ __('Quantity') }}</label>
             </div>
        
+            <div class="item-packing-unit col s12 ">
+               <select class="icons" name="packing_unit">
+                  <option value="" disabled selected>{{ __('Choose a packing unit') }}</option>
+                  @foreach($packing_units as $pakcing_unit)
+                        <option  value="{{$pakcing_unit->id}}" class="circle"> {{$pakcing_unit->name}} </option>
+                  @endforeach
+               </select>
+               <label>{{ __('Packing Unit') }}</label>
+            </div>
 
             <div class="input-alert col s12">
                <input name="alert" id="alert-number" type="number" class="validate" placeholder="{{ __('Add Alert Number') }}">

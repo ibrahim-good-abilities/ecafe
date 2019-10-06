@@ -58,6 +58,7 @@ Route::get('/welcome','IndexController@welcome')->name('welcome');
 //parista
 Route::get('/parista','OrderController@parista')->name('parista');
 //Packing Units
+Route::get('/packing-units/delete/{id}','PackingUnitController@destroy')->name('packing_unit_delete');
 Route::resource('packing-units', 'PackingUnitController');
 
 

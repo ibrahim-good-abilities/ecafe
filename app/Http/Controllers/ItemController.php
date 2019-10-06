@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Item;
 use App\Category;
+use App\PackingUnit;
 use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
@@ -33,8 +34,9 @@ class ItemController extends Controller
      */
     public function create()
     {
-        $categoy_name = Category::select('category_name','id')->get();
-        return view('items.add-item')->with('categories_name',$categoy_name);
+        $categories = Category::select('category_name','id')->get();
+        $packing_units = PackingUnit::select('name','id')->get();
+        return view('items.add-item')->with('categories_name',$categories)->with('packing_units',$packing_units);
     }
 
     /**
@@ -47,8 +49,8 @@ class ItemController extends Controller
     {
         $validator=$request->validate([
             'Item_Name'     =>'required',
-            'Item_unit'     =>'required',
             'category'      =>'required',
+            'packing_unit'  =>'required',
             'alert'         =>'required',
             'price'         =>'required',
             'cost'          =>'required',
@@ -58,9 +60,9 @@ class ItemController extends Controller
 
         $Item = new Item();
         $Item->name = request('Item_Name');
-        $Item->unit =request('Item_unit');
         $Item->alert_number=request('alert');
         $Item->price = request('price');
+        $Item->packing_unit_id = request('packing_unit');
         $Item->cost=request('cost');
         $Item->main_stock=request('quantity');
         $Item->available_stock=0.0;
@@ -98,8 +100,9 @@ class ItemController extends Controller
     public function edit($type,$id)
     {
         $categories = Category::select('category_name','id')->get();
+        $packing_units = PackingUnit::select('name','id')->get();
         $item = Item::find($id);
-        return view('items.edit')->with('item',$item)->with('categories_name',$categories)->with('type',$type);
+        return view('items.edit')->with('item',$item)->with('categories_name',$categories)->with('packing_units',$packing_units)->with('type',$type);
 
     }
 
@@ -115,8 +118,8 @@ class ItemController extends Controller
 
          $request->validate([
             'Item_Name'     =>'required',
-            'Item_unit'     =>'required',
             'category'      =>'required',
+            'packing_unit'  =>'required',
             'alert'         =>'required',
             'price'         =>'required',
             'cost'          =>'required',
@@ -126,11 +129,11 @@ class ItemController extends Controller
         $Item = Item::find($id);
 
         $Item->name = request('Item_Name');
-        $Item->unit =request('Item_unit');
         $Item->alert_number=request('alert');
         $Item->price = request('price');
         $Item->cost=request('cost');
         $Item->category_id=request('category');
+        $Item->packing_unit_id = request('packing_unit');
         $Item->main_stock=request('quantity');
         if($request->hasFile('image')){
             $image = $request->file('image');
