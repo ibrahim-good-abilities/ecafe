@@ -1,8 +1,9 @@
 <?php
 namespace App\Events;
+use App\Notification;
 require base_path() . '/pusher-vendor/autoload.php';
 
-class NewNotification 
+class NewNotification
 {
 
   public function __construct($channel,$event,$data)
@@ -17,8 +18,12 @@ class NewNotification
         '873745',
         $options
       );
-    
+
       $pusher->trigger($channel,$event, $data);
   }
 
+  public function storeNotification(Request $request)
+  {
+
+  }
 }
