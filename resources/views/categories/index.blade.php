@@ -24,13 +24,15 @@
 </div>
 @endif
         <table id="category-table" class="subscription-table responsive-table highlight">
-            <thead>
+            
+               <thead>
                 <tr>
-                    <th>صوره المنتج</th>
-                    <th> اسم المنتج </th>
-                    <th> الأعدادات </th>
+                    <th> {{ __('Category Image') }} </th>
+                    <th>{{ __('Category Name') }}</th>
+                    <th> {{ __('Settings') }} </th>
                 </tr>
-            </thead>
+            </thead> 
+
             <tbody>
                 @foreach ($categories as $category)
                 <tr>
