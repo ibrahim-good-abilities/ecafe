@@ -26,6 +26,7 @@
             <thead>
                 <tr>
                     <th>{{ __('Packing Unit') }}</th>
+                    <th>{{__('Quantity')}}</th>
                     <th>{{ __('Settings') }}</th>
                 </tr>
             </thead>
@@ -33,6 +34,7 @@
                 @foreach ($units as $unit)
                 <tr>
                     <td>{{ $unit->name}}</td>
+                    <td>{{$unit->quantity}}</td>
                     <td class="left-align">
                         <a href="{{route('packing-units.edit',$unit->id)}}"><i class="material-icons">create</i></a>
                         <a class="delete-with-confirmation" href="{{ route('packing_unit_delete',$unit->id) }}"><i class="material-icons pink-text">clear</i></a>

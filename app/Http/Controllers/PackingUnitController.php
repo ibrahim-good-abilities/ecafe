@@ -39,10 +39,12 @@ class PackingUnitController extends Controller
     {
         $validator = $request->validate([
             'name'=>'required',
+            'quantity'=>'required'
          ]);
 
         $packingUnit = new PackingUnit();
         $packingUnit->name = request('name');
+        $packingUnit->quantity = request('quantity');
         $packingUnit->save();
         return redirect()->route('packing-units.edit',$packingUnit->id)->with('success','Packing unit created successfully!');
 
@@ -101,7 +103,7 @@ class PackingUnitController extends Controller
         $packingUnit = packingUnit::find($id);
         $packingUnit->delete();
         return redirect()->back()->with('success','packingUnit detelted successfully');
-       
+
     }
 
 }

@@ -38,11 +38,15 @@
                     <div class="row">
                         <div class="col s12">
 
-                            <div class="input-field">
+                            <div class="input-field col s12">
                                 <input placeholder="{{ __('Enter Packing Unit Name') }}" id="name" type="text" class="validate" name="name">
                                 <label for="first_name">{{ __('Packing Unit Name') }}</label>
 
                             </div>
+                            <div class="input-name col s12">
+                                <input  name="quantity" id="item_name" type="number" class="validate" placeholder="{{ __('Quantity') }}">
+                                <label for="first_name">{{ __('Quantity') }}</label>
+                             </div>
                         </div>
 
                         <div class="col s12">
