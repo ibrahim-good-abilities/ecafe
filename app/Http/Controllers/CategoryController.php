@@ -44,7 +44,6 @@ class CategoryController extends Controller
             'img'          =>'required|image|mimes:jpeg,png'
          ]);
 
-
         $category = new Category();
         $category->category_name = request('category_name');
         $image = $request->file('img');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Item;
 use App\Category;
+use App\PackingUnit;
 use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
@@ -33,8 +34,9 @@ class ItemController extends Controller
      */
     public function create()
     {
-        $categoy_name = Category::select('category_name','id')->get();
-        return view('items.add-item')->with('categories_name',$categoy_name);
+        $categories = Category::select('category_name','id')->get();
+        $packing_units = PackingUnit::select('name','id')->get();
+        return view('items.add-item')->with('categories_name',$categories)->with('packing_units',$packing_units);
     }
 
     /**
@@ -47,8 +49,8 @@ class ItemController extends Controller
     {
         $validator=$request->validate([
             'Item_Name'     =>'required',
-            'Item_unit'     =>'required',
             'category'      =>'required',
+            'packing_unit'  =>'required',
             'alert'         =>'required',
             'price'         =>'required',
             'cost'          =>'required',
@@ -58,20 +60,12 @@ class ItemController extends Controller
 
         $Item = new Item();
         $Item->name = request('Item_Name');
-        $Item->unit =request('Item_unit');
         $Item->alert_number=request('alert');
         $Item->price = request('price');
+        $Item->packing_unit_id = request('packing_unit');
         $Item->cost=request('cost');
-        if(request('stock')=='main')
-        {
-            $Item->main_stock=request('quantity');
-            $Item->available_stock=0.0;
-        }
-        else
-        {
-            $Item->available_stock=request('quantity');
-            $Item->main_stock=0.0;
-        }
+        $Item->main_stock=request('quantity');
+        $Item->available_stock=0.0;
         $Item->category_id=request('category');
         $image = $request->file('image');
         $name_img = time() . '.' . $image->getClientOriginalExtension();
@@ -82,7 +76,7 @@ class ItemController extends Controller
 
         $Item->save();
         //
-        return redirect()->route('item_edit',[request('stock'),$Item->id])->with('success','Item created successfully!');
+        return redirect()->route('item_edit',['main',$Item->id])->with('success','Item created successfully!');
         //return route('item_edit');
     }
 
@@ -103,12 +97,12 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($name,$id)
+    public function edit($type,$id)
     {
-        $type=$name;
-        $categories_name = Category::select('category_name','id')->get();
+        $categories = Category::select('category_name','id')->get();
+        $packing_units = PackingUnit::select('name','id')->get();
         $item = Item::find($id);
-        return view('items.edit')->with('item',$item)->with('categories_name',$categories_name)->with('type',$type);
+        return view('items.edit')->with('item',$item)->with('categories_name',$categories)->with('packing_units',$packing_units)->with('type',$type);
 
     }
 
@@ -124,8 +118,8 @@ class ItemController extends Controller
 
          $request->validate([
             'Item_Name'     =>'required',
-            'Item_unit'     =>'required',
             'category'      =>'required',
+            'packing_unit'  =>'required',
             'alert'         =>'required',
             'price'         =>'required',
             'cost'          =>'required',
@@ -135,28 +129,19 @@ class ItemController extends Controller
         $Item = Item::find($id);
 
         $Item->name = request('Item_Name');
-        $Item->unit =request('Item_unit');
         $Item->alert_number=request('alert');
         $Item->price = request('price');
         $Item->cost=request('cost');
         $Item->category_id=request('category');
-        if(request('stock')=='main')
-        {
-            $Item->main_stock=request('quantity');
-            $Item->available_stock=0.0;
-        }
-        else
-        {
-            $Item->available_stock=request('quantity');
-            $Item->main_stock=0.0;
-        }
+        $Item->packing_unit_id = request('packing_unit');
+        $Item->main_stock=request('quantity');
         if($request->hasFile('image')){
-        $image = $request->file('image');
-        $name_img = time() . '.' . $image->getClientOriginalExtension();
-        $destinationPath = public_path('/images/items/');
-        $image->move($destinationPath, $name_img);
-        $Item->src = '/images/items/'.$name_img;
-        $Item->update(['image' => $name_img]);
+            $image = $request->file('image');
+            $name_img = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/items/');
+            $image->move($destinationPath, $name_img);
+            $Item->src = '/images/items/'.$name_img;
+            $Item->update(['image' => $name_img]);
         }
         $Item->save();
         return redirect()->back()->with('success', 'item update successfully');

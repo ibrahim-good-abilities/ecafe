@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\DB;
 use App\Order;
 use App\Item;
 use App\Coupon;
-use App\Events\NewOrder;
+use App\Notification;
+use App\Events\NewNotification;
 
 class OrderController extends Controller
 {
@@ -19,7 +20,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-      
+
         $orders = DB::table('orders')
         ->select('orders.id','orders.status','orders.created_at','orders.discount','customers.customer_name','coupons.name',DB::raw('sum(order_line.quantity * order_line.price) as subtotal'))
         ->join('order_line','orders.id','=','order_line.order_id')
@@ -57,7 +58,7 @@ class OrderController extends Controller
         $order->customer_id =request('customer_id ');
         $order->status ='pending';
         $order->save();
-        new NewOrder('parista','new-order',['message'=>'new_order','order_id'=>$order->id]);
+        new NewNotification('parista','new-order',['message'=>'new_order','order_id'=>$order->id]);
         $response['order']['id'] = $order->id;
         $response['order']['status'] = __('Pending');
         $response['order']['success'] = __('We have successfully received your order.');
@@ -68,7 +69,7 @@ class OrderController extends Controller
             $order->items()->attach([$item['product_id']=>['quantity'=>$item['quantity'],'cost'=>$itemObj->cost,'price'=>$itemObj->price]]);
             $order_total += $itemObj->price * $item['quantity'];
         }
-        
+
         if ($coupon) {
             $response['coupon']['code'] = $coupon->code;
             $order->coupon_id=$coupon->id;
@@ -108,8 +109,8 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
-       
-        
+
+
     }
 
     /**
@@ -129,8 +130,14 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id ,$notification_id = false)
     {
+        if($notification_id ){
+            $notification =Notification::find($notification_id)->first();
+            $notification->status=true;
+            $notification->save();
+        }
+
         $order = DB::table('orders')
         ->select('orders.*','customers.customer_name')
         ->leftJoin('customers','customers.id','=','orders.customer_id')
@@ -179,6 +186,7 @@ class OrderController extends Controller
             ]);
         $order = Order::find($id);
         $order->status=request('status');
+        new NewNotification('customer_'.$id,'order-status',['status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
         $order->save();
         return redirect()->back()->with('success', 'Order update successfully');
 
@@ -194,7 +202,7 @@ class OrderController extends Controller
         $order = Order::find($id);
         $order->delete();
         return redirect()->back()->with('success','Order deleted succefully');
-        
+
     }
     public function parista()
     {
@@ -205,7 +213,7 @@ class OrderController extends Controller
         ->groupBy('orders.id','orders.status','orders.created_at','customer_name')
         ->get();
         return view('orders.parista')->with('orders',$orders);
-    
+
     }
 
 }

@@ -50,7 +50,6 @@
             <th>صوره المنتج</th>
             <th>اسم المنتج</th>
             <th>فئه المنتج</th>
-            <th>وحده المنتج</th>
             <th>كمية المنتج</th>
             <th>العمليات</th>
             <th> الاعدادات</th>
@@ -63,10 +62,8 @@
         <tr data-item_id="{{ $item->id }}">
             <td><img src="{{asset('public'.$item->src)}}" class="item-image" ></td>
             <td>{{ $item->name}}</td>
-            <td>{{ $item->unit}}</td>
             <td>{{ $item->category_name}}</td>
             <td>{{$item->available_stock}}</td>
-            غ
             <td class="left-align">
               <a class="modal-trigger" href="#transfer"><i class="material-icons" >compare_arrows</i></a>
               <a class="modal-trigger" href="#operations"><i class="material-icons">autorenew</i></a>

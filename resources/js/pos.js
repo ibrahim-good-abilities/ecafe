@@ -1,4 +1,13 @@
 $(document).ready(function() {
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('c015a0a925da1961bddf', {
+        cluster: 'eu',
+        forceTLS: true
+    });
+
+
     var oldvalue = 0;
     var oldprice = 0;
     var olddiscount = 0;
@@ -174,7 +183,6 @@ $(document).ready(function() {
         };
         $.post(base_url + '/orders/add-new', data, function(response) {
             if (response) {
-                debugger;
                 if (Object.keys(response.coupon).length != 0) {
                     if (typeof(response.coupon.error) !== "undefined") {
                         swal({
@@ -200,6 +208,13 @@ $(document).ready(function() {
                 $(".delete").removeClass('delete');
                 $(".product").addClass('disabled');
                 $("#order-status").show();
+
+                var channel = pusher.subscribe('customer_' + response.order.id);
+                channel.bind('order-status', function(data) {;
+                    $("#status").html(data.status);
+                    var snd = new Audio(base_url + '/resources/sounds/notification.mp3');
+                    snd.play();
+                });
             }
         });
     });

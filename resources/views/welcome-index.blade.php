@@ -35,6 +35,7 @@
 <script src="{{asset('resources/vendors/data-tables/extensions/responsive/js/dataTables.responsive.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('resources/vendors/data-tables/js/dataTables.select.min.js')}}" type="text/javascript"></script>
 <script src="{{ asset('resources/vendors/slick/slick.min.js')}}" type="text/javascript"></script>
+<script src="https://js.pusher.com/5.0/pusher.min.js" type="text/javascript"></script>
 <script src="{{ asset('resources/js/pos.js')}}" type="text/javascript"></script>
 @endsection
 @endsection
