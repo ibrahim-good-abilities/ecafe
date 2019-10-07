@@ -70,3 +70,13 @@ span.material-icons.icon-bg-circle.cyan.small {
     top: -10px!important;
     left: 3px;
 }
+span.new.badge {
+    margin: 10px;
+}
+ul#notifications-dropdown{
+    width:19% !important;
+    font-size: 15px!important;
+}
+.dropdown-content li>a, .dropdown-content li>span{
+ padding-top: 1px !important;
+}
