@@ -88,11 +88,11 @@
             <div class="col s12 file-field input-field">
                   <div class="row">
                         <div class ="col s6 ">
-                                 <img src="{{asset('public'.$item->src)}}" class="" style="max-width: 100px">
+                                 <img id="output" src="{{asset('public'.$item->src)}}" class="" style="max-width: 100px">
                         </div>
                         <div class="btn float-left col s2">
                            <span>{{ __('Change Image') }}</span>
-                           <input type="file" name="image">
+                           <input type="file" name="image" class="upload-preview" >
                         </div>
                        
                   <div>      
@@ -107,5 +107,6 @@
     
 </form>
 @section('page_js')
+<script src="{{asset('resources/js/custom/custom-script.js')}}" type="text/javascript"></script>
 @endsection
 @endsection

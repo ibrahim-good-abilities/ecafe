@@ -213,6 +213,7 @@ $(document).ready(function() {
                 channel.bind('order-status', function(data) {;
                     $("#status").html(data.status);
                     var snd = new Audio(base_url + '/resources/sounds/notification.mp3');
+                    notify(data.massage);
                     snd.play();
                 });
             }
