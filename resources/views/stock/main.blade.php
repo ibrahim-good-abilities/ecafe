@@ -47,7 +47,7 @@
       </button>
     </div>
   @endif
-  <table id="main_inventory_table" class="display">
+  <table id="main_inventory_table" class="subscription-table highlight">
     <thead>
       <tr>
           <th>صورة المنتج</th>

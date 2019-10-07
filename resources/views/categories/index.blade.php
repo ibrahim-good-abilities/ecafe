@@ -1,7 +1,6 @@
 @extends('layout')
 @section('title', 'قائمة الاصناف')
 @section('page_css')
-<link rel="stylesheet" type="text/css" href="{{asset('resources/css/category.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/jquery.dataTables.min.css')}}">
 @endsection
 @section('settings')
@@ -23,7 +22,7 @@
     </button>
 </div>
 @endif
-        <table id="category-table" class="subscription-table  highlight">
+        <table id="category-table" class="subscription-table highlight">
             
                <thead>
                 <tr>

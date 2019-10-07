@@ -147,7 +147,7 @@ class ItemController extends Controller
 
         $ingredient_items =DB::table('items')
         ->join('ingredients','ingredients.sub_item_id','=','items.id')
-        ->select('items.src','items.name','ingredients.id')
+        ->select('items.src','items.name','ingredients.id','ingredients.quantity')
         ->where('ingredients.main_item_id','=',$id)
         ->get();
         $items_is_menu_zero =Item::select('id','name')->where('is_menu','=',0)->get();

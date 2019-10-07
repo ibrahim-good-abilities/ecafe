@@ -18,7 +18,7 @@
 </div>
 @endif
 <!-- orders table -->
-<table id="orders" class="subscription-table responsive-table highlight">
+<table id="orders" class="subscription-table highlight">
     <thead>
         <tr>
             <th>{{ __('Order Id') }}</th>
