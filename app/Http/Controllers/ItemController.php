@@ -39,6 +39,12 @@ class ItemController extends Controller
         return view('items.add-item')->with('categories_name',$categories)->with('packing_units',$packing_units);
     }
 
+    public function createMenuItem()
+    {
+        $categories = Category::select('category_name','id')->get();
+        return view('the_menu.add-menu-item')->with('categories',$categories);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -80,6 +86,31 @@ class ItemController extends Controller
         //return route('item_edit');
     }
 
+    public function storeMenuItem(Request $request)
+    {
+        $validator=$request->validate([
+            'item_name'     =>'required',
+            'category'      =>'required',
+            'price'         =>'required',
+            'image'         =>'required|image|mimes:jpeg,png'
+        ]);
+
+        $item = new Item();
+        $item->name = request('item_name');
+        $item->alert_number=request('alert');
+        $item->price = request('price');
+        $item->category_id=request('category');
+        $item->is_menu=true;
+        $image = $request->file('image');
+        $name_img = time() . '.' . $image->getClientOriginalExtension();
+        $destinationPath = public_path('/images/items/');
+        $image->move($destinationPath, $name_img);
+        $item->src = '/images/items/'.$name_img;
+        $item->update(['image' => $name_img]);
+        $item->save();
+        return redirect()->route('menu_edit',$item->id)->with('success','Item created successfully!');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -103,6 +134,13 @@ class ItemController extends Controller
         $packing_units = PackingUnit::select('name','id')->get();
         $item = Item::find($id);
         return view('items.edit')->with('item',$item)->with('categories_name',$categories)->with('packing_units',$packing_units)->with('type',$type);
+
+    }
+    public function menuEdit($id)
+    {
+        $categories = Category::select('category_name','id')->get();
+        $item = Item::find($id);
+        return view('the_menu.edit')->with('item',$item)->with('categories_name',$categories);
 
     }
 
@@ -147,6 +185,33 @@ class ItemController extends Controller
         return redirect()->back()->with('success', 'item update successfully');
     }
 
+    public function Menuupdate(Request $request, $id)
+    {
+
+         $request->validate([
+            'item_name'     =>'required',
+            'category'      =>'required',
+            'price'         =>'required',
+        ]);
+
+
+        $item = Item::find($id);
+
+        $item->name = request('Item_Name');
+        $item->price = request('price');
+        $item->category_id=request('category');
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $name_img = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/items/');
+            $image->move($destinationPath, $name_img);
+            $item->src = '/images/items/'.$name_img;
+            $item->update(['image' => $name_img]);
+        }
+        $Item->save();
+        return redirect()->back()->with('success', 'Item update successfully');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -169,6 +234,16 @@ class ItemController extends Controller
         ->select('items.*','categories.category_name')->where('main_stock','>','0')->get();
 
        return view('stock.main')->with('items',$result);
+
+    }
+    
+    public function menu()
+    {
+       
+        $result = DB::table('items')->join('categories','categories.id','=','category_id')
+        ->select('items.*','categories.category_name')->where('is_menu','=','1')->get();
+
+       return view('the_menu.items')->with('items',$result);
 
     }
 

@@ -58,6 +58,21 @@
                 </div>
         </li>
 
+        <li class="bold"><a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)"><i class="material-icons">restaurant_menu</i>
+                <span class="menu-title" data-i18n="">{{ __('The Menu') }}</span></a>
+                <div class="collapsible-body">
+                    <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                        <li>
+                            <a class="collapsible-body" href="{{route('menu')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i>
+                            <span> {{ __('Menu Items') }}</span></a>
+                        </li>
+                        <li>
+                            <a class="collapsible-body" href="{{route('add_item')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ __('Add Menu Item') }}</span></a>
+                        </li>
+                    </ul>
+                </div>
+        </li>
+
         <li class="bold"><a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)"><i class="material-icons">card_giftcard</i>
                 <span class="menu-title" data-i18n="">{{ __('All Coupons') }}</span></a>
                 <div class="collapsible-body">
