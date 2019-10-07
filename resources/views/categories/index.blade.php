@@ -23,7 +23,7 @@
     </button>
 </div>
 @endif
-        <table id="category-table" class="subscription-table responsive-table highlight">
+        <table id="category-table" class="subscription-table  highlight">
             
                <thead>
                 <tr>

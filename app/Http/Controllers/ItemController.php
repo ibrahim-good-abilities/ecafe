@@ -236,9 +236,10 @@ class ItemController extends Controller
 
         $result = DB::table('items')->join('categories','categories.id','=','category_id')
         ->select('items.*','categories.category_name')->where('main_stock','>','0')->get();
-
-       return view('stock.main')->with('items',$result);
-
+        $packing=PackingUnit::all();
+       return view('stock.main')->with('items',$result)->with('packing_units',$packing);
+      
+       
     }
 
     public function menu()
