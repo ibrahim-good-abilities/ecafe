@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Item;
 use App\Category;
 use App\PackingUnit;
+use App\Ingrediant;
 use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
@@ -20,8 +21,10 @@ class ItemController extends Controller
     {
         // $items = Item::all();
         //
-        $result = DB::table('items')->join('categories','categories.id','=','category_id')
-        ->select('items.*','categories.category_name')->where('available_stock','>','0')->get();
+        $result = DB::table('items')
+        ->join('categories','categories.id','=','category_id')
+        ->select('items.*','categories.category_name')
+        ->where('available_stock','>','0')->get();
 
         return view('stock.available')->with('items', $result);
 
@@ -81,6 +84,7 @@ class ItemController extends Controller
         $Item->update(['image' => $name_img]);
 
         $Item->save();
+
         //
         return redirect()->route('item_edit',['main',$Item->id])->with('success','Item created successfully!');
         //return route('item_edit');
@@ -140,8 +144,8 @@ class ItemController extends Controller
     {
         $categories = Category::select('category_name','id')->get();
         $item = Item::find($id);
-        return view('the_menu.edit')->with('item',$item)->with('categories_name',$categories);
-
+        $ingredients = Ingrediant::where($id,'=','main_item_id')->get();
+        return view('the_menu.edit')->with('item',$item)->with('categories_name',$categories)->with('ingredients',$ingredients);
     }
 
     /**
@@ -229,17 +233,17 @@ class ItemController extends Controller
     }
     public function stock()
     {
-       
+
         $result = DB::table('items')->join('categories','categories.id','=','category_id')
         ->select('items.*','categories.category_name')->where('main_stock','>','0')->get();
 
        return view('stock.main')->with('items',$result);
 
     }
-    
+
     public function menu()
     {
-       
+
         $result = DB::table('items')->join('categories','categories.id','=','category_id')
         ->select('items.*','categories.category_name')->where('is_menu','=','1')->get();
 
@@ -252,7 +256,7 @@ class ItemController extends Controller
             'item_id'     =>'required',
             'quantity'     =>'required',
         ]);
-        
+
         $item_id = request('item_id');
         $quantity = request('quantity');
         $item =Item::find($item_id);
@@ -276,7 +280,7 @@ class ItemController extends Controller
             'quantity' => 'required',
             'operation' => 'required',
         ]);
-        
+
         $item_id = request('item_id');
         $quantity = request('quantity');
         $operation = request('operation');
@@ -299,13 +303,13 @@ class ItemController extends Controller
         }
 
     }
-    
+
     public function transferAvailableStock(Request $request){
         $validator=$request->validate([
             'item_id'     =>'required',
             'quantity'     =>'required',
         ]);
-        
+
         $item_id = request('item_id');
         $quantity = request('quantity');
         $item =Item::find($item_id);
@@ -321,14 +325,14 @@ class ItemController extends Controller
         }
 
     }
-    
+
     public function availableStockOperations(Request $request){
         $validatedData = $request->validate([
             'item_id' => 'required',
             'quantity' => 'required',
             'operation' => 'required',
         ]);
-        
+
         $item_id = request('item_id');
         $quantity = request('quantity');
         $operation = request('operation');
@@ -352,6 +356,6 @@ class ItemController extends Controller
 
     }
 
-  
-    
+
+
 }

@@ -10,7 +10,7 @@
             </li>
              <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">label</i>
                 <span class="menu-title" data-i18n="">{{ __('Categories') }}</span></a>
-                
+
                 <div class="collapsible-body">
                     <ul class="collapsible collapsible-sub" data-collapsible="accordion">
                         <li>
@@ -23,7 +23,7 @@
                     </ul>
                 </div>
             </li>
-       
+
         <li class="bold"><a class="collapsible-header waves-effect waves-cyan "href="#"><i class="material-icons">shopping_cart</i>
                 <span class="menu-title" data-i18n="">{{ __('Orders') }}</span></a>
                 <div class="collapsible-body">
@@ -34,8 +34,8 @@
                         </li>
                     </ul>
                 </div>
-        </li>   
-            
+        </li>
+
         <li class="bold"><a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)"><i class="material-icons">local_shipping</i>
                 <span class="menu-title" data-i18n="">{{ __('Stock') }}</span></a>
                 <div class="collapsible-body">
@@ -67,7 +67,7 @@
                             <span> {{ __('Menu Items') }}</span></a>
                         </li>
                         <li>
-                            <a class="collapsible-body" href="{{route('add_item')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ __('Add Menu Item') }}</span></a>
+                            <a class="collapsible-body" href="{{route('add_menu_item')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ __('Add Menu Item') }}</span></a>
                         </li>
                     </ul>
                 </div>
@@ -87,5 +87,5 @@
                     </ul>
                 </div>
         </li>
-    </ul>    
+    </ul>
 </aside>
