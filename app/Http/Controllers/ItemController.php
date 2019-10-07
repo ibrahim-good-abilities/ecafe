@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Item;
 use App\Category;
 use App\PackingUnit;
-use App\Ingrediant;
+use App\Ingredient;
 use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
@@ -144,8 +144,15 @@ class ItemController extends Controller
     {
         $categories = Category::select('category_name','id')->get();
         $item = Item::find($id);
-        $ingredients = Ingrediant::where($id,'=','main_item_id')->get();
-        return view('the_menu.edit')->with('item',$item)->with('categories_name',$categories)->with('ingredients',$ingredients);
+
+        $ingredient_items =DB::table('items')
+        ->join('ingredients','ingredients.sub_item_id','=','items.id')
+        ->select('items.src','items.name','ingredients.id')
+        ->where('ingredients.main_item_id','=',$id)
+        ->get();
+        $items_is_menu_zero =Item::select('id','name')->where('is_menu','=',0)->get();
+       //dd($items_is_menu_zero);
+        return view('the_menu.edit')->with('item',$item)->with('categories_name',$categories)->with('ingredient_items',$ingredient_items)->with('items_is_menu_zero',$items_is_menu_zero);
     }
 
     /**
@@ -201,7 +208,7 @@ class ItemController extends Controller
 
         $item = Item::find($id);
 
-        $item->name = request('Item_Name');
+        $item->name = request('item_name');
         $item->price = request('price');
         $item->category_id=request('category');
         if($request->hasFile('image')){
@@ -212,7 +219,7 @@ class ItemController extends Controller
             $item->src = '/images/items/'.$name_img;
             $item->update(['image' => $name_img]);
         }
-        $Item->save();
+        $item->save();
         return redirect()->back()->with('success', 'Item update successfully');
     }
 

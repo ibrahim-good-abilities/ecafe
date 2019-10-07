@@ -5,7 +5,7 @@
 
 @section('settings')
 <div class="col s2 m6 l6 right-align">
-    <a class="btn mb-1 waves-effect waves-light" href="{{ route('items_index') }}">{{__('Back') }}
+    <a class="btn mb-1 waves-effect waves-light" href="{{ route('menu') }}">{{__('Back') }}
         <i class="material-icons right">keyboard_return</i>
     </a>
 </div>
@@ -56,8 +56,8 @@
                <label>{{ __('Price') }}</label>
             </div>
 
-            
-            
+
+
             <div class="col s12 file-field input-field">
                <div class="btn float-left">
                   <span>{{ __('Upload Image') }}</span>
@@ -67,15 +67,15 @@
                   <input class="file-path validate" type="text">
                </div>
             </div>
-           
+
 
             <div class="input-field col s12">
                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">{{ __('Submit') }}
                   <i class="material-icons right">send</i>
                </button>
             </div>
-         
-     
+
+
 </form>
 @section('page_js')
 @endsection
