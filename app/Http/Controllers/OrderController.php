@@ -66,7 +66,7 @@ class OrderController extends Controller
         $order_total = 0;
         foreach($items as $item){
             $itemObj = Item::find($item['product_id']);
-            $order->items()->attach([$item['product_id']=>['quantity'=>$item['quantity'],'cost'=>$itemObj->cost,'price'=>$itemObj->price]]);
+            $order->items()->attach([$item['product_id']=>['quantity'=>$item['quantity'],'cost'=>0,'price'=>$itemObj->price]]);
             $order_total += $itemObj->price * $item['quantity'];
         }
 
