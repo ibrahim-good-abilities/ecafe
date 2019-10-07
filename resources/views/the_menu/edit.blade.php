@@ -95,7 +95,7 @@
              </div>
              <div class="input-field col m4 s6">
                 <select class="icons" name="sub_item_id">
-                <option value="" disabled selected> add new</option>
+                <option value="" disabled selected>{{ __("Select")}}</option>
 
                     @foreach($items_is_menu_zero as $item_is_menu_zero)
                       <option value="{{ $item_is_menu_zero->id }}" >{{$item_is_menu_zero->name}}</option>
