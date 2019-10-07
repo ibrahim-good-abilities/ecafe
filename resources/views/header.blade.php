@@ -25,7 +25,9 @@
                 <!-- notifications-dropdown-->
                 <ul class="dropdown-content" id="notifications-dropdown">
                     <li>
-                        <h6>NOTIFICATIONS<span class="new badge">{{count($notifications)}}</span></h6>
+                         <span class="new badge">{{count($notifications)}}</span>
+                        <h6>NOTIFICATIONS</h6>
+                        
                     </li>
                     @foreach($notifications as $notification)
                     <li class="divider"></li>
