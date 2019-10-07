@@ -14,7 +14,7 @@ class AddQuantityToPackingUnitsTable extends Migration
     public function up()
     {
         Schema::table('packing_units', function (Blueprint $table) {
-            $table->float('quantity');
+            $table->float('quantity')->after('name');
         });
     }
 
