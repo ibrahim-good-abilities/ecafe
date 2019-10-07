@@ -1,6 +1,7 @@
 @extends('layout')
-@section('title',  __('Add Menu Item'))
+@section('title', __('Edit Item'))
 @section('page_css')
+<link rel="stylesheet" type="text/css" href="{{asset('resources/css/edite-blade.css')}}">
 @endsection
 
 @section('settings')
@@ -9,9 +10,9 @@
         <i class="material-icons right">keyboard_return</i>
     </a>
 </div>
+
 @endsection
 @section('middle_content')
-
 @if ($message = Session::get('success'))
 <div class="card-alert card gradient-45deg-green-teal">
     <div class="card-content white-text">
@@ -32,50 +33,49 @@
         </ul>
       </div><br />
 @endif
-<form action="{{ route('store_menu_item') }}" method="post" enctype="multipart/form-data" >
+<form action="{{ route('menu_item_update',$item->id) }}" method="post" enctype="multipart/form-data" >
    @csrf
          <div class="row">
             <div class="input-name col s12">
-               <input  name="item_name" id="item_name" type="text" class="validate" placeholder="{{ __('Add Item Name') }}">
-               <label for="first_name">{{ __('Item Name') }}</label>
+               <input  name="item_name" id="item_name" type="text" class="validate" placeholder="{{ __('Add Item Name') }}"value="{{$item->name}}">
+               <label for="item_name">{{ __('Item Name') }}</label>
             </div>
 
             <div class="item-category col s12 ">
                <select class="icons" name="category">
                   <option value="" disabled selected>{{ __('Choose your Category') }}</option>
-                  @foreach($categories as $category)
-                        <option  value="{{$category->id}}"  name="category" class="circle"> {{$category->category_name}} </option>
+                  @foreach($categories_name as $category)
+                        <option  value="{{$category->id}}"  name="category" class="circle"  {{ $category->id == $item->category_id ? 'selected':''}} > {{$category->category_name}} </option>
                   @endforeach
                </select>
                <label>{{ __('Item Category') }}</label>
             </div>
 
-
             <div class="input-price col s12">
-               <input name="price" id="price" type="number" step="0.5" min=".5" class="validate" placeholder="{{ __('Add Price') }}">
-               <label>{{ __('Price') }}</label>
+               <input name="price" id="price" type="number" class="validate" placeholder="{{ __('Add Price') }}"value="{{$item->price}}">
+               <label  >{{ __('Price') }}</label>
             </div>
 
-            
-            
             <div class="col s12 file-field input-field">
-               <div class="btn float-left">
-                  <span>{{ __('Upload Image') }}</span>
-                  <input type="file" name="image">
-               </div>
-               <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text">
-               </div>
+                  <div class="row">
+                        <div class ="col s6 ">
+                                 <img src="{{asset('public'.$item->src)}}" class="" style="max-width: 100px">
+                        </div>
+                        <div class="btn float-left col s2">
+                           <span>{{ __('Change Image') }}</span>
+                           <input type="file" name="image">
+                        </div>
+                       
+                  <div>      
             </div>
-           
 
             <div class="input-field col s12">
                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">{{ __('Submit') }}
                   <i class="material-icons right">send</i>
                </button>
             </div>
-         
-     
+         </div>
+    
 </form>
 @section('page_js')
 @endsection

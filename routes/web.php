@@ -46,10 +46,12 @@ Route::post('/stock/main/operations','ItemController@mainStockOperations')->name
 Route::post('/stock/available/transfer','ItemController@transferAvailableStock')->name('transfer_available_stock');
 Route::post('/stock/available/operations','ItemController@availableStockOperations')->name('available_stock_operations');
 
-//items
+//menu items
 Route::get('/menu/index','ItemController@menu')->name('menu');
 Route::get('/menu/create','ItemController@createMenuItem')->name('add_menu_item');
-
+Route::post('/menu/store','ItemController@storeMenuItem')->name('store_menu_item');
+Route::get('/menu/edit/{id}', 'ItemController@menuEdit')->name('menu_edit');
+Route::post('/menu/edit/{id}', 'ItemController@menuUpdate')->name('menu_item_update');
 
 //coupons
 Route::get('/coupons/index','CouponController@index')->name('coupons');
