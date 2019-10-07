@@ -146,7 +146,6 @@ class ItemController extends Controller
         $item = Item::find($id);
         $ingredients = Ingrediant::where($id,'=','main_item_id')->get();
         return view('the_menu.edit')->with('item',$item)->with('categories_name',$categories)->with('ingredients',$ingredients);
-
     }
 
     /**
