@@ -63,7 +63,7 @@
             <td>{{ $item->category_name }}</td>
             <td>{{ $item->price }}</td>
             <td class="center-align">
-                <a  href="{{route('item_edit',['name'=>'available','id'=>$item->id])}}">
+                <a  href="{{route('menu_edit',$item->id)}}">
                     <i class="material-icons">edit</i>
                 </a>
                 <a class="delete-with-confirmation" href="{{route('item_delete',$item->id)}}">

@@ -100,6 +100,7 @@ class ItemController extends Controller
         $item->alert_number=request('alert');
         $item->price = request('price');
         $item->category_id=request('category');
+        $item->is_menu=true;
         $image = $request->file('image');
         $name_img = time() . '.' . $image->getClientOriginalExtension();
         $destinationPath = public_path('/images/items/');
