@@ -133,7 +133,7 @@ class OrderController extends Controller
     public function edit($id ,$notification_id = false)
     {
         if($notification_id ){
-            $notification =Notification::find($notification_id)->first();
+            $notification = Notification::find($notification_id);
             $notification->status=true;
             $notification->save();
         }

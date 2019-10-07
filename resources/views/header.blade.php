@@ -13,7 +13,7 @@
 
                     <li class="hide-on-large-only"><a class="waves-effect waves-block waves-light search-button" href="javascript:void(0);"><i class="material-icons">search</i></a></li>
 
-                    <li><a class="waves-effect waves-block waves-light notification-button" href="javascript:void(0);" data-target="notifications-dropdown"><i class="material-icons">notifications_none<small class="notification-badge">{{count($notifications)}}</small></i></a></li>
+                    <li><a class="waves-effect waves-block waves-light notification-button" href="javascript:void(0);" data-target="notifications-dropdown"><i class="material-icons">notifications_none<small class="notification-badge">{{$count}}</small></i></a></li>
                    {{--
                    @if((Route::currentRouteName()!=='welcome' ) && (Route::currentRouteName()!=='parista'))
                     <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);" data-target="profile-dropdown"><span class="avatar-status avatar-online"><img src="{{asset('resources/images/avatar/default_avatar.png')}}" alt="avatar"><i></i></span></a></li>
@@ -25,7 +25,7 @@
                 <!-- notifications-dropdown-->
                 <ul class="dropdown-content" id="notifications-dropdown">
                     <li>
-                        <h6>NOTIFICATIONS<span class="new badge">{{count($notifications)}}</span></h6>
+                        <h6>NOTIFICATIONS<span class="new badge">{{$count}}</span></h6>
                     </li>
                     @foreach($notifications as $notification)
                     <li class="divider"></li>

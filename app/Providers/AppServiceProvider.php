@@ -33,19 +33,23 @@ class AppServiceProvider extends ServiceProvider
             $url=$this->app->request->getRequestUri();
             if(stripos($url,'welcome')){
 
-               $notifications = Notification::where('type','customer')->get();
-
-               View::share('notifications', $notifications);
+               $notifications = Notification::where('type','customer')->orderBy('id','desc')->limit(100)->get();
+               $count =Notification::where('type','customer')->where('status',false)->count();
+               View::share(['notifications'=>$notifications,'count'=>$count]);
            }
            elseif(stripos($url,'parista')){
 
-               $notifications = Notification::where('type','parista')->get();
-               View::share('notifications', $notifications);
+               $notifications = Notification::where('type','parista')->orderBy('id','desc')->limit(100)->get();
+               $count =Notification::where('type','parista')->where('status',false)->count();
+
+               View::share($data=['notifications'=>$notifications,'count'=>$count]);
            }
            else
            {
-               $notifications = Notification::where('type','admin')->get();
-               View::share('notifications', $notifications);
+               $notifications = Notification::where('type','admin')->orderBy('id','desc')->limit(100)->get();
+               $count =Notification::where('type','admin')->where('status',false)->count();
+
+               View::share(['notifications'=> $notifications,'count'=>$count]);
            }
 
         }
