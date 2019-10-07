@@ -46,6 +46,10 @@ $(document).ready(function() {
 
     });
 
+ 
+    $('.upload-preview').change(function(){
+        document.getElementById('output').src = window.URL.createObjectURL(this.files[0])
+    });
 
 
 });

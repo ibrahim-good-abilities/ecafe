@@ -44,7 +44,7 @@
                 <td>{{ $date_parts[0] }}</td>
                 <td>{{ $date_parts[1] }}</td>
                 <td>{{$order->name}}</td>
-                <td><span class="badge grey lighten-5 grey-text text-accent-2">{{ __($order->status) }}</span></td>
+                <td><span class="badge grey lighten-5 grey-text text-accent-2">{{ __( ucfirst($order->status)) }}</span></td>
 
                 <td>{{$order->subtotal}}</td>
                 <td>{{$order->discount}}</td>

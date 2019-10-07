@@ -35,7 +35,7 @@
                 <td>{{$order->id}}</td>
                 <td>{{ $order->customer_name !="" ? $order->customer_name:__('Guest')}}</td>
                 <td>{{ $order->created_at }}</td>
-                <td><span class="badge grey lighten-5 grey-text text-accent-2">{{ __($order->status) }}</span></td>
+                <td><span class="badge grey lighten-5 grey-text text-accent-2">{{ __( ucfirst($order->status)) }}</span></td>
                 <td>{{ $order->total }}</td>
                 
                 <td class="left-align">

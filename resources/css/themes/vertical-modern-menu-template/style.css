@@ -6477,7 +6477,6 @@ span.badge.pill {
 
 .navbar #notifications-dropdown li {
     font-size: 1rem;
-    padding: 8px 16px;
 }
 
 .navbar #notifications-dropdown li>a {
@@ -9203,4 +9202,8 @@ tr.group:hover {
 .slick-initialized .slick-slide:hover,
 .slick-initialized .slick-slide.active {
     background-color: #9E9E9E;
+}
+a.grey-text.text-darken-2{
+    
+    white-space: nowrap;
 }
