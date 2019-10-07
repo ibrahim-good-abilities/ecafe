@@ -88,11 +88,11 @@
             <div class="col s12 file-field input-field">
                   <div class="row">
                         <div class ="col s6 ">
-                                 <img id="output" src="{{asset('public'.$item->src)}}" class="" style="max-width: 100px">
+                                 <img src="{{asset('public'.$item->src)}}" class="" style="max-width: 100px">
                         </div>
                         <div class="btn float-left col s2">
                            <span>{{ __('Change Image') }}</span>
-                           <input type="file" name="image" class="upload-preview" >
+                           <input type="file" name="image">
                         </div>
                        
                   <div>      
@@ -103,63 +103,10 @@
                   <i class="material-icons right">send</i>
                </button>
             </div>
+         </div>
+    
+</form>
 
-            <div class="col s12 m12 l12">
-
-
-      <div id="inline-form" class="card card card-default scrollspy">
-        <div class="card-content">
-               <h4 class="card-title">مكونات المنتج</h4>
-          <form class="col s12">
-            <div class="row">
-                  <div class="input-field col m4 s12">
-                        <button class="btn cyan waves-effect waves-light" type="submit" name="action">
-                        <i class="material-icons left">add</i>اضافه</button>
-                  </div>
-                  <div class="input-field col m4 s6">
-                  <input  name="cost" id="cost" type="number" class="validate" placeholder="{{ __('Add Cost') }}"value="{{$item->cost}}">
-                        <label  >ادخل الكميه</label>
-                  </div>
-                  <div class="input-field col m4 s6">
-                  <select class="icons" name="">
-                  <option value="" disabled selected> add new</option>
-                        <option value="" >normal</option>
-                        <option value="" >spectial</option>
-                     </select>
-                     <label>اختار المكون</label>
-                  </div>   
-            </div>
-          </form>
-
-         <table>
-            <thead>
-               <tr>
-                     <th>صوره المنتج</th>
-                     <th>اسم المنتج</th>
-                     <th>حذف</th>
-
-               </tr>
-            </thead>
-
-            <tbody>
-            
-               <tr>
-                     <td><img src="http://localhost/ecafe/public/images/items/1570435507.jpg" class="item-image" ></td>
-                     <td>الاسم</td>
-                  
-                     <td>
-                        <a class="delete-with-confirmation" href="{{route('item_delete',$item->id)}}">
-                           <i class="material-icons pink-text">clear</i>
-                        </a>
-                     </td>
-               </tr>
-
-            </tbody>
-         </table>
-
-    </div>
-</div>
 @section('page_js')
-<script src="{{asset('resources/js/custom/custom-script.js')}}" type="text/javascript"></script>
 @endsection
 @endsection
