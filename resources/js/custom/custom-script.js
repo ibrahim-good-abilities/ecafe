@@ -9,7 +9,13 @@ NOTE:
 ------
 PLACE HERE YOUR OWN JS CODES AND IF NEEDED.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR CUSTOM SCRIPT IT'S BETTER LIKE THIS. */
+function notify(text)
+{
+    var toastHTML = `<span>${text}</span><button class="btn-flat toast-action">Close</button>`;
+    M.toast({html: toastHTML});
+}
 $(document).ready(function() {
+
 
     $(document).on('click', '.delete-with-confirmation', function(e) {
         e.preventDefault();
@@ -28,7 +34,18 @@ $(document).ready(function() {
             }
         });
 
+        $(document).on('click','.btn-flat.toast-action',function(){
+            var toastElement = document.querySelector('.toast');
+            var toastInstance = M.Toast.getInstance(toastElement);
+            toastInstance.dismiss();
+        });
+
+
+
+
+
     });
+
 
 
 });

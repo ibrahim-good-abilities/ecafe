@@ -58,7 +58,7 @@ class OrderController extends Controller
         $order->customer_id =request('customer_id ');
         $order->status ='pending';
         $order->save();
-        new NewNotification('parista','new-order',['message'=>'new_order','order_id'=>$order->id]);
+        new NewNotification('parista','new-order',['message'=>__('You have a new order').' #'.$order->id,'order_id'=>$order->id]);
         $response['order']['id'] = $order->id;
         $response['order']['status'] = __('Pending');
         $response['order']['success'] = __('We have successfully received your order.');
@@ -186,7 +186,7 @@ class OrderController extends Controller
             ]);
         $order = Order::find($id);
         $order->status=request('status');
-        new NewNotification('customer_'.$id,'order-status',['status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
+        new NewNotification('customer_'.$id,'order-status',['massage'=>__('Your order is '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
         $order->save();
         return redirect()->back()->with('success', 'Order update successfully');
 

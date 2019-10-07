@@ -11,5 +11,7 @@ $(document).ready(function() {
     channel.bind('new-order', function(data) {
         var snd = new Audio(base_url + '/resources/sounds/notification.mp3');
         snd.play();
+        notify(data.message)
     });
+
 });

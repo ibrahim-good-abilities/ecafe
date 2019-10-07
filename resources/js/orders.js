@@ -29,6 +29,7 @@ $(document).ready(function() {
     var channel = pusher.subscribe('parista');
     channel.bind('new-order', function(data) {
         var snd = new Audio(base_url + '/resources/sounds/notification.mp3');
+        notify(data.message)
         snd.play();
         setTimeout(() => {
             location.reload();
