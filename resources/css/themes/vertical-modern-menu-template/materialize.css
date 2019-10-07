@@ -12060,9 +12060,3 @@ input[type=range]::-ms-thumb
         text-align: center;
     }
 }
-ul#notifications-dropdown{
-   
-    width: auto !important;
-    left: 1082.67px !important;
-    
-}

@@ -60,3 +60,13 @@ div#main.no-padding {
 div#category-table_length {
     display: none;
 }
+
+span.notification-title {
+    width: 80%;
+    font-size: 15px!important;
+}
+
+span.material-icons.icon-bg-circle.cyan.small {
+    top: -10px!important;
+    left: 3px;
+}

@@ -29,7 +29,7 @@
                     </li>
                     @foreach($notifications as $notification)
                     <li class="divider"></li>
-                    <li><a class="grey-text text-darken-2" href="{{$notification->target}}"><span class="material-icons icon-bg-circle cyan small">add_shopping_cart</span> {{$notification->title}}</a>
+                    <li><a class="grey-text text-darken-2" href="{{$notification->target}}"><span class="material-icons icon-bg-circle cyan small">add_shopping_cart</span> <span class="notification-title">{{$notification->title}}</span></a>
                         <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">2 hours ago</time>
                     </li>
                     @endforeach
