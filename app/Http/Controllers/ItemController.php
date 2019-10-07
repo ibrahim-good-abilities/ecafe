@@ -147,7 +147,7 @@ class ItemController extends Controller
 
         $ingredient_items =DB::table('items')
         ->join('ingredients','ingredients.sub_item_id','=','items.id')
-        ->select('items.src','items.name','ingredients.id')
+        ->select('items.src','items.name','ingredients.id','ingredients.quantity')
         ->where('ingredients.main_item_id','=',$id)
         ->get();
         $items_is_menu_zero =Item::select('id','name')->where('is_menu','=',0)->get();
@@ -243,9 +243,10 @@ class ItemController extends Controller
 
         $result = DB::table('items')->join('categories','categories.id','=','category_id')
         ->select('items.*','categories.category_name')->where('main_stock','>','0')->get();
-
-       return view('stock.main')->with('items',$result);
-
+        $packing=PackingUnit::all();
+       return view('stock.main')->with('items',$result)->with('packing_units',$packing);
+      
+       
     }
 
     public function menu()

@@ -1,7 +1,6 @@
 @extends('layout')
 @section('title', __('Edit Item'))
 @section('page_css')
-<link rel="stylesheet" type="text/css" href="{{asset('resources/css/edite-blade.css')}}">
 @endsection
 
 @section('settings')
@@ -111,6 +110,7 @@
              <tr>
                 <th>صوره المنتج</th>
                 <th>اسم المنتج</th>
+                <th>الكميه</th>
                 <th>حذف</th>
              </tr>
           </thead>
@@ -120,6 +120,7 @@
              <tr>
                 <td><img src="{{asset('public'.$ingredient_item->src)}}" class="item-image" ></td>
                 <td>{{$ingredient_item->name}}</td>
+                <td>{{$ingredient_item->quantity}}</td>
                 <td>
                    <a class="delete-with-confirmation" href="{{route('ingredient_delete',$ingredient_item->id)}}">
                       <i class="material-icons pink-text">clear</i>

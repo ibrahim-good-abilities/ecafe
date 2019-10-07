@@ -47,7 +47,7 @@
       </button>
     </div>
   @endif
-  <table id="main_inventory_table" class="display">
+  <table id="main_inventory_table" class="subscription-table highlight">
     <thead>
       <tr>
           <th>صورة المنتج</th>
@@ -116,12 +116,21 @@
     <div class="modal-content">
       <h4>{{ __('Execute An Operation') }}</h4>
       <div class="row">
-          <div class="input-field col m6 s6">
+           <div class="input-field col m4 s6">
                 <label for="quantity" class="">أدخل الكميه</label>
                 <input type="number" name="quantity" id="quantity" required="">
           </div>
-
-          <div class="input-field col m6 s6">
+          <div class="input-field col m4 s6">
+            <select name="operation">
+                  <option value="" disabled selected>وحده التعبئه</option>
+                  @foreach  ($packing_units as $packing_unit) 
+                  <option value="1">بدون</option>
+                  <option value="2">{{$packing_unit->name}}</option>
+                  @endforeach
+            </select>
+            <input type="hidden" name="item_id" value=""/>
+          </div>
+          <div class="input-field col m4 s6">
             <select name="operation">
                   <option value="" disabled selected>نوع العمليه</option>
                   <option value="1">اضافه</option>

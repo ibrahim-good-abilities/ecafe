@@ -8,7 +8,7 @@ $(function() {
     var language = "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Arabic.json";
 
 
-    $('#menu_items').DataTable({
+    $('#main_inventory_table').DataTable({
         "responsive": false,
 
         "language": {

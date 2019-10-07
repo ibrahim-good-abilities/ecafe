@@ -44,7 +44,7 @@
   </div>
 @endif
 
-<table id="data-table-simple" class="display">
+<table id="main_inventory_table" class="subscription-table highlight">
     <thead>
         <tr>
             <th>صوره المنتج</th>

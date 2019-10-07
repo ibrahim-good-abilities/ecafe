@@ -22,7 +22,7 @@
     </button>
 </div>
 @endif
-        <table id="packing-units-table" class="subscription-table responsive-table highlight">
+        <table id="packing-units-table" class="subscription-table highlight">
             <thead>
                 <tr>
                     <th>{{ __('Packing Unit') }}</th>
