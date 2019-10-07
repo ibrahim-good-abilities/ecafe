@@ -65,8 +65,8 @@
                            <span>{{ __('Change Image') }}</span>
                            <input type="file" name="image">
                         </div>
-                       
-                  <div>      
+
+                  <div>
             </div>
 
             <div class="input-field col s12">
@@ -75,33 +75,37 @@
                </button>
             </div>
          </div>
-    
+
 </form>
 
 <div id="inline-form" class="card card card-default scrollspy">
     <div class="card-content">
        <h4 class="card-title">مكونات المنتج</h4>
-       <form class="col s12">
+       <form action="{{route('ingredients.store')}}" method="post"  class="col s12">
+           @csrf
+           <input type="hidden" name="main_item_id" value="{{ $item->id }}"/>
           <div class="row">
              <div class="input-field col m4 s12">
                    <button class="btn cyan waves-effect waves-light" type="submit" name="action">
                    <i class="material-icons left">add</i>اضافه</button>
              </div>
              <div class="input-field col m4 s6">
-                <input  name="cost" id="cost" type="number" class="validate" placeholder="{{ __('Add Cost') }}"value="{{$item->cost}}">
+                <input  name="quantity" id="quantity" type="number" class="validate" placeholder="{{ __('Add Quantity') }}"value="{{$item->quantity}}">
                 <label  >ادخل الكميه</label>
              </div>
              <div class="input-field col m4 s6">
-                <select class="icons" name="">
-                      <option value="" disabled selected> add new</option>
-                      <option value="" >normal</option>
-                      <option value="" >spectial</option>
+                <select class="icons" name="sub_item_id">
+                <option value="" disabled selected> add new</option>
+
+                    @foreach($items_is_menu_zero as $item_is_menu_zero)
+                      <option value="{{ $item_is_menu_zero->id }}" >{{$item_is_menu_zero->name}}</option>
+                    @endforeach
                 </select>
                 <label>اختار المكون</label>
-             </div>   
+             </div>
           </div>
        </form>
- 
+
        <table>
           <thead>
              <tr>
@@ -110,17 +114,19 @@
                 <th>حذف</th>
              </tr>
           </thead>
- 
+
           <tbody>
+              @foreach($ingredient_items as $ingredient_item)
              <tr>
-                <td><img src="http://localhost/ecafe/public/images/items/1570435507.jpg" class="item-image" ></td>
-                <td>الاسم</td>
+                <td><img src="{{asset('public'.$ingredient_item->src)}}" class="item-image" ></td>
+                <td>{{$ingredient_item->name}}</td>
                 <td>
-                   <a class="delete-with-confirmation" href="{{route('item_delete',$item->id)}}">
+                   <a class="delete-with-confirmation" href="{{route('ingredient_delete',$ingredient_item->id)}}">
                       <i class="material-icons pink-text">clear</i>
                    </a>
                 </td>
              </tr>
+             @endforeach
           </tbody>
        </table>
     </div>

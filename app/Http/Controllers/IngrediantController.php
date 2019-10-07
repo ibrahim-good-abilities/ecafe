@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Ingrediant;
+use App\Ingredient;
 use Illuminate\Support\Facades\View;
 
 class IngrediantController extends Controller
@@ -45,14 +45,14 @@ class IngrediantController extends Controller
             'sub_item_id' =>'required',
             'quantity'    =>'required'
         ]);
-        $ingredient = new Ingrediant();
+        $ingredient = new Ingredient();
         $ingredient->main_item_id = request('main_item_id');
         $ingredient->sub_item_id  = request('sub_item_id');
         $ingredient->quantity     = request('quantity');
 
         $ingredient->save();
 
-        return redirect()->back()->with('succes','Ingredient Created succesfully');
+        return redirect()->back()->with('success','Ingredient Created succesfully');
     }
 
     /**
@@ -97,7 +97,7 @@ class IngrediantController extends Controller
      */
     public function destroy($id)
     {
-        $ingredient = Ingrediant::find($id);
+        $ingredient = Ingredient::find($id);
         $ingredient->delete();
         return redirect()->back()->with('success','Ingredient deleted successfully');
     }
