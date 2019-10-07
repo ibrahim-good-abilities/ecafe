@@ -29,22 +29,26 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-         $url=$this->app->request->getRequestUri();
-         if(stripos($url,'welcome')){
+        if (Schema::hasTable('notifications')) {
+            $url=$this->app->request->getRequestUri();
+            if(stripos($url,'welcome')){
 
-            $notifications = Notification::where('type','customer')->get();
+               $notifications = Notification::where('type','customer')->get();
 
-            View::share('notifications', $notifications);
-        }
-        elseif(stripos($url,'parista')){
+               View::share('notifications', $notifications);
+           }
+           elseif(stripos($url,'parista')){
 
-            $notifications = Notification::where('type','parista')->get();
-            View::share('notifications', $notifications);
+               $notifications = Notification::where('type','parista')->get();
+               View::share('notifications', $notifications);
+           }
+           else
+           {
+               $notifications = Notification::where('type','admin')->get();
+               View::share('notifications', $notifications);
+           }
+
         }
-        else
-        {
-            $notifications = Notification::where('type','admin')->get();
-            View::share('notifications', $notifications);
-        }
+
     }
 }
