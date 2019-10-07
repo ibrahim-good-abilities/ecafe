@@ -46,6 +46,11 @@ Route::post('/stock/main/operations','ItemController@mainStockOperations')->name
 Route::post('/stock/available/transfer','ItemController@transferAvailableStock')->name('transfer_available_stock');
 Route::post('/stock/available/operations','ItemController@availableStockOperations')->name('available_stock_operations');
 
+//items
+Route::get('/menu/index','ItemController@menu')->name('menu');
+Route::get('/menu/create','ItemController@createMenuItem')->name('add_menu_item');
+
+
 //coupons
 Route::get('/coupons/index','CouponController@index')->name('coupons');
 Route::get('/coupons/edit/{id}','CouponController@edit')->name('coupon_edit');

@@ -91,5 +91,11 @@
     "Packing Unit Name": "اسم وحدة التعبئة",
     "Packing Units": "وحدات التعبئة",
     "Add New": "اضافة",
-    "Add Packing Unit": "ادخل وحدة تعبئة "
+    "Add Packing Unit": "ادخل وحدة تعبئة",
+    "The Menu": "المنيو",
+    "Menu Items": "عناصر المنيو",
+    "Add Menu Item": "أضافة عنصر جديد",
+    "Item Image": "صورة المنتج",
+    "Item Category": "فئة المنتج",
+    "Item Price": "سعر المنتج"
 }

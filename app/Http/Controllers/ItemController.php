@@ -39,6 +39,12 @@ class ItemController extends Controller
         return view('items.add-item')->with('categories_name',$categories)->with('packing_units',$packing_units);
     }
 
+    public function createMenuItem()
+    {
+        $categories = Category::select('category_name','id')->get();
+        return view('menu.add-menu-item.blade')->with('categories',$categories);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -169,6 +175,16 @@ class ItemController extends Controller
         ->select('items.*','categories.category_name')->where('main_stock','>','0')->get();
 
        return view('stock.main')->with('items',$result);
+
+    }
+    
+    public function menu()
+    {
+       
+        $result = DB::table('items')->join('categories','categories.id','=','category_id')
+        ->select('items.*','categories.category_name')->where('is_menu','=','1')->get();
+
+       return view('the_menu.items')->with('items',$result);
 
     }
 
