@@ -3,7 +3,6 @@
 @section('page_css')
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/jquery.dataTables.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/extensions/responsive/css/responsive.dataTables.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/select.dataTables.min.css')}}">
 @endsection
 @section('middle_content')
 @if ($message = Session::get('success'))
@@ -18,7 +17,7 @@
 </div>
 @endif
 <!-- orders table -->
-<table id="orders" class="subscription-table responsive-table highlight">
+<table id="orders" class="subscription-table  highlight">
     <thead>
         <tr>
             <th>{{ __('Order Id') }}</th>
@@ -50,7 +49,6 @@
 @section('page_js')
 <script src="{{asset('resources/vendors/data-tables/js/jquery.dataTables.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('resources/vendors/data-tables/extensions/responsive/js/dataTables.responsive.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('resources/vendors/data-tables/js/dataTables.select.min.js')}}" type="text/javascript"></script>
 <script src="https://js.pusher.com/5.0/pusher.min.js" type="text/javascript"></script>
 <script src="{{ asset('resources/js/orders.js')}}" type="text/javascript"></script>
 @endsection

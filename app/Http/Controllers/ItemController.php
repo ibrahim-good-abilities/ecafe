@@ -146,7 +146,7 @@ class ItemController extends Controller
         $item = Item::find($id);
 
         $ingredient_items =DB::table('items')
-        ->join('ingredients','ingredients.main_item_id','=','items.id')
+        ->join('ingredients','ingredients.sub_item_id','=','items.id')
         ->select('items.src','items.name','ingredients.id')
         ->where('ingredients.main_item_id','=',$id)
         ->get();
@@ -208,7 +208,7 @@ class ItemController extends Controller
 
         $item = Item::find($id);
 
-        $item->name = request('Item_Name');
+        $item->name = request('item_name');
         $item->price = request('price');
         $item->category_id=request('category');
         if($request->hasFile('image')){
@@ -219,7 +219,7 @@ class ItemController extends Controller
             $item->src = '/images/items/'.$name_img;
             $item->update(['image' => $name_img]);
         }
-        $Item->save();
+        $item->save();
         return redirect()->back()->with('success', 'Item update successfully');
     }
 
