@@ -80,7 +80,7 @@
         @endforeach
     </tbody>
 </table>
-        
+
 <div id="transfer" class="modal">
   <form action="{{ route('transfer_available_stock') }}" method="post">
     @csrf
@@ -111,22 +111,31 @@
     <div class="modal-content">
       <h4>{{ __('Execute An Operation') }}</h4>
       <div class="row">
-          <div class="input-field col m6 s6">
+          <div class="input-field col m4 s6">
                 <label for="quantity" class="">أدخل الكميه</label>
                 <input type="number" name="quantity" id="quantity" required="">
           </div>
+          <div class="input-field col m4 s6">
+            <select name="packing_unit">
+                  <option value="" disabled selected>وحده التعبئه</option>
+                  <option value="0">بدون</option>
+                  @foreach  ($packing_units as $packing_unit)
+                  <option value="{{$packing_unit->id}}">{{$packing_unit->name}}</option>
+                  @endforeach
+            </select>
+          </div>
 
-          <div class="input-field col m6 s6">
+          <div class="input-field col m4 s6">
             <select name="operation">
                   <option value="" disabled selected>نوع العمليه</option>
                   <option value="1">اضافه</option>
                   <option value="2">اهلاك</option>
-                
+
             </select>
             <input type="hidden" name="item_id" value=""/>
           </div>
         </div>
-        
+
         <div class="modal-footer">
           <div class="button-wrapper">
             <a class="modal-close btn red waves-effect waves-light right">{{ __('Cancel') }}
@@ -142,8 +151,8 @@
     </div>
   </form>
 </div>
-  
-  
+
+
 
 @section('page_js')
 <script src="{{asset('resources/js/scripts/data-tables.js')}}" type="text/javascript"></script>

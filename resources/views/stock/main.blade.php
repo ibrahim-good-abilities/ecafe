@@ -75,7 +75,7 @@
               <a class="modal-trigger" href="#transfer"><i class="material-icons" >compare_arrows</i></a>
               <a class="modal-trigger" href="#operations"><i class="material-icons">autorenew</i></a>
           </td>
-          
+
           <td class="left-align">
               <a href="{{route('item_edit',['name'=>'main','id'=>$item->id])}}" ><i class="material-icons">edit</i></a>
               <a  href="{{route('item_delete',$item->id)}}" class="delete-with-confirmation"><i class="material-icons pink-text">cleare</i></a>
@@ -121,26 +121,25 @@
                 <input type="number" name="quantity" id="quantity" required="">
           </div>
           <div class="input-field col m4 s6">
-            <select name="operation">
+            <select name="packing_unit">
                   <option value="" disabled selected>وحده التعبئه</option>
-                  @foreach  ($packing_units as $packing_unit) 
-                  <option value="1">بدون</option>
-                  <option value="2">{{$packing_unit->name}}</option>
+                  <option value="0">بدون</option>
+                  @foreach  ($packing_units as $packing_unit)
+                  <option value="{{$packing_unit->id}}">{{$packing_unit->name}}</option>
                   @endforeach
             </select>
-            <input type="hidden" name="item_id" value=""/>
           </div>
           <div class="input-field col m4 s6">
             <select name="operation">
                   <option value="" disabled selected>نوع العمليه</option>
                   <option value="1">اضافه</option>
                   <option value="2">اهلاك</option>
-                
+
             </select>
             <input type="hidden" name="item_id" value=""/>
           </div>
         </div>
-        
+
         <div class="modal-footer">
           <div class="button-wrapper">
             <a class="modal-close btn red waves-effect waves-light right">{{ __('Cancel') }}
@@ -156,7 +155,7 @@
     </div>
   </form>
 </div>
-  
+
 
   <!-- main store -->
 

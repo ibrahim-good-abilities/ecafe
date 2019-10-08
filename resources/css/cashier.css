@@ -12,11 +12,7 @@
     right: 0px;
     z-index: 1;
 }
-.products-list {
-    height: 464px;
-    overflow: hidden;
-    overflow-y: auto;
-}
+
 .products-box {
     height: 65vh;
     background-color: #9e9e9e21;
@@ -187,7 +183,7 @@ th {
 
 .product-box {
     border-radius: 8px;
-    height: 120px;
+    height: 147px;
     width: 120px;
     border-radius: 8px;
     text-align: center;
@@ -199,6 +195,7 @@ th {
 
 .card.animate.fadeUp.product-box.col.s6.m4.l3 {
     background-size: cover;
+    height: 147px;
 }
 
 .card-content {
@@ -214,7 +211,10 @@ h3.product-name {
     font-size: medium;
     color: white;
 }
-
+.products-list {
+    height: 464px;
+    overflow: auto;
+}
 button.btn-floating.mb-1.waves-effect.waves-light.product {
     background-color: #ff4081;
     text-align: center;
@@ -227,7 +227,7 @@ h6.col.s12.m12.l8.mt-3.rtl {
 }
 
 .categories-box {
-    height: 464px;
+    height: 65vh;
     background-color: #9e9e9e21;
     margin: 0 auto;
     padding: 1px;

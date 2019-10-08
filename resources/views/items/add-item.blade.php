@@ -34,7 +34,7 @@
 @endif
 <form action="add" method="post" enctype="multipart/form-data" >
    @csrf
-   
+
          <div class="row">
             <div class="input-name col s12">
                <input  name="Item_Name" id="item_name" type="text" class="validate" placeholder="{{ __('Add Item Name') }}">
@@ -66,23 +66,15 @@
                   <input  name="quantity" id="cost" type="number"  step="0.1" min=".5" class="validate" placeholder="{{ __('Add Quantity') }}">
                   <label  >{{ __('Quantity') }}</label>
             </div>
-       
-            <div class="item-packing-unit col s12 ">
-               <select class="icons" name="packing_unit">
-                  <option value="" disabled selected>{{ __('Choose a packing unit') }}</option>
-                  @foreach($packing_units as $pakcing_unit)
-                        <option  value="{{$pakcing_unit->id}}" class="circle"> {{$pakcing_unit->name}} </option>
-                  @endforeach
-               </select>
-               <label>{{ __('Packing Unit') }}</label>
-            </div>
+
+
 
             <div class="input-alert col s12">
                <input name="alert" id="alert-number" type="number" class="validate" placeholder="{{ __('Add Alert Number') }}">
                <label  >{{ __('Alert Number') }}</label>
             </div>
-            
-            
+
+
             <div class="col s12 file-field input-field">
                <div class="btn float-left">
                   <span>{{ __('Upload Image') }}</span>
@@ -92,15 +84,15 @@
                   <input class="file-path validate" type="text">
                </div>
             </div>
-           
+
 
             <div class="input-field col s12">
                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">{{ __('Submit') }}
                   <i class="material-icons right">send</i>
                </button>
             </div>
-         
-     
+
+
 </form>
 @section('page_js')
 @endsection

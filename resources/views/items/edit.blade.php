@@ -60,10 +60,10 @@
                   <input  name="cost" id="cost" type="number" class="validate" placeholder="{{ __('Add Cost') }}"value="{{$item->cost}}">
                   <label  >{{ __('Cost') }}</label>
             </div>
-            
+
             @if($type == 'main')
             <div class="input-cost col s12">
-                  <input  name="quantity" id="cost" type="number"  step="0.1" min=".5" class="validate" 
+                  <input  name="quantity" id="cost" type="number"  step="0.1" min=".5" class="validate"
                   placeholder="{{ __('Add quantity') }}" value="{{$item->main_stock}}">
                   <label  >{{ __('Quantity') }}</label>
             </div>
@@ -71,15 +71,6 @@
                <input  name="quantity"  type="hidden"  value="{{$item->main_stock}}"/>
             @endif
 
-            <div class="item-packing-unit col s12 ">
-               <select class="icons" name="packing_unit">
-                  <option value="" disabled>{{ __('Choose a packing unit') }}</option>
-                  @foreach($packing_units as $packing_unit)
-                        <option  value="{{ $packing_unit->id }}" class="circle" {{ $packing_unit->id == $item->packing_unit_id ? 'selected':''}}> {{$packing_unit->name}} </option>
-                  @endforeach
-               </select>
-               <label>{{ __('Packing Unit') }}</label>
-            </div>
 
             <div class="input-alert col s12">
                <input name="alert" id="alert-number" type="number" class="validate" placeholder="{{ __('Add Alert Number') }}"value="{{$item->alert_number}}">
@@ -94,8 +85,8 @@
                            <span>{{ __('Change Image') }}</span>
                            <input type="file" name="image">
                         </div>
-                       
-                  <div>      
+
+                  <div>
             </div>
 
             <div class="input-field col s12">
@@ -104,7 +95,7 @@
                </button>
             </div>
          </div>
-    
+
 </form>
 
 @section('page_js')

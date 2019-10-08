@@ -1,11 +1,13 @@
 
 <div class="products-list style-1">
    @foreach($item_groups as $key => $items)
-   <div class="products-box style-1 row {{ $key == $categories[0]->id? 'active':'' }}" category="{{ $key }}" >
+   <?php
+   $bkg = $color_palette[$loop->index];
+   ?>
    @foreach($items as $item)
-         <div class="animate fadeUp product-box col s6 m4">
-            <div class="card" style=" background-image: url({{asset('public'.$item->src)}}">  
-               <span class="overlay"></span>   
+        <div class="animate fadeUp product-box col s6 m4">
+            <div class="card" style=" background-image: url({{asset('public'.$item->src)}}">
+               <span class="overlay" style="background-color: {{ $bkg }}"></span>
                <div class="card-content" >
                   <div class="row center-align">
                         <h3 class="product-name">{{ $item->name }}</h3>
@@ -18,7 +20,6 @@
             </div>
          </div>
       @endforeach
-   </div>
    @endforeach
 </div>
 

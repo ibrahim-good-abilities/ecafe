@@ -99,7 +99,13 @@
         </tbody>
     </table>
 </div>
+<div  class="col s12">
+        <h5 class="right-align">{{ __('Notes')}}</h5>
+        <p class="right-align">{{$order->notes!=""?$order->notes:'لايوجد'}}</p>
+</div>
 <div class="col s12" id="update-order-section">
+
+
     <h5 class="right-align">{{ __('Update Order Status')}}</h5>
     <form action="{{ route('order_update_status',$order->id) }}" method="post">
         @csrf
@@ -121,13 +127,13 @@
                     <option value="completed">{{ __('Completed') }}</option>
                 </select>
                 <label>{{ __('Order Status') }}</label>
-                </div>               
+                </div>
             </div>
 
         </div>
     </form>
 </div>
-              
+
 <!-- orders Details -->
 @section('page_js')
 <script src="https://js.pusher.com/5.0/pusher.min.js" type="text/javascript"></script>
