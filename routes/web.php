@@ -63,6 +63,7 @@ Route::post('/coupons/add-new','CouponController@store')->name('store_coupon');
 Route::get('/welcome','IndexController@welcome')->name('welcome');
 //parista
 Route::get('/parista','OrderController@parista')->name('parista');
+Route::get('/parista-2','OrderController@parista2')->name('parista-2');
 //Packing Units
 Route::get('/packing-units/delete/{id}','PackingUnitController@destroy')->name('packing_unit_delete');
 Route::resource('packing-units', 'PackingUnitController');

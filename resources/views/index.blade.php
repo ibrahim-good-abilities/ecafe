@@ -16,7 +16,7 @@
         <!-- checkout page -->
         @include('pos.checkout')
     </div>
-    <div class="col s5">
+    <div class="col s5 20">
         <!-- Products menu -->
         @include('pos.menu')
     </div>
