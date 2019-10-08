@@ -1,5 +1,5 @@
 
-<div class="products-list">
+<div class="products-list style-1">
    @foreach($item_groups as $key => $items)
    <div class="products-box style-1 row {{ $key == $categories[0]->id? 'active':'' }}" category="{{ $key }}" >
    @foreach($items as $item)
