@@ -20,7 +20,7 @@
 <div class="col s12">
     <div id="orders">
 
-
+            <input type="hidden" id ="_order_token" value="{{ csrf_token()}}"/>
             @foreach($orders as $order)
                 <div>
                     <div class="order-box">
@@ -30,36 +30,26 @@
                                 <h6 class="collection-header m-0">Order #{{$order->id}}</h6>
                                 <p>Table @ {{$order->table_number}}</p>
                             </li>
+                            @php
+                                $order_items =  App\Http\Controllers\OrderController::getOrderItems($order->id);
+                            @endphp
+                            @foreach($order_items as $item)
                             <li class="collection-item">
                                 <div class="row">
                                     <div class="col s8">
-                                        <p class="collections-title font-weight-600">زبادى خلاط X 5</p>
+                                        <p class="collections-title font-weight-600">{{ $item->name}} X {{ $item->quantity}}</p>
                                     </div>
                                     <div class="col s4 center-align">
-                                        <a class="waves-effect waves-light blue btn btn-small btn-fluid">جاهز</a>
+                                        @if($item->status == 'pending')
+                                        <button class="waves-effect waves-light blue btn btn-small btn-fluid make-ready" data-item_id="{{ $item->id}}">{{__('Ready')}}</button>
+                                        <button class="waves-effect waves-light green btn btn-small btn-fluid  disabled hidden" >{{__('Done')}}</button>
+                                        @else
+                                        <button class="waves-effect waves-light green btn btn-small btn-fluid  disabled" >{{__('Done')}}</button>
+                                        @endif
                                     </div>
                                 </div>
                             </li>
-                            <li class="collection-item">
-                                <div class="row">
-                                    <div class="col s8">
-                                        <p class="collections-title font-weight-600">زبادى خلاط X 5</p>
-                                    </div>
-                                    <div class="col s4 center-align">
-                                        <a class="waves-effect waves-light blue btn btn-small btn-fluid">جاهز</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="collection-item">
-                                <div class="row">
-                                    <div class="col s8">
-                                        <p class="collections-title font-weight-600">زبادى خلاط X 5</p>
-                                    </div>
-                                    <div class="col s4 center-align">
-                                        <a class="waves-effect waves-light deep-orange btn btn-small btn-fluid">تحضير</a>
-                                    </div>
-                                </div>
-                            </li>
+                            @endforeach
                             <li class="collection-item">
                                 <div class="row">
                                     <div class="col s12">
@@ -67,7 +57,12 @@
                                     </div>
 
                                     <div class="col s12 center-align">
-                                        <a class="waves-effect waves-light blue btn btn-small">@if($order->status=='pending'){{__('Done')}}@endif</a>
+                                        @if($order->status == 'pending')
+                                        <button class="waves-effect waves-light green btn btn-small complete-order" data-order_id="{{ $order->id }}">{{__('Done')}}</button>
+                                        <button class="waves-effect waves-light red btn btn-small hide-order hidden">{{__('Hide')}}</button>
+                                        @elseif($order->status =='processing')
+                                        <button class="waves-effect waves-light red btn btn-small hide-order">{{__('Hide')}}</button>
+                                        @endif
                                     </div>
 
                                 </div>

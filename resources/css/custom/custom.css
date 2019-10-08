@@ -89,3 +89,7 @@ ul#notifications-dropdown {
     padding: 0px;
     width: 100%;
 }
+
+.hidden {
+    display: none;
+}
