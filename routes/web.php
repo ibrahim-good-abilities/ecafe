@@ -33,7 +33,6 @@ Route::get('/items/delete/{id}','ItemController@destroy')->name('item_delete');
 //orders
 Route::get('/orders/index','OrderController@index')->name('orders');
 Route::post('/orders/add-new','OrderController@create');
-
 Route::get('/orders/delete/{id}','OrderController@destroy')->name('delete_order');
 Route::post('/orders/update/status/{id}','OrderController@updateStatus')->name('order_update_status');
 Route::get('/orders/edit/status/{id}','OrderController@editStatus')->name('order_edit_status');

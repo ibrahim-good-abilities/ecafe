@@ -121,13 +121,13 @@
                     <option value="completed">{{ __('Completed') }}</option>
                 </select>
                 <label>{{ __('Order Status') }}</label>
-                </div>               
+                </div>
             </div>
 
         </div>
     </form>
 </div>
-              
+
 <!-- orders Details -->
 @section('page_js')
 <script src="https://js.pusher.com/5.0/pusher.min.js" type="text/javascript"></script>

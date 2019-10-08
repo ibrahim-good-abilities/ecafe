@@ -32,6 +32,10 @@
         <input id="coupon" type="text">
         <label for="coupon" >لديك كوبون خصم؟</label>
     </div>
+    <div class="input-field col s12">
+        <input id="notes" type="text">
+        <label for="notes"> ملاحظات علي الطلب</label>
+    </div>
     <div class="col s12">
         <div id="buttons">
             <button type="button" id="clear" class="btn btn-danger">إلغاء</button>

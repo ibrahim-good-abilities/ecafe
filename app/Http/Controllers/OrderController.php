@@ -56,6 +56,7 @@ class OrderController extends Controller
         $order = new Order();
         $order->discount =0;
         $order->customer_id =request('customer_id ');
+        $order->notes = request('notes');
         $order->status ='pending';
         $order->save();
         new NewNotification('parista','new-order',['message'=>__('You have a new order').' #'.$order->id,'order_id'=>$order->id]);
