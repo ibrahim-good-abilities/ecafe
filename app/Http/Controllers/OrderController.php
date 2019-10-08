@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Order;
+use App\Order_line;
 use App\Item;
 use App\Coupon;
 use App\Notification;
@@ -56,7 +57,7 @@ class OrderController extends Controller
 
         $order = new Order();
         $order->discount =0;
-        $order->table_number=1;
+        $order->table_number=request('table_number');
         $order->customer_id =request('customer_id ');
         $order->notes = request('notes');
         $order->status ='pending';
@@ -191,8 +192,20 @@ class OrderController extends Controller
         $order->status=request('status');
         new NewNotification('customer_'.$id,'order-status',['massage'=>__('Your order is '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
         $order->save();
-        return redirect()->back()->with('success', 'Order update successfully');
+        return redirect()->back()->with('success', 'Order  status update successfully');
 
+    }
+    public function updateOrderLineStatus(Request $request ,$id)
+    {
+        dd($id);
+        $request->validate([
+            'status'  =>'required'
+        ]);
+        $order = Order_line::find($id);
+        $order->status= request('status');
+        new NewNotification('customer_'.$id,'order-status',['massage'=>__('Your order is '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
+        $order->save();
+        return redirect()->back()->with('success', 'Order  status update successfully');
     }
     /**
      * Remove the specified resource from storage.

@@ -37,6 +37,8 @@ Route::get('/orders/delete/{id}','OrderController@destroy')->name('delete_order'
 Route::post('/orders/update/status/{id}','OrderController@updateStatus')->name('order_update_status');
 Route::get('/orders/edit/status/{id}','OrderController@editStatus')->name('order_edit_status');
 Route::get('/orders/edit/{id}/{notification_id?}','OrderController@edit')->name('edit_order');
+Route::post('/orderline/update/status/{id}','OrderController@updateOrderLineStatus')->name('order_line_update_status');
+
 //stock
 Route::get('/stock/index','ItemController@stock')->name('stock');
 Route::post('/stock/main/transfer','ItemController@transferMainStock')->name('transfer_main_stock');

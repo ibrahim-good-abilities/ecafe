@@ -67,7 +67,7 @@
                                     </div>
 
                                     <div class="col s12 center-align">
-                                        <a class="waves-effect waves-light green btn btn-small">{{$order->status}}</a>
+                                        <a class="waves-effect waves-light blue btn btn-small">@if($order->status=='pending'){{__('Done')}}@endif</a>
                                     </div>
 
                                 </div>
