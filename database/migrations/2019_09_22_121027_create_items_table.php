@@ -19,9 +19,9 @@ class CreateItemsTable extends Migration
             $table->string('unit');
             $table->integer('current_stock');
             $table->boolean('has_stock');
-            $table->integer('alert_number');
-            $table->double('price');
-            $table->double('cost');
+            $table->integer('alert_number')->nullable();
+            $table->double('price')->nullable();
+            $table->double('cost')->nullable();
             $table->string('src');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
