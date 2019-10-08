@@ -25,7 +25,7 @@
                 <ul id="issues-collection" class="collection z-depth-1">
                     <li class="collection-item avatar">
                         <i class="material-icons green accent-2 circle">attach_file</i>
-                        <h6 class="collection-header m-0">Order #125</h6>
+                        <h6 class="collection-header m-0">Order {{ $i }}</h6>
                         <p>Table @15</p>
                     </li>
                     <li class="collection-item">
@@ -74,7 +74,7 @@
                             </div>
                             @else
                                 <div class="col s12 center-align">
-                                    <a class="waves-effect waves-light red btn btn-small">اخفاء</a>
+                                    <button class="waves-effect waves-light red btn btn-small hide-order">اخفاء</button>
                                 </div>
                             @endif
                         </div>
