@@ -25,8 +25,8 @@ class ItemController extends Controller
         ->join('categories','categories.id','=','category_id')
         ->select('items.*','categories.category_name')
         ->where('available_stock','>','0')->get();
-
-        return view('stock.available')->with('items', $result);
+        $packing=PackingUnit::all();
+        return view('stock.available')->with('items', $result)->with('packing_units',$packing);
 
     }
 
@@ -245,8 +245,8 @@ class ItemController extends Controller
         ->select('items.*','categories.category_name')->where('main_stock','>','0')->get();
         $packing=PackingUnit::all();
        return view('stock.main')->with('items',$result)->with('packing_units',$packing);
-      
-       
+
+
     }
 
     public function menu()
@@ -287,11 +287,19 @@ class ItemController extends Controller
             'item_id' => 'required',
             'quantity' => 'required',
             'operation' => 'required',
+            'packing_unit'=>'required'
+
         ]);
 
         $item_id = request('item_id');
         $quantity = request('quantity');
         $operation = request('operation');
+        $packing_unit_id = request('packing_unit');
+        if($packing_unit_id > 0 && $packing_unit_id != ""){
+            $packing_unit = PackingUnit::find($packing_unit_id);
+            $quantity*=$packing_unit->quantity;
+        }
+
         $item =Item::find($item_id);
         if($operation == 1){
             $item->main_stock = $item->main_stock + $quantity;
@@ -339,11 +347,17 @@ class ItemController extends Controller
             'item_id' => 'required',
             'quantity' => 'required',
             'operation' => 'required',
+            'packing_unit'=>'required'
         ]);
 
         $item_id = request('item_id');
         $quantity = request('quantity');
         $operation = request('operation');
+        $packing_unit_id = request('packing_unit');
+        if($packing_unit_id > 0 && $packing_unit_id !=""){
+            $packing_unit = PackingUnit::find($packing_unit_id);
+            $quantity*=$packing_unit->quantity;
+        }
         $item =Item::find($item_id);
         if($operation == 1){
             $item->available_stock = $item->available_stock + $quantity;
