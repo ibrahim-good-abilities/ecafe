@@ -182,12 +182,8 @@ th {
 }
 
 .product-box {
-    right: auto;
-    left: auto;
-    width: 25%;
-    margin-left: auto;
     border-radius: 8px;
-    height: 120px;
+    height: 147px;
     width: 120px;
     border-radius: 8px;
     text-align: center;
@@ -199,6 +195,7 @@ th {
 
 .card.animate.fadeUp.product-box.col.s6.m4.l3 {
     background-size: cover;
+    height: 147px;
 }
 
 .card-content {
@@ -214,7 +211,10 @@ h3.product-name {
     font-size: medium;
     color: white;
 }
-
+.products-list {
+    height: 438px;
+    overflow: auto;
+}
 button.btn-floating.mb-1.waves-effect.waves-light.product {
     background-color: #ff4081;
     text-align: center;
