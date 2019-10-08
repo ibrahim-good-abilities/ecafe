@@ -35,7 +35,7 @@
     </thead>
     <tbody>
         @foreach($orders as $order)
-        
+
         <?php  $date_parts= explode(" ",  $order->created_at); ?>
 
             <tr>
@@ -49,10 +49,10 @@
                 <td>{{$order->subtotal}}</td>
                 <td>{{$order->discount}}</td>
                 <td>{{ $order->subtotal - $order->discount }}</td>
-                
+
                 <td class="left-align">
-                    <a  class="delete-with-confirmation" href="{{route('delete_order',$order->id)}}"><i class="material-icons pink-text">clear</i></a>
-                    <a href="{{route('edit_order',$order->id)}}"><i class="material-icons">create</i></a>
+                      <a href="{{route('edit_order',$order->id)}}"><i class="material-icons">visibility</i></a>
+                      <a  class="delete-with-confirmation" href="{{route('delete_order',$order->id)}}"><i class="material-icons pink-text">clear</i></a>
                 </td>
             </tr>
         @endforeach

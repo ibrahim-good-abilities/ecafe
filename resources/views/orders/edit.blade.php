@@ -99,7 +99,13 @@
         </tbody>
     </table>
 </div>
+<div  class="col s12">
+        <h5 class="right-align">{{ __('Notes')}}</h5>
+        <p class="right-align">{{$order->notes!=""?$order->notes:'لايوجد'}}</p>
+</div>
 <div class="col s12" id="update-order-section">
+
+
     <h5 class="right-align">{{ __('Update Order Status')}}</h5>
     <form action="{{ route('order_update_status',$order->id) }}" method="post">
         @csrf
