@@ -1,5 +1,5 @@
 
-<div class="products-list">
+<div class="products-list style-1">
    @foreach($item_groups as $key => $items)
    <?php
    $bkg = $color_palette[$loop->index];
