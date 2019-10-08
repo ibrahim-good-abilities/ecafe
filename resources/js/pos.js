@@ -179,7 +179,8 @@ $(document).ready(function() {
             'items': items,
             'customer_id': '1',
             'coupon_code': $('#coupon').val(),
-            '_token': $('#_order_token').val()
+            '_token': $('#_order_token').val(),
+            'notes':$('#notes').val()
         };
         $.post(base_url + '/orders/add-new', data, function(response) {
             if (response) {

@@ -22,13 +22,14 @@ class OrderController extends Controller
     {
 
         $orders = DB::table('orders')
-        ->select('orders.id','orders.status','orders.created_at','orders.discount','customers.customer_name','coupons.name',DB::raw('sum(order_line.quantity * order_line.price) as subtotal'))
+        ->select('orders.id','orders.status','orders.created_at','orders.discount','orders.notes','customers.customer_name','coupons.name',DB::raw('sum(order_line.quantity * order_line.price) as subtotal'))
         ->join('order_line','orders.id','=','order_line.order_id')
         ->leftJoin('customers','customers.id','=','orders.customer_id')
         ->leftJoin('coupons','coupons.id','=','orders.coupon_id')
-        ->groupBy('orders.id','orders.status','orders.created_at','customer_name','orders.discount','coupons.name')
+        ->groupBy('orders.id','orders.status','orders.created_at','orders.notes','customer_name','orders.discount','coupons.name')
         ->get();
-        return view('orders.index')->with('orders',$orders);
+        return view('orders.index')
+        ->with('orders',$orders);
     }
 
     /**
@@ -55,6 +56,7 @@ class OrderController extends Controller
 
         $order = new Order();
         $order->discount =0;
+        $order->table_number=1;
         $order->customer_id =request('customer_id ');
         $order->notes = request('notes');
         $order->status ='pending';
@@ -220,12 +222,7 @@ class OrderController extends Controller
 
     public function parista2()
     {
-        $orders = DB::table('orders')
-        ->select('orders.id','orders.status','orders.created_at','customers.customer_name',DB::raw('sum(order_line.quantity * order_line.price) as total'))
-        ->join('order_line','orders.id','=','order_line.order_id')
-        ->leftJoin('customers','customers.id','=','orders.customer_id')
-        ->groupBy('orders.id','orders.status','orders.created_at','customer_name')
-        ->get();
+        $orders = Order::where('status','!=','done')->get();
         return view('parista.index')->with('orders',$orders);
 
     }

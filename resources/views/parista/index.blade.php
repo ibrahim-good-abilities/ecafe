@@ -19,70 +19,64 @@
 @endif
 <div class="col s12">
     <div id="orders">
-        @for($i=0; $i<10;$i++)
-        <div>
-            <div class="order-box">
-                <ul id="issues-collection" class="collection z-depth-1">
-                    <li class="collection-item avatar">
-                        <i class="material-icons green accent-2 circle">attach_file</i>
-                        <h6 class="collection-header m-0">Order #125</h6>
-                        <p>Table @15</p>
-                    </li>
-                    <li class="collection-item">
-                        <div class="row">
-                            <div class="col s8">
-                                <p class="collections-title font-weight-600">زبادى خلاط X 5</p>
-                            </div>
-                            <div class="col s4 center-align">
-                                <a class="waves-effect waves-light blue btn btn-small btn-fluid">جاهز</a>
-                            </div>
-                        </div>
-                    </li>
-                    @if($i==2)
-                    <li class="collection-item">
-                        <div class="row">
-                            <div class="col s8">
-                                <p class="collections-title font-weight-600">زبادى خلاط X 5</p>
-                            </div>
-                            <div class="col s4 center-align">
-                                <a class="waves-effect waves-light blue btn btn-small btn-fluid">جاهز</a>
-                            </div>
-                        </div>
-                    </li>
-                    @endif
-                    <li class="collection-item">
-                        <div class="row">
-                            <div class="col s8">
-                                <p class="collections-title font-weight-600">زبادى خلاط X 5</p>
-                            </div>
-                            <div class="col s4 center-align">
-                                <a class="waves-effect waves-light deep-orange btn btn-small btn-fluid">تحضير</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="collection-item">
-                        <div class="row">
-                            @if($i==1 || $i==3 || $i == 5)
-                            <div class="col s12">
-                                <p class="right-align">ملاحظات ملاحظات ملاحظات ملاحظات ملاحظات ملاحظات ملاحظات ملاحظات ملاحظات ملاحظات ملاحظات ملاحظات </p>
-                            </div>
-                            @endif
 
-                            @if($i==3)
-                            <div class="col s12 center-align">
-                                <a class="waves-effect waves-light green btn btn-small">أكتمل</a>
-                            </div>
-                            @else
-                                <div class="col s12 center-align">
-                                    <a class="waves-effect waves-light red btn btn-small">اخفاء</a>
+
+            @foreach($orders as $order)
+                <div>
+                    <div class="order-box">
+                        <ul id="issues-collection" class="collection z-depth-1">
+                            <li class="collection-item avatar">
+                                <i class="material-icons green accent-2 circle">attach_file</i>
+                                <h6 class="collection-header m-0">Order #{{$order->id}}</h6>
+                                <p>Table @ {{$order->table_number}}</p>
+                            </li>
+                            <li class="collection-item">
+                                <div class="row">
+                                    <div class="col s8">
+                                        <p class="collections-title font-weight-600">زبادى خلاط X 5</p>
+                                    </div>
+                                    <div class="col s4 center-align">
+                                        <a class="waves-effect waves-light blue btn btn-small btn-fluid">جاهز</a>
+                                    </div>
                                 </div>
-                            @endif
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        @endfor
+                            </li>
+                            <li class="collection-item">
+                                <div class="row">
+                                    <div class="col s8">
+                                        <p class="collections-title font-weight-600">زبادى خلاط X 5</p>
+                                    </div>
+                                    <div class="col s4 center-align">
+                                        <a class="waves-effect waves-light blue btn btn-small btn-fluid">جاهز</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="collection-item">
+                                <div class="row">
+                                    <div class="col s8">
+                                        <p class="collections-title font-weight-600">زبادى خلاط X 5</p>
+                                    </div>
+                                    <div class="col s4 center-align">
+                                        <a class="waves-effect waves-light deep-orange btn btn-small btn-fluid">تحضير</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="collection-item">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <p class="right-align">{{$order->notes}}</p>
+                                    </div>
+
+                                    <div class="col s12 center-align">
+                                        <a class="waves-effect waves-light green btn btn-small">{{$order->status}}</a>
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            @endforeach
+
     </div>
 </div>
 
