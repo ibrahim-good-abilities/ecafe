@@ -9,16 +9,11 @@ class IndexController extends Controller
     //For Index Page
     public function index()
     {
-        // $categories =  DB::table('categories')
-        //         ->orderBy('id', 'desc')
-        //         ->get();
-        // $items = DB::table('items')
-        //         ->orderBy('category_id', 'desc')
-        //         ->get();
         $categories = DB::table('categories')
         ->join('items','items.category_id','=','categories.id')
         ->select('categories.*')
         ->where('items.is_menu','=',1)
+        ->distinct()
         ->get();
         $items =DB::table('items')
         ->where('is_menu','=',1)
