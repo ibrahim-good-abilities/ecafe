@@ -59,7 +59,6 @@ class ItemController extends Controller
         $validator=$request->validate([
             'Item_Name'     =>'required',
             'category'      =>'required',
-            'packing_unit'  =>'required',
             'alert'         =>'required',
             'price'         =>'required',
             'cost'          =>'required',
@@ -71,7 +70,6 @@ class ItemController extends Controller
         $Item->name = request('Item_Name');
         $Item->alert_number=request('alert');
         $Item->price = request('price');
-        $Item->packing_unit_id = request('packing_unit');
         $Item->cost=request('cost');
         $Item->main_stock=request('quantity');
         $Item->available_stock=0.0;
@@ -168,7 +166,6 @@ class ItemController extends Controller
          $request->validate([
             'Item_Name'     =>'required',
             'category'      =>'required',
-            'packing_unit'  =>'required',
             'alert'         =>'required',
             'price'         =>'required',
             'cost'          =>'required',
@@ -182,7 +179,6 @@ class ItemController extends Controller
         $Item->price = request('price');
         $Item->cost=request('cost');
         $Item->category_id=request('category');
-        $Item->packing_unit_id = request('packing_unit');
         $Item->main_stock=request('quantity');
         if($request->hasFile('image')){
             $image = $request->file('image');
