@@ -11,30 +11,17 @@
 
 @section('top-nav-content')
     <div id="active-orders">
-        <div class="order-number selected">
+        <div class="order-number selected" data-href="{{ route('captain') }}">
             أضافة طلب
         </div>
-        <div class="order-number">
-            #1
-        </div>
-        <div class="order-number">
-            #2
-        </div>
-        <div class="order-number">
-            #3
-        </div>
-        <div class="order-number">
-            #4
-        </div>
-        <div class="order-number">
-            #4
-        </div>
-        <div class="order-number">
-            #5
-        </div>
+        @foreach($orders as $single_order)
+            <div class="order-number" data-href="{{ route('captain-order',$single_order->id) }}">
+                #{{ $single_order->id }}
+            </div>
+        @endforeach
     </div>
-
 @endsection
+
 @section('middle_content')
 
 <!-- Point of sale make order screen -->

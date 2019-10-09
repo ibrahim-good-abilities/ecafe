@@ -66,9 +66,16 @@ class IndexController extends Controller
         ->where('items.is_menu','=',1)
         ->distinct()
         ->get();
+
         $items =DB::table('items')
         ->where('is_menu','=',1)
         ->get();
+
+        $orders = DB::table('orders')
+        ->select('orders.id')
+        ->where('orders.status','!=','paid')
+        ->get();
+
         $item_groups = [];
         foreach($items as $item):
             if (array_key_exists($item->category_id,$item_groups)):
@@ -80,8 +87,37 @@ class IndexController extends Controller
         endforeach;
         return view('captain.captain')
         ->with('categories',$categories)
-        ->with('item_groups',$item_groups);
+        ->with('item_groups',$item_groups)
+        ->with('orders',$orders);
     }
+
+    public function captainOrder($order_id)
+    {
+        $order = DB::table('orders')
+        ->select('orders.*','customers.customer_name')
+        ->leftJoin('customers','customers.id','=','orders.customer_id')
+        ->where('orders.id', $order_id)
+        ->first();
+
+        $items = DB::table('items')
+        ->select('items.name','order_line.price','order_line.quantity','order_line.status')
+        ->join('order_line','items.id','=','order_line.item_id')
+        ->where('order_line.order_id', $order_id)
+        ->get();
+
+        
+        $orders = DB::table('orders')
+        ->select('orders.id')
+        ->where('orders.status','!=','paid')
+        ->get();
+
+
+        return view('captain.view-order')
+        ->with('order', $order)
+        ->with('items', $items)
+        ->with('orders',$orders);
+    }
+
     public function cashier()
     {
         $orders =Order::where('status','done')->get();
