@@ -1,8 +1,7 @@
 @extends('parista-layout')
 @section('title', __('All Orders'))
 @section('page_css')
-<link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/slick/slick.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/slick/slick-theme.css')}}">
+
 <link rel="stylesheet" type="text/css" href="{{asset('resources/css/cashier.css')}}">
 @endsection
 @section('middle_content')
@@ -19,13 +18,14 @@
     </button>
 </div>
 @endif
-<div class="col s12">
+
+
 
 
                     <div class="empty-orders">
                         <h4>لا يوجد لديك طلبات الان </h4>
                     </div>
-    <div id="orders">
+
 
             <input type="hidden" id ="_order_token" value="{{ csrf_token()}}"/>
             @foreach($orders as $order)
@@ -47,13 +47,6 @@
                                         <p class="collections-title font-weight-600">{{ $item->name}} X {{ $item->quantity}}</p>
                                     </div>
 
-                                </div>
-                            </li>
-                            @endforeach
-                            <li class="collection-item">
-                                <div class="row">
-                                    <div class="col s12">
-                                        <p class="right-align">{{$order->notes}}</p>
                                     </div>
 
                                     <div data-order_id="{{$order->id}}" class="col s12 center-align">
@@ -61,15 +54,16 @@
                                             <button class="waves-effect waves-light red btn btn-small ">{{__('Payment')}}</button>
                                         </a>
                                     </div>
-                                </div>
-                            </li>
-                        </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
 
-    </div>
+
+    <div>
 </div>
+
 <div id="payment" class="modal">
     <form action="{{route('order_paid')}}" method="post">
             @csrf
@@ -111,7 +105,7 @@
 
 
 @section('page_js')
-<script src="{{asset('resources/vendors/slick/slick.min.js')}}" type="text/javascript"></script>
+
 <script src="https://js.pusher.com/5.0/pusher.min.js" type="text/javascript"></script>
 <script src="{{asset('resources/js/cashier.js')}}" type="text/javascript"></script>
 @endsection

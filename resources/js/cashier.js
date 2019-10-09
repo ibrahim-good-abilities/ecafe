@@ -97,9 +97,7 @@ $(document).ready(function() {
     $(document).ready(function() {
         $('.modal').modal();
     });
-    $(document).on('click', '.paid', function() {
 
-    });
 
 
 
