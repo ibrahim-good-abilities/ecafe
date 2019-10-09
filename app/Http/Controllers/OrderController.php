@@ -88,12 +88,12 @@ class OrderController extends Controller
             }else{
                 $coupon_dicount = $order_total * ($coupon->value/100);
                 if($coupon_dicount > $order_total ){
-                    $order->discount = $order_total;
+                    $order->discount = round($order_total,2);
                 }else{
-                    $order->discount = $coupon_dicount;
+                    $order->discount = round($coupon_dicount,2);
                 }
                 $order->save();
-                $response['coupon']['discount'] = $order->discount ;
+                $response['coupon']['discount'] = $order->discount;
             }
 
             $coupon->status = 'used';
