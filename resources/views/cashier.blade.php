@@ -71,43 +71,42 @@
     </div>
 </div>
 <div id="payment" class="modal">
-  <form action="#" method="post">
-    @csrf
-    <div class="modal-content ">
-        <div class="row">
-                <div class="input-field col s12">
-                        <div class="col 8">
-                            <span >123</span>
-                        <div>
-                        <div  class="col 4">
-                            <h4>المبلغ الاجمالي</h4>
-                        </div>
-                </div>
-                <div class="input-field col s12">
-                        <div class="col 8">
-                             <input  class="col s7"type="number" class="validate" name="total" id="total" required="">
-                        <div>
-                        <div  class="col 4">
-                            <h4>المبلغ المدفوع</h4>
-                        </div>
-                </div>
-                <div class="input-field col s12">
-                        <input  class="col s7"type="number" class="validate" name="total" id="total" required="">
-                        <h4 class="col s3">المتبقي</h4>
-                </div>
-        </div>
+    <form action="{{ route('main_stock_operations') }}" method="post">
+            @csrf
+            <div class="modal-content">
+                    <div class=" input-field row">
+                                <p class="col m4 s6">100</p>
+                                <h5  class=" col  m8 s6 "> المبلغ الاجمالي</h5>
+                    </div>
 
-    </div>
-    <div class="modal-footer">
+                    <div class="input-field row">
+                        <div class="col m6 s12">
+                                <input type="number" name="quantity" id="quantity" required="">
+                                <label for="quantity" class=""> المدفوع</label>
 
-      <div class="button-wrapper">
-        <button class="btn cyan waves-effect waves-light right" type="submit">{{ __('Payment') }}
-          <i class="material-icons right">send</i>
-        </button>
-      </div>
-    </div>
-  </form>
+                        </div>
+                    </div>
+
+                    <div class=" input-field row">
+                                <p class="col m4 s6">100</p>
+                                <h5  class=" col  m8 s6 "> المبلغ المتبقي</h5>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="button-wrapper">
+                            <button class="btn cyan waves-effect waves-light right" type="submit">{{ __('Payment') }}
+                            <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+
+
+            </div>
+
+    </form>
 </div>
+
+
 @section('page_js')
 <script src="{{asset('resources/vendors/slick/slick.min.js')}}" type="text/javascript"></script>
 <script src="https://js.pusher.com/5.0/pusher.min.js" type="text/javascript"></script>
