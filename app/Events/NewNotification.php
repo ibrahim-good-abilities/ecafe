@@ -47,7 +47,7 @@ class NewNotification
     }
     elseif($newNotification->type=='parista'){
 
-        $newNotification->target  = route('edit_order',[$object_id,$newNotification->id]);
+        $newNotification->target  = route('parista-2');
     }
     $newNotification->save();
 

@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/jquery.dataTables.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/extensions/responsive/css/responsive.dataTables.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/select.dataTables.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('resources/css/cashier.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('resources/css/captain.css')}}">
 @endsection
 @section('middle_content')
 
@@ -42,7 +42,7 @@
     </div>
     <div class="col s7">
         <!-- Products menu -->
-        @include('pos.menu-cashier')
+        @include('pos.menu-captain')
     </div>
 
 </div>
@@ -57,6 +57,6 @@
 <script src="{{asset('resources/vendors/data-tables/js/dataTables.select.min.js')}}" type="text/javascript"></script>
 <script src="{{ asset('resources/vendors/slick/slick.min.js')}}" type="text/javascript"></script>
 <script src="https://js.pusher.com/5.0/pusher.min.js" type="text/javascript"></script>
-<script src="{{ asset('resources/js/cashier.js')}}" type="text/javascript"></script>
+<script src="{{ asset('resources/js/captain.js')}}" type="text/javascript"></script>
 @endsection
 @endsection
