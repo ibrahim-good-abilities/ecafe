@@ -11,7 +11,7 @@ PLACE HERE YOUR OWN JS CODES AND IF NEEDED.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR CUSTOM SCRIPT IT'S BETTER LIKE THIS. */
 function notify(text)
 {
-    var toastHTML = `<span>${text}</span><button class="btn-flat toast-action">Close</button>`;
+    var toastHTML = `<span >${text}</span><button class="btn-flat toast-action modal-trigger">Close</button>`;
     M.toast({html: toastHTML});
 }
 $(document).ready(function() {
@@ -46,7 +46,7 @@ $(document).ready(function() {
 
     });
 
- 
+
     $('.upload-preview').change(function(){
         document.getElementById('output').src = window.URL.createObjectURL(this.files[0])
     });
