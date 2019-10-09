@@ -11,6 +11,9 @@
 
 @section('top-nav-content')
     <div id="active-orders">
+        <div class="order-number selected">
+            أضافة طلب
+        </div>
         <div class="order-number">
             #1
         </div>
@@ -28,9 +31,6 @@
         </div>
         <div class="order-number">
             #5
-        </div>
-        <div class="order-number">
-            #6
         </div>
     </div>
 
