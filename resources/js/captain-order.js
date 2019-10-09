@@ -15,24 +15,36 @@ $(document).ready(function() {
         scrollX: true,
         scrollCollapse: true,
         columnDefs: [{
-                "targets": [3],
-                "visible": false,
-                "searchable": false
-            },
-            {
-                "targets": [5],
-                "visible": false
-            },
-            {
-                width: '20%',
-                targets: 0
-            },
-            {
-                width: '50px',
-                targets: 4
-            }
-        ],
+            width: '50px',
+            targets: 3
+        }],
         fixedColumns: true
+    });
+
+    $('#active-orders').slick({
+        slidesToShow: 6,
+        infinite: false,
+        responsive: [{
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 3,
+                    infinite: false,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1,
+                    infinite: false,
+                }
+            }
+        ]
+    });
+
+    $(document).on('click', '.order-number', function() {
+        document.location.href = $(this).data('href');
     });
 
 });

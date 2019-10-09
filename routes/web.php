@@ -74,6 +74,8 @@ Route::resource('ingredients', 'IngrediantController');
 Route::get('/ingredient/delete/{id}','IngrediantController@destroy')->name('ingredient_delete');
 //captain
 Route::get('/captain','IndexController@captain')->name('captain');
+//captain
+Route::get('/captain/order/{id}','IndexController@captainOrder')->name('captain-order');
 //cashier
 Route::get('/cashier','IndexController@cashier')->name('cashier');
 

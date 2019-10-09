@@ -293,5 +293,8 @@ $(document).ready(function() {
         ]
     });
 
+    $(document).on('click', '.order-number', function() {
+        document.location.href = $(this).data('href');
+    });
 
 });
