@@ -197,7 +197,7 @@ class OrderController extends Controller
         }else{
             return redirect()->back()->with('success', 'Order  status update successfully');
         }
-        
+
 
     }
     public function updateOrderLineStatus(Request $request ,$id)
@@ -237,8 +237,13 @@ class OrderController extends Controller
 
     // }
 
-    public function parista()
+    public function parista($notification_id =false)
     {
+        if($notification_id ){
+            $notification = Notification::find($notification_id);
+            $notification->status=true;
+            $notification->save();
+        }
         $orders = Order::where('status','!=','done')->get();
         return view('parista.index')->with('orders',$orders);
 
