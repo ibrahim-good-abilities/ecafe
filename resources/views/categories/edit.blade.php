@@ -44,7 +44,7 @@
                   <div class="col s12 file-field input-field">
                   <div class="row">
                         <div class ="col s6 ">
-                                 <img   id="output" src="{{asset('public'.$category->src)}}" class="output"  style="max-width: 100px">
+                                 <img   id="output" src="{{asset('public'.$category->src)}}" class=""  style="max-width: 100px">
                         </div>
                         <div class="btn float-left col s2">
                            <span>{{ __('Change Image') }}</span>

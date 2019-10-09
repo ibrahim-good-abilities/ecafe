@@ -43,7 +43,7 @@ img.item-image {
 }
 
 #main-blank {
-    min-height: calc(100% - 125px);
+    min-height: calc(115% - 172px);
 }
 
 div#update-order-section {
