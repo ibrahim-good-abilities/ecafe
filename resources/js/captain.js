@@ -180,8 +180,8 @@ $(document).ready(function() {
             'customer_id': '1',
             'coupon_code': $('#coupon').val(),
             '_token': $('#_order_token').val(),
-            'notes':$('#notes').val(),
-            'table_number':$('#table_number').val()
+            'notes': $('#notes').val(),
+            'table_number': $('#table_number').val()
         };
         $.post(base_url + '/orders/add-new', data, function(response) {
             if (response) {
@@ -271,6 +271,27 @@ $(document).ready(function() {
     });
 
 
+    $('#active-orders').slick({
+        slidesToShow: 6,
+        infinite: false,
+        responsive: [{
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 3,
+                    infinite: false,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1,
+                    infinite: false,
+                }
+            }
+        ]
+    });
 
 
 });

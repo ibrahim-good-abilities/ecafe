@@ -1,6 +1,6 @@
 .slick-prev:before,
 .slick-next:before {
-    color: #565353!important;
+    color: white;
 }
 
 .slick-prev {
@@ -325,6 +325,51 @@ table.dataTable tbody td {
     padding-top: 0px!important;
 }
 
-#main-blank {
-    min-height: calc(115% - 172px);
+div#active-orders {
+    height: 50px;
+    position: relative;
+    display: inline-block;
+    width: 70%;
+    margin-left: 60px;
+    -webkit-transition: .3s ease all;
+    -moz-transition: .3s ease all;
+    -o-transition: .3s ease all;
+    transition: .3s ease all;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    margin-top: 7px;
+}
+
+.slick-list,
+.slick-track {
+    height: 100%;
+}
+
+.order-number {
+    text-align: center;
+    background: white;
+    color: #6d25a1;
+}
+
+
+/* the slides */
+
+.slick-slide {
+    margin: 0 2px;
+}
+
+
+/* the parent */
+
+.slick-list {
+    margin: 0 -27px;
+}
+
+.slick-prev {
+    left: -50px;
+}
+
+.slick-next {
+    right: -50px;
 }
