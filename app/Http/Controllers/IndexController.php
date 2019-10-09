@@ -77,7 +77,7 @@ class IndexController extends Controller
                 $item_groups[$item->category_id][] = $item;
             endif;
         endforeach;
-        return view('captain')
+        return view('captain.captain')
         ->with('categories',$categories)
         ->with('item_groups',$item_groups);
     }
