@@ -373,3 +373,10 @@ div#active-orders {
 .slick-next {
     right: -50px;
 }
+
+.slick-initialized .slick-slide:hover,
+.slick-initialized .slick-slide.active,
+.order-number.selected {
+    background-color: #ff4181;
+    color: white;
+}
