@@ -11,39 +11,23 @@
 
 @section('top-nav-content')
     <div id="active-orders">
-        <div class="order-number selected">
+        <div class="order-number" data-href="{{ route('captain') }}">
             أضافة طلب
         </div>
-        <div class="order-number">
-            #1
+        @foreach($orders as $single_order)
+        <div class="order-number {{ $order->id == $single_order->id ? 'selected':''}}" data-href="{{ route('captain-order',$single_order->id) }}">
+                    #{{ $single_order->id }}
         </div>
-        <div class="order-number">
-            #2
-        </div>
-        <div class="order-number">
-            #3
-        </div>
-        <div class="order-number">
-            #4
-        </div>
-        <div class="order-number">
-            #4
-        </div>
-        <div class="order-number">
-            #5
-        </div>
+        @endforeach
     </div>
 
 @endsection
 @section('middle_content')
 
 <div class="row" id="pos-container">
-    <div class="col s5">
+    <div class="col s8  offset-s2">
         <!-- checkout page -->
-        @include('pos.checkout')
-    </div>
-    <div class="col s7">
-       
+        @include('pos.order_details')
     </div>
 
 </div>

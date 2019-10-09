@@ -352,6 +352,10 @@ div#active-orders {
     color: #6d25a1;
 }
 
+.order-number a {
+    color: #6d25a1;
+}
+
 
 /* the slides */
 
@@ -378,5 +382,9 @@ div#active-orders {
 .slick-initialized .slick-slide.active,
 .order-number.selected {
     background-color: #ff4181;
+    color: white;
+}
+
+.order-number.selected a {
     color: white;
 }

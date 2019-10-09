@@ -37,8 +37,8 @@
         <label for="notes"> ملاحظات علي الطلب</label>
     </div>
     <div class="input-field col s6">
-        <input id="table_number" type="number">
-        <label for="table_number">  رقم الترابيزة </label>
+        <input id="table_number" type="text">
+        <label for="table_number"> رقم التربيزة/العميل </label>
     </div>
     <div class="col s12">
         <div id="buttons">
