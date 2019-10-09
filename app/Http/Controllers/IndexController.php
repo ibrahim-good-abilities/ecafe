@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Order;
 class IndexController extends Controller
 {
 
@@ -80,6 +81,11 @@ class IndexController extends Controller
         return view('captain.captain')
         ->with('categories',$categories)
         ->with('item_groups',$item_groups);
+    }
+    public function cashier()
+    {
+        $orders =Order::where('status','done')->get();
+        return view('cashier')->with('orders',$orders);
     }
 
 }
