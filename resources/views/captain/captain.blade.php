@@ -8,6 +8,33 @@
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/select.dataTables.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('resources/css/captain.css')}}">
 @endsection
+
+@section('top-nav-content')
+    <div id="active-orders">
+        <div class="order-number">
+            #1
+        </div>
+        <div class="order-number">
+            #2
+        </div>
+        <div class="order-number">
+            #3
+        </div>
+        <div class="order-number">
+            #4
+        </div>
+        <div class="order-number">
+            #4
+        </div>
+        <div class="order-number">
+            #5
+        </div>
+        <div class="order-number">
+            #6
+        </div>
+    </div>
+
+@endsection
 @section('middle_content')
 
 <!-- Point of sale make order screen -->

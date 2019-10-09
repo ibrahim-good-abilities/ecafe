@@ -39,9 +39,6 @@
     @include('header')  {{-- Include header file --}}
     <!-- END: Header-->
 
-
-   
-
     <!-- BEGIN: Page Main-->
     <div id="main-blank">
         @yield("middle_content")
