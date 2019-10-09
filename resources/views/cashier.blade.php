@@ -29,7 +29,7 @@
 
             <input type="hidden" id ="_order_token" value="{{ csrf_token()}}"/>
             @foreach($orders as $order)
-                <div>
+                <div >
                     <div class="order-box">
                         <ul id="issues-collection" class="collection z-depth-1">
                             <li class="collection-item avatar">
@@ -56,7 +56,7 @@
                                         <p class="right-align">{{$order->notes}}</p>
                                     </div>
 
-                                    <div class="col s12 center-align">
+                                    <div data-order_id="{{$order->id}}" class="col s12 center-align">
                                         <a class="modal-trigger" href="#payment">
                                             <button class="waves-effect waves-light red btn btn-small ">{{__('Payment')}}</button>
                                         </a>
@@ -71,13 +71,16 @@
     </div>
 </div>
 <div id="payment" class="modal">
-    <form action="{{ route('main_stock_operations') }}" method="post">
+    <form action="{{route('order_paid')}}" method="post">
             @csrf
             <div class="modal-content">
+
                     <div class=" input-field row">
                                 <p class="col m4 s6">100</p>
                                 <h5  class=" col  m8 s6 "> المبلغ الاجمالي</h5>
                     </div>
+
+                    <input type="hidden" name="order_id" value=""/>
 
                     <div class="input-field row">
                         <div class="col m6 s12">
@@ -94,7 +97,7 @@
 
                     <div class="modal-footer">
                         <div class="button-wrapper">
-                            <button class="btn cyan waves-effect waves-light right" type="submit">{{ __('Payment') }}
+                            <button class="btn cyan waves-effect waves-light right paid" type="submit">{{ __('Payment') }}
                             <i class="material-icons right">send</i>
                             </button>
                         </div>

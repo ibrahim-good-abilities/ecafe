@@ -242,7 +242,7 @@ class OrderController extends Controller
             $notification->status=true;
             $notification->save();
         }
-        $orders = Order::where('status','!=','done')->get();
+        $orders = Order::where('status','=','pending')->get();
         return view('parista.index')->with('orders',$orders);
 
     }
@@ -255,6 +255,17 @@ class OrderController extends Controller
         ->get();
         return $items;
     }
+    public function orderPaid(Request $request)
+    {
+            $request->validate([
+            'order_id'=>'required'
+        ]);
 
+        $order_id =request('order_id');
+        $order = Order::find($order_id);
+        $order->status='paid';
+        $order->save();
+        return redirect()->back();
+    }
 }
 

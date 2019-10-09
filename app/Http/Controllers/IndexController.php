@@ -105,7 +105,7 @@ class IndexController extends Controller
         ->where('order_line.order_id', $order_id)
         ->get();
 
-        
+
         $orders = DB::table('orders')
         ->select('orders.id')
         ->where('orders.status','!=','paid')
@@ -120,8 +120,11 @@ class IndexController extends Controller
 
     public function cashier()
     {
-        $orders =Order::where('status','done')->get();
-        return view('cashier')->with('orders',$orders);
+        $orders =Order::where('status','done')
+        ->get();
+
+        return view('cashier')
+        ->with('orders',$orders);
     }
 
 }
