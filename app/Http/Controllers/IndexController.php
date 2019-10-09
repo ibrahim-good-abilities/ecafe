@@ -56,7 +56,7 @@ class IndexController extends Controller
         ->with('categories',$categories)
         ->with('item_groups',$item_groups);
     }
-    public function cashier()
+    public function captain()
     {
 
         $categories = DB::table('categories')
@@ -77,7 +77,7 @@ class IndexController extends Controller
                 $item_groups[$item->category_id][] = $item;
             endif;
         endforeach;
-        return view('cashier')
+        return view('captain')
         ->with('categories',$categories)
         ->with('item_groups',$item_groups);
     }

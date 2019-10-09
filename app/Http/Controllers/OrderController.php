@@ -225,19 +225,19 @@ class OrderController extends Controller
 
     }
 
+    // public function parista()
+    // {
+    //     $orders = DB::table('orders')
+    //     ->select('orders.id','orders.status','orders.created_at','customers.customer_name',DB::raw('sum(order_line.quantity * order_line.price) as total'))
+    //     ->join('order_line','orders.id','=','order_line.order_id')
+    //     ->leftJoin('customers','customers.id','=','orders.customer_id')
+    //     ->groupBy('orders.id','orders.status','orders.created_at','customer_name')
+    //     ->get();
+    //     return view('orders.parista')->with('orders',$orders);
+
+    // }
+
     public function parista()
-    {
-        $orders = DB::table('orders')
-        ->select('orders.id','orders.status','orders.created_at','customers.customer_name',DB::raw('sum(order_line.quantity * order_line.price) as total'))
-        ->join('order_line','orders.id','=','order_line.order_id')
-        ->leftJoin('customers','customers.id','=','orders.customer_id')
-        ->groupBy('orders.id','orders.status','orders.created_at','customer_name')
-        ->get();
-        return view('orders.parista')->with('orders',$orders);
-
-    }
-
-    public function parista2()
     {
         $orders = Order::where('status','!=','done')->get();
         return view('parista.index')->with('orders',$orders);
