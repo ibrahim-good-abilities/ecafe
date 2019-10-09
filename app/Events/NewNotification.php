@@ -46,8 +46,7 @@ class NewNotification
         $newNotification->target='javascript:void(0)';
     }
     elseif($newNotification->type=='parista'){
-
-        $newNotification->target  = route('parista');
+        $newNotification->target  = route('parista',$newNotification->id);
     }
     $newNotification->save();
 
