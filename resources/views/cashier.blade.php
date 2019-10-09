@@ -79,29 +79,30 @@
 <div id="payment" class="modal">
     <form action="{{ route('main_stock_operations') }}" method="post">
             @csrf
-            <div class="modal-content">
-                    <div class=" input-field row">
-                                <p class="col m4 s6">100</p>
-                                <h5  class=" col  m8 s6 "> المبلغ الاجمالي</h5>
+            <div class="modal-content row">
+                    <div class="frist-line col s12">
+                                <span class="frist-text"> المبلغ الاجمالي</span>
+                                <span class="left-text">100</span>
+                               
                     </div>
-
-                    <div class="input-field row">
-                        <div class="col m6 s12">
-                                <input type="number" name="quantity" id="quantity" required="">
-                                <label for="quantity" class=""> المدفوع</label>
+                        <div class="middle-line col s12">
+                        <span class="middle-input"> 
+                            <input placeholder="المدفوع"  type="number"  step="0.25" min=".25" id="input"class="validate">
+                        </span>
+                        <span class="middle-text"> المبلغ المدفوع</span>
+                      
 
                         </div>
                     </div>
 
-                    <div class=" input-field row">
-                                <p class="col m4 s6">100</p>
-                                <h5  class=" col  m8 s6 "> المبلغ المتبقي</h5>
+                    <div class="third-line col s12">
+                                <span class="third-text"> المبلغ المتبقي</span>
+                                <span class="left-text">100</span>    
                     </div>
-
                     <div class="modal-footer">
                         <div class="button-wrapper">
                             <button class="btn cyan waves-effect waves-light right" type="submit">{{ __('Payment') }}
-                            <i class="material-icons right">send</i>
+                            <i class="material-icons right">done</i>
                             </button>
                         </div>
                     </div>
