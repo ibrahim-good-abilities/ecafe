@@ -14,7 +14,7 @@
 
 use Illuminate\Routing\Router;
 
-Route::get('/', 'IndexController@index')->name('home');
+Route::get('/', 'OrderController@index')->name('home');
 Route::get('/inventory-sheet', 'InventoryController@index')->name('inventory-sheet');
 //categories
 Route::get('/categories/index','CategoryController@index')->name('all_categories');
@@ -37,8 +37,8 @@ Route::get('/orders/delete/{id}','OrderController@destroy')->name('delete_order'
 Route::post('/orders/update/status/{id}','OrderController@updateStatus')->name('order_update_status');
 Route::get('/orders/edit/status/{id}','OrderController@editStatus')->name('order_edit_status');
 Route::get('/orders/edit/{id}/{notification_id?}','OrderController@edit')->name('edit_order');
+//updateOrderLineStatus
 Route::post('/orderline/update/status/{id}','OrderController@updateOrderLineStatus')->name('order_line_update_status');
-
 //stock
 Route::get('/stock/index','ItemController@stock')->name('stock');
 Route::post('/stock/main/transfer','ItemController@transferMainStock')->name('transfer_main_stock');
@@ -64,8 +64,8 @@ Route::post('/coupons/add-new','CouponController@store')->name('store_coupon');
 //user
 Route::get('/welcome','IndexController@welcome')->name('welcome');
 //parista
-Route::get('/parista','OrderController@parista')->name('parista');
-Route::get('/parista-2','OrderController@parista2')->name('parista-2');
+//Route::get('/parista','OrderController@parista')->name('parista');
+Route::get('/parista','OrderController@parista')->name('parista-2');
 //Packing Units
 Route::get('/packing-units/delete/{id}','PackingUnitController@destroy')->name('packing_unit_delete');
 Route::resource('packing-units', 'PackingUnitController');

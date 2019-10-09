@@ -6,7 +6,7 @@
 
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
             <li class="bold">
-                <a class="waves-effect waves-cyan " href="{{route('home')}}"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="">{{ __('Welcome') }}</span><span class="badge badge pill orange float-right mr-10">0</span></a>
+                <a class="waves-effect waves-cyan " href="{{route('home')}}"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="">{{ __('Welcome') }}</span></a>
             </li>
              <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">label</i>
                 <span class="menu-title" data-i18n="">{{ __('Categories') }}</span></a>
