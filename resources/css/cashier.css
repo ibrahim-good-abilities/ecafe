@@ -26,4 +26,39 @@
 .empty-orders h4 {
     margin-top: 140px;
 }
+span.frist-text{
+        font-size: 2pc;
+        margin-left: -103px;
 
+}
+span.middle-text{
+    font-size: 2pc;
+    margin: 73px;
+
+}
+span.left-text {
+    margin: 250px;
+}
+
+span.middle-input input#input {
+    width: 277px;
+    margin-right: 82px;
+    padding-top: 28px;
+} 
+
+span.third-text{
+    font-size: 2pc;
+    margin-left:-66px;
+
+}
+.col.s12.middle-line {
+    border-bottom: double;
+    border-bottom-width: initial;
+    height: 109px;
+}
+ .button-wrapper {
+        margin-right: 549px;
+    }
+    .modal {
+        height: 325px;
+    }
