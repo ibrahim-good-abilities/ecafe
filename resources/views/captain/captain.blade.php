@@ -1,4 +1,4 @@
-@extends('welcome-layout')
+@extends('layouts.captain')
 @section('title', 'E-Café')
 @section('page_css')
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/slick/slick.css')}}">
