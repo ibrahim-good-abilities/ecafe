@@ -1,27 +1,34 @@
 $(document).ready(function() {
     // Enable pusher logging - don't include this in production
+
     function initSlick() {
-        $('#orders').slick({
-            slidesToShow: 4,
-            infinite: false,
-            responsive: [{
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        slidesToShow: 3,
-                        infinite: false,
+        if ($('.order-box').length == 0) {
+            $('.empty-orders').removeClass('hidden');
+        } else {
+            $('.empty-orders').addClass('hidden');
+            $('#orders').slick({
+                slidesToShow: 4,
+                infinite: false,
+                responsive: [{
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            slidesToShow: 3,
+                            infinite: false,
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: false,
+                            slidesToShow: 1,
+                            infinite: false,
+                        }
                     }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        arrows: false,
-                        slidesToShow: 1,
-                        infinite: false,
-                    }
-                }
-            ]
-        });
+                ]
+            });
+        }
+
     }
 
 
