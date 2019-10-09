@@ -314,3 +314,7 @@ table.dataTable tbody td {
     word-break: break-word;
     vertical-align: top;
 }
+#main
+{
+    min-height: calc(115% - 172px);
+}

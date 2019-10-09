@@ -324,3 +324,7 @@ table.dataTable tbody td {
 .product-box {
     padding-top: 0px!important;
 }
+
+#main-blank {
+    min-height: calc(115% - 172px);
+}
