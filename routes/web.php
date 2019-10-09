@@ -72,9 +72,10 @@ Route::resource('packing-units', 'PackingUnitController');
 //ingredients
 Route::resource('ingredients', 'IngrediantController');
 Route::get('/ingredient/delete/{id}','IngrediantController@destroy')->name('ingredient_delete');
-//cashier
+//captain
 Route::get('/captain','IndexController@captain')->name('captain');
-
+//cashier
+Route::get('/cashier','IndexController@cashier')->name('cashier');
 
 
 
