@@ -183,7 +183,7 @@ class OrderController extends Controller
         //
     }
 
-    public  function updateStatus(Request $request ,$id)
+    public function updateStatus(Request $request ,$id)
     {
         $request->validate([
                 'status'  =>'required'
@@ -192,20 +192,24 @@ class OrderController extends Controller
         $order->status=request('status');
         new NewNotification('customer_'.$id,'order-status',['massage'=>__('Your order is '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
         $order->save();
-        return redirect()->back()->with('success', 'Order  status update successfully');
+        if ($request->has('ajax')) {
+            return response()->json(['status' => 'success']);
+        }else{
+            return redirect()->back()->with('success', 'Order  status update successfully');
+        }
+        
 
     }
     public function updateOrderLineStatus(Request $request ,$id)
     {
-        dd($id);
         $request->validate([
             'status'  =>'required'
         ]);
-        $order = Order_line::find($id);
-        $order->status= request('status');
-        new NewNotification('customer_'.$id,'order-status',['massage'=>__('Your order is '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
-        $order->save();
-        return redirect()->back()->with('success', 'Order  status update successfully');
+        $order_line = Order_line::find($id);
+        $order_line->status = request('status');
+        //new NewNotification('customer_'.$id,'order-status',['massage'=>__('Your order is '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
+        $order_line->save();
+        return response()->json(['status' => 'success']);
     }
     /**
      * Remove the specified resource from storage.
@@ -238,6 +242,15 @@ class OrderController extends Controller
         $orders = Order::where('status','!=','done')->get();
         return view('parista.index')->with('orders',$orders);
 
+    }
+
+    public static function getOrderItems($id) {
+        $items = DB::table('items')
+        ->select('order_line.id','items.name','order_line.status','order_line.quantity')
+        ->join('order_line','items.id','=','order_line.item_id')
+        ->where('order_line.order_id', $id)
+        ->get();
+        return $items;
     }
 
 }

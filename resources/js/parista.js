@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // Enable pusher logging - don't include this in production
-    function initSlick(){
+    function initSlick() {
         $('#orders').slick({
             slidesToShow: 4,
             infinite: false,
@@ -26,17 +26,58 @@ $(document).ready(function() {
 
 
 
-    function removeSlide(index){
+    function removeSlide(index) {
         $('#orders').slick('slickRemove', index).slick('unslick');
         initSlick();
 
     }
 
-    $('.hide-order').on('click', function() {
-      var index = $(this).closest(".slick-slide").data("slick-index");
-      removeSlide(index);
+    $(document).on('click', '.hide-order', function() {
+        var index = $(this).closest(".slick-slide").data("slick-index");
+        removeSlide(index);
     });
+    $(document).on('click', '.make-ready', function() {
+        var item_id = $(this).data('item_id');
+        var that = $(this);
+        $(this).addClass('hidden');;
+        $.post(base_url + '/orderline/update/status/' + item_id, { 'status': 'done', 'ajax': true, '_token': $('#_order_token').val() }, function(response) {
+            if (response) {
+                that.closest('div').find('.disabled').removeClass('hidden');
+            }
+        });
+    });
+
+    $('.complete-order').on('click', function() {
+        var order_id = $(this).data('order_id');
+        var that = $(this);
+        $(this).addClass('hidden');;
+        $.post(base_url + '/orders/update/status/' + order_id, { 'status': 'done', 'ajax': true, '_token': $('#_order_token').val() }, function(response) {
+            if (response) {
+                that.closest('div').find('.hide-order').removeClass('hidden');
+            }
+        });
+    });
+
+
     initSlick();
 
-});
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
 
+    var pusher = new Pusher('c015a0a925da1961bddf', {
+        cluster: 'eu',
+        forceTLS: true
+    });
+
+    var channel = pusher.subscribe('parista');
+    channel.bind('new-order', function(data) {
+        var snd = new Audio(base_url + '/resources/sounds/notification.mp3');
+        notify(data.message)
+        snd.play();
+        setTimeout(() => {
+            location.reload();
+        }, 2000);
+
+    });
+
+});
