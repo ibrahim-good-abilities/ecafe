@@ -172,6 +172,16 @@ $(document).ready(function() {
             return false;
         }
 
+        var table = $('#table_number').val();
+        if (table.length == 0) {
+            swal({
+                title: 'Table number is empty!',
+                icon: 'error'
+            });
+            return false;
+
+        }
+
         $("#checkout-from").hide();
         $("#checkout-processing").show();
 
@@ -299,7 +309,7 @@ $(document).ready(function() {
 
         }
         var snd = new Audio(base_url + '/resources/sounds/notification.mp3');
-        notify(data.massage);
+        notify(data.message);
         snd.play();
     });
 

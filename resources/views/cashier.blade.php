@@ -5,30 +5,13 @@
 <link rel="stylesheet" type="text/css" href="{{asset('resources/css/cashier.css')}}">
 @endsection
 @section('middle_content')
-@if ($message = Session::get('success'))
-<div class="card-alert card gradient-45deg-green-teal">
-    <div class="card-content white-text">
-        <p>
-        <i class="material-icons">check</i> {{ $message }}</p>
 
-        <h2>hi iam </h2>
+<div class="empty-orders">
+    <h4>لا يوجد لديك طلبات الان </h4>
 </div>
-    <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">×</span>
-    </button>
-</div>
-@endif
 
+<input type="hidden" id ="_order_token" value="{{ csrf_token()}}"/>
 
-
-
-                    <div class="empty-orders">
-                        <h4>لا يوجد لديك طلبات الان </h4>
-                    </div>
-
-
-            <input type="hidden" id ="_order_token" value="{{ csrf_token()}}"/>
-<div class="container">
     <div class="row">
           @foreach($orders as $order)
         <div class="col s4 order-content " data-order_id="{{$order->id}}">
@@ -42,25 +25,20 @@
                                 @php
                                     $order_items =  App\Http\Controllers\OrderController::getOrderItems($order->id);
                                 @endphp
-                                @foreach($order_items as $item)
+                                <ul class="order-items style-1">
+                                    @foreach($order_items as $item)
+                                    <li class="collection-item">
+                                        <div class="row">
+                                            <div class="col s8">
+                                                <p class="collections-title font-weight-600">{{ $item->name}} X {{ $item->quantity}}</p>
+                                            </div>
+
+                                        </div>
+                                    </li>
+                                    @endforeach
+                                </ul>
                                 <li class="collection-item">
                                     <div class="row">
-                                        <div class="col s8">
-                                            <p class="collections-title font-weight-600">{{ $item->name}} X {{ $item->quantity}}</p>
-                                        </div>
-
-                                    </div>
-                                </li>
-                                @endforeach
-                                <li class="collection-item">
-                                    <div class="row">
-<<<<<<< HEAD
-=======
-                                        <div class="col s12">
-                                         
-                                        </div>
->>>>>>> b1547d9295d8700474c6d65f920515b781732ca8
-
                                         <div data-order_id="{{$order->id}}" data-order_total="{{ $order->subtotal - $order->discount }}" class="col s12 center-align">
                                             <a class="modal-trigger" href="#payment">
                                                 <button class="waves-effect waves-light red btn btn-small ">{{__('Payment')}}</button>
@@ -74,7 +52,6 @@
                 @endforeach
 
 
-    <div>
 </div>
 
 <div id="payment" class="modal">

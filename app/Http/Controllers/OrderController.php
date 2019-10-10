@@ -188,8 +188,14 @@ class OrderController extends Controller
             ]);
         $order = Order::find($id);
         $order->status=request('status');
-        new NewNotification('customer_'.$id,'order-status',['massage'=>__('Your order is '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
-        new NewNotification('captain','order-status',['massage'=>__('Order status changed to '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
+        if($order->status == "done"){
+            new NewNotification('cashier','order-status',['message'=>__('You got new check please reload the page'),'order_id'=>$order->id]);
+        }else{
+            new NewNotification('customer_'.$id,'order-status',['message'=>__('Your order is '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
+            new NewNotification('captain','order-status',['message'=>__('Order status changed to '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
+
+        }
+
         $order->save();
         if ($request->has('ajax')) {
             return response()->json(['status' => 'success']);
@@ -206,8 +212,8 @@ class OrderController extends Controller
         ]);
         $order_line = Order_line::find($id);
         $order_line->status = request('status');
-        new NewNotification('customer_'.$id,'item-status',['massage'=>__('Your item is '.ucfirst($order_line->status )),'status'=>__(ucfirst($order_line->status)),'order_id'=>$order_line->order_id, 'item_id'=>$order_line->id]);
-        new NewNotification('captain','item-status',['massage'=>__('Your item is '.ucfirst($order_line->status )),'status'=>__(ucfirst($order_line->status)),'order_id'=>$order_line->order_id, 'item_id'=>$order_line->id]);
+        new NewNotification('customer_'.$id,'item-status',['message'=>__('Your item is '.ucfirst($order_line->status )),'status'=>__(ucfirst($order_line->status)),'order_id'=>$order_line->order_id, 'item_id'=>$order_line->id]);
+        new NewNotification('captain','item-status',['message'=>__('Your item is '.ucfirst($order_line->status )),'status'=>__(ucfirst($order_line->status)),'order_id'=>$order_line->order_id, 'item_id'=>$order_line->id]);
         $order_line->save();
         return response()->json(['status' => 'success']);
     }
@@ -225,17 +231,6 @@ class OrderController extends Controller
 
     }
 
-    // public function parista()
-    // {
-    //     $orders = DB::table('orders')
-    //     ->select('orders.id','orders.status','orders.created_at','customers.customer_name',DB::raw('sum(order_line.quantity * order_line.price) as total'))
-    //     ->join('order_line','orders.id','=','order_line.order_id')
-    //     ->leftJoin('customers','customers.id','=','orders.customer_id')
-    //     ->groupBy('orders.id','orders.status','orders.created_at','customer_name')
-    //     ->get();
-    //     return view('orders.parista')->with('orders',$orders);
-
-    // }
 
     public function parista($notification_id =false)
     {
@@ -260,7 +255,7 @@ class OrderController extends Controller
     public function orderPaid(Request $request)
     {
 
-            $request->validate([
+        $request->validate([
             'order_id'=>'required'
         ]);
 

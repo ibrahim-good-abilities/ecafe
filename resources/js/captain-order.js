@@ -69,7 +69,7 @@ $(document).ready(function() {
             }, 500);
         }
         var snd = new Audio(base_url + '/resources/sounds/notification.mp3');
-        notify(data.massage);
+        notify(data.message);
         snd.play();
     });
 
@@ -88,7 +88,7 @@ $(document).ready(function() {
 
         }
         var snd = new Audio(base_url + '/resources/sounds/notification.mp3');
-        notify(data.massage);
+        notify(data.message);
         snd.play();
     });
 

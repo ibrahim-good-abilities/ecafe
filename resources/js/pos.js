@@ -180,8 +180,8 @@ $(document).ready(function() {
             'customer_id': '1',
             'coupon_code': $('#coupon').val(),
             '_token': $('#_order_token').val(),
-            'notes':$('#notes').val(),
-            'table_number':$('#table_number').val()
+            'notes': $('#notes').val(),
+            'table_number': $('#table_number').val()
         };
         $.post(base_url + '/orders/add-new', data, function(response) {
             if (response) {
@@ -215,7 +215,7 @@ $(document).ready(function() {
                 channel.bind('order-status', function(data) {;
                     $("#status").html(data.status);
                     var snd = new Audio(base_url + '/resources/sounds/notification.mp3');
-                    notify(data.massage);
+                    notify(data.message);
                     snd.play();
                 });
             }
