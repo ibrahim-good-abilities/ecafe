@@ -189,6 +189,7 @@ class OrderController extends Controller
         $order = Order::find($id);
         $order->status=request('status');
         new NewNotification('customer_'.$id,'order-status',['massage'=>__('Your order is '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
+        new NewNotification('captain','order-status',['massage'=>__('Order status changed to '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
         $order->save();
         if ($request->has('ajax')) {
             return response()->json(['status' => 'success']);
