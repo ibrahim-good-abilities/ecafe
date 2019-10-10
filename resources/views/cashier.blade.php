@@ -94,10 +94,12 @@
                      <input type="hidden" name="order_id" value=""/>
                    <div class="third-line col s12">
                                <span class="third-text"> المبلغ المتبقي</span>
-                               <span class="left-text">100</span>
+                               <p id="val" class="left-text">0000</p>
                    </div>
                    <div class="modal-footer">
+
                        <div class="button-wrapper">
+
                            <button class="btn cyan waves-effect waves-light right" type="submit">{{ __('Payment') }}
                            <i class="material-icons right">done</i>
                            </button>

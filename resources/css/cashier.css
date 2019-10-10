@@ -39,6 +39,12 @@ span.middle-text{
 span.left-text {
     margin: 250px;
 }
+p.left-text {
+     
+        padding-top: -18px;
+        margin-top: -35px;
+        padding-left: 269px;
+}
 
 span.middle-input input#input {
     width: 277px;
@@ -48,7 +54,7 @@ span.middle-input input#input {
 
 span.third-text{
     font-size: 2pc;
-    margin-left:-66px;
+    margin-left: 468px;
 
 }
 .col.s12.middle-line {
