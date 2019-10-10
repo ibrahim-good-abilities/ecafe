@@ -4,7 +4,7 @@ $(document).ready(function() {
         $("#payment input[name='order_id']").val(order_id);
 
         var order_total = $(this).closest('div').data('order_total');
-        debugger;
+    
         $("#payment span[name='order_total']").html(order_total);
         e.preventDefault();
     });

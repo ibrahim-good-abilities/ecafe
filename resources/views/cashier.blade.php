@@ -82,7 +82,7 @@
            <div class="modal-content row">
                    <div class="frist-line col s12">
                                <span class="frist-text"> المبلغ الاجمالي</span>
-                               <span id="total" class="left-text" name="order_total" value="" >000</span>
+                               <p id="total" name="order_total" value="" >000</p>
                    </div>
                        <div class="middle-line col s12">
                        <span class="middle-input">
