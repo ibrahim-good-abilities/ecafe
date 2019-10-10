@@ -57,7 +57,7 @@
                                 <li class="collection-item">
                                     <div class="row">
                                         <div class="col s12">
-                                            <p class="right-align">{{$order->subtotal}}</p>
+                                         
                                         </div>
 
                                         <div data-order_id="{{$order->id}}" data-order_total="{{ $order->subtotal - $order->discount }}" class="col s12 center-align">
@@ -94,7 +94,7 @@
                      <input type="hidden" name="order_id" value=""/>
                    <div class="third-line col s12">
                                <span class="third-text"> المبلغ المتبقي</span>
-                               <p id="val" class="left-text">0000</p>
+                               <p id="val" class="left-text" name="order_total" >0000</p>
                    </div>
                    <div class="modal-footer">
 
