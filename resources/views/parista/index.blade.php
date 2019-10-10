@@ -11,21 +11,19 @@
     <div class="card-content white-text">
         <p>
         <i class="material-icons">check</i> {{ $message }}</p>
-
-        <h2>hi iam </h2>
 </div>
     <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">×</span>
     </button>
 </div>
 @endif
-<div class="col s12">
+<div class="row">
+    <div class="col s12">
 
-
-                    <div class="empty-orders">
-                        <h4>لا يوجد لديك طلبات الان </h4>
-                    </div>
-    <div id="orders">
+        <div class="empty-orders">
+            <h4>لا يوجد لديك طلبات الان </h4>
+        </div>
+        <div id="orders">
 
             <input type="hidden" id ="_order_token" value="{{ csrf_token()}}"/>
             @foreach($orders as $order)
@@ -78,7 +76,7 @@
                     </div>
                 </div>
             @endforeach
-
+        </div>
     </div>
 </div>
 

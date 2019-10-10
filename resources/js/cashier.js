@@ -4,7 +4,6 @@ $(document).ready(function() {
         $("#payment input[name='order_id']").val(order_id);
 
         var order_total = $(this).closest('div').data('order_total');
-
         $("#payment p[name='order_total']").html(order_total);
         $('#payment2').on('click',function(){
             var data = {
@@ -25,7 +24,7 @@ $(document).ready(function() {
     $('#input').on('keyup', function() {
         var num = $('#input').val();
         var val = $("#total").text();
-        var total = num - val ;
+        var total = num - val;
         $(".third-line p").html(total);
     });
 });

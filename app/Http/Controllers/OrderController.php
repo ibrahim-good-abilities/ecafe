@@ -206,7 +206,8 @@ class OrderController extends Controller
         ]);
         $order_line = Order_line::find($id);
         $order_line->status = request('status');
-        //new NewNotification('customer_'.$id,'order-status',['massage'=>__('Your order is '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
+        new NewNotification('customer_'.$id,'item-status',['massage'=>__('Your item is '.ucfirst($order_line->status )),'status'=>__(ucfirst($order_line->status)),'order_id'=>$order_line->order_id, 'item_id'=>$order_line->id]);
+        new NewNotification('captain','item-status',['massage'=>__('Your item is '.ucfirst($order_line->status )),'status'=>__(ucfirst($order_line->status)),'order_id'=>$order_line->order_id, 'item_id'=>$order_line->id]);
         $order_line->save();
         return response()->json(['status' => 'success']);
     }
