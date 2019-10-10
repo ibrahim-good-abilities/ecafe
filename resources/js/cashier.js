@@ -16,6 +16,8 @@ $(document).ready(function() {
 
     $('#input').on('keyup', function() {
         var num = $('#input').val();
-        $(".third-line p").html(num);
+        var val = $("#total").text();
+        var total = num - val ;
+        $(".third-line p").html(total);
     });
 });
