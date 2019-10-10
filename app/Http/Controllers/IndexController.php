@@ -100,7 +100,7 @@ class IndexController extends Controller
         ->first();
 
         $items = DB::table('items')
-        ->select('items.name','order_line.price','order_line.quantity','order_line.status')
+        ->select('items.name','order_line.price','order_line.quantity','order_line.status','order_line.id')
         ->join('order_line','items.id','=','order_line.item_id')
         ->where('order_line.order_id', $order_id)
         ->get();

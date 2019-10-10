@@ -73,4 +73,23 @@ $(document).ready(function() {
         snd.play();
     });
 
+    _channel.bind('item-status', function(data) {
+        debugger;
+        if ($(".selected.order-number[data-number='" + data.order_id + "']").length > 0) {
+            $("#status_" + data.item_id).html(data.status);
+        } else {
+            setInterval(function() {
+                if ($(".order-number[data-number='" + data.order_id + "']").hasClass('selected')) {
+                    $(".order-number[data-number='" + data.order_id + "']").removeClass('selected');
+                } else {
+                    $(".order-number[data-number='" + data.order_id + "']").addClass('selected');
+                }
+            }, 500);
+
+        }
+        var snd = new Audio(base_url + '/resources/sounds/notification.mp3');
+        notify(data.massage);
+        snd.play();
+    });
+
 });

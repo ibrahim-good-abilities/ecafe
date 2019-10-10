@@ -12,7 +12,7 @@ $(document).ready(function() {
                 responsive: [{
                         breakpoint: 768,
                         settings: {
-                            arrows: false,
+                            arrows: true,
                             slidesToShow: 3,
                             infinite: false,
                         }
@@ -20,7 +20,7 @@ $(document).ready(function() {
                     {
                         breakpoint: 480,
                         settings: {
-                            arrows: false,
+                            arrows: true,
                             slidesToShow: 1,
                             infinite: false,
                         }

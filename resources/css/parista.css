@@ -19,11 +19,17 @@
 .actions .btn-wrapper {
     padding: 5px;
 }
+
 .empty-orders {
     text-align: center;
-   
 }
+
 .empty-orders h4 {
     padding-top: 237px;
     margin: 0px;
+}
+
+#orders {
+    width: 95%;
+    margin: 0 auto;
 }

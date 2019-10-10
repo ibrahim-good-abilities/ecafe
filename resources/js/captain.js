@@ -202,22 +202,7 @@ $(document).ready(function() {
                     $("#coupon_info").hide();
                 }
 
-                $("#order_number").html(response.order.id);
-                $("#status").html(response.order.status);
-                swal("Success", response.order.success, "success")
-
-                $("#checkout-processing,.qty-inc,.qty-dec").hide();
-                $(".delete").removeClass('delete');
-                $(".product").addClass('disabled');
-                $("#order-status").show();
-
-                var channel = pusher.subscribe('customer_' + response.order.id);
-                channel.bind('order-status', function(data) {;
-                    $("#status").html(data.status);
-                    var snd = new Audio(base_url + '/resources/sounds/notification.mp3');
-                    notify(data.massage);
-                    snd.play();
-                });
+                document.location.href = base_url + '/captain/order/' + response.order.id;
             }
         });
     });
@@ -301,7 +286,7 @@ $(document).ready(function() {
 
     var _channel = pusher.subscribe('captain');
     _channel.bind('order-status', function(data) {
-        if ($(".selected.order-number[data-status='" + data.order_id + "']").length > 0) {
+        if ($(".selected.order-number[data-number='" + data.order_id + "']").length > 0) {
             $("#status").html(data.status);
         } else {
             setInterval(function() {
