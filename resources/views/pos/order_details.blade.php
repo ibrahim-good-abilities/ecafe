@@ -22,7 +22,7 @@
                     $count_product += $item->quantity;
                 @endphp
                 <tr>
-                    <th>{{ __(ucfirst($item->status)) }}</th>
+                    <th id="status_{{$item->id}}">{{ __(ucfirst($item->status)) }}</th>
                     <th>{{ $item->price }}</th>
                     <th>{{ $item->quantity }}</th>
                     <th>{{ $item->name }}</th>
