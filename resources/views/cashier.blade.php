@@ -86,7 +86,7 @@
                    </div>
                        <div class="middle-line col s12">
                        <span class="middle-input">
-                           <input placeholder="المدفوع"  type="number"  step="0.25" min=".25" class="validate">
+                           <input placeholder="المدفوع"  type="number" id="input"  step="0.25" min=".25" class="validate">
                        </span>
                        <span class="middle-text"> المبلغ المدفوع</span>
                        </div>
