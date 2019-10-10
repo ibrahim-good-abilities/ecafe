@@ -5,7 +5,7 @@
    $bkg = $color_palette[$loop->index];
    ?>
    @foreach($items as $item)
-        <div class="animate fadeUp product-box col s6 m4">
+        <div class="animate fadeUp product-box col s3">
             <div class="card" style=" background-image: url({{asset('public'.$item->src)}}">
                <span class="overlay" style="background-color: {{ $bkg }}"></span>
                <div class="card-content" >
