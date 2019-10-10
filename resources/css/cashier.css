@@ -21,10 +21,10 @@
 }
 .empty-orders {
     text-align: center;
-    height: 197px;
+    height: 493px;
 }
 .empty-orders h4 {
-    margin-top: 140px;
+    padding-top: 209px;
 }
 span.frist-text{
         font-size: 2pc;
@@ -67,4 +67,16 @@ span.third-text{
     }
     .modal {
         height: 325px;
+    }
+
+    @media (max-width: 992px)
+    {
+        .empty-orders {
+            text-align: center;
+            height: 892px;
+        }
+        .empty-orders h4 {
+            padding-top: 399px;
+        }
+        
     }
