@@ -57,10 +57,10 @@
                                 <li class="collection-item">
                                     <div class="row">
                                         <div class="col s12">
-                                            <p class="right-align">{{$order->notes}}</p>
+                                            <p class="right-align">{{$order->subtotal}}</p>
                                         </div>
 
-                                        <div data-order_id="{{$order->id}}" class="col s12 center-align">
+                                        <div data-order_id="{{$order->id}}" data-order_total="{{ $order->subtotal - $order->discount }}" class="col s12 center-align">
                                             <a class="modal-trigger" href="#payment">
                                                 <button class="waves-effect waves-light red btn btn-small ">{{__('Payment')}}</button>
                                             </a>
@@ -82,7 +82,7 @@
            <div class="modal-content row">
                    <div class="frist-line col s12">
                                <span class="frist-text"> المبلغ الاجمالي</span>
-                               <span class="left-text">100</span>
+                               <span class="left-text" name="order_total" value="" >000</span>
                    </div>
                        <div class="middle-line col s12">
                        <span class="middle-input">
@@ -94,7 +94,7 @@
                      <input type="hidden" name="order_id" value=""/>
                    <div class="third-line col s12">
                                <span class="third-text"> المبلغ المتبقي</span>
-                               <span class="left-text">100</span>
+                               <span class="left-text"></span>
                    </div>
                    <div class="modal-footer">
                        <div class="button-wrapper">

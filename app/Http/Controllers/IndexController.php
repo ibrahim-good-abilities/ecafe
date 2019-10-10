@@ -120,7 +120,12 @@ class IndexController extends Controller
 
     public function cashier()
     {
-        $orders =Order::where('status','done')
+
+        $orders = DB::table('orders')
+        ->select('orders.id','orders.status','orders.table_number','orders.discount','orders.notes',DB::raw('sum(order_line.quantity * order_line.price) as subtotal'))
+        ->join('order_line','orders.id','=','order_line.order_id')
+        ->groupBy('orders.id','orders.status','orders.table_number','orders.discount','orders.notes')
+        ->where('orders.status','=','done')
         ->get();
 
         return view('cashier')
