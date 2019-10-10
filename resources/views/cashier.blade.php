@@ -82,20 +82,16 @@
            <div class="modal-content row">
                    <div class="frist-line col s12">
                                <span class="frist-text"> المبلغ الاجمالي</span>
-<<<<<<< HEAD
-                               <p class="left-text" name="order_total" value="" >000</p>
-=======
                                <p id="total"  name="order_total" value="" >000</p>
->>>>>>> 5cda292d81a4b37e78c15d75807ab10294c1bff4
                    </div>
                        <div class="middle-line col s12">
                        <span class="middle-input">
-                           <input placeholder="المدفوع"  type="number"  step="0.25" min=".25" id="input"class="validate">
+                           <input placeholder="المدفوع"  type="number"  step="0.25" min=".25" class="validate">
                        </span>
                        <span class="middle-text"> المبلغ المدفوع</span>
                        </div>
                    </div>
-                     <input type="hidden" name="order_id" value=""/>
+                     <input type="hidden" name="order_id"/>
                    <div class="third-line col s12">
                                <span class="third-text"> المبلغ المتبقي</span>
                                <p id="val" class="left-text">0000</p>

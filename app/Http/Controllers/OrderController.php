@@ -264,7 +264,7 @@ class OrderController extends Controller
         ]);
 
         $order_id =request('order_id');
-        dd($order_id);
+
         $order = Order::find($order_id);
         $order->status='paid';
         $order->save();
