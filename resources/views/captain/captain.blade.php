@@ -15,8 +15,8 @@
             أضافة طلب
         </div>
         @foreach($orders as $single_order)
-            <div class="order-number" data-href="{{ route('captain-order',$single_order->id) }}">
-                #{{ $single_order->id }}
+            <div data-number="{{ $single_order->id }}"  class="order-number" data-href="{{ route('captain-order',$single_order->id) }}">
+                {{ $single_order->table_number }}
             </div>
         @endforeach
     </div>

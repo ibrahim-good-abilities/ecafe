@@ -72,7 +72,7 @@ class IndexController extends Controller
         ->get();
 
         $orders = DB::table('orders')
-        ->select('orders.id')
+        ->select('orders.id','orders.table_number')
         ->where('orders.status','!=','paid')
         ->get();
 
@@ -107,7 +107,7 @@ class IndexController extends Controller
 
 
         $orders = DB::table('orders')
-        ->select('orders.id')
+        ->select('orders.id','orders.table_number')
         ->where('orders.status','!=','paid')
         ->get();
 

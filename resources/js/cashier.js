@@ -12,6 +12,18 @@ $(document).ready(function() {
     });
 
         $('.modal').modal();
+
+
+        
+      
+        $('#input').on('keyup', function(){
+            var num = $('#input').val();
+            var toreplace= $(".third-line p").text();
+            toreplace = toreplace.replace("0000",num);
+            $(".third-line p").html(toreplace);
+         
+            
+          });
     });
 
 
