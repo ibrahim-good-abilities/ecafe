@@ -82,7 +82,11 @@
            <div class="modal-content row">
                    <div class="frist-line col s12">
                                <span class="frist-text"> المبلغ الاجمالي</span>
+<<<<<<< HEAD
                                <p class="left-text" name="order_total" value="" >000</p>
+=======
+                               <p id="total"  name="order_total" value="" >000</p>
+>>>>>>> 5cda292d81a4b37e78c15d75807ab10294c1bff4
                    </div>
                        <div class="middle-line col s12">
                        <span class="middle-input">
