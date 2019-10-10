@@ -57,7 +57,7 @@
                                 <li class="collection-item">
                                     <div class="row">
                                         <div class="col s12">
-                                            <p class="right-align">{{$order->subtotal}}</p>
+                                            <p class="right-align">{{$order->notes}}</p>
                                         </div>
 
                                         <div data-order_id="{{$order->id}}" data-order_total="{{ $order->subtotal - $order->discount }}" class="col s12 center-align">
@@ -77,12 +77,12 @@
 </div>
 
 <div id="payment" class="modal">
-   <form action="{{route('order_paid')}}" method="post">
+   <form action="#">
            @csrf
            <div class="modal-content row">
                    <div class="frist-line col s12">
                                <span class="frist-text"> المبلغ الاجمالي</span>
-                               <span class="left-text" name="order_total" value="" >000</span>
+                               <p class="left-text" name="order_total" value="" >000</p>
                    </div>
                        <div class="middle-line col s12">
                        <span class="middle-input">
@@ -100,7 +100,7 @@
 
                        <div class="button-wrapper">
 
-                           <button class="btn cyan waves-effect waves-light right" type="submit">{{ __('Payment') }}
+                           <button class="btn cyan waves-effect waves-light right" id="payment2" type="submit">{{ __('Payment') }}
                            <i class="material-icons right">done</i>
                            </button>
                        </div>

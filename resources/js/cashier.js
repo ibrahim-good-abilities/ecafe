@@ -6,25 +6,33 @@ $(document).ready(function() {
         $("#payment input[name='order_id']").val(order_id);
 
         var order_total = $(this).closest('div').data('order_total');
-        debugger;
-        $("#payment span[name='order_total']").html(order_total);
+
+        $("#payment p[name='order_total']").html(order_total);
+        //
+        $('#payment2').on('click',function(){
+            var data = {
+                'order_id': order_id,
+            };
+
+            $.post(base_url+'/cashier/order',data);
+        });
         e.preventDefault();
     });
 
         $('.modal').modal();
-
-
-        
-      
         $('#input').on('keyup', function(){
             var num = $('#input').val();
             var toreplace= $(".third-line p").text();
             toreplace = toreplace.replace("0000",num);
             $(".third-line p").html(toreplace);
-         
-            
+
+
           });
-    });
+
+
+
+});
+
 
 
 
