@@ -42,7 +42,7 @@ $(document).ready(function() {
         "language": {
             "url": language
         },
-        scrollY: "300px",
+        scrollY: "235px",
         scrollX: true,
         scrollCollapse: true,
         columnDefs: [{
