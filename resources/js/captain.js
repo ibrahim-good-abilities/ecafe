@@ -156,6 +156,7 @@ $(document).ready(function() {
 
 
     $("#payment").on('click', function() {
+        var table = $('#table_number').val();
         var items = [];
         t.rows().every(function(index, element) {
             var row = this.data();
@@ -164,12 +165,21 @@ $(document).ready(function() {
             items.push({ 'product_id': product_id.trim(), 'quantity': quantity.trim() });
         });
 
-        if (items.length == 0) {
+        if (items.length == 0  ) {
             swal({
                 title: 'Your order is empty!',
                 icon: 'error'
             });
             return false;
+            
+        }
+        if (table.length == 0  ) {
+            swal({
+                title: 'Table number is empty!',
+                icon: 'error'
+            });
+            return false;
+            
         }
 
         $("#checkout-from").hide();
