@@ -54,6 +54,12 @@
                                 @endforeach
                                 <li class="collection-item">
                                     <div class="row">
+<<<<<<< HEAD
+=======
+                                        <div class="col s12">
+                                         
+                                        </div>
+>>>>>>> b1547d9295d8700474c6d65f920515b781732ca8
 
                                         <div data-order_id="{{$order->id}}" data-order_total="{{ $order->subtotal - $order->discount }}" class="col s12 center-align">
                                             <a class="modal-trigger" href="#payment">
@@ -89,7 +95,7 @@
                      <input type="hidden" name="order_id"/>
                    <div class="third-line col s12">
                                <span class="third-text"> المبلغ المتبقي</span>
-                               <p id="val" class="left-text">0000</p>
+                               <p id="val" class="left-text" name="order_total" >0000</p>
                    </div>
                    <div class="modal-footer">
 
