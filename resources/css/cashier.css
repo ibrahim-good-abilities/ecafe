@@ -28,16 +28,19 @@
 }
 span.frist-text{
         font-size: 2pc;
-        margin-left: -103px;
+        margin-left: 330px;
 
 }
 span.middle-text{
     font-size: 2pc;
-    margin: 73px;
+    margin: -23px;
 
 }
-span.left-text {
-    margin: 250px;
+p#total {
+        margin: -24px;
+        padding-right: 48px;
+        padding-left: 265px;
+    
 }
 p.left-text {
      
@@ -54,23 +57,27 @@ span.middle-input input#input {
 
 span.third-text{
     font-size: 2pc;
-    margin-left: 468px;
+    margin-left: 368px;
+}
 
+
+.frist-line.col.s12 {
+    height: 58px;
 }
 .col.s12.middle-line {
     border-bottom: double;
     border-bottom-width: initial;
     height: 109px;
 }
- .button-wrapper {
+.button-wrapper {
         margin-right: 549px;
-    }
-    .modal {
-        height: 325px;
-    }
+}
+.modal {
+    height: 334px;
+    width: 49%;
+}
 
-    @media (max-width: 992px)
-    {
+@media (max-width: 992px){
         .empty-orders {
             text-align: center;
             height: 892px;
@@ -79,4 +86,33 @@ span.third-text{
             padding-top: 399px;
         }
         
-    }
+}
+@media (max-width: 992px){
+        span.frist-text {
+            font-size: 2pc;
+            margin-left: 355px;
+        }
+        p#total {
+            margin: -25px;
+            padding-left: 259px;
+        }
+        .frist-line.col.s12 {
+            height: 68px;
+        }
+        span.middle-text {
+            margin: 0px;
+        }
+         
+        p.left-text {
+            margin-top: -25px;
+            padding-left: 269px;
+        }
+        span.third-text {
+            font-size: 2pc;
+            margin-left: 389px;
+        }
+        .modal {
+            height: 353px;
+            width: 84%;
+        }
+}
