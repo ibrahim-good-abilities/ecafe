@@ -2,9 +2,17 @@ $(document).ready(function() {
     $(document).on('click', 'a[href="#payment"]', function(e) {
         var order_id = $(this).closest('div').data('order_id');
         $("#payment input[name='order_id']").val(order_id);
-        var order_total = $(this).closest('div').data('order_total');
 
+        var order_total = $(this).closest('div').data('order_total');
         $("#payment p[name='order_total']").html(order_total);
+        $('#payment2').on('click',function(){
+            var data = {
+                '_token': $('#_order_token').val(),
+                'order_id': order_id,
+            };
+
+            $.post(base_url+'/cashier/order',data);
+        });
         e.preventDefault();
     });
 

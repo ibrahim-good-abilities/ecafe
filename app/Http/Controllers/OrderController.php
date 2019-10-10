@@ -259,11 +259,13 @@ class OrderController extends Controller
     }
     public function orderPaid(Request $request)
     {
+
             $request->validate([
             'order_id'=>'required'
         ]);
 
         $order_id =request('order_id');
+
         $order = Order::find($order_id);
         $order->status='paid';
         $order->save();

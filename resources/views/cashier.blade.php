@@ -77,7 +77,7 @@
 </div>
 
 <div id="payment" class="modal">
-   <form action="{{route('order_paid')}}" method="post">
+   <form action="#">
            @csrf
            <div class="modal-content row">
                    <div class="frist-line col s12">
@@ -86,12 +86,12 @@
                    </div>
                        <div class="middle-line col s12">
                        <span class="middle-input">
-                           <input placeholder="المدفوع"  type="number"  step="0.25" min=".25" id="input"class="validate">
+                           <input placeholder="المدفوع"  type="number" id="input"  step="0.25" min=".25" class="validate">
                        </span>
                        <span class="middle-text"> المبلغ المدفوع</span>
                        </div>
                    </div>
-                     <input type="hidden" name="order_id" value=""/>
+                     <input type="hidden" name="order_id"/>
                    <div class="third-line col s12">
                                <span class="third-text"> المبلغ المتبقي</span>
                                <p id="val" class="left-text" name="order_total" >0000</p>
@@ -100,7 +100,7 @@
 
                        <div class="button-wrapper">
 
-                           <button class="btn cyan waves-effect waves-light right" type="submit">{{ __('Payment') }}
+                           <button class="btn cyan waves-effect waves-light right" id="payment2" type="submit">{{ __('Payment') }}
                            <i class="material-icons right">done</i>
                            </button>
                        </div>
