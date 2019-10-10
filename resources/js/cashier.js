@@ -5,14 +5,22 @@ $(document).ready(function() {
 
         var order_total = $(this).closest('div').data('order_total');
         $("#payment p[name='order_total']").html(order_total);
-        $('#payment2').on('click',function(){
+
+        $('#payment2').on('click',function(e){
             var data = {
                 '_token': $('#_order_token').val(),
                 'order_id': order_id,
             };
 
-            $.post(base_url+'/cashier/order',data);
+            $.post(base_url+'/cashier/order',data,function(response ){
+                    if(response){
+                        $('.modal').modal();
+                        $('.order-content[data-order_id="'+order_id+'"]').remove();                    }
+            });
+            e.preventDefault();
+
         });
+
         e.preventDefault();
     });
 

@@ -269,7 +269,8 @@ class OrderController extends Controller
         $order = Order::find($order_id);
         $order->status='paid';
         $order->save();
-        return redirect()->back();
+        return response()->json(['status' => 'paid']);
+
     }
 }
 

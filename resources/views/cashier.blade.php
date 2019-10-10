@@ -28,12 +28,10 @@
 
 
             <input type="hidden" id ="_order_token" value="{{ csrf_token()}}"/>
-
 <div class="container">
     <div class="row">
           @foreach($orders as $order)
-        <div class="col s4 order-content">
-
+        <div class="col s4 order-content " data-order_id="{{$order->id}}">
                         <div class="order-box">
                             <ul id="issues-collection" class="collection z-depth-1">
                                 <li class="collection-item avatar">
@@ -56,9 +54,6 @@
                                 @endforeach
                                 <li class="collection-item">
                                     <div class="row">
-                                        <div class="col s12">
-                                            <p class="right-align">{{$order->notes}}</p>
-                                        </div>
 
                                         <div data-order_id="{{$order->id}}" data-order_total="{{ $order->subtotal - $order->discount }}" class="col s12 center-align">
                                             <a class="modal-trigger" href="#payment">
