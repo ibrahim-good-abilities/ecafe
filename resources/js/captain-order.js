@@ -3,7 +3,7 @@ $(document).ready(function() {
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 
-    var pusher = new Pusher('c015a0a925da1961bddf', {
+    var pusher = new Pusher(pusher_app_key, {
         cluster: 'eu',
         forceTLS: true
     });
@@ -74,7 +74,7 @@ $(document).ready(function() {
     });
 
     _channel.bind('item-status', function(data) {
-        debugger;
+
         if ($(".selected.order-number[data-number='" + data.order_id + "']").length > 0) {
             $("#status_" + data.item_id).html(data.status);
         } else {
