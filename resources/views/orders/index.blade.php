@@ -46,9 +46,9 @@
                 <td>{{$order->name}}</td>
                 <td><span class="badge grey lighten-5 grey-text text-accent-2">{{ __( ucfirst($order->status)) }}</span></td>
 
-                <td>{{$order->subtotal}}</td>
-                <td>{{$order->discount}}</td>
-                <td>{{ $order->subtotal - $order->discount }}</td>
+                <td>{{number_format($order->subtotal,2)}}</td>
+                <td>{{number_format($order->discount,2)}}</td>
+                <td>{{number_format($order->subtotal - $order->discount,2) }}</td>
 
                 <td class="left-align">
                       <a href="{{route('edit_order',$order->id)}}"><i class="material-icons">visibility</i></a>

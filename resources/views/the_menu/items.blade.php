@@ -61,7 +61,7 @@
             <td><img src="{{asset('public'.$item->src)}}" class="item-image" ></td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->category_name }}</td>
-            <td>{{ $item->price }}</td>
+            <td>{{ number_format($item->price,2) }}</td>
             <td class="center-align">
                 <a  href="{{route('menu_edit',$item->id)}}">
                     <i class="material-icons">edit</i>
@@ -74,7 +74,7 @@
         @endforeach
     </tbody>
 </table>
-        
+
 
 @section('page_js')
 <script src="{{asset('resources/js/scripts/data-tables.js')}}" type="text/javascript"></script>
