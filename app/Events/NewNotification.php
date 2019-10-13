@@ -16,9 +16,9 @@ class NewNotification
         'useTLS' => true
       );
       $pusher = new \Pusher\Pusher(
-        'c015a0a925da1961bddf',
-        'f1b6529a0adbd019f86b',
-        '873745',
+        'c015a0a925da1961bddf',// Pusher App Key
+        'f1b6529a0adbd019f86b', //Pusher App Secret
+        '873745', //Pusher APP ID
         $options
       );
       if($event=='new-order'){
