@@ -247,7 +247,7 @@ class OrderController extends Controller
 
     public static function getOrderItems($id) {
         $items = DB::table('items')
-        ->select('order_line.id','items.name','order_line.status','order_line.quantity')
+        ->select('order_line.id','items.name','items.price','order_line.status','order_line.quantity')
         ->join('order_line','items.id','=','order_line.item_id')
         ->where('order_line.order_id', $id)
         ->get();
