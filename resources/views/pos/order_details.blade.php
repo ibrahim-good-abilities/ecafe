@@ -21,7 +21,7 @@
                     $total_price +=  ($item->price * $item->quantity);
                     $count_product += $item->quantity;
                 @endphp
-                <tr>
+                <tr class="{{ $item->status == 'done'?'dimmed-row':''}}">
                     <th id="status_{{$item->id}}">{{ __(ucfirst($item->status)) }}</th>
                     <th>{{ number_format($item->price,2)}}</th>
                     <th>{{ $item->quantity }}</th>

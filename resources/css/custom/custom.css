@@ -93,12 +93,22 @@ ul#notifications-dropdown {
 .hidden {
     display: none;
 }
+
 div#parista-layout {
     min-height: calc(115% - 209px);
 }
-@media (max-width: 992px)
-{
+
+.dimmed-row {
+    color: white;
+    background-color: #9c9c9c!important;
+}
+
+.m-t-10 {
+    margin-top: 10px;
+}
+
+@media (max-width: 992px) {
     div#parista-layout {
         min-height: calc(115% - 271px);
-}
+    }
 }

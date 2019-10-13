@@ -29,10 +29,14 @@
                                     @foreach($order_items as $item)
                                     <li class="collection-item">
                                         <div class="row">
-                                            <div class="col s8">
+                                            <div class="col s6">
                                                 <p class="collections-title font-weight-600">{{ $item->name}} X {{ $item->quantity}}</p>
+
                                             </div>
 
+                                            <div class="col s6 center-align">
+                                            <p class="item-price">({{$item->price *$item->quantity}} ج)</p>
+                                             </div>
                                         </div>
                                     </li>
                                     @endforeach

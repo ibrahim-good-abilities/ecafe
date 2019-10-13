@@ -30,13 +30,15 @@
             <th>{{__('Subtotal')}}</th>
             <th>{{__('Discount')}}</th>
             <th> {{ __('Total') }}</th>
+            <th>{{__('Last Update')}}</th>
             <th>{{__('Settings')}}</th>
         </tr>
     </thead>
     <tbody>
         @foreach($orders as $order)
 
-        <?php  $date_parts= explode(" ",  $order->created_at); ?>
+        <?php  $date_parts = explode(" ",  $order->created_at); ?>
+        <?php  $date_parts_update = explode(" ",  $order->updated_at);?>
 
             <tr>
                 <td>{{$order->id}}</td>
@@ -49,6 +51,7 @@
                 <td>{{number_format($order->subtotal,2)}}</td>
                 <td>{{number_format($order->discount,2)}}</td>
                 <td>{{number_format($order->subtotal - $order->discount,2) }}</td>
+                <td>{{$date_parts_update[1]}}</td>
 
                 <td class="left-align">
                       <a href="{{route('edit_order',$order->id)}}"><i class="material-icons">visibility</i></a>

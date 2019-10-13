@@ -29,26 +29,15 @@ $(document).ready(function() {
     });
 
     $('#active-orders').slick({
-        slidesToShow: 6,
+        slidesToShow: 8,
+        slidesToScroll: 8,
         infinite: false,
-        responsive: [{
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 3,
-                    infinite: false,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                    infinite: false,
-                }
-            }
-        ]
     });
+
+    setTimeout(() => {
+        $('#active-orders').slick('slickGoTo', $('.order-number.selected').data('slick-index') - 1);
+    }, 1000);
+
 
     $(document).on('click', '.order-number', function() {
         document.location.href = $(this).data('href');
@@ -77,6 +66,7 @@ $(document).ready(function() {
 
         if ($(".selected.order-number[data-number='" + data.order_id + "']").length > 0) {
             $("#status_" + data.item_id).html(data.status);
+            $("#status_" + data.item_id).closest('tr').addClass('dimmed-row');
         } else {
             setInterval(function() {
                 if ($(".order-number[data-number='" + data.order_id + "']").hasClass('selected')) {
