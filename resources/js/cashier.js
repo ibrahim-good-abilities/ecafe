@@ -32,9 +32,10 @@ $(document).ready(function() {
 
             $.post(base_url + '/cashier/order', data, function(response) {
                 if (response) {
-                    $('.modal').modal();
+                    
                     $('.order-content[data-order_id="' + order_id + '"]').remove();
                     redrawThePage();
+                    $('order_id')
                 }
             });
             e.preventDefault();
@@ -45,8 +46,23 @@ $(document).ready(function() {
     });
 
     $('.modal').modal();
+        // print modal
+        $('#payment2').on('click',function(){
+        $('#payment').modal('close');
+        $('#pill').modal('open');
+        });
 
-
+    $('#print').on('click',function(){
+        $('#modal-print').printThis({
+          importStyle: true, 
+        });
+      })
+      
+      
+      $("#close").on("click", function() {
+        $('#pill').modal('close');
+      });
+      
 
 
     $('#input').on('keyup', function() {

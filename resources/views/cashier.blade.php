@@ -81,20 +81,101 @@
                    <div class="modal-footer">
 
                        <div class="button-wrapper">
-
-                           <button class="btn cyan waves-effect waves-light right" id="payment2" type="submit">{{ __('Payment') }}
-                           <i class="material-icons right">done</i>
-                           </button>
+                             
+                                 <button  class="btn cyan waves-effect waves-light right" id="payment2" type="submit">{{ __('Payment') }}</button>
+                            
+                           
                        </div>
                    </div>
            </div>
    </form>
 </div>
+<div id="pill" class="modal" style=" width: 37%;">
+  
+               
+         <div class='print'   id="modal-print">
+       
+               <div class="invoice">
+   
+                   <img src=" {{ asset('resources/images/logo/materialize-logo-color.png') }}"  >
+                   <h6>Sale NO. : 2022</h6>
+               </div>
+               <br>
+               <div class="invoice-title">
+                 Date : &nbsp; &nbsp;<b> 15/5/2019</b>
+               </div>
+
+
+               <div class="invoice-title" >
+                  Customer/Table : <b>10</b>
+               </div>
+               <br>
+                           <div>
+                              <table class="table">
+                                    <thead>
+                                    <tr>
+                                       <td class="text-center"><strong>#</strong></td>
+                                       <td class="text-center"><strong>Product</strong></td>
+                                       <td class="text-center"><strong>Quantity</strong></td>
+                                       <td class="text-center"><strong>SubTotal</strong></td>
+                                    </tr>
+                                    </thead>
+   
+                                    <tr>
+                                       <td class="text-center order_id">
+                                          id
+                                       </td >
+                                       <td class="text-center">
+                                          Cake
+                                       </td >
+                                       <td class="text-center">
+                                         50
+                                       </td >
+                                          <td class="text-center">250</td>   
+                                    </tr>
+                                    <tr>
+                                          <td class="text-center">Total Items</td >
+                                          <td class="text-center">2 total</td >     
+                                          <td class="text-center" >250.0</td >
+                                          <td class="text-center bold">250.0</td >       
+                                    </tr>
+                                    <tr>
+                                          <td class="text-center">Discount</td >
+                                          <td class="text-center"></td >     
+                                          <td class="text-center"></td>
+                                          <td class="text-center bold" >50 </td>       
+                                    </tr>
+                                    <tr>
+                                          <td class="text-center">Grand Total</td >
+                                          <td class="text-center"></td >     
+                                          <td class="text-center"></td >
+                                          <td class="text-center bold">200.0 </td>       
+                                    </tr>
+                                    <tr>
+                                          <td class="text-center">Paid</td >
+                                          <td class="text-center"></td >     
+                                          <td class="text-center"></td >
+                                          <td class="text-center bold">200.0 </td>       
+                                    </tr>
+                              </table>
+                           </div>
+   </div>
+   <div class="right-align">
+   <a id="close" class="waves-effect waves-light  btn gradient-45deg-light-blue-cyan box-shadow-none border-round mr-1 mb-1">close</a>
+   <a class="waves-effect waves-light  btn gradient-45deg-light-blue-cyan box-shadow-none border-round mr-1 mb-1"id="print">Print</a>
+   
+   </div>
+                        
+
+</div>
+
+
 
 
 @section('page_js')
 
 <script src="https://js.pusher.com/5.0/pusher.min.js" type="text/javascript"></script>
 <script src="{{asset('resources/js/cashier.js')}}" type="text/javascript"></script>
+<script src="{{asset('resources/js/printThis.js')}}" type="text/javascript"></script>
 @endsection
 @endsection

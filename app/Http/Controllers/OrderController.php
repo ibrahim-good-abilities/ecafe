@@ -265,7 +265,21 @@ class OrderController extends Controller
         $order = Order::find($order_id);
         $order->status='paid';
         $order->save();
-        return response()->json(['status' => 'paid']);
+        
+       $order = DB::table('orders')
+        ->select('orders.*','customers.customer_name')
+        ->leftJoin('customers','customers.id','=','orders.customer_id')
+        ->where('orders.id', $order_id)
+        ->first();
+
+        $items = DB::table('items')
+        ->select('items.name','order_line.price','order_line.quantity')
+        ->join('order_line','items.id','=','order_line.item_id')
+        ->where('order_line.order_id', $order_id)
+        ->get();
+        // $items=$items->toArray();
+        
+        return response()->json(['order' => $order,'items'=>$items]);
 
     }
 }

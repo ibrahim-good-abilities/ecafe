@@ -125,5 +125,34 @@ ul.order-items {
         width: 84%;
     }
 }
+td.text-center {
+    color: #000;
+    padding: 0px !important;
+  }
+  /* css print modal  */
+.invoice-title {
+    color: black;
+    text-align: left;
+}
+.bold{
+  font-weight: bold;
+  color: #000;
+}
+.print{
 
+  padding: 5px;
+  margin:18px;
+  text-align: center;
+}
+.invoice{
+  color: black;
+    text-align: center;
+}
+.right-align {
+  height: 39px;
+  margin-top: 7px;
+}
+div#pill {
+    height: 437px;
+}
 
