@@ -190,11 +190,12 @@ class OrderController extends Controller
         $order->status=request('status');
         if($order->status == "done"){
             new NewNotification('cashier','order-status',['message'=>__('You got new check please reload the page'),'order_id'=>$order->id]);
-        }else{
+        }
+        if($order->status != "paid" && $order->status != "pending"){
             new NewNotification('customer_'.$id,'order-status',['message'=>__('Your order is '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
             new NewNotification('captain','order-status',['message'=>__('Order status changed to '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
-
         }
+
 
         $order->save();
         if ($request->has('ajax')) {
