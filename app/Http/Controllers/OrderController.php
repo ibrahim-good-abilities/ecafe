@@ -23,11 +23,11 @@ class OrderController extends Controller
     {
 
         $orders = DB::table('orders')
-        ->select('orders.id','orders.status','orders.created_at','orders.discount','orders.notes','customers.customer_name','coupons.name',DB::raw('sum(order_line.quantity * order_line.price) as subtotal'))
+        ->select('orders.id','orders.status','orders.created_at','orders.updated_at','orders.discount','orders.notes','customers.customer_name','coupons.name',DB::raw('sum(order_line.quantity * order_line.price) as subtotal'))
         ->join('order_line','orders.id','=','order_line.order_id')
         ->leftJoin('customers','customers.id','=','orders.customer_id')
         ->leftJoin('coupons','coupons.id','=','orders.coupon_id')
-        ->groupBy('orders.id','orders.status','orders.created_at','orders.notes','customer_name','orders.discount','coupons.name')
+        ->groupBy('orders.id','orders.status','orders.created_at','orders.updated_at','orders.notes','customer_name','orders.discount','coupons.name')
         ->get();
         return view('orders.index')
         ->with('orders',$orders);
@@ -188,6 +188,7 @@ class OrderController extends Controller
             ]);
         $order = Order::find($id);
         $order->status=request('status');
+        $order->touch();
         if($order->status == "done"){
             new NewNotification('cashier','order-status',['message'=>__('You got new check please reload the page'),'order_id'=>$order->id]);
         }
@@ -200,7 +201,8 @@ class OrderController extends Controller
         $order->save();
         if ($request->has('ajax')) {
             return response()->json(['status' => 'success']);
-        }else{
+        }
+        else{
             return redirect()->back()->with('success', 'Order  status update successfully');
         }
 
@@ -213,7 +215,10 @@ class OrderController extends Controller
         ]);
         $order_line = Order_line::find($id);
         $order_line->status = request('status');
-        new NewNotification('customer_'.$id,'item-status',['message'=>__('Your item is '.ucfirst($order_line->status )),'status'=>__(ucfirst($order_line->status)),'order_id'=>$order_line->order_id, 'item_id'=>$order_line->id]);
+        $order=Order::find($order_line->order_id);
+        $order->touch();
+
+        new NewNotification('customer_'.$order_line->order_id,'item-status',['message'=>__('Your item is '.ucfirst($order_line->status )),'status'=>__(ucfirst($order_line->status)),'order_id'=>$order_line->order_id, 'item_id'=>$order_line->id]);
         new NewNotification('captain','item-status',['message'=>__('Your item is '.ucfirst($order_line->status )),'status'=>__(ucfirst($order_line->status)),'order_id'=>$order_line->order_id, 'item_id'=>$order_line->id]);
         $order_line->save();
         return response()->json(['status' => 'success']);
