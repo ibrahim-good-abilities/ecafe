@@ -9,10 +9,12 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
-
+ */
 
 use Illuminate\Routing\Router;
+
+Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout');
 
 Route::get('/', 'OrderController@index')->name('home');
 Route::get('/inventory-sheet', 'InventoryController@index')->name('inventory-sheet');
