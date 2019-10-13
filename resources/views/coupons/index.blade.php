@@ -42,7 +42,7 @@
                 <tr>
                     <td>{{ $coupon->name}}</td>
                     <td>{{ $coupon->code}}</td>
-                    <td>{{$coupon->value}}</td>
+                    <td>{{number_format($coupon->value,2)}}</td>
                     <td>{{ $coupon->type}}</td>
                     <td>{{ $coupon->status}}</td>
                     <td class="center-align">
@@ -60,7 +60,7 @@
                 @endforeach
             </tbody>
         </table>
-  
+
 
 @section('page_js')
 <script src="{{asset('resources/js/coupons.js')}}" type="text/javascript"></script>

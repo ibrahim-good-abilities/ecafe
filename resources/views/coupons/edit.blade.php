@@ -33,7 +33,7 @@
 @section('middle_content')
 <form action="{{route('update_coupon',$coupon->id)}}" method="post" enctype="multipart/form-data" >
    @csrf
-   
+
          <div class="row">
             <div class="input-name col s12">
                <input  name="coupon_Name" id="coupon_name" type="text" class="validate" placeholder="{{ __('Add coupon Name') }}" value="{{$coupon->name}}">
@@ -44,9 +44,9 @@
                <input  name="coupon_code" id="coupon_code" type="text" class="validate" placeholder="{{ __('Add coupon Code') }}" value="{{$coupon->code}}">
                <label >{{ __('Coupon Code') }}</label>
             </div>
-            
+
            <div class="input-price col s12">
-               <input   name="value" id="price" type="number" step="0.5" min=".5" class="validate" placeholder="{{ __('Add Value') }} " value="{{$coupon->value}}">
+               <input   name="value" id="price" type="number" step="0.5" min=".5" class="validate" placeholder="{{ __('Add Value') }} " value="{{number_format($coupon->value,2)}}">
                <label  >{{ __('Value') }}</label>
             </div>
 

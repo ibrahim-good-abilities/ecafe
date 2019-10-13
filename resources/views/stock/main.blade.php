@@ -69,8 +69,8 @@
           <td>{{$item->name}}</td>
           <td>{{$item->main_stock}}</td>
           <td>{{ $item->alert_number}}</td>
-          <td>{{ $item->price}}</td>
-          <td>{{ $item->cost}}</td>
+          <td>{{ number_format($item->price,2)}}</td>
+          <td>{{ number_format($item->cost,2)}}</td>
           <td class="left-align">
               <a class="modal-trigger" href="#transfer"><i class="material-icons" >compare_arrows</i></a>
               <a class="modal-trigger" href="#operations"><i class="material-icons">autorenew</i></a>
