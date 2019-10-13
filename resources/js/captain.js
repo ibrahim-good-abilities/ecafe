@@ -267,25 +267,9 @@ $(document).ready(function() {
 
 
     $('#active-orders').slick({
-        slidesToShow: 6,
+        slidesToShow: 8,
+        slidesToScroll: 8,
         infinite: false,
-        responsive: [{
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 3,
-                    infinite: false,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                    infinite: false,
-                }
-            }
-        ]
     });
 
     $(document).on('click', '.order-number', function() {
