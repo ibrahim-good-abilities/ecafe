@@ -11,7 +11,7 @@
                <div class="card-content" >
                   <div class="row center-align">
                         <h3 class="product-name">{{ $item->name }}</h3>
-                        <h6 class="col s12 m12 l8 mt-3 rtl">{{ $item->price }}<sup>ج</sup> </h6>
+                        <h6 class="col s12 m12 l8 mt-3 rtl">{{ number_format($item->price,2) }}<sup>ج</sup> </h6>
                   </div>
                   <button class="btn-floating mb-1 waves-effect waves-light product"  price="{{ $item->price }}" p-id="{{ $item->id }}">
                         <i class="material-icons">add</i>
