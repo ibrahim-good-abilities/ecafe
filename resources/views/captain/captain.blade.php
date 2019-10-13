@@ -11,9 +11,6 @@
 
 @section('top-nav-content')
     <div id="active-orders">
-        <div class="order-number selected" data-href="{{ route('captain') }}">
-            أضافة طلب
-        </div>
         @foreach($orders as $single_order)
             <div data-number="{{ $single_order->id }}"  class="order-number" data-href="{{ route('captain-order',$single_order->id) }}">
                 {{ $single_order->table_number }}
@@ -61,7 +58,8 @@
 
 </div>
 
-
+<div style="bottom: 50px; right: 19px;" class="fixed-action-btn direction-top"><a href="{{ route('captain') }}" class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow"><i class="material-icons">add</i></a>
+</div>
 @section('page_js')
 <script>
     var language = "{{asset('resources/json/Arabic.json')}}";
