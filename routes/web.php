@@ -81,7 +81,7 @@ Route::get('/captain/order/{id}','IndexController@captainOrder')->name('captain-
 //cashier
 Route::get('/cashier','IndexController@cashier')->name('cashier');
 Route::post('/cashier/order','OrderController@orderPaid');
-
-
+//settings
+Route::get('/settings','IndexController@settings')->name('settings');
 
 
