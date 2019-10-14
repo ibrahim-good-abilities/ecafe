@@ -63,7 +63,7 @@ class OrderController extends Controller
         $order = new Order();
         $order->discount =0;
         $order->table_number=request('table_number');
-        $order->customer_id =request('customer_id ');
+        //$order->customer_id =request('customer_id');
         $order->notes = request('notes');
         $order->status ='pending';
         $order->save();
@@ -181,9 +181,78 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id){
+
+        $order = Order::find($id);
+        $response = ['order'=>[],'coupon'=>[]];
+        $old_coupon = Coupon::find($order->coupon_id);
+        $coupon = null;
+        if($old_coupon){
+            $old_coupon->status = 'active';
+            $old_coupon->save();
+            $order->coupon_id = null;
+        }
+        $coupon_code = request('coupon_code');
+        if($coupon_code){
+            $coupon = Coupon::where('code','=',$coupon_code)->first();
+            if(!$coupon)
+            {
+                $response['coupon']['error'] = 'Coupon code doesn\'t exist.';
+                return response()->json($response);
+            }elseif($coupon->status!='active') {
+                $response['coupon']['error'] = 'Coupon code is no longer valid.';
+                return response()->json($response);
+            }
+        }
+
+        $order->discount = 0;
+        $order->table_number=request('table_number');
+        //$order->customer_id =request('customer_id');
+        $order->notes = request('notes');
+        $order->status ='pending';
+        $order->save();
+        new NewNotification('parista','new-order',['message'=>__('Order has been updated').' #'.$order->id,'order_id'=>$order->id]);
+        $response['order']['id'] = $order->id;
+        $response['order']['status'] = __('Pending');
+        $response['order']['success'] = __('We have successfully updated your order.');
+        $items = request('items');
+        $order_total = 0;
+        Order_line::where('order_id', $order->id)->delete();
+        //TODO: only remove pending items
+        foreach($items as $item){
+            $itemObj = Item::find($item['product_id']);
+            $order->items()->attach([$item['product_id']=>['quantity'=>$item['quantity'],'cost'=>0,'price'=>$itemObj->price]]);
+            $order_total += $itemObj->price * $item['quantity'];
+        }
+
+        if ($coupon) {
+            $response['coupon']['code'] = $coupon->code;
+            $order->coupon_id=$coupon->id;
+            if($coupon->type =="fixed"){
+                if($coupon->value > $order_total ){
+                    $order->discount = $order_total;
+                }else{
+                    $order->discount = $coupon->value;
+                }
+                $order->save();
+                $response['coupon']['discount'] = $order->discount ;
+            }else{
+                $coupon_dicount = $order_total * ($coupon->value/100);
+                if($coupon_dicount > $order_total ){
+                    $order->discount = round($order_total,2);
+                }else{
+                    $order->discount = round($coupon_dicount,2);
+                }
+                $order->save();
+                $response['coupon']['discount'] = $order->discount;
+            }
+
+            $coupon->status = 'used';
+            $coupon->save();
+        }
+
+        return response()->json($response);
+
     }
 
     public function updateStatus(Request $request ,$id)

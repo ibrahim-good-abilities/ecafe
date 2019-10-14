@@ -37,7 +37,6 @@ $(document).ready(function() {
                     //render response 
                     $("#order_id").html(response.order.id);
                     $("#order_date").html(response.order.created_at);
-                    debugger;
                     $.each(response.items, function(i, item) {
                         $("#order_details tbody").append(`
                             <tr>
