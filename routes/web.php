@@ -13,8 +13,24 @@
 
 use Illuminate\Routing\Router;
 
+
 Auth::routes();
+//Route::get('/register','RegisterController@store')->name('sign_up');
+//role
+Route::get('/role/create','RoleController@create')->name('add_role');
+Route::post('/role/store','RoleController@store')->name('store_role');
+Route::get('/role/index','RoleController@index')->name('all_roles');
+Route::get('/role/edit/{id}','RoleController@edit')->name('edit_role');
+Route::post('/role/update/{id}','RoleController@update')->name('update_role');
+Route::get('/role/delete/{id}','RoleController@destroy')->name('delete_role');
+//user
+Route::get('/users','RegisterController@index')->name('all_users');
+Route::get('/user/delete/{id}','RegisterController@destroy')->name('delete_user');
+Route::get('/user/create','RegisterController@create')->name('add_user');
+Route::post('/user/store','RegisterController@store')->name('store_user');
+Route::get('/user/edit/{id}','RegisterController@edit')->name('edit_user');
 Route::get('logout', 'Auth\LoginController@logout');
+
 
 Route::get('/', 'OrderController@index')->name('home');
 Route::get('/inventory-sheet', 'InventoryController@index')->name('inventory-sheet');
@@ -35,6 +51,7 @@ Route::get('/items/delete/{id}','ItemController@destroy')->name('item_delete');
 //orders
 Route::get('/orders/index','OrderController@index')->name('orders');
 Route::post('/orders/add-new','OrderController@create');
+Route::post('/orders/{id}','OrderController@update');
 Route::get('/orders/delete/{id}','OrderController@destroy')->name('delete_order');
 Route::post('/orders/update/status/{id}','OrderController@updateStatus')->name('order_update_status');
 Route::get('/orders/edit/status/{id}','OrderController@editStatus')->name('order_edit_status');
@@ -78,6 +95,7 @@ Route::get('/ingredient/delete/{id}','IngrediantController@destroy')->name('ingr
 Route::get('/captain','IndexController@captain')->name('captain');
 //captain
 Route::get('/captain/order/{id}','IndexController@captainOrder')->name('captain-order');
+Route::get('/captain/order/{id}/edit','IndexController@captainEditOrder')->name('captain-edit-order');
 //cashier
 Route::get('/cashier','IndexController@cashier')->name('cashier');
 Route::post('/cashier/order','OrderController@orderPaid');

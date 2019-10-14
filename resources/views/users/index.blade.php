@@ -1,11 +1,11 @@
 @extends('layout')
-@section('title', __('Coupons'))
+@section('title', __('Users'))
 @section('page_css')
 <link rel="stylesheet" type="text/css" href="{{asset('resources/vendors/data-tables/css/jquery.dataTables.min.css')}}">
 @endsection
 @section('settings')
 <div class="col s2 m6 l6 right-align">
-    <a class="btn mb-1 waves-effect waves-light" href="{{ route('add_coupon') }}">{{__('ADD NEW') }}
+    <a class="btn mb-1 waves-effect waves-light" href="{{route('add_user')}}">{{__('ADD NEW') }}
         <i class="material-icons right">add</i>
     </a>
 </div>
@@ -24,31 +24,30 @@
 </div>
 @endif
 
-        <table id="coupons" class="display">
+        <table id="users" class="display">
             <thead>
                 <tr>
-                    <th>اسم الكوبون</th>
-                    <th>كود الكوبون</th>
-                    <th> القيمة</th>
-                    <th>النوع</th>
-                    <th>الحالة</th>
-                    <th>العمليات</th>
+                    <th>#</th>
+                    <th>الاسم </th>
+                    <th> الايمل</th>
+                    <th>الدور</th>
+                    <th>الاعدادات</th>
+
                 </tr>
             </thead>
 
             <tbody>
-                @foreach ($coupons as $coupon)
+                @foreach ($users as $user)
                 <tr>
-                    <td>{{ $coupon->name}}</td>
-                    <td>{{ $coupon->code}}</td>
-                    <td>{{number_format($coupon->value,2)}}</td>
-                    <td>{{ $coupon->type}}</td>
-                    <td>{{ $coupon->status}}</td>
+                    <td>{{$user->id}}</td>
+                    <td>{{ $user->name}}</td>
+                    <td>{{ $user->email}}</td>
+                    <td>{{ $user->role_name}}</td>
                     <td class="center-align">
-                        <a  href="{{route('coupon_edit',$coupon->id)}}">
+                        <a  href="{{route('edit_user',$user->id)}}">
                             <i class="material-icons">edit</i>
                         </a>
-                        <a  class="delete-with-confirmation" href="{{route('coupon_delete',$coupon->id)}}">
+                        <a  class="delete-with-confirmation" href="{{route('delete_user',$user->id)}}">
                             <i class="material-icons pink-text delete-with-confirmation">clear</i>
                         </a>
                          <a>
@@ -62,7 +61,7 @@
 
 
 @section('page_js')
-<script src="{{asset('resources/js/coupons.js')}}" type="text/javascript"></script>
+<script src="{{asset('resources/js/users.js')}}" type="text/javascript"></script>
 <script src="{{asset('resources/vendors/data-tables/js/jquery.dataTables.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('resources/vendors/data-tables/extensions/responsive/js/dataTables.responsive.min.js')}}" type="text/javascript"></script>
 @endsection

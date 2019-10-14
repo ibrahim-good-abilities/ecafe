@@ -46,7 +46,7 @@ $(document).ready(function() {
 
     var _channel = pusher.subscribe('captain');
     _channel.bind('order-status', function(data) {
-        if ($(".selected.order-number[data-status='" + data.order_id + "']").length > 0) {
+        if ($(".selected.order-number[data-number='" + data.order_id + "']").length > 0) {
             $("#status").html(data.status);
         } else {
             setInterval(function() {
@@ -66,7 +66,10 @@ $(document).ready(function() {
 
         if ($(".selected.order-number[data-number='" + data.order_id + "']").length > 0) {
             $("#status_" + data.item_id).html(data.status);
-            $("#status_" + data.item_id).closest('tr').addClass('dimmed-row');
+            if (data.status == 'اكتمل') {
+                $("#status_" + data.item_id).closest('tr').addClass('dimmed-row');
+            }
+
         } else {
             setInterval(function() {
                 if ($(".order-number[data-number='" + data.order_id + "']").hasClass('selected')) {

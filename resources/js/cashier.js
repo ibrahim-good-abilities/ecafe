@@ -40,10 +40,10 @@ $(document).ready(function() {
                     $("#order_date").html(response.order.created_at);
                     $("#discount").html(response.order.discount);
                     $("#order_table").html(response.order.table_number);
-                    var discount= response.order.discount;
-                    var sub_total= 0;
-                    var total_quantity=0;
-                    var grand_total=0;
+                    var discount = response.order.discount;
+                    var sub_total = 0;
+                    var total_quantity = 0;
+                    var grand_total = 0;
                     $.each(response.items, function(i, item) {
                         $("#order_details tbody").append(`
                             <tr>
@@ -61,15 +61,15 @@ $(document).ready(function() {
                                 </td>   
                             </tr>
                     `);
-                    sub_total += (item.price * item.quantity);
-                    total_quantity += item.quantity;
+                        sub_total += (item.price * item.quantity);
+                        total_quantity += item.quantity;
 
-                    
-           
+
+
                     });
 
-                    grand_total = (sub_total -  discount) ;
-                    $("#sub_total").html( sub_total).val();
+                    grand_total = (sub_total - discount);
+                    $("#sub_total").html(sub_total).val();
                     $("#total_quantity").html(total_quantity);
                     $("#grand_total").html(grand_total);
                     $("#paid").html(paid);

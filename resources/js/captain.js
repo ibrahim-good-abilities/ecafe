@@ -7,11 +7,7 @@ $(document).ready(function() {
         forceTLS: true
     });
 
-
-    var oldvalue = 0;
-    var oldprice = 0;
-    var olddiscount = 0;
-    var counter = 0;
+    var counter = Number($("#count").text());
 
     $('.categories').slick({
         slidesToShow: 1,
@@ -102,40 +98,6 @@ $(document).ready(function() {
         changeCountBy(-1 * quantity);
     });
 
-    // Trigger on change events
-    $('#order').on('focusout', '.qty', function() {
-        var value = $(this).text();
-        var quantity = parseInt(value.replace(/[^\d.]/g, ''), 10);
-        console.log('entered qty = ' + quantity);
-        if (isNaN(quantity))
-            quantity = 1;
-        $(this).text(quantity);
-        if (quantity == oldvalue)
-            return;
-        var newQuantity = quantity - oldvalue;
-        console.log('new qty = ' + newQuantity);
-        changeCountBy(newQuantity);
-        var currentPrice = parseFloat($(this).closest('tr').children('td').children(".price").text());
-        changePriceBy(newQuantity * currentPrice);
-        oldvalue = 0;
-        return;
-    });
-
-    $('#order').on('focusout', '.price', function() {
-        var value = $(this).text();
-        var price = parseFloat(value.replace(/[^\d.]/g, ''), 10);
-        if (isNaN(price))
-            price = 0;
-        $(this).text(price);
-        if (price == oldprice)
-            return;
-        var newPrice = price - oldprice;
-        var currentCount = parseInt($(this).closest('tr').children('td').children(".qty").text());
-        changePriceBy(newPrice * currentCount);
-        oldprice = 0;
-        return;
-
-    });
 
 
     $('#order,#order-details').on('keypress', 'span', function(e) {
@@ -193,7 +155,13 @@ $(document).ready(function() {
             'notes': $('#notes').val(),
             'table_number': $('#table_number').val()
         };
-        $.post(base_url + '/orders/add-new', data, function(response) {
+
+        var url = base_url + '/orders/add-new';
+        if ($("#order_id").length > 0) {
+            url = base_url + '/orders/' + $('#order_id').val();
+        }
+
+        $.post(url, data, function(response) {
             if (response) {
                 if (Object.keys(response.coupon).length != 0) {
                     if (typeof(response.coupon.error) !== "undefined") {
@@ -225,7 +193,6 @@ $(document).ready(function() {
     }
 
     function changeCountBy(number) {
-        console.log('counter was = ' + counter);
         counter = counter + number;
         $('#count').text(counter);
         console.log('counter become = ' + counter);
