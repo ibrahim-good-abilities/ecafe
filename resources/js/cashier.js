@@ -32,10 +32,35 @@ $(document).ready(function() {
 
             $.post(base_url + '/cashier/order', data, function(response) {
                 if (response) {
-                    
+                    $('#payment').modal('close');
+
+                    //render response 
+                    $("#order_id").html(response.order.id);
+                    $("#order_date").html(response.order.created_at);
+                    debugger;
+                    $.each(response.items, function(i, item) {
+                        $("#order_details tbody").append(`
+                            <tr>
+                                <td class="text-center">
+                                    ${item.id}
+                                </td >
+                                <td class="text-center">
+                                    ${item.name}
+                                </td >
+                                <td class="text-center">
+                                    ${item.quantity}
+                                </td >
+                                <td class="text-center">
+                                    ${item.price * item.quantity}
+                                </td>   
+                            </tr>
+                    `);
+                    });
+
+                    $('#bill').modal('open');
+
                     $('.order-content[data-order_id="' + order_id + '"]').remove();
                     redrawThePage();
-                    $('order_id')
                 }
             });
             e.preventDefault();
@@ -46,23 +71,18 @@ $(document).ready(function() {
     });
 
     $('.modal').modal();
-        // print modal
-        $('#payment2').on('click',function(){
-        $('#payment').modal('close');
-        $('#pill').modal('open');
-        });
 
-    $('#print').on('click',function(){
+    $('#print').on('click', function() {
         $('#modal-print').printThis({
-          importStyle: true, 
+            importStyle: true,
         });
-      })
-      
-      
-      $("#close").on("click", function() {
+    })
+
+
+    $("#close").on("click", function() {
         $('#pill').modal('close');
-      });
-      
+    });
+
 
 
     $('#input').on('keyup', function() {

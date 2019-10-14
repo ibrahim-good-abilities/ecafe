@@ -283,7 +283,7 @@ class OrderController extends Controller
         ->first();
 
         $items = DB::table('items')
-        ->select('items.name','order_line.price','order_line.quantity')
+        ->select('items.name','items.id','order_line.price','order_line.quantity')
         ->join('order_line','items.id','=','order_line.item_id')
         ->where('order_line.order_id', $order_id)
         ->get();
