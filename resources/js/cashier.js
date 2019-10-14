@@ -25,6 +25,7 @@ $(document).ready(function() {
         $("#payment p[name='order_total']").html(order_total);
 
         $('#payment2').on('click', function(e) {
+            var paid = $("#input").val();
             var data = {
                 '_token': $('#_order_token').val(),
                 'order_id': order_id,
@@ -37,6 +38,12 @@ $(document).ready(function() {
                     //render response 
                     $("#order_id").html(response.order.id);
                     $("#order_date").html(response.order.created_at);
+                    $("#discount").html(response.order.discount);
+                    $("#order_table").html(response.order.table_number);
+                    var discount = response.order.discount;
+                    var sub_total = 0;
+                    var total_quantity = 0;
+                    var grand_total = 0;
                     $.each(response.items, function(i, item) {
                         $("#order_details tbody").append(`
                             <tr>
@@ -47,14 +54,25 @@ $(document).ready(function() {
                                     ${item.name}
                                 </td >
                                 <td class="text-center">
-                                    ${item.quantity}
+                                    ${item.quantity} 
                                 </td >
                                 <td class="text-center">
                                     ${item.price * item.quantity}
                                 </td>   
                             </tr>
                     `);
+                        sub_total += (item.price * item.quantity);
+                        total_quantity += item.quantity;
+
+
+
                     });
+
+                    grand_total = (sub_total - discount);
+                    $("#sub_total").html(sub_total).val();
+                    $("#total_quantity").html(total_quantity);
+                    $("#grand_total").html(grand_total);
+                    $("#paid").html(paid);
 
                     $('#bill').modal('open');
 
@@ -79,7 +97,7 @@ $(document).ready(function() {
 
 
     $("#close").on("click", function() {
-        $('#pill').modal('close');
+        $('#bill').modal('close');
     });
 
 
