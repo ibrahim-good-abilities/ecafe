@@ -87,5 +87,41 @@
                     </ul>
                 </div>
         </li>
+
+        <li class="bold"><a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)"><i class="material-icons">playlist_add_check</i>
+                <span class="menu-title" data-i18n="">{{ __('Roles') }}</span></a>
+                <div class="collapsible-body">
+                    <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                            <li>
+                                <a class="collapsible-body" href="{{route('all_roles')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i>
+                                     <span> {{ __('Roles') }}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="collapsible-body" href="{{route('add_role')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i>
+                                     <span> {{ __('Add New Role') }}</span>
+                                </a>
+                            </li>
+
+                    </ul>
+                </div>
+        </li>
+
+        <li class="bold"><a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)"><i class="material-icons">people</i>
+                <span class="menu-title" data-i18n="">{{ __('Users') }}</span></a>
+                <div class="collapsible-body">
+                    <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+
+                            <li>
+                              <a class="collapsible-body" href="{{route('all_users')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i>
+                                <span>{{ __('Users') }}</span>
+                            </a>
+                            </li>
+                            <li>
+                              <a class="collapsible-body" href="{{route('add_user')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ __('Add  New User') }}</span></a>
+                            </li>
+                    </ul>
+                </div>
+        </li>
     </ul>
 </aside>

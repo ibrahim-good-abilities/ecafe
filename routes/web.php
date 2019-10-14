@@ -13,8 +13,20 @@
 
 use Illuminate\Routing\Router;
 
+
 Auth::routes();
+//Route::get('/register','RegisterController@store')->name('sign_up');
+//role
+Route::get('/role/create','RoleController@create')->name('add_role');
+Route::post('/role/store','RoleController@store')->name('store_role');
+Route::get('/role/index','RoleController@index')->name('all_roles');
+//user
+Route::get('/users','RegisterController@index')->name('all_users');
+Route::get('/user/delete/{id}','RegisterController@destroy')->name('delete_user');
+Route::get('/user/create','RegisterController@create')->name('add_user');
+Route::post('/user/store','RegisterController@store')->name('store_user');
 Route::get('logout', 'Auth\LoginController@logout');
+
 
 Route::get('/', 'OrderController@index')->name('home');
 Route::get('/inventory-sheet', 'InventoryController@index')->name('inventory-sheet');
