@@ -346,7 +346,7 @@ class OrderController extends Controller
         $order = Order::find($order_id);
         $order->status='paid';
         $order->save();
-        
+
        $order = DB::table('orders')
         ->select('orders.*','customers.customer_name')
         ->leftJoin('customers','customers.id','=','orders.customer_id')
@@ -359,7 +359,7 @@ class OrderController extends Controller
         ->where('order_line.order_id', $order_id)
         ->get();
         // $items=$items->toArray();
-        
+
         return response()->json(['order' => $order,'items'=>$items]);
 
     }
