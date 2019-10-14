@@ -107,7 +107,7 @@
 
 
                <div class="invoice-title" >
-                  Customer/Table : <b>10</b>
+                  Customer/Table : <b id="order_table">xxx</b>
                </div>
                <br>
                            <div>
@@ -126,27 +126,27 @@
                                     <tfoot>
                                         <tr>
                                             <td class="text-center">Total Items</td >
-                                            <td class="text-center">2 total</td >     
-                                            <td class="text-center" >250.0</td >
-                                            <td class="text-center bold">250.0</td >       
+                                            <td class="text-center"><span id="total_quantity"></span>  Total</td >     
+                                            <td class="text-center" ></td >
+                                            <td class="text-center bold" id="sub_total">xxx</td >       
                                         </tr>
                                         <tr>
                                             <td class="text-center">Discount</td >
                                             <td class="text-center"></td >     
                                             <td class="text-center"></td>
-                                            <td class="text-center bold" >50 </td>       
+                                            <td class="text-center bold" id="discount" >xxx </td>       
                                         </tr>
                                         <tr>
                                             <td class="text-center">Grand Total</td >
                                             <td class="text-center"></td >     
                                             <td class="text-center"></td >
-                                            <td class="text-center bold">200.0 </td>       
+                                            <td class="text-center bold" id="grand_total">xxx </td>       
                                         </tr>
                                         <tr>
                                             <td class="text-center">Paid</td >
                                             <td class="text-center"></td >     
                                             <td class="text-center"></td >
-                                            <td class="text-center bold">200.0 </td>       
+                                            <td class="text-center bold" id="paid">xxx</td>       
                                         </tr>
                                     </tfoot>
                               </table>
