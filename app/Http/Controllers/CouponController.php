@@ -112,7 +112,7 @@ class CouponController extends Controller
         $coupon->status=request('status');
         $coupon->expiry_date=request('coupon_date');
         $coupon->save();
-        return view('coupons.edit')->with('coupon',$coupon)->with('success','coupon created successfully');
+        return view('coupons.edit')->with('coupon',$coupon)->with('success','coupon updated successfully');
 
     }
 

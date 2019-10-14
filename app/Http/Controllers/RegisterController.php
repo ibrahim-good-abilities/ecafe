@@ -11,10 +11,10 @@ use App\Role;
 
 class RegisterController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -83,7 +83,10 @@ class RegisterController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $roles =Role::all();
+
+        return view('users/edit')->with('user',$user)->with('roles',$roles);
     }
 
     /**
@@ -95,7 +98,19 @@ class RegisterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'role_id'=>'required'
+         ]);
+         $user = User::find('$id');
+         $user->name = request('name');
+         $user->email = request('email');
+         $user->password = Hash::make(request('password'));
+         $user->role_id = request('role_id');
+         $user->save();
+         return view('users.edit')->with('user',$user);
     }
 
     /**

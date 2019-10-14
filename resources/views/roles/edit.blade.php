@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title',  __('Add Role'))
+@section('title',  __('Edit Role'))
 @section('page_css')
 @endsection
 
@@ -32,11 +32,12 @@
         </ul>
       </div><br />
 @endif
-<form action="{{ route('store_role') }}" method="post" enctype="multipart/form-data" >
+<form action="{{ route('update_role',$role->id) }}" method="post" enctype="multipart/form-data" >
    @csrf
          <div class="row">
             <div class="input-name col s12">
-               <input  name="role_name" id="role_name" type="text" class="validate" placeholder="{{ __('Add Role Name') }}">
+               <input  name="role_name" id="role_name" type="text" class="validate" placeholder="{{ __('Add Role Name') }}"
+               value="{{$role->role_name}}">
                <label for="first_name">{{ __('Role Name') }}</label>
             </div>
 

@@ -44,7 +44,7 @@
                     <td>{{ $user->email}}</td>
                     <td>{{ $user->role_name}}</td>
                     <td class="center-align">
-                        <a  href="#">
+                        <a  href="{{route('edit_user',$user->id)}}">
                             <i class="material-icons">edit</i>
                         </a>
                         <a  class="delete-with-confirmation" href="{{route('delete_user',$user->id)}}">

@@ -29,7 +29,7 @@
                 <tr>
                     <th># </th>
                     <th>الاسم</th>
-
+                    <th>الاعدادات</th>
                 </tr>
             </thead>
 
@@ -38,6 +38,19 @@
                 <tr>
                     <td>{{ $role->id}}</td>
                     <td>{{ $role->role_name}}</td>
+                    <td class="center-align">
+                        <a  href="{{route('edit_role',$role->id)}}">
+                            <i class="material-icons">edit</i>
+                        </a>
+
+                        <a  class="delete-with-confirmation" href="{{route('delete_role',$role->id)}}">
+                            <i class="material-icons pink-text delete-with-confirmation">clear</i>
+                        </a>
+
+                         <a>
+                            <i class="material-icons">not_interested</i>
+                         </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

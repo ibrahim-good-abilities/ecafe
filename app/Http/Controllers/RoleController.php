@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Http\Request;
+
+
 use App\Role;
 class RoleController extends Controller
 {
@@ -45,7 +48,7 @@ class RoleController extends Controller
         $role = new Role();
         $role->role_name = request('role_name');
         $role->save();
-        return redirect()->back()->with('success','Role created succesfully');
+        return redirect()->route('edit_role',$role->id)->with('success','Role created succesfully');
     }
 
     /**
@@ -67,7 +70,8 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role = Role::find($id);
+        return view('roles.edit')->with('role',$role);
     }
 
     /**
@@ -79,7 +83,13 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'role_name'=>'required|unique:roles'
+        ]);
+        $role = Role::find($id);
+        $role->role_name = request('role_name');
+        $role->save();
+        return redirect()->back()->with('success','Role updated successfully');
     }
 
     /**
@@ -90,6 +100,10 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $role = Role::find($id);
+        //dd($role);
+        $role->delete();
+        return redirect()->back()->with('success','Role deleted successfully');
     }
 }

@@ -20,11 +20,15 @@ Auth::routes();
 Route::get('/role/create','RoleController@create')->name('add_role');
 Route::post('/role/store','RoleController@store')->name('store_role');
 Route::get('/role/index','RoleController@index')->name('all_roles');
+Route::get('/role/edit/{id}','RoleController@edit')->name('edit_role');
+Route::post('/role/update/{id}','RoleController@update')->name('update_role');
+Route::get('/role/delete/{id}','RoleController@destroy')->name('delete_role');
 //user
 Route::get('/users','RegisterController@index')->name('all_users');
 Route::get('/user/delete/{id}','RegisterController@destroy')->name('delete_user');
 Route::get('/user/create','RegisterController@create')->name('add_user');
 Route::post('/user/store','RegisterController@store')->name('store_user');
+Route::get('/user/edit/{id}','RegisterController@edit')->name('edit_user');
 Route::get('logout', 'Auth\LoginController@logout');
 
 
