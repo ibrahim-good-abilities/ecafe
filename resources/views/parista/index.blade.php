@@ -29,7 +29,7 @@
             @foreach($orders as $order)
                 <div>
                     <div class="order-box">
-                        <ul id="issues-collection" class="collection z-depth-1">
+                        <ul class="collection z-depth-1">
                             <li class="collection-item avatar">
                                 <i class="material-icons green accent-2 circle">attach_file</i>
                                 <h6 class="collection-header m-0">Order #{{$order->id}}</h6>
@@ -46,10 +46,14 @@
                                     </div>
                                     <div class="col s4 center-align">
                                         @if($item->status == 'pending')
-                                        <button class="waves-effect waves-light blue btn btn-small btn-fluid make-ready" data-item_id="{{ $item->id}}">{{__('Ready')}}</button>
-                                        <button class="waves-effect waves-light green btn btn-small btn-fluid  disabled hidden" >{{__('Done')}}</button>
+                                            <button class="waves-effect waves-light teal darken-1 btn btn-small btn-fluid make-in-progress" data-item_id="{{ $item->id}}">{{__('Execution Start')}}</button>
+                                            <button class="waves-effect waves-light blue btn btn-small btn-fluid make-ready hidden" data-item_id="{{ $item->id}}">{{__('Ready')}}</button>
+                                            <button class="waves-effect waves-light green btn btn-small btn-fluid  disabled hidden" >{{__('Done')}}</button>
+                                        @elseif($item->status == 'in progress')
+                                            <button class="waves-effect waves-light blue btn btn-small btn-fluid make-ready" data-item_id="{{ $item->id}}">{{__('Ready')}}</button>
+                                            <button class="waves-effect waves-light green btn btn-small btn-fluid  disabled hidden" >{{__('Done')}}</button>
                                         @else
-                                        <button class="waves-effect waves-light green btn btn-small btn-fluid  disabled" >{{__('Done')}}</button>
+                                            <button class="waves-effect waves-light green btn btn-small btn-fluid  disabled" >{{__('Done')}}</button>
                                         @endif
                                     </div>
                                 </div>

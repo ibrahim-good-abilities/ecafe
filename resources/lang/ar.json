@@ -103,5 +103,7 @@
     "Notes": "ملاحظات",
     "Done": "اكتمل",
     "Hide": "أخفاء",
-    "Payment": "حساب"
+    "Payment": "حساب",
+    "Execution Start": "بدء التنفيذ",
+    "In progress": "جارى التنفيذ"
 }

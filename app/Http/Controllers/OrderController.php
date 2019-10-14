@@ -264,6 +264,8 @@ class OrderController extends Controller
         $order->status=request('status');
         $order->touch();
         if($order->status == "done"){
+            Order_line::where('order_id', $id)
+            ->update(['status' => 'done']);
             new NewNotification('cashier','order-status',['message'=>__('You got new check please reload the page'),'order_id'=>$order->id]);
         }
         if($order->status != "paid" && $order->status != "pending"){
