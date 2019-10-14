@@ -43,10 +43,21 @@ $(document).ready(function() {
         var index = $(this).closest(".slick-slide").data("slick-index");
         removeSlide(index);
     });
+    $(document).on('click', '.make-in-progress', function() {
+        var item_id = $(this).data('item_id');
+        var that = $(this);
+        $(this).addClass('hidden');
+        $.post(base_url + '/orderline/update/status/' + item_id, { 'status': 'in progress', 'ajax': true, '_token': $('#_order_token').val() }, function(response) {
+            if (response) {
+                that.closest('div').find('.make-ready').removeClass('hidden');
+            }
+        });
+    });
+
     $(document).on('click', '.make-ready', function() {
         var item_id = $(this).data('item_id');
         var that = $(this);
-        $(this).addClass('hidden');;
+        $(this).addClass('hidden');
         $.post(base_url + '/orderline/update/status/' + item_id, { 'status': 'done', 'ajax': true, '_token': $('#_order_token').val() }, function(response) {
             if (response) {
                 that.closest('div').find('.disabled').removeClass('hidden');
@@ -55,6 +66,9 @@ $(document).ready(function() {
     });
 
     $('.complete-order').on('click', function() {
+        $(this).closest('.order-box').find('.make-in-progress').addClass('hidden');
+        $(this).closest('.order-box').find('.make-ready').addClass('hidden');
+        $(this).closest('.order-box').find('.disabled').removeClass('hidden');
         var order_id = $(this).data('order_id');
         var that = $(this);
         $(this).addClass('hidden');;
