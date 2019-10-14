@@ -47,6 +47,7 @@ Route::get('/items/delete/{id}','ItemController@destroy')->name('item_delete');
 //orders
 Route::get('/orders/index','OrderController@index')->name('orders');
 Route::post('/orders/add-new','OrderController@create');
+Route::post('/orders/{id}','OrderController@update');
 Route::get('/orders/delete/{id}','OrderController@destroy')->name('delete_order');
 Route::post('/orders/update/status/{id}','OrderController@updateStatus')->name('order_update_status');
 Route::get('/orders/edit/status/{id}','OrderController@editStatus')->name('order_edit_status');
@@ -90,6 +91,7 @@ Route::get('/ingredient/delete/{id}','IngrediantController@destroy')->name('ingr
 Route::get('/captain','IndexController@captain')->name('captain');
 //captain
 Route::get('/captain/order/{id}','IndexController@captainOrder')->name('captain-order');
+Route::get('/captain/order/{id}/edit','IndexController@captainEditOrder')->name('captain-edit-order');
 //cashier
 Route::get('/cashier','IndexController@cashier')->name('cashier');
 Route::post('/cashier/order','OrderController@orderPaid');

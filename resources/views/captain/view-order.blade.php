@@ -26,7 +26,7 @@
         <!-- checkout page -->
         @include('pos.order_details')
         <div class="m-t-10">
-            <a class="btn mb-1 waves-effect waves-light" href="#">{{ __('Edit') }}
+            <a class="btn mb-1 waves-effect waves-light" href="{{ route('captain-edit-order',$order->id ) }}">{{ __('Edit') }}
                   <i class="material-icons right">edit</i>
             </a>
         </div>

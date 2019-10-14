@@ -90,28 +90,28 @@
            </div>
    </form>
 </div>
-<div id="pill" class="modal" style=" width: 37%;">
+<div id="bill" class="modal" style="width: 37%;">
   
                
-         <div class='print'   id="modal-print">
+         <div class="print" id="modal-print">
        
                <div class="invoice">
    
                    <img src=" {{ asset('resources/images/logo/materialize-logo-color.png') }}"  >
-                   <h6>Sale NO. : 2022</h6>
+                   <h6>Sale NO. : <span id="order_id"> xxx </span> </h6>
                </div>
                <br>
                <div class="invoice-title">
-                 Date : &nbsp; &nbsp;<b> 15/5/2019</b>
+                 Date : &nbsp; &nbsp;<b id="order_date"> xx-xx-xxxx</b>
                </div>
 
 
                <div class="invoice-title" >
-                  Customer/Table : <b>10</b>
+                  Customer/Table : <b id="order_table">xxx</b>
                </div>
                <br>
                            <div>
-                              <table class="table">
+                              <table class="table" id="order_details">
                                     <thead>
                                     <tr>
                                        <td class="text-center"><strong>#</strong></td>
@@ -120,43 +120,35 @@
                                        <td class="text-center"><strong>SubTotal</strong></td>
                                     </tr>
                                     </thead>
-   
-                                    <tr>
-                                       <td class="text-center order_id">
-                                          id
-                                       </td >
-                                       <td class="text-center">
-                                          Cake
-                                       </td >
-                                       <td class="text-center">
-                                         50
-                                       </td >
-                                          <td class="text-center">250</td>   
-                                    </tr>
-                                    <tr>
-                                          <td class="text-center">Total Items</td >
-                                          <td class="text-center">2 total</td >     
-                                          <td class="text-center" >250.0</td >
-                                          <td class="text-center bold">250.0</td >       
-                                    </tr>
-                                    <tr>
-                                          <td class="text-center">Discount</td >
-                                          <td class="text-center"></td >     
-                                          <td class="text-center"></td>
-                                          <td class="text-center bold" >50 </td>       
-                                    </tr>
-                                    <tr>
-                                          <td class="text-center">Grand Total</td >
-                                          <td class="text-center"></td >     
-                                          <td class="text-center"></td >
-                                          <td class="text-center bold">200.0 </td>       
-                                    </tr>
-                                    <tr>
-                                          <td class="text-center">Paid</td >
-                                          <td class="text-center"></td >     
-                                          <td class="text-center"></td >
-                                          <td class="text-center bold">200.0 </td>       
-                                    </tr>
+                                    <tbody>
+    
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td class="text-center">Total Items</td >
+                                            <td class="text-center"><span id="total_quantity"></span>  Total</td >     
+                                            <td class="text-center" ></td >
+                                            <td class="text-center bold" id="sub_total">xxx</td >       
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">Discount</td >
+                                            <td class="text-center"></td >     
+                                            <td class="text-center"></td>
+                                            <td class="text-center bold" id="discount" >xxx </td>       
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">Grand Total</td >
+                                            <td class="text-center"></td >     
+                                            <td class="text-center"></td >
+                                            <td class="text-center bold" id="grand_total">xxx </td>       
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">Paid</td >
+                                            <td class="text-center"></td >     
+                                            <td class="text-center"></td >
+                                            <td class="text-center bold" id="paid">xxx</td>       
+                                        </tr>
+                                    </tfoot>
                               </table>
                            </div>
    </div>
