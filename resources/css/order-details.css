@@ -3,3 +3,14 @@ span#content {
     font-style: italic;
     color: gray;
 }
+.col.s12.m12.l4.sidebar-title {
+    min-height: 238px;
+  
+    margin-top: 24px;
+    height: auto;
+}
+.note_content {
+    padding: 22px;
+    position: relative;
+    background: darkgray;
+}

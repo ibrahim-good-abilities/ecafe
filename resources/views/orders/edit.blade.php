@@ -38,8 +38,9 @@
                     <?php  $date_parts = explode(" ",  $order->created_at); ?>
 
                     <?php  $date_parts_update = explode(" ",  $order->updated_at);?>
+              
                     
-<div class="col s12 dir_rtl">
+<div class="col m12 dir_rtl">
     <div class="row">
          <div class="input-field col m6 s12">
             <span class="order_label"> {{__('Date Created')}}: </span> <span>{{ $date_parts[0] }}</span>
@@ -93,8 +94,13 @@
 
 </div>
 
-
-<div class="col s12">
+<div class="row">
+<div class="col s12 m12 l4 sidebar-title">
+                <div class="note_content">
+                    <p>Payment to be made upon delivery. Order status changed from Pending payment to Processing.</p>
+                </div>
+</div>
+<div class="col s12 m12 l8">
     <table class="highlight">
         <thead>
             <tr>
@@ -148,7 +154,7 @@
         </div>
     </form> -->
 </div>
-
+</div>
 <!-- orders Details -->
 @section('page_js')
 <script src="https://js.pusher.com/5.0/pusher.min.js" type="text/javascript"></script>
