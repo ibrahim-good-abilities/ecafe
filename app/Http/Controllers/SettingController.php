@@ -71,7 +71,7 @@ class SettingController extends Controller
             Setting::updateOrCreate(['name'=>'defualt_tax','value'=>request('defualt_tax')]);
         }
 
-        return redirect()->back()->with('success','Setting Done');
+        return redirect()->back()->with('success',__('Setting Done'));
 
     }
 

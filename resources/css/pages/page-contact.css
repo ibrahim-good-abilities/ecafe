@@ -163,5 +163,9 @@ input#upload_logo {
     margin: 29px;
 }
 .card {
-    display: contents;
+   
+     margin:0px;
+}
+.card .card-content {
+    padding: 5px;
 }

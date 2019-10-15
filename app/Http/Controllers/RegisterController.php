@@ -61,7 +61,7 @@ class RegisterController extends Controller
         $user->password = Hash::make(request('password'));
         $user->role_id = request('role_id');
         $user->save();
-        return redirect()->route('edit_user',$user->id)->with('success','User created successfully');
+        return redirect()->route('edit_user',$user->id)->with('success',__('User created successfully'));
 
     }
 
@@ -133,6 +133,6 @@ class RegisterController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        return redirect()->back()->with('success','User deleted successfully');
+        return redirect()->back()->with('success',__('User deleted successfully'));
     }
 }

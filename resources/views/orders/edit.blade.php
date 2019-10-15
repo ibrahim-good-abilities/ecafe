@@ -35,15 +35,26 @@
     </button>
 </div>
 @endif
+                    <?php  $date_parts = explode(" ",  $order->created_at); ?>
 
+                    <?php  $date_parts_update = explode(" ",  $order->updated_at);?>
+                    
 <div class="col s12 dir_rtl">
     <div class="row">
-        <div class="input-field col m4 s12">
+         <div class="input-field col m6 s12">
+            <span class="order_label"> {{__('Date Created')}}: </span> <span>{{ $date_parts[0] }}</span>
+        </div>
+
+        <div class="input-field col m6 s12">
             <span class="order_label"> {{__('Order Id')}}: </span> <span>#{{ $order->id }}</span>
         </div>
 
         <div class="input-field col m4 s12">
-            <span class="order_label"> {{__('Date Created')}}: </span> <span>{{ date('H:i:s d-m-Y', strtotime($order->created_at)) }}</span>
+            <span class="order_label"> {{__('Time Updated')}}: </span> <span>{{ $date_parts_update[1] }}</span>
+        </div>
+
+        <div class="input-field col m4 s12">
+            <span class="order_label"> {{__('Time Created')}}: </span> <span>{{ $date_parts[1] }}</span>
         </div>
 
         <div class="input-field col m4 s12">
@@ -62,18 +73,22 @@
             <span class="order_label"> {{__('Status')}}: </span><span class="badge text-accent-2 {{ $status_classes }}">{{ __( ucfirst($order->status)) }}</span>
         </div>
 
-        <div class="input-field col m4 s12">
-            <span class="order_label"> {{__('Customer Name')}}: </span> <span>{{ $order->customer_name !="" ? $order->customer_name:__('Guest')}}</span>
-        </div>
+        <!-- <div class="input-field col m4 s12">
+            <span class="order_label"> {{__('Customer Name')}}: </span> <span>{{ $order->customer_name !="" ? $order->customer_name:__('Guest')}}</span> 
+        </div> -->
 
-        <div class="input-field col m4 s12">
-            <span class="order_label"> {{__('Discount') }}: </span> <span>{{ $order->discount }}</span>
-        </div>
+        
 
         <div class="input-field col m4 s12">
             <span class="order_label"> {{__('Coupon Name') }}: </span> <span> xxxxx </span>
         </div>
-
+        
+        <div class="input-field col m4 s12">
+            <span class="order_label"> {{__('Discount') }}: </span> <span>{{ $order->discount }}</span>
+        </div>
+        <div class="input-field col m4 s12">
+            <span class="order_label"> {{__('Table Number') }}: </span> <span>{{ $order->table_number }}</span>
+        </div>
     </div>
 
 </div>
@@ -106,7 +121,7 @@
 <div class="col s12" id="update-order-section">
 
 
-    <h5 class="right-align">{{ __('Update Order Status')}}</h5>
+    <!-- <h5 class="right-align">{{ __('Update Order Status')}}</h5>
     <form action="{{ route('order_update_status',$order->id) }}" method="post">
         @csrf
         <div class="row">
@@ -131,7 +146,7 @@
             </div>
 
         </div>
-    </form>
+    </form> -->
 </div>
 
 <!-- orders Details -->
