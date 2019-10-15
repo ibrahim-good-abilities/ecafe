@@ -113,7 +113,13 @@
     "Password":"رقم السري",
     "Confirm Password":"تأكيد الرقم السري",
     "Choose Role":"اختر الدور",
-    "Add":"اضافه"
-
+    "Add":"اضافه",
+    "Roles":"الأدوار",
+    "ADD NEW":"اضافه",
+    "Add Role":"اضافه دور",
+    "Add New Role":"اضافه دور جديد",
+    "Role Name":"اسم الدور",
+    "Add Role Name":"اضف اسم الدور",
+    "Edit Role":"تعديل الدور"
 
 }
