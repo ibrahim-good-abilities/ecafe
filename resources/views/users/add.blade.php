@@ -101,8 +101,10 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                <button type="submit" class="btn cyan waves-effect waves-light right">
+                                    {{ __('Add') }}
+                                    <i class="material-icons right">send</i>
+
                                 </button>
                             </div>
                         </div>

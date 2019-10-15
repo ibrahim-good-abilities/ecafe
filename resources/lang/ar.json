@@ -105,5 +105,15 @@
     "Hide": "أخفاء",
     "Payment": "حساب",
     "Execution Start": "بدء التنفيذ",
-    "In progress": "جارى التنفيذ"
+    "In progress": "جارى التنفيذ",
+    "Users":"المستخدمون",
+    "Add New User":"اضافة مستخدم",
+    "Name":"الاسم",
+    "E-Mail Address":"الايميل",
+    "Password":"رقم السري",
+    "Confirm Password":"تأكيد الرقم السري",
+    "Choose Role":"اختر الدور",
+    "Add":"اضافه"
+
+
 }

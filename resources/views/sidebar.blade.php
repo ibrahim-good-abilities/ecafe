@@ -118,7 +118,7 @@
                             </a>
                             </li>
                             <li>
-                              <a class="collapsible-body" href="{{route('add_user')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ __('Add  New User') }}</span></a>
+                              <a class="collapsible-body" href="{{route('add_user')}}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ __('Add New User') }}</span></a>
                             </li>
                     </ul>
                 </div>
