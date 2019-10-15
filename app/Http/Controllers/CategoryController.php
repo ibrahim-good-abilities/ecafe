@@ -57,7 +57,7 @@ class CategoryController extends Controller
         $category->src = '/images/categories/'.$name_img;
         $category->update(['image' => $name_img]);
         $category->save();
-        return redirect()->route('edit_category',$category->id)->with('success','Item created successfully!');
+        return redirect()->route('edit_category',$category->id)->with('success',__('Item created successfully!'));
 
     }
 
@@ -110,7 +110,7 @@ class CategoryController extends Controller
          }
          $category->save();
 
-        return redirect()->back()->with('success','Category updated successfully!');
+        return redirect()->back()->with('success',__('Category updated successfully!'));
     }
 
     /**
@@ -123,6 +123,6 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
-        return redirect()->back()->with('success','category detelted successfully');
+        return redirect()->back()->with('success',__('category detelted successfully'));
     }
 }

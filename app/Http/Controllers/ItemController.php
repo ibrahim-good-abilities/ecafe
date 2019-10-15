@@ -88,7 +88,7 @@ class ItemController extends Controller
         $Item->save();
 
         //
-        return redirect()->route('item_edit',['main',$Item->id])->with('success','Item created successfully!');
+        return redirect()->route('item_edit',['main',$Item->id])->with('success',__('Item created successfully!'));
         //return route('item_edit');
     }
 
@@ -114,7 +114,7 @@ class ItemController extends Controller
         $item->src = '/images/items/'.$name_img;
         $item->update(['image' => $name_img]);
         $item->save();
-        return redirect()->route('menu_edit',$item->id)->with('success','Item created successfully!');
+        return redirect()->route('menu_edit',$item->id)->with('success',__('Item created successfully!'));
     }
 
     /**
@@ -193,7 +193,7 @@ class ItemController extends Controller
             $Item->update(['image' => $name_img]);
         }
         $Item->save();
-        return redirect()->back()->with('success', 'item update successfully');
+        return redirect()->back()->with('success', __('Item updated successfully'));
     }
 
     public function Menuupdate(Request $request, $id)
@@ -220,7 +220,7 @@ class ItemController extends Controller
             $item->update(['image' => $name_img]);
         }
         $item->save();
-        return redirect()->back()->with('success', 'Item update successfully');
+        return redirect()->back()->with('success', __('Item update successfully'));
     }
 
     /**
@@ -274,9 +274,9 @@ class ItemController extends Controller
             $item->main_stock = $main_stock_new_quantity;
             $item->available_stock = $available_stock_new_quantity;
             $item->save();
-            return redirect()->back()->with('success', 'Quantity transfered successfully.');
+            return redirect()->back()->with('success', __('Quantity transfered successfully.'));
         }else{
-            return redirect()->back()->with('error', 'The selected quantity exceeds quantity available in stock.');
+            return redirect()->back()->with('error', __('The selected quantity exceeds quantity available in stock.'));
         }
 
     }
@@ -304,18 +304,18 @@ class ItemController extends Controller
         if($operation == 1){
             $item->main_stock = $item->main_stock + $quantity;
             $item->save();
-            return redirect()->back()->with('success', 'Quantity added successfully.');
+            return redirect()->back()->with('success', __('Quantity added successfully.'));
         }elseif($operation == 2){
             if($item->main_stock >= $quantity){
                 $item->main_stock = $item->main_stock - $quantity;
                 $item->save();
-                return redirect()->back()->with('success', 'Quantity reduced successfully.');
+                return redirect()->back()->with('success', __('Quantity reduced successfully.'));
             }else{
-                return redirect()->back()->with('error', 'The selected quantity exceeds quantity available in stock.');
+                return redirect()->back()->with('error', __('The selected quantity exceeds quantity available in stock.'));
             }
 
         }else{
-            return redirect()->back()->with('error', 'The selected operation is not valid.');
+            return redirect()->back()->with('error', __('The selected operation is not valid.'));
         }
 
     }
@@ -335,9 +335,9 @@ class ItemController extends Controller
             $item->available_stock = $available_stock_new_quantity;
             $item->main_stock = $main_stock_new_quantity;
             $item->save();
-            return redirect()->back()->with('success', 'Quantity transfered successfully.');
+            return redirect()->back()->with('success', __('Quantity transfered successfully.'));
         }else{
-            return redirect()->back()->with('error', 'The selected quantity exceeds quantity available in stock.');
+            return redirect()->back()->with('error', __('The selected quantity exceeds quantity available in stock.'));
         }
 
     }
@@ -362,18 +362,18 @@ class ItemController extends Controller
         if($operation == 1){
             $item->available_stock = $item->available_stock + $quantity;
             $item->save();
-            return redirect()->back()->with('success', 'Quantity added successfully.');
+            return redirect()->back()->with('success', __('Quantity added successfully.'));
         }elseif($operation == 2){
             if($item->available_stock >= $quantity){
                 $item->available_stock = $item->available_stock - $quantity;
                 $item->save();
-                return redirect()->back()->with('success', 'Quantity reduced successfully.');
+                return redirect()->back()->with('success', __('Quantity reduced successfully.'));
             }else{
-                return redirect()->back()->with('error', 'The selected quantity exceeds quantity available in stock.');
+                return redirect()->back()->with('error', __('The selected quantity exceeds quantity available in stock.'));
             }
 
         }else{
-            return redirect()->back()->with('error', 'The selected operation is not valid.');
+            return redirect()->back()->with('error', __('The selected operation is not valid.'));
         }
 
     }
