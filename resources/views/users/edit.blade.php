@@ -36,7 +36,7 @@
 
 
                 <div class="card-body">
-                    <form method="POST" action="{{route('store_user')}}">
+                    <form method="POST" action="{{route('update_user',$user->id)}}">
                         @csrf
 
                         <div class="form-group row">
@@ -72,7 +72,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -86,14 +86,15 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation"  autocomplete="new-password">
                             </div>
                         </div>
+
+
                         <div class="item-category row ">
                             <select class="icons" name="role_id">
-                                <option value="" disabled selected>{{ __('Choose Role') }}</option>
                                 @foreach($roles as $role)
-                                        <option  value="{{$role->id}}"  name="role_id" class="circle"> {{$role->role_name}} </option>
+                                        <option  value="{{$role->id}}"  name="role_id" class="circle"{{$role->id==$user->role_id?'selected':''}}> {{$role->role_name}} </option>
                                 @endforeach
                             </select>
                             <label>{{ __('Role') }}</label>
@@ -101,8 +102,9 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                <button type="submit" class="btn cyan waves-effect waves-light right">
+                                    {{ __('Edit') }}
+                                    <i class="material-icons right">send</i>
                                 </button>
                             </div>
                         </div>

@@ -122,7 +122,22 @@
     "We have successfully received your order.": "لقد تلقينا طلبك بنجاح",
     "You have a new order": "لديك طلب جديد",
     "Coupon code is no longer valid.": "لم يعد كود الكوبون صالحًا",
-    "Coupon code doesn\"t exist.": "رقم الكوبون غير موجود"
-  
+    "Coupon code doesn\"t exist.": "رقم الكوبون غير موجود",
+    "In progress": "جارى التنفيذ",
+    "Users":"المستخدمون",
+    "Add New User":"اضافة مستخدم",
+    "Name":"الاسم",
+    "E-Mail Address":"الايميل",
+    "Password":"رقم السري",
+    "Confirm Password":"تأكيد الرقم السري",
+    "Choose Role":"اختر الدور",
+    "Add":"اضافه",
+    "Roles":"الأدوار",
+    "ADD NEW":"اضافه",
+    "Add Role":"اضافه دور",
+    "Add New Role":"اضافه دور جديد",
+    "Role Name":"اسم الدور",
+    "Add Role Name":"اضف اسم الدور",
+    "Edit Role":"تعديل الدور"
 
 }

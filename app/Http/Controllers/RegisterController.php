@@ -23,9 +23,10 @@ class RegisterController extends Controller
     public function index()
     {
         $users =DB::table('users')
-        ->join('roles','roles.id','=','users.role_id')
+        ->join('roles','users.role_id','=','roles.id')
+        ->select('users.*','roles.role_name')
         ->get();
-        //dd($users);
+
         return view('users.index')->with('users',$users);
     }
 
@@ -60,7 +61,7 @@ class RegisterController extends Controller
         $user->password = Hash::make(request('password'));
         $user->role_id = request('role_id');
         $user->save();
-        return redirect()->back()->with('success','User created successfully');
+        return redirect()->route('edit_user',$user->id)->with('success','User created successfully');
 
     }
 
@@ -84,9 +85,12 @@ class RegisterController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+
         $roles =Role::all();
 
-        return view('users/edit')->with('user',$user)->with('roles',$roles);
+        return view('users/edit')
+            ->with('user',$user)
+            ->with('roles',$roles);
     }
 
     /**
@@ -100,17 +104,23 @@ class RegisterController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'email' => 'required', 'string', 'email', 'max:255'.$id,
             'role_id'=>'required'
          ]);
-         $user = User::find('$id');
+         $user = User::find($id);
+         //dd($user);
          $user->name = request('name');
          $user->email = request('email');
-         $user->password = Hash::make(request('password'));
+         if($request->input('password') !=""){
+            $user->password = Hash::make(request('password'));
+         }
          $user->role_id = request('role_id');
          $user->save();
-         return view('users.edit')->with('user',$user);
+         $roles =Role::all();
+
+         return view('users.edit')
+         ->with('user',$user)
+         ->with('roles',$roles);
     }
 
     /**

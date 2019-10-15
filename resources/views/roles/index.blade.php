@@ -38,7 +38,7 @@
                 <tr>
                     <td>{{ $role->id}}</td>
                     <td>{{ $role->role_name}}</td>
-                    <td class="center-align">
+                    <td>
                         <a  href="{{route('edit_role',$role->id)}}">
                             <i class="material-icons">edit</i>
                         </a>
@@ -47,9 +47,9 @@
                             <i class="material-icons pink-text delete-with-confirmation">clear</i>
                         </a>
 
-                         <a>
+                         <!-- <a>
                             <i class="material-icons">not_interested</i>
-                         </a>
+                         </a> -->
                     </td>
                 </tr>
                 @endforeach

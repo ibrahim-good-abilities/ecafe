@@ -10,7 +10,7 @@ $(document).ready(function() {
             "url": language
         },
         columnDefs: [
-            { orderable: false, targets: 5 }
+            { orderable: false, targets: 4 }
         ]
     });
 
