@@ -6,51 +6,71 @@
 
 
 @section('middle_content')
-
-
-
-      
+@if ($message = Session::get('success'))
+<div class="card-alert card gradient-45deg-green-teal">
+    <div class="card-content white-text">
+        <p>
+        <i class="material-icons">check</i> {{ $message }}</p>
+</div>
+    <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+@endif
+@if($errors->any())
+      <div class="card-alert card red lighten-5 card-content red-text">
+        <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+      </div><br />
+@endif
 <div id="contact-us" class="section">
     <div class="app-wrapper">
       <div id="sidebar-list" class="row contact-sidenav">
-      
+
         <div class="contact-form margin-top-contact">
           <div class="row">
-            <form class="col s12">
+            <form class="col s12" action="{{route('store_setting')}}" method="post" enctype="multipart/form-data" >
+              @csrf
               <div class="row">
                  <h6>Company name</h6>
                 <div class="input-field col m6 s12">
-                  <input id="company_name" type="text" class="validate">
+                  <input id="company_name" name="company_name" type="text" class="validate">
                 </div>
 
-             
+
                 <div class="col m6 s12 ">
                 <h6 id="comapny_logo">Company logo</h6>
-                  
-                      <input id="upload_logo" type="file">
-                    
-                   
+
+                      <input id="upload_logo"  name ="upload_logo"type="file">
+
+
                 </div>
               </div>
 
               <div class="row">
                   <h6>Company Phone</h6>
                   <div class="input-field col m6 s12">
-                    <input id="company_phone" type="number" class="validate">
+                    <input id="company_phone" name="company_phone" type="number" class="validate">
                   </div>
               </div>
 
                 <div class="row">
                    <h6>Defualt TAX</h6>
                     <div class="input-field col m6 s12">
-                    <input id="defualt_tax" type="number" class="validate">
+                    <input id="defualt_tax"  name="defualt_tax" type="number" class="validate">
                     </div>
                 </div>
+                <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn cyan waves-effect waves-light right">
+                                    {{ __('Add') }}
+                                    <i class="material-icons right">send</i>
 
-                <div class="input-field col s12 "> 
-                  <a class="waves-effect waves-light btn">Send</a>
+                                </button>
                 </div>
-         
             </form>
           </div>
         </div>

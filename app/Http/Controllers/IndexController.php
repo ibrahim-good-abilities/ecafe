@@ -186,10 +186,6 @@ class IndexController extends Controller
         ->with('orders',$orders);
     }
 
-    public function settings()
-    {
 
-        return view('settings');
-    }
 }
 ?>

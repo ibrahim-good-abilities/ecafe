@@ -101,6 +101,6 @@ Route::get('/captain/order/{id}/edit','IndexController@captainEditOrder')->name(
 Route::get('/cashier','IndexController@cashier')->name('cashier');
 Route::post('/cashier/order','OrderController@orderPaid');
 //settings
-Route::get('/settings','IndexController@settings')->name('settings');
-
+Route::get('/settings','SettingController@settings')->name('settings');
+Route::post('/setting/store','SettingController@store')->name('store_setting');
 
