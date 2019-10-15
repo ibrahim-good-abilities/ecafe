@@ -52,10 +52,10 @@ class OrderController extends Controller
             $coupon = Coupon::where('code','=',$coupon_code)->first();
             if(!$coupon)
             {
-                $response['coupon']['error'] = 'Coupon code doesn\'t exist.';
+                $response['coupon']['error'] = __('Coupon code doesn\'t exist.');
                 return response()->json($response);
             }elseif($coupon->status!='active') {
-                $response['coupon']['error'] = 'Coupon code is no longer valid.';
+                $response['coupon']['error'] = __('Coupon code is no longer valid.');
                 return response()->json($response);
             }
         }
@@ -197,10 +197,10 @@ class OrderController extends Controller
             $coupon = Coupon::where('code','=',$coupon_code)->first();
             if(!$coupon)
             {
-                $response['coupon']['error'] = 'Coupon code doesn\'t exist.';
+                $response['coupon']['error'] = __('Coupon code doesn\'t exist.');
                 return response()->json($response);
             }elseif($coupon->status!='active') {
-                $response['coupon']['error'] = 'Coupon code is no longer valid.';
+                $response['coupon']['error'] = __('Coupon code is no longer valid.');
                 return response()->json($response);
             }
         }
@@ -279,7 +279,7 @@ class OrderController extends Controller
             return response()->json(['status' => 'success']);
         }
         else{
-            return redirect()->back()->with('success', 'Order  status update successfully');
+            return redirect()->back()->with('success', __('Order  status update successfully'));
         }
 
 
@@ -309,7 +309,7 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
         $order->delete();
-        return redirect()->back()->with('success','Order deleted succefully');
+        return redirect()->back()->with('success',__('Order deleted succefully'));
 
     }
 
