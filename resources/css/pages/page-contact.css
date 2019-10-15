@@ -155,3 +155,13 @@
         top: -.5rem;
     }
 }
+h6#comapny_logo {
+    margin-top: -26px;
+}
+
+input#upload_logo {
+    margin: 29px;
+}
+.card {
+    display: contents;
+}
