@@ -51,7 +51,7 @@ class PackingUnitController extends Controller
         $packingUnit->name = request('name');
         $packingUnit->quantity = request('quantity');
         $packingUnit->save();
-        return redirect()->route('packing-units.edit',$packingUnit->id)->with('success','Packing unit created successfully!');
+        return redirect()->route('packing-units.edit',$packingUnit->id)->with('success',__('Packing unit created successfully!'));
 
     }
 
@@ -94,7 +94,7 @@ class PackingUnitController extends Controller
         $packingUnit->name = request('name');
         $packingUnit->save();
 
-        return redirect()->back()->with('success','Packing unit updated successfully!');
+        return redirect()->back()->with('success',__('Packing unit updated successfully!'));
     }
 
     /**
@@ -107,7 +107,7 @@ class PackingUnitController extends Controller
     {
         $packingUnit = packingUnit::find($id);
         $packingUnit->delete();
-        return redirect()->back()->with('success','packingUnit detelted successfully');
+        return redirect()->back()->with('success',__('packing Unit deleted successfully'));
 
     }
 

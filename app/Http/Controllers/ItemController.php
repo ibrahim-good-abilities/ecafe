@@ -220,7 +220,7 @@ class ItemController extends Controller
             $item->update(['image' => $name_img]);
         }
         $item->save();
-        return redirect()->back()->with('success', __('Item update successfully'));
+        return redirect()->back()->with('success', __('Item updated successfully'));
     }
 
     /**
@@ -234,7 +234,7 @@ class ItemController extends Controller
         //
         $item =Item::find($id);
         $item->delete();
-        return redirect()->back()->with('success', 'item deleted successfully');
+        return redirect()->back()->with('success', __('item deleted successfully'));
 
 
     }

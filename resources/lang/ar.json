@@ -138,6 +138,25 @@
     "Add New Role":"اضافه دور جديد",
     "Role Name":"اسم الدور",
     "Add Role Name":"اضف اسم الدور",
-    "Edit Role":"تعديل الدور"
+    "Edit Role":"تعديل الدور",
+    "coupon created successfully": "تم انشاء الكوبون بنجاح",
+    "coupon updated successfully": "تم تحديث الكوبون بنجاح",
+    "Ingredient Created succesfully": "تم انشاء المكون بنجاح",
+    "Ingredient deleted successfully": "تم حذف المكون بنجاح",
+    "Packing unit created successfully!": "تم إنشاء وحدة التعبئة بنجاح",
+    "Packing unit updated successfully!": "تم تحديث وحدة التعبئة بنجاح",
+    "packing Unit deleted successfully": "تم حذف وحدة التعبئة بنجاح",
+    "User created successfully": "تم إنشاء المستخدم بنجاح",
+    "User deleted successfully": "تم حذف المستخدم بنجاح",
+    "Role created succesfully": "تم إنشاء الدور بنجاح",
+    "Role updated successfully": "تم تحديث الدور بنجاح",
+    "Role deleted successfully": "تم حذف الدور بنجاح",
+    "Setting Done": "تم تغيير الاعدادات بنجاح",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": ""
+    
 
 }

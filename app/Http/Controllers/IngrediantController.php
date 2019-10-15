@@ -56,7 +56,7 @@ class IngrediantController extends Controller
 
         $ingredient->save();
 
-        return redirect()->back()->with('success','Ingredient Created succesfully');
+        return redirect()->back()->with('success',__('Ingredient Created succesfully'));
     }
 
     /**
@@ -103,7 +103,7 @@ class IngrediantController extends Controller
     {
         $ingredient = Ingredient::find($id);
         $ingredient->delete();
-        return redirect()->back()->with('success','Ingredient deleted successfully');
+        return redirect()->back()->with('success',__('Ingredient deleted successfully'));
     }
 
 }

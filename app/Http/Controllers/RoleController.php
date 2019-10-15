@@ -48,7 +48,7 @@ class RoleController extends Controller
         $role = new Role();
         $role->role_name = request('role_name');
         $role->save();
-        return redirect()->route('edit_role',$role->id)->with('success','Role created succesfully');
+        return redirect()->route('edit_role',$role->id)->with('success',__('Role created succesfully'));
     }
 
     /**
@@ -89,7 +89,7 @@ class RoleController extends Controller
         $role = Role::find($id);
         $role->role_name = request('role_name');
         $role->save();
-        return redirect()->back()->with('success','Role updated successfully');
+        return redirect()->back()->with('success',__('Role updated successfully'));
     }
 
     /**
@@ -104,6 +104,6 @@ class RoleController extends Controller
         $role = Role::find($id);
         //dd($role);
         $role->delete();
-        return redirect()->back()->with('success','Role deleted successfully');
+        return redirect()->back()->with('success',__('Role deleted successfully'));
     }
 }
