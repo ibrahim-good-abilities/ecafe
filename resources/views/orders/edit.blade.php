@@ -96,6 +96,13 @@
 
 <div class="row">
 <div class="col s12 m12 l4 sidebar-title">
+<h4><span>{{__('Order Log') }}</span></h4>
+                <div class="note_content">
+                    <p>Payment to be made upon delivery. Order status changed from Pending payment to Processing.</p>
+                </div>
+                <div class="note_content">
+                    <p>Payment to be made upon delivery. Order status changed from Pending payment to Processing.</p>
+                </div>
                 <div class="note_content">
                     <p>Payment to be made upon delivery. Order status changed from Pending payment to Processing.</p>
                 </div>
