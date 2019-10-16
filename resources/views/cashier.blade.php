@@ -161,15 +161,15 @@
 
 </div>
 <div style="bottom: 120px; right: 19px;" class="fixed-action-btn direction-top">
-<a class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow" id="call_captain" data-sender="cashier"
+<a class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow" id="call_captain" data-sender="{{__('cashier')}}"
 >
-<i class="material-icons tooltipped" data-position="left" data-tooltip="Call Captain">call</i>
+<i class="material-icons tooltipped" data-position="left" data-tooltip="{{__('Call Captain')}}">call</i>
 </a>
 </div>
 
 <div style="bottom: 50px; right: 19px;" class="fixed-action-btn direction-top">
-<a class="btn-floating btn-large gradient-45deg-light-red-cyan gradient-shadow" id="call_parista" data-sender="cashier">
-<i class="material-icons tooltipped" data-position="left" data-tooltip="Call Parista">call</i>
+<a class="btn-floating btn-large gradient-45deg-light-red-cyan gradient-shadow" id="call_parista" data-sender="{{__('cashier')}}">
+<i class="material-icons tooltipped" data-position="left" data-tooltip="{{__('Call Parista')}}">call</i>
 </a>
 </div>
 

@@ -37,9 +37,9 @@
                 <!-- profile-dropdown-->
                 <ul class="dropdown-content" id="profile-dropdown">
                     @if(auth()->user() && auth()->user()->role->role_name == 'admin')
-                    <li><a class="grey-text text-darken-1" href="{{ route('settings') }}"><i class="material-icons">settings</i>Settings</a></li>
+                    <li><a class="grey-text text-darken-1" href="{{ route('settings') }}"><i class="material-icons">settings</i>{{__('Settings')}}</a></li>
                     @endif
-                    <li><a class="grey-text text-darken-1" href="{{ route('logout') }}"><i class="material-icons">keyboard_tab</i> Logout</a></li>
+                    <li><a class="grey-text text-darken-1" href="{{ route('logout') }}"><i class="material-icons">keyboard_tab</i>{{__('Logout')}}</a></li>
                 </ul>
             </div>
             <nav class="display-none search-sm">
