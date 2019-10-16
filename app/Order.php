@@ -18,4 +18,9 @@ class Order extends Model
     {
         return $this->belongsTo('App\Coupon');
     }
+
+    public function logs()
+    {
+        return $this->hasMany('App\Log');
+    }
 }
