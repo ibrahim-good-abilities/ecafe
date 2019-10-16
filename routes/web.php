@@ -16,8 +16,6 @@ use Illuminate\Routing\Router;
 
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
-Route::get('/home', 'OrderController@index');
-
 
 Route::get('/', function(){
 

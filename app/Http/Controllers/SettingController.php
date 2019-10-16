@@ -15,8 +15,12 @@ class SettingController extends Controller
      */
     public function settings()
     {
-
-        return view('settings');
+        $settings_list = [];
+        $settings =  Setting::all();
+        foreach ($settings as $field) {
+            $settings_list[$field->name] = $field->value;
+        }
+        return view('settings')->with('settings',$settings_list);
     }
     public function index()
     {
@@ -44,34 +48,42 @@ class SettingController extends Controller
 
         $request->validate([
             'company_name' => 'required',
-            'upload_logo' => 'required',
             'company_phone' => 'required',
             'defualt_tax' => 'required'
         ]);
 
         if($request->has('company_name'))
         {
-            Setting::updateOrCreate(['name'=>'company_name','value'=>request('company_name')]);
-        }
-        $image = $request->file('upload_logo');
-        $name_img = time() . '.' . $image->getClientOriginalExtension();
-        $destinationPath = public_path('/images/logo/');
-        $image->move($destinationPath, $name_img);
-        $upload_logo = '/images/categories/'.$name_img;
-        if($request->has('upload_logo'))
-        {
-            Setting::updateOrCreate(['name'=>'upload_logo','value'=>$upload_logo]);
-        }
-        if($request->has('company_phone'))
-        {
-            Setting::updateOrCreate(['name'=>'company_phone','value'=>request('company_phone')]);
-        }
-        if($request->has('defualt_tax'))
-        {
-            Setting::updateOrCreate(['name'=>'defualt_tax','value'=>request('defualt_tax')]);
+            Setting::where('name','company_name')->update(['value'=>request('company_name')]);
         }
 
-        return redirect()->back()->with('success',__('Setting Done'));
+
+        if($request->has('upload_logo'))
+        {
+            $image = $request->file('upload_logo');
+            $name_img = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/logo/');
+            $image->move($destinationPath, $name_img);
+            $upload_logo = '/images/logo/'.$name_img;
+            Setting::where('name','upload_logo')->update(['value'=>$upload_logo]);
+        }
+
+        if($request->has('company_phone'))
+        {
+            Setting::where('name','company_phone')->update(['value'=>request('company_phone')]);
+        }
+
+        if($request->has('defualt_tax'))
+        {
+            Setting::where('name','defualt_tax')->update(['value'=>request('defualt_tax')]);
+        }
+        $settings_list = [];
+        $settings =  Setting::all();
+        foreach ($settings as $field) {
+            $settings_list[$field->name] = $field->value;
+        }
+        
+        return redirect()->back()->with('settings',$settings_list)->with('success',__('Setting Done'));
 
     }
 
@@ -118,5 +130,14 @@ class SettingController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public static function getAll(){
+        $settings_list = [];
+        $settings =  Setting::all();
+        foreach ($settings as $field) {
+            $settings_list[$field->name] = $field->value;
+        }
+        return $settings_list;
     }
 }
