@@ -85,8 +85,6 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
     
     Route::get('/orders/delete/{id}','OrderController@destroy')->name('delete_order');
     Route::get('/orders/edit/{id}/{notification_id?}','OrderController@edit')->name('edit_order');
-    //updateOrderLineStatus
-    Route::post('/orderline/update/status/{id}','OrderController@updateOrderLineStatus')->name('order_line_update_status');
     //stock
     Route::get('/stock/index','ItemController@stock')->name('stock');
     Route::post('/stock/main/transfer','ItemController@transferMainStock')->name('transfer_main_stock');
@@ -155,5 +153,7 @@ Route::post('/orders/add-new','OrderController@create');
 Route::post('/orders/{id}','OrderController@update');
 Route::post('/orders/update/status/{id}', 'OrderController@updateStatus')->name('order_update_status');
 Route::get('/orders/edit/status/{id}', 'OrderController@editStatus')->name('order_edit_status');
+//updateOrderLineStatus
+Route::post('/orderline/update/status/{id}','OrderController@updateOrderLineStatus')->name('order_line_update_status');
 
 
