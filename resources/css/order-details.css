@@ -12,5 +12,6 @@ span#content {
 .note_content {
     padding: 22px;
     position: relative;
-    background: darkgray;
+    background: #d7cad2;
+    margin: 10px;
 }
