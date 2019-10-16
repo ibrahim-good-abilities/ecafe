@@ -363,5 +363,21 @@ class OrderController extends Controller
         return response()->json(['order' => $order,'items'=>$items]);
 
     }
+
+
+    public function sendNewNotification(Request $request)
+    {
+
+     
+        $target = request('target');
+        $sender = request('sender');
+        //channel
+        //event
+        //params []
+        new NewNotification($target,'call-action',['message'=>$sender.'  '.__('Call You')]);
+
+        return response()->json(['success'=> true]);
+
+    }
 }
 

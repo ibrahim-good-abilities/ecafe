@@ -154,7 +154,7 @@ Route::group(['middleware' => 'App\Http\Middleware\CashierMiddleware'], function
 });
 
 
-
+Route::post('/order/send-new-notification','OrderController@sendNewNotification');
 
 
 

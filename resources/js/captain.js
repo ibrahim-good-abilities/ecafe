@@ -263,5 +263,7 @@ $(document).ready(function() {
         notify(data.message);
         snd.play();
     });
+    
+    $('.tooltipped').tooltip();
 
 });

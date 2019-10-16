@@ -119,4 +119,5 @@ $(document).ready(function() {
             promise.catch(function(error) { console.log(error); });
         }
     });
+    $('.tooltipped').tooltip();
 });

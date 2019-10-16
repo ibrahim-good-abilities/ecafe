@@ -100,5 +100,7 @@ $(document).ready(function() {
         }, 2000);
 
     });
+    
+    $('.tooltipped').tooltip();
 
 });

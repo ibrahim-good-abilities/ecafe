@@ -55,10 +55,23 @@
         <!-- Products menu -->
         @include('pos.menu-captain')
     </div>
-
+    <input type="hidden" id ="_notification_token" value="{{ csrf_token()}}"/>
+</div>
+<div style="bottom: 185px; right: 19px;" class="fixed-action-btn direction-top">
+<a class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow" id="call_cashier"data-sender="captain">
+<i class="material-icons tooltipped" data-position="left" data-tooltip="Call Cashier">call</i>
+</a>
 </div>
 
-<div style="bottom: 50px; right: 19px;" class="fixed-action-btn direction-top"><a href="{{ route('captain') }}" class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow"><i class="material-icons">add</i></a>
+<div style="bottom:120px; right: 19px;" class="fixed-action-btn direction-top">
+<a class="btn-floating btn-large gradient-45deg-light-red-cyan gradient-shadow" id="call_parista" data-sender="captain">
+<i class="material-icons tooltipped" data-position="left" data-tooltip="Call Parista" >call</i>
+</a>
+</div>
+<div style="bottom: 50px; right: 19px;" class="fixed-action-btn direction-top">
+<a href="{{ route('captain') }}" class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow">
+<i class="material-icons tooltipped" data-position="left" data-tooltip="Add New Order">add</i>
+</a>
 </div>
 @section('page_js')
 <script>
