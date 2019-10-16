@@ -119,5 +119,10 @@ $(document).ready(function() {
             promise.catch(function(error) { console.log(error); });
         }
     });
+    channel.bind('call-action', function(data) {
+        var snd = new Audio(base_url + '/resources/sounds/notification.mp3');
+        notify(data.message)
+        snd.play();
+    });
     $('.tooltipped').tooltip();
 });
