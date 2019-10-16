@@ -80,10 +80,6 @@ ul#notifications-dropdown {
     font-size: 15px!important;
 }
 
-.dropdown-content li>a,
-.dropdown-content li>span {
-    padding-top: 1px !important;
-}
 
 .btn-fluid {
     padding: 0px;
