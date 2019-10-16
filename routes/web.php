@@ -16,7 +16,7 @@ use Illuminate\Routing\Router;
 
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
-Route::get('/home', 'OrderController@index')->name('home');
+Route::get('/home', 'OrderController@index');
 
 
 Route::get('/', function(){
@@ -39,7 +39,7 @@ Route::get('/', function(){
                 return redirect('/login');
             }
 
-});
+})->name('home');
 
 
 
