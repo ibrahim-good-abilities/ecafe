@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', __('settings'))
+@section('title', __('Settings'))
 @section('page_css')
 <link rel="stylesheet" type="text/css" href="{{asset('resources/css/pages/page-contact.css')}}">
 @endsection
@@ -35,27 +35,27 @@
             <form class="col s12" action="{{route('store_setting')}}" method="post" enctype="multipart/form-data" >
               @csrf
               <div class="row">
-                 <h6>Company name</h6>
+                 <h6>{{__('Company name')}}</h6>
                 <div class="input-field col m6 s12">
                   <input id="company_name" name="company_name" type="text" value="{{ $settings['company_name'] }}" class="validate">
                 </div>
 
 
                 <div class="col m6 s12 ">
-                <h6 id="comapny_logo">Company logo</h6>
+                <h6 id="comapny_logo">{{__('Company logo')}}</h6>
                       <input id="upload_logo"  name ="upload_logo"type="file">
                 </div>
               </div>
 
               <div class="row">
-                  <h6>Company Phone</h6>
+                  <h6>{{__('Company Phone')}}</h6>
                   <div class="input-field col m6 s12">
                     <input id="company_phone" name="company_phone" type="number" value="{{ $settings['company_phone'] }}" class="validate">
                   </div>
               </div>
 
                 <div class="row">
-                   <h6>Defualt TAX</h6>
+                   <h6>{{__('Defualt TAX')}}</h6>
                     <div class="input-field col m6 s12">
                       <input id="defualt_tax"  name="defualt_tax" type="number" value="{{ $settings['defualt_tax'] }}" class="validate">
                     </div>

@@ -156,7 +156,28 @@
     "Time Updated": "وقت التحديث ",
     "Time Created": "وقت الانشاء",
     "Order Log": "سجل الطلب",
-    "": ""
-    
+    "Last Update": "اخر تحديث",
+    "Company name": "اسم الشركه",
+    "Company logo": "شعار الشركه",
+    "Company Phone": "تليفون الشركه",
+    "Defualt TAX": "الضريبه الافتراضيه",
+    "Logout": "تسجيل الخروج",
+    "Remember Me": "تذكرني",
+    "Login": "تسجيل الدخول",
+    "Forgot Your Password?": "هل نسيت كلمه المرور؟",
+    "Register": "انشاء حساب جديد",
+    "Verify Your Email Address": "تحقق من عنوان بريدك الإلكتروني",
+    "A fresh verification link has been sent to your email address.": "تم إرسال رابط تحقق جديد إلى عنوان بريدك الإلكتروني",
+    "Before proceeding, please check your email for a verification link.": "قبل المتابعة ، يرجى التحقق من بريدك الإلكتروني لمعرفة رابط التحقق.",
+    "If you did not receive the email": "إذا لم تتلقى البريد الإلكتروني",
+    "click here to request another":"انقر هنا للارسال مره اخري",
+    "Call You":"ينادي عليك",
+    "Call Parista": "الباريستا",
+    "Call Captain": "الكابتن",
+    "Call Cashier": " الكاشير",
+    "parista":"الباريستا",
+    "cashier":"الكاشير",
+    "Add New Order":"اضافه طلب جديد",
+    "captain":"الكابتن"
 
 }
