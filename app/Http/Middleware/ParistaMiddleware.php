@@ -15,7 +15,7 @@ class ParistaMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user()!='parista' && $request->user()->role_id != 2)
+        if (!($request->user() && $request->user()->role->role_name == 'parista'))
             {
                  return new Response(view('unauthorized')->with('role', 'PARISTA'));
             }

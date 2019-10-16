@@ -14,8 +14,8 @@ class AdminMiddleware
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {
-        if ($request->user()!='admin' && $request->user()->role_id != 1)
+    {   
+        if (!($request->user() && $request->user()->role->role_name == 'admin'))
         {
              return new Response(view('unauthorized')->with('role', 'ADMIN'));
         }

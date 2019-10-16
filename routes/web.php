@@ -16,12 +16,39 @@ use Illuminate\Routing\Router;
 
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
+Route::get('/home', 'OrderController@index')->name('home');
+
+
+Route::get('/', function(){
+
+            if(auth()->user()){
+                if (auth()->user()->role->role_name == 'admin') {
+                    return redirect()->route('orders');
+                }elseif (auth()->user()->role->role_name == 'captain') {
+                    return redirect()->route('captain');
+                }elseif (auth()->user()->role->role_name == 'cashier') {
+                    return redirect()->route('cashier');
+                }elseif (auth()->user()->role->role_name == 'customer') {
+                    return redirect()->route('welcome');
+                }elseif (auth()->user()->role->role_name == 'parista') {
+                    return redirect()->route('parista');
+                }else{
+                    return redirect('/login');
+                }
+            }else{
+                return redirect('/login');
+            }
+
+});
+
+
+
 //Route::get('/register','RegisterController@store')->name('sign_up');
 
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 {
     //admins pages
-        //role
+    //role
     Route::get('/role/create','RoleController@create')->name('add_role');
     Route::post('/role/store','RoleController@store')->name('store_role');
     Route::get('/role/index','RoleController@index')->name('all_roles');
@@ -38,7 +65,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 
 
 
-    Route::get('/', 'OrderController@index')->name('home');
+
     Route::get('/inventory-sheet', 'InventoryController@index')->name('inventory-sheet');
     //categories
     Route::get('/categories/index','CategoryController@index')->name('all_categories');

@@ -16,7 +16,7 @@ class CustomerMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user()&& $request->user()->role_id != 4)
+        if (!($request->user() && $request->user()->role->role_name == 'customer'))
         {
              return new Response(view('unauthorized')->with('role', 'CUSTOMER'));
         }

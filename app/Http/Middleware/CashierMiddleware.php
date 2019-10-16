@@ -15,7 +15,7 @@ class CashierMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user()!='captain' && $request->user()->role_id != 5)
+        if (!($request->user() && $request->user()->role->role_name == 'cashier'))
         {
              return new Response(view('unauthorized')->with('role', 'CASHIER'));
         }
