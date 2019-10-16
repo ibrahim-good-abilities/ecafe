@@ -11,6 +11,7 @@ use App\Item;
 use App\Coupon;
 use App\Notification;
 use App\Events\NewNotification;
+use App\Logs;
 
 class OrderController extends Controller
 {
@@ -105,6 +106,10 @@ class OrderController extends Controller
             $coupon->save();
         }
 
+        $logs = new Logs();
+        $logs->order_id  = $order->id;
+        $logs->description = "Order Created At " . $order->created_at;
+        $logs->save();
         return response()->json($response);
 
     }
@@ -156,7 +161,11 @@ class OrderController extends Controller
         ->join('order_line','items.id','=','order_line.item_id')
         ->where('order_line.order_id', $id)
         ->get();
-        return view('orders.edit')->with('order',$order )->with('items',$items );
+
+         $logs = Logs::where('order_id', $order->id)
+        ->orderBy('id', 'ASC')
+        ->get();
+        return view('orders.edit')->with('order',$order )->with('items',$items )->with('logs',$logs);
     }
     public function editStatus($id)
     {
@@ -251,8 +260,12 @@ class OrderController extends Controller
             $coupon->save();
         }
 
-        return response()->json($response);
+        $logs = new Logs();
+        $logs->order_id = $order->id;
+        $logs->description = "Order Updated At " . $order->created_at;
+        $logs->save();
 
+        return response()->json($response);
     }
 
     public function updateStatus(Request $request ,$id)
@@ -273,8 +286,13 @@ class OrderController extends Controller
             new NewNotification('captain','order-status',['message'=>__('Order status changed to '.ucfirst($order->status)),'status'=>__(ucfirst($order->status)),'order_id'=>$order->id]);
         }
 
-
         $order->save();
+        $logs = new Logs();
+        $logs->order_id = $order->id;
+        $logs->description = "Order status is " . $order->status;
+        $logs->save();
+
+
         if ($request->has('ajax')) {
             return response()->json(['status' => 'success']);
         }
@@ -297,6 +315,9 @@ class OrderController extends Controller
         new NewNotification('customer_'.$order_line->order_id,'item-status',['message'=>__('Your item is '.ucfirst($order_line->status )),'status'=>__(ucfirst($order_line->status)),'order_id'=>$order_line->order_id, 'item_id'=>$order_line->id]);
         new NewNotification('captain','item-status',['message'=>__('Your item is '.ucfirst($order_line->status )),'status'=>__(ucfirst($order_line->status)),'order_id'=>$order_line->order_id, 'item_id'=>$order_line->id]);
         $order_line->save();
+
+       
+
         return response()->json(['status' => 'success']);
     }
     /**
@@ -309,6 +330,9 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
         $order->delete();
+
+   
+
         return redirect()->back()->with('success',__('Order deleted succefully'));
 
     }
@@ -322,6 +346,9 @@ class OrderController extends Controller
             $notification->save();
         }
         $orders = Order::where('status','=','pending')->get();
+
+  
+
         return view('parista.index')->with('orders',$orders);
 
     }
