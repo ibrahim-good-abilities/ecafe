@@ -1,7 +1,18 @@
+@php
+$settings =  App\Http\Controllers\SettingController::getAll();
+@endphp
+<script>
+    var logo_url="{{asset('public'.$settings['upload_logo'])}}";
+</script>
 <aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light sidenav-active-square">
     <div class="brand-sidebar">
         <h1 class="logo-wrapper">
-            <a class="brand-logo darken-1" href="{{ route('home') }}"><img src="{{ asset('resources/images/logo/materialize-logo-color.png') }}" alt="materialize logo" /><span class="logo-text hide-on-med-and-down">E-Café</span></a><a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
+            <a class="brand-logo darken-1" href="{{ route('home') }}">
+                
+                <img src="{{asset('public'.$settings['upload_logo'])}}" alt="materialize logo" />
+                <span class="logo-text hide-on-med-and-down">{{ $settings['company_name'] }}</span>
+            </a>
+            <a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
     </div>
 
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">

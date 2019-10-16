@@ -37,36 +37,33 @@
               <div class="row">
                  <h6>Company name</h6>
                 <div class="input-field col m6 s12">
-                  <input id="company_name" name="company_name" type="text" class="validate">
+                  <input id="company_name" name="company_name" type="text" value="{{ $settings['company_name'] }}" class="validate">
                 </div>
 
 
                 <div class="col m6 s12 ">
                 <h6 id="comapny_logo">Company logo</h6>
-
                       <input id="upload_logo"  name ="upload_logo"type="file">
-
-
                 </div>
               </div>
 
               <div class="row">
                   <h6>Company Phone</h6>
                   <div class="input-field col m6 s12">
-                    <input id="company_phone" name="company_phone" type="number" class="validate">
+                    <input id="company_phone" name="company_phone" type="number" value="{{ $settings['company_phone'] }}" class="validate">
                   </div>
               </div>
 
                 <div class="row">
                    <h6>Defualt TAX</h6>
                     <div class="input-field col m6 s12">
-                    <input id="defualt_tax"  name="defualt_tax" type="number" class="validate">
+                      <input id="defualt_tax"  name="defualt_tax" type="number" value="{{ $settings['defualt_tax'] }}" class="validate">
                     </div>
                 </div>
                 <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn cyan waves-effect waves-light right">
-                                    {{ __('Add') }}
+                                    {{ __('Edit') }}
                                     <i class="material-icons right">send</i>
 
                                 </button>

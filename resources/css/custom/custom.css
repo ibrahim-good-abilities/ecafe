@@ -107,6 +107,20 @@ div#parista-layout {
     margin-top: 10px;
 }
 
+.brand-sidebar .logo-wrapper a.brand-logo img {
+    width: auto;
+    height: 51px;
+    float: left;
+    margin-top: -7px;
+}
+
+.logo-text.hide-on-med-and-down {
+    display: inline-block;
+    float: right;
+    margin-top: 20px;
+    font-size: 40px!important;
+}
+
 @media (max-width: 992px) {
     div#parista-layout {
         min-height: calc(115% - 271px);
