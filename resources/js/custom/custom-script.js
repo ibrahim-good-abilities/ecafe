@@ -52,4 +52,39 @@ $(document).ready(function() {
     });
 
 
+   
+    $( "#call_captain" ).click(function(e) {
+        var data = {
+            '_token': $('#_order_token').val(),
+            'target': 'captain',
+            'sender' : $(this).data('sender'),
+        };
+        $.post( base_url + "/order/send-new-notification",data, function( response ) {
+          
+          });
+    });
+
+    $( "#call_parista" ).click(function() {
+        var data = {
+            '_token': $('#_order_token').val(),
+            'target': 'parista',
+            'sender' : $(this).data('sender'),
+        };
+        $.post( base_url + "/order/send-new-notification",data, function( response ) {
+          
+          });
+    });
+
+    $( "#call_cashier" ).click(function() {
+        var data = {
+            '_token': $('#_order_token').val(),
+            'target': 'cashier',
+            'sender' : $(this).data('sender'),
+        };
+        $.post( base_url + "/order/send-new-notification",data, function( response ) {
+           
+          });
+        });
+
+
 });
