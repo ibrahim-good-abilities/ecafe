@@ -84,5 +84,13 @@ $(document).ready(function() {
         notify(data.message);
         snd.play();
     });
+    
+    _channel.bind('call-action', function(data) {
+        var snd = new Audio(base_url + '/resources/sounds/notification.mp3');
+        notify(data.message)
+        snd.play();
+    });
+    
+    $('.tooltipped').tooltip();
 
 });
