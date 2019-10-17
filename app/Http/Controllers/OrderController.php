@@ -164,7 +164,7 @@ class OrderController extends Controller
         ->get();
 
          $logs = Logs::where('order_id', $order->id)
-        ->orderBy('id', 'ASC')
+        ->orderBy('id','desc')
         ->get();
         return view('orders.edit')->with('order',$order )->with('items',$items )->with('logs',$logs);
     }
