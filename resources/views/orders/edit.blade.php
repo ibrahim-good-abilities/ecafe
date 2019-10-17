@@ -67,7 +67,7 @@
                     $status_classes = 'blue';
                 }else if($order->status == 'ready'){
                     $status_classes = 'yellow';
-                }else if($order->status == 'completed'){
+                }else if($order->status == 'done'){
                     $status_classes = 'green';
                 }
             ?>
@@ -81,7 +81,7 @@
         
 
         <div class="input-field col m4 s12">
-            <span class="order_label"> {{__('Coupon Name') }}: </span> <span> xxxxx </span>
+            <span class="order_label"> {{__('Coupon Name') }}: </span> <span>{{ $order->name }}</span>
         </div>
         
         <div class="input-field col m4 s12">

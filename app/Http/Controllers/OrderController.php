@@ -151,8 +151,9 @@ class OrderController extends Controller
         }
 
         $order = DB::table('orders')
-        ->select('orders.*','customers.customer_name')
+        ->select('orders.*','customers.customer_name','coupons.name')
         ->leftJoin('customers','customers.id','=','orders.customer_id')
+        ->leftJoin('coupons','coupons.id','=','orders.coupon_id')
         ->where('orders.id', $id)
         ->first();
 
