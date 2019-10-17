@@ -154,7 +154,7 @@
     "Setting Done": "تم تغيير الاعدادات بنجاح",
     "Table Number": "رقم التربيزه",
     "Time Updated": "وقت التحديث ",
-    "Time Created": "وقت الانشاء",
+
     "Order Log": "سجل الطلب",
     "Last Update": "اخر تحديث",
     "Company name": "اسم الشركه",
@@ -178,6 +178,8 @@
     "parista":"الباريستا",
     "cashier":"الكاشير",
     "Add New Order":"اضافه طلب جديد",
-    "captain":"الكابتن"
+    "captain":"الكابتن",
+    "Coupon Date": "وقت الكوبون"
+   
 
 }

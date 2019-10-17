@@ -53,8 +53,8 @@
             <div class="coupon-type col s12 ">
                <select class="icons" name="type" value=>
                         <option value="" disabled >{{ __('Choose Your Type') }}</option>
-                        <option  value="fixed" name="type" class="circle" {{$coupon->type=='fixed'?'selected':''}}> Fixed </option>
-                        <option  value="percentage" name="type" class="circle"{{$coupon->type=='percentage'?'selected':''}}> Percentage </option>
+                        <option  value="fixed" name="type" class="circle" {{$coupon->type=='fixed'?'selected':''}}> {{ __('Fixed') }} </option>
+                        <option  value="percentage" name="type" class="circle"{{$coupon->type=='percentage'?'selected':''}}> {{ __('Percentage') }} </option>
                </select>
                <label>{{ __('Coupon Type') }}</label>
             </div>
@@ -62,16 +62,16 @@
             <div class="coupon-status col s12 ">
                <select class="icons" name="status">
                         <option value="" disabled  >{{ __('Choose Your Status') }}</option>
-                        <option  value="active" name="status" class="circle" {{$coupon->status=='active'?'selected':''}}> Active </option>
-                        <option  value="used" name="status" class="circle" {{$coupon->status=='used'?'selected':''}}> Used  </option>
-                        <option  value="expired"  name="status" class="circle" {{$coupon->status=='expired'?'selected':''}}> Expired  </option>
-                        <option  value="disabled" name="status" class="circle"{{$coupon->status=='disabled'?'selected': ''}}> Disabled </option>
+                        <option  value="active" name="status" class="circle" {{$coupon->status=='active'?'selected':''}}> {{ __('Active') }} </option>
+                        <option  value="used" name="status" class="circle" {{$coupon->status=='used'?'selected':''}}> {{ __('Used') }}  </option>
+                        <option  value="expired"  name="status" class="circle" {{$coupon->status=='expired'?'selected':''}}> {{ __('Expired') }}  </option>
+                        <option  value="disabled" name="status" class="circle"{{$coupon->status=='disabled'?'selected': ''}}> {{ __('Disabled') }} </option>
                </select>
                <label>{{ __('Coupon Status') }}</label>
             </div>
 
             <div class="input-unit col s12">
-               <input  class="validate datepicker" name="coupon_date" id="coupon-unit" type="text" placeholder="{{ __(' coupon date') }}" value="{{$coupon->expiry_date}}">
+               <input  class="validate datepicker" name="coupon_date" id="coupon-unit" type="text" placeholder="{{ __('coupon date') }}" value="{{$coupon->expiry_date}}">
                <label  >{{ __('Coupon Date') }}</label>
             </div>
 
