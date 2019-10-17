@@ -12,6 +12,7 @@
 
 <input type="hidden" id ="_order_token" value="{{ csrf_token()}}"/>
 
+
     <div class="row">
           @foreach($orders as $order)
         <div class="col s4 order-content " data-order_id="{{$order->id}}">

@@ -34,7 +34,7 @@
 
 </div>
 </div>
-<input type="hidden" id ="_notification_token" value="{{ csrf_token()}}"/>
+<input type="hidden" id ="_order_token" value="{{ csrf_token()}}"/>
 
 <div style="bottom: 185px; right: 19px;" class="fixed-action-btn direction-top">
 <a class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow" id="call_cashier"data-sender="{{__('captain')}}">
