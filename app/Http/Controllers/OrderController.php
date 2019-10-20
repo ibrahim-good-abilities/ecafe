@@ -11,7 +11,7 @@ use App\Item;
 use App\Coupon;
 use App\Notification;
 use App\Events\NewNotification;
-use App\Logs;
+use App\Log;
 
 class OrderController extends Controller
 {
@@ -106,10 +106,10 @@ class OrderController extends Controller
             $coupon->save();
         }
 
-        $logs = new Logs();
-        $logs->order_id  = $order->id;
-        $logs->description = "Order Created At " . $order->created_at;
-        $logs->save();
+        $log = new Log();
+        $log->order_id  = $order->id;
+        $log->description = "Order Created At " . $order->created_at;
+        $log->save();
         return response()->json($response);
 
     }
@@ -163,10 +163,10 @@ class OrderController extends Controller
         ->where('order_line.order_id', $id)
         ->get();
 
-         $logs = Logs::where('order_id', $order->id)
+         $log = Log::where('order_id', $order->id)
         ->orderBy('id','desc')
         ->get();
-        return view('orders.edit')->with('order',$order )->with('items',$items )->with('logs',$logs);
+        return view('orders.edit')->with('order',$order )->with('items',$items )->with('logs',$log);
     }
     public function editStatus($id)
     {
@@ -261,10 +261,10 @@ class OrderController extends Controller
             $coupon->save();
         }
 
-        $logs = new Logs();
-        $logs->order_id = $order->id;
-        $logs->description = "Order Updated At " . $order->created_at;
-        $logs->save();
+        $log = new Log();
+        $log->order_id = $order->id;
+        $log->description = "Order Updated At " . $order->created_at;
+        $log->save();
 
         return response()->json($response);
     }
@@ -288,10 +288,10 @@ class OrderController extends Controller
         }
 
         $order->save();
-        $logs = new Logs();
-        $logs->order_id = $order->id;
-        $logs->description = "Order Done at " . $order->updated_at;
-        $logs->save();
+        $log = new Log();
+        $log->order_id = $order->id;
+        $log->description = "Order Done at " . $order->updated_at;
+        $log->save();
 
 
         if ($request->has('ajax')) {
