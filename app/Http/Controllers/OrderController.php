@@ -290,7 +290,7 @@ class OrderController extends Controller
         $order->save();
         $logs = new Logs();
         $logs->order_id = $order->id;
-        $logs->description = "Order status is " . $order->status;
+        $logs->description = "Order Done at " . $order->updated_at;
         $logs->save();
 
 
