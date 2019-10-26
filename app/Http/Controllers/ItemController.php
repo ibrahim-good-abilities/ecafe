@@ -67,7 +67,7 @@ class ItemController extends Controller
             'price'         =>'required',
             'cost'          =>'required',
             'quantity'      =>'required',
-            'image'         =>'required|image|mimes:jpeg,png'
+            // 'image'         =>'required|image|mimes:jpeg,png'
         ]);
 
         $Item = new Item();
@@ -78,12 +78,17 @@ class ItemController extends Controller
         $Item->main_stock=request('quantity');
         $Item->available_stock=0.0;
         $Item->category_id=request('category');
-        $image = $request->file('image');
-        $name_img = time() . '.' . $image->getClientOriginalExtension();
-        $destinationPath = public_path('/images/items/');
-        $image->move($destinationPath, $name_img);
-        $Item->src = '/images/items/'.$name_img;
-        $Item->update(['image' => $name_img]);
+
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $name_img = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/items/');
+            $image->move($destinationPath, $name_img);
+            $Item->src = '/images/items/'.$name_img;
+            $Item->update(['image' => $name_img]);
+        }else{
+            $item->src = '/images/logo/logo.png';
+        }
 
         $Item->save();
 
@@ -98,7 +103,7 @@ class ItemController extends Controller
             'item_name'     =>'required',
             'category'      =>'required',
             'price'         =>'required',
-            'image'         =>'required|image|mimes:jpeg,png'
+            // 'image'         =>'required|image|mimes:jpeg,png'
         ]);
 
         $item = new Item();
@@ -107,12 +112,16 @@ class ItemController extends Controller
         $item->price = request('price');
         $item->category_id=request('category');
         $item->is_menu=true;
-        $image = $request->file('image');
-        $name_img = time() . '.' . $image->getClientOriginalExtension();
-        $destinationPath = public_path('/images/items/');
-        $image->move($destinationPath, $name_img);
-        $item->src = '/images/items/'.$name_img;
-        $item->update(['image' => $name_img]);
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $name_img = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/items/');
+            $image->move($destinationPath, $name_img);
+            $item->src = '/images/items/'.$name_img;
+            $item->update(['image' => $name_img]);
+        }else{
+            $item->src = '/images/logo/logo.png';
+        }
         $item->save();
         return redirect()->route('menu_edit',$item->id)->with('success',__('Item created successfully!'));
     }
