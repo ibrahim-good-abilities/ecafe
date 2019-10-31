@@ -56,6 +56,11 @@
                                             <button class="waves-effect waves-light green btn btn-small btn-fluid  disabled" >{{__('Done')}}</button>
                                         @endif
                                     </div>
+                                    @if($item->note)
+                                    <div class="col s12">
+                                        <p class="right-align">{{$item->note}}</p>
+                                    </div>
+                                    @endif
                                 </div>
                             </li>
                             @endforeach

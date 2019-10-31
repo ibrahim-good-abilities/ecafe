@@ -1,4 +1,6 @@
-$(document).ready(function() {
+var current_feedback = 0;
+var feedbacks = new Array();
+$(function() {
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 
@@ -71,13 +73,13 @@ $(document).ready(function() {
         increasePrice(parseFloat(price));
         changeCountBy(1);
         //
-        if ($('[data-product-id="' + p_id + '"]').length > 0) {
-            var qty = $('[data-product-id="' + p_id + '"]').html();
+        if ($('[data-product-id="' + p_id + '"].qty').length > 0) {
+            var qty = $('[data-product-id="' + p_id + '"].qty').html();
             qty++;
-            $('[data-product-id="' + p_id + '"]').html(qty);
+            $('[data-product-id="' + p_id + '"].qty').html(qty);
         } else {
             t.row.add([
-                '<span  class="delete fas fa-trash-alt"></span>',
+                `<span  class="delete fas fa-trash-alt"></span><a data-feedback="" data-product-id="` + p_id + `" class="modal-trigger" href="#item_notes"><i class="material-icons">speaker_notes</i></a>`,
                 '<span  class="price" > ' + price + '</span>',
                 `<span  class=" qty-inc"><i class="fas fa-plus-square"></i></span>
                  <span  class="qty" data-product-id="` + p_id + `"> 1 </span>
@@ -88,6 +90,39 @@ $(document).ready(function() {
             ]).draw(false);
         }
     });
+    $(document).on('click', 'a[data-product-id][href="#item_notes"]', function(e) {
+        current_feedback = $(this).data('product-id');
+        //get and show feedback
+        var feedback = $('a[data-product-id="'+current_feedback+'"][href="#item_notes"]').attr('data-feedback');
+        $('#itemNotes').val(feedback);
+
+    });
+
+    $(document).ready(function() {
+        $('.modal').modal();
+    });
+
+
+    $(document).on('click', '.add_note', function(e) {
+        var itemNotes= $("#itemNotes").val();
+        $('a[data-product-id="'+current_feedback+'"][href="#item_notes"]').attr('data-feedback',itemNotes);
+        var newFeedback = true;
+        $.each(feedbacks,function(i,obj){
+            if(obj['id'] == current_feedback){
+                newFeedback = false;
+                obj['value'] = itemNotes;
+                feedbacks[i] = obj;
+            }
+
+        });
+
+        if(newFeedback){
+            feedbacks.push({'id':current_feedback,'value':itemNotes});
+        }
+        e.preventDefault();
+        $('.modal').modal('');
+    });
+        //
 
     //delete certain product
     $('#order').on('click', 'td .delete', function() {
@@ -122,8 +157,15 @@ $(document).ready(function() {
         t.rows().every(function(index, element) {
             var row = this.data();
             var product_id = $(row[5]).html(); // Index 6 - the 7th column in the table
+            var feedbackData = "";
+            var found_feedbacks = $.grep(feedbacks, function(v) {
+                return v.id === Number(product_id);
+            });
+            if(found_feedbacks.length > 0){
+                feedbackData = found_feedbacks[0].value;
+            }
             var quantity = $(this.node()).find('td').eq(2).text();
-            items.push({ 'product_id': product_id.trim(), 'quantity': quantity.trim() });
+            items.push({ 'product_id': product_id.trim(), 'quantity': quantity.trim(),'feedback' :feedbackData });
         });
 
         if (items.length == 0) {
@@ -153,7 +195,8 @@ $(document).ready(function() {
             'coupon_code': $('#coupon').val(),
             '_token': $('#_order_token').val(),
             'notes': $('#notes').val(),
-            'table_number': $('#table_number').val()
+            'table_number': $('#table_number').val(),
+
         };
 
         var url = base_url + '/orders/add-new';
@@ -268,7 +311,9 @@ $(document).ready(function() {
         notify(data.message)
         snd.play();
     });
-    
+
     $('.tooltipped').tooltip();
 
 });
+
+

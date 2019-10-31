@@ -74,6 +74,37 @@
 <i class="material-icons tooltipped" data-position="left" data-tooltip="{{__('Add New Order')}}">add</i>
 </a>
 </div>
+    <!-- modal  -->
+    <div id="item_notes" class="modal">
+    @csrf
+    <div class="modal-content">
+      <h4>{{ __('Notes') }}</h4>
+      <div class="row">
+            <div class="input-field col s12">
+                <textarea id="itemNotes" name="itemNotes" class="materialize-textarea"></textarea>
+                <label for="item_notes">اضف ملاحظاتك</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+
+          <div class="button-wrapper">
+            <a class="modal-close btn red waves-effect waves-light right">{{ __('Cancel') }}
+              <i class="material-icons right">cancel</i>
+            </a>
+          </div>
+
+          <div class="button-wrapper">
+            <button class="btn cyan waves-effect waves-light right add_note" type="submit">{{ __('Execute') }}
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+
+        </div>
+    </div>
+
+</div>
+
+</div>
 @section('page_js')
 <script>
     var language = "{{asset('resources/json/Arabic.json')}}";

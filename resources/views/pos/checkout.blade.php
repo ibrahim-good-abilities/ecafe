@@ -28,7 +28,9 @@
                         $total += ($item->price * $item->quantity);
                     @endphp
                     <tr>
-                        <td><span class="delete fas fa-trash-alt"></span></td>
+                        <td>
+                            <span class="delete fas fa-trash-alt"></span>
+                        </td>
                         <td><span class="price"> {{ $item->price }}</span></td>
                         <td><span class=" qty-inc"><i class="fas fa-plus-square"></i></span>
                             <span class="qty" data-product-id="{{ $item->product_id }}">{{ $item->quantity }}</span>

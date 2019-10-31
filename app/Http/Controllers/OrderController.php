@@ -76,7 +76,7 @@ class OrderController extends Controller
         $order_total = 0;
         foreach($items as $item){
             $itemObj = Item::find($item['product_id']);
-            $order->items()->attach([$item['product_id']=>['quantity'=>$item['quantity'],'cost'=>0,'price'=>$itemObj->price]]);
+            $order->items()->attach([$item['product_id']=>['quantity'=>$item['quantity'],'cost'=>0,'price'=>$itemObj->price,'notes'=>$item['feedback'] ]]);
             $order_total += $itemObj->price * $item['quantity'];
         }
 
@@ -317,7 +317,7 @@ class OrderController extends Controller
         new NewNotification('captain','item-status',['message'=>__('Your item is '.ucfirst($order_line->status )),'status'=>__(ucfirst($order_line->status)),'order_id'=>$order_line->order_id, 'item_id'=>$order_line->id]);
         $order_line->save();
 
-       
+
 
         return response()->json(['status' => 'success']);
     }
@@ -332,7 +332,7 @@ class OrderController extends Controller
         $order = Order::find($id);
         $order->delete();
 
-   
+
 
         return redirect()->back()->with('success',__('Order deleted succefully'));
 
@@ -346,9 +346,9 @@ class OrderController extends Controller
             $notification->status=true;
             $notification->save();
         }
-        $orders = Order::where('status','=','pending')->get();
+       $orders = Order::where('status','=','pending')->get();
 
-  
+
 
         return view('parista.index')->with('orders',$orders);
 
@@ -356,7 +356,7 @@ class OrderController extends Controller
 
     public static function getOrderItems($id) {
         $items = DB::table('items')
-        ->select('order_line.id','items.name','items.price','order_line.status','order_line.quantity')
+        ->select('order_line.id','items.name','items.price','order_line.status','order_line.quantity','order_line.notes as note')
         ->join('order_line','items.id','=','order_line.item_id')
         ->where('order_line.order_id', $id)
         ->get();
@@ -396,7 +396,7 @@ class OrderController extends Controller
     public function sendNewNotification(Request $request)
     {
 
-     
+
         $target = request('target');
         $sender = request('sender');
         //channel
