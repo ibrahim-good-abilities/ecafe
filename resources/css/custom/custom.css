@@ -122,3 +122,11 @@ div#parista-layout {
         min-height: calc(115% - 271px);
     }
 }
+a.modal-trigger[data-feedback] {
+    display: inline-block;
+    float: left;
+}
+span.delete_item{
+    color: red;
+    font-size: 21px;
+}

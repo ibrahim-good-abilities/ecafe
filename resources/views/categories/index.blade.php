@@ -23,20 +23,22 @@
 </div>
 @endif
         <table id="category-table" class="subscription-table highlight">
-            
+
                <thead>
                 <tr>
                     <th> {{ __('Category Image') }} </th>
                     <th>{{ __('Category Name') }}</th>
+                    <th>{{__('Category Order')}}</th>
                     <th> {{ __('Settings') }} </th>
                 </tr>
-            </thead> 
+            </thead>
 
             <tbody>
                 @foreach ($categories as $category)
                 <tr>
                     <td><img src="{{asset('public'.$category->src)}}" class="item-image"></td>
                     <td>{{ $category->category_name}}</td>
+                    <td>{{ $category->order}}</td>
                     <td class="left-align">
                         <a href="{{route('edit_category',$category->id)}}"><i class="material-icons">create</i></a>
                         <a class="delete-with-confirmation" href="{{ route('delete_category',$category->id) }}"><i class="material-icons pink-text">clear</i></a>

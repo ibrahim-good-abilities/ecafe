@@ -13,7 +13,7 @@
 <div class="row">
     <div class="col s12">
         <!-- Point of sale make order screen -->
-        @if($errors->any()) 
+        @if($errors->any())
             <div class="card-alert card red lighten-5 card-content red-text">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -40,7 +40,11 @@
                      <input  name="category_name" id="category_name" type="text" class="validate" value="{{$category->category_name}}">
                      <label for="first_name">{{ __('Category Name') }}</label>
                   </div>
+                  <div class="input-field col s12">
+                                <input value="{{$category->order}}" placeholder="{{ __('Add Category Order') }}"  type="number" class="validate" name="category_order">
+                                <label for="first_name">{{ __('Category Order') }}</label>
 
+                            </div>
                   <div class="col s12 file-field input-field">
                   <div class="row">
                         <div class ="col s6 ">
@@ -50,8 +54,8 @@
                            <span>{{ __('Change Image') }}</span>
                            <input type="file" name="image" accept="image/*" class="upload-preview">
                         </div>
-                       
-                  <div>      
+
+                  <div>
             </div>
 
 

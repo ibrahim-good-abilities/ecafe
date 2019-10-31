@@ -13,7 +13,7 @@
 <div class="row">
     <div class="col s12">
         <!-- Point of sale make order screen -->
-        
+
         @if($errors->any())
             <div class="card-alert card red lighten-5 card-content red-text">
                 <ul>
@@ -40,9 +40,14 @@
                     <div class="row">
                         <div class="col s12">
 
-                            <div class="input-field">
+                            <div class="input-field col s12">
                                 <input placeholder="{{ __('Add Category Name') }}" id="first_name" type="text" class="validate" name="category_name">
                                 <label for="first_name">{{ __('Category Name') }}</label>
+
+                            </div>
+                            <div class="input-field col s12">
+                                <input value="0" placeholder="{{ __('Add Category Order') }}"  type="number" class="validate" name="category_order">
+                                <label for="first_name">{{ __('Category Order') }}</label>
 
                             </div>
                         </div>

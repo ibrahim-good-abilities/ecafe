@@ -132,7 +132,9 @@ class IndexController extends Controller
         ->first();
 
         $items =DB::table('items')
+        >join('categories','items.category_id','categories')
         ->where('is_menu','=',1)
+        ->orderBy('categories.order')
         ->get();
 
         $order_items = DB::table('items')

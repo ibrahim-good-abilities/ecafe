@@ -179,7 +179,9 @@
     "cashier":"الكاشير",
     "Add New Order":"اضافه طلب جديد",
     "captain":"الكابتن",
-    "Coupon Date": "وقت الكوبون"
-   
+    "Coupon Date": "وقت الكوبون",
+    "Category Order":"ترتيب الصنف",
+    "Add Category Order":"ادخل ترتيب الصنف"
+
 
 }

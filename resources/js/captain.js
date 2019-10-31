@@ -79,7 +79,7 @@ $(function() {
             $('[data-product-id="' + p_id + '"].qty').html(qty);
         } else {
             t.row.add([
-                `<span  class="delete fas fa-trash-alt"></span><a data-feedback="" data-product-id="` + p_id + `" class="modal-trigger" href="#item_notes"><i class="material-icons">speaker_notes</i></a>`,
+                `<span  class="delete fas fa-trash-alt delete_item"></span><a data-feedback="" data-product-id="` + p_id + `" class="modal-trigger" href="#item_notes"><i class="material-icons">speaker_notes</i></a>`,
                 '<span  class="price" > ' + price + '</span>',
                 `<span  class=" qty-inc"><i class="fas fa-plus-square"></i></span>
                  <span  class="qty" data-product-id="` + p_id + `"> 1 </span>

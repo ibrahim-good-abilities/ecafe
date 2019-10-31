@@ -50,6 +50,7 @@ class CategoryController extends Controller
 
         $category = new Category();
         $category->category_name = request('category_name');
+        $category->order = request('category_order');
         $image = $request->file('img');
         $name_img = time() . '.' . $image->getClientOriginalExtension();
         $destinationPath = public_path('/images/categories/');
@@ -100,6 +101,7 @@ class CategoryController extends Controller
          ]);
          $category = Category::find($id);
          $category->category_name = request('category_name');
+         $category->order = request('category_order');
          if($request->hasFile('image')){
                 $image = $request->file('image');
                 $name_img = time() . '.' . $image->getClientOriginalExtension();
