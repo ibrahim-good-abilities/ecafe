@@ -183,7 +183,18 @@
     "Category Order":"ترتيب الصنف",
     "Add Category Order":"ادخل ترتيب الصنف",
     "Item Order" : "ترتيب المنتج",
-    "Add Item Order" : "ادخل ترتيب المنتج"
+    "Add Item Order" : "ادخل ترتيب المنتج",
+    "Product":"المنتج",
+    "SubTotal":"الاجمالي",
+    "Total Items":"عدد العناصر",
+    "Grand Total":"اجمالي المبلغ",
+    "Paid":"المدفوع",
+    "Close":"اغلاق",
+    "Print":"طباعة",
+    "Date":"التاريخ",
+    "Time":"الوقت",
+    "Customer/Table":"التربيزة/العميل",
+    "Sale NO.":"رقم الفاتورة"
 
 
 }

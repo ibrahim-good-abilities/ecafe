@@ -35,9 +35,16 @@ $(document).ready(function() {
                 if (response) {
                     $('#payment').modal('close');
 
-                    //render response 
+                    //render response
                     $("#order_id").html(response.order.id);
-                    $("#order_date").html(response.order.created_at);
+
+                     var date_time = response.order.created_at;
+                     var date = date_time.split(' ')[0];
+                     var time = date_time.split(' ')[1];
+
+
+                    $("#order_date").html(date);
+                    $("#order_time").html(time);
                     $("#discount").html(response.order.discount);
                     $("#order_table").html(response.order.table_number);
                     var discount = response.order.discount;
@@ -54,11 +61,11 @@ $(document).ready(function() {
                                     ${item.name}
                                 </td >
                                 <td class="text-center">
-                                    ${item.quantity} 
+                                    ${item.quantity}
                                 </td >
                                 <td class="text-center">
                                     ${item.price * item.quantity}
-                                </td>   
+                                </td>
                             </tr>
                     `);
                         sub_total += (item.price * item.quantity);

@@ -1,3 +1,6 @@
+@php
+$settings =  App\Http\Controllers\SettingController::getAll();
+@endphp
 @extends('parista-layout')
 @section('title', __('All Orders'))
 @section('page_css')
@@ -82,33 +85,37 @@
                    <div class="modal-footer">
 
                        <div class="button-wrapper">
-                             
+
                                  <button  class="btn cyan waves-effect waves-light right" id="payment2" type="submit">{{ __('Payment') }}</button>
-                            
-                           
+
+
                        </div>
                    </div>
            </div>
    </form>
 </div>
 <div id="bill" class="modal" style="width: 37%;">
-  
-               
+
+
          <div class="print" id="modal-print">
-       
+
                <div class="invoice">
-   
-                   <img src=" {{ asset('resources/images/logo/materialize-logo-color.png') }}"  >
-                   <h6>Sale NO. : <span id="order_id"> xxx </span> </h6>
+
+                   <img src="{{asset('public'.$settings['upload_logo'])}}"  >
+                   <h6>{{__('Sale NO.')}} : <span id="order_id"> xxx </span> </h6>
                </div>
                <br>
-               <div class="invoice-title">
-                 Date : &nbsp; &nbsp;<b id="order_date"> xx-xx-xxxx</b>
+               <div class="invoice-title right-align">
+
+                 {{__('Date')}} : &nbsp; &nbsp;<b id="order_date"> xx-xx-xxxx</b>
+                 <br>
+                 {{__('Time')}} : &nbsp; &nbsp;<b id="order_time"> xx-xx-xxxx</b>
+
                </div>
 
 
-               <div class="invoice-title" >
-                  Customer/Table : <b id="order_table">xxx</b>
+               <div class="invoice-title right-align" >
+                  {{__('Customer/Table')}} : <b id="order_table">xxx</b>
                </div>
                <br>
                            <div>
@@ -116,49 +123,50 @@
                                     <thead>
                                     <tr>
                                        <td class="text-center"><strong>#</strong></td>
-                                       <td class="text-center"><strong>Product</strong></td>
-                                       <td class="text-center"><strong>Quantity</strong></td>
-                                       <td class="text-center"><strong>SubTotal</strong></td>
+                                       <td class="text-center"><strong>{{__('Product')}}</strong></td>
+                                       <td class="text-center"><strong>{{__('Quantity')}}</strong></td>
+                                       <td class="text-center"><strong>{{__('SubTotal')}}</strong></td>
                                     </tr>
                                     </thead>
                                     <tbody>
-    
+
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <td class="text-center">Total Items</td >
-                                            <td class="text-center"><span id="total_quantity"></span>  Total</td >     
+                                            <td class="text-center">{{__('Total Items')}}</td >
+                                            <td class="text-center"><span id="total_quantity"></span>{{__('Total')}}</td >
                                             <td class="text-center" ></td >
-                                            <td class="text-center bold" id="sub_total">xxx</td >       
+                                            <td class="text-center bold" id="sub_total">xxx</td >
                                         </tr>
                                         <tr>
-                                            <td class="text-center">Discount</td >
-                                            <td class="text-center"></td >     
+                                            <td class="text-center">{{__('Discount')}}</td >
+                                            <td class="text-center"></td >
                                             <td class="text-center"></td>
-                                            <td class="text-center bold" id="discount" >xxx </td>       
+                                            <td class="text-center bold" id="discount" >xxx </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-center">Grand Total</td >
-                                            <td class="text-center"></td >     
+                                            <td class="text-center">{{__('Grand Total')}}</td >
                                             <td class="text-center"></td >
-                                            <td class="text-center bold" id="grand_total">xxx </td>       
+                                            <td class="text-center"></td >
+                                            <td class="text-center bold" id="grand_total">xxx </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-center">Paid</td >
-                                            <td class="text-center"></td >     
+                                            <td class="text-center">{{__('Paid')}}</td >
                                             <td class="text-center"></td >
-                                            <td class="text-center bold" id="paid">xxx</td>       
+                                            <td class="text-center"></td >
+                                            <td class="text-center bold" id="paid">xxx</td>
                                         </tr>
                                     </tfoot>
                               </table>
                            </div>
    </div>
+   <div class="center-align">fb.com/sevenscafe</div>
    <div class="right-align">
-   <a id="close" class="waves-effect waves-light  btn gradient-45deg-light-blue-cyan box-shadow-none border-round mr-1 mb-1">close</a>
-   <a class="waves-effect waves-light  btn gradient-45deg-light-blue-cyan box-shadow-none border-round mr-1 mb-1"id="print">Print</a>
-   
+   <a id="close" class="waves-effect waves-light  btn gradient-45deg-light-blue-cyan box-shadow-none border-round mr-1 mb-1">{{__('Close')}}</a>
+   <a class="waves-effect waves-light  btn gradient-45deg-light-blue-cyan box-shadow-none border-round mr-1 mb-1"id="print">{{__('Print')}}</a>
+
    </div>
-                        
+
 
 </div>
 <div style="bottom: 120px; right: 19px;" class="fixed-action-btn direction-top">

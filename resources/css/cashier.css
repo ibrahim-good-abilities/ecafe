@@ -129,10 +129,12 @@ td.text-center {
     color: #000;
     padding: 0px !important;
   }
+.invoice img {
+width:34% ;
+}
   /* css print modal  */
 .invoice-title {
     color: black;
-    text-align: left;
 }
 .bold{
   font-weight: bold;
