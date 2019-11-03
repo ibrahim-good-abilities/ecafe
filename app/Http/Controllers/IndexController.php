@@ -71,9 +71,13 @@ class IndexController extends Controller
         ->distinct()
         ->get();
 
+
         $items =DB::table('items')
+        ->join('categories','items.category_id','=','categories.id')
         ->where('is_menu','=',1)
+        ->orderBy('categories.order')
         ->get();
+
 
         $orders = DB::table('orders')
         ->select('orders.id','orders.table_number')
@@ -132,10 +136,11 @@ class IndexController extends Controller
         ->first();
 
         $items =DB::table('items')
-        >join('categories','items.category_id','categories')
+        ->join('categories','items.category_id','categories.id')
         ->where('is_menu','=',1)
         ->orderBy('categories.order')
         ->get();
+
 
         $order_items = DB::table('items')
         ->select('items.id as product_id','items.name','order_line.price','order_line.quantity','order_line.status','order_line.id')

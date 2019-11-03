@@ -11,30 +11,30 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        /* 
+        /*
         Insert roles
         */
-        
-        DB::table('roles')->insert([
-            'role_name' => 'admin',
-        ]);
-        DB::table('roles')->insert([
-            'role_name' => 'captain',
-        ]);
 
-        DB::table('roles')->insert([
-            'role_name' => 'cashier',
-        ]);
+        // DB::table('roles')->insert([
+        //     'role_name' => 'admin',
+        // ]);
+        // DB::table('roles')->insert([
+        //     'role_name' => 'captain',
+        // ]);
 
-        DB::table('roles')->insert([
-            'role_name' => 'customer',
-        ]);
+        // DB::table('roles')->insert([
+        //     'role_name' => 'cashier',
+        // ]);
 
-        DB::table('roles')->insert([
-            'role_name' => 'parista',
-        ]);
+        // DB::table('roles')->insert([
+        //     'role_name' => 'customer',
+        // ]);
 
-        /* 
+        // DB::table('roles')->insert([
+        //     'role_name' => 'parista',
+        // ]);
+
+        /*
         Insert Users
         */
 
