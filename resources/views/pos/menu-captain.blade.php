@@ -1,6 +1,7 @@
 
 <div class="products-list style-1">
    @foreach($item_groups as $key => $items)
+    <div class="col s12">
    <?php
    $bkg = $color_palette[$loop->index];
    ?>
@@ -20,6 +21,7 @@
             </div>
          </div>
       @endforeach
+    </div>
    @endforeach
 </div>
 
