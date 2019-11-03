@@ -76,6 +76,7 @@ class IndexController extends Controller
         ->join('categories','items.category_id','=','categories.id')
         ->where('is_menu','=',1)
         ->orderBy('categories.order')
+        ->select('items.*')
         ->get();
 
 
