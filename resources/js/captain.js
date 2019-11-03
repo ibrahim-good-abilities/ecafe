@@ -64,7 +64,7 @@ $(function() {
         fixedColumns: true
     });
     //add certain product
-    $('.product').on('click', function() {
+    $('.product-box').on('click', function() {
         var price = $(this).attr('price');
         var p_id = $(this).attr('p-id');
         var name = $(this).closest('.product-box').find('.product-name').first().text();
