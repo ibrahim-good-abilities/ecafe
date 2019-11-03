@@ -31,6 +31,8 @@
                     <th>الاسم </th>
                     <th> الايمل</th>
                     <th>الدور</th>
+                    <th>وقت بداية العمل</th>
+                    <th>وقت نهاية العمل</th>
                     <th>الاعدادات</th>
 
                 </tr>
@@ -43,6 +45,8 @@
                     <td>{{ $user->name}}</td>
                     <td>{{ $user->email}}</td>
                     <td>{{ $user->role_name}}</td>
+                    <td>{{ $user->startTime}}</td>
+                    <td>{{ $user->endTime}}</td>
                     <td class="center-align">
                         <a  href="{{route('edit_user',$user->id)}}">
                             <i class="material-icons">edit</i>

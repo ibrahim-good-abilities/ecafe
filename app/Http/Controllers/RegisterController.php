@@ -60,6 +60,9 @@ class RegisterController extends Controller
         $user->email = request('email');
         $user->password = Hash::make(request('password'));
         $user->role_id = request('role_id');
+        $user->startTime = request('userStartTime');
+        $user->endTime = request('userEndTime');
+
         $user->save();
         return redirect()->route('edit_user',$user->id)->with('success',__('User created successfully'));
 
@@ -115,6 +118,8 @@ class RegisterController extends Controller
             $user->password = Hash::make(request('password'));
          }
          $user->role_id = request('role_id');
+         $user->startTime = request('userStartTime');
+         $user->endTime = request('userEndTime');
          $user->save();
          $roles =Role::all();
 

@@ -81,8 +81,8 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
     Route::get('/items/delete/{id}','ItemController@destroy')->name('item_delete');
     //orders
     Route::get('/orders/index','OrderController@index')->name('orders');
-    
-    
+
+
     Route::get('/orders/delete/{id}','OrderController@destroy')->name('delete_order');
     Route::get('/orders/edit/{id}/{notification_id?}','OrderController@edit')->name('edit_order');
     //stock
@@ -122,13 +122,13 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
     Route::get('/settings','SettingController@settings')->name('settings');
     Route::post('/setting/store','SettingController@store')->name('store_setting');
 });
-Route::group(['middleware' => 'App\Http\Middleware\ParistaMiddleware'], function()
+Route::group(['middleware' => ['App\Http\Middleware\ParistaMiddleware','App\Http\Middleware\WorkingHoursMiddleware']], function()
 {
     //parista pages
     Route::get('/parista/{notification_id?}','OrderController@parista')->name('parista');
 
 });
-Route::group(['middleware' => 'App\Http\Middleware\CaptainMiddleware'], function()
+Route::group(['middleware' => ['App\Http\Middleware\CaptainMiddleware','App\Http\Middleware\WorkingHoursMiddleware']], function()
 {
     Route::get('/captain','IndexController@captain')->name('captain');
     Route::get('/captain/order/{id}','IndexController@captainOrder')->name('captain-order');
@@ -140,7 +140,7 @@ Route::group(['middleware' => 'App\Http\Middleware\CustomerMiddleware'], functio
     Route::get('/welcome','IndexController@welcome')->name('welcome');
 
 });
-Route::group(['middleware' => 'App\Http\Middleware\CashierMiddleware'], function()
+Route::group(['middleware' => ['App\Http\Middleware\CashierMiddleware','App\Http\Middleware\WorkingHoursMiddleware']], function()
 {
     //cashier pages
     Route::get('/cashier','IndexController@cashier')->name('cashier');

@@ -98,6 +98,15 @@
                             </select>
                             <label>{{ __('Role') }}</label>
                          </div>
+                         <div class="input-name row">
+                                <input  name="userStartTime" id="userStartTime" class="timepicker validate" type="text"  placeholder="{{ __('Add User Start Time') }}">
+                                <label for="userStartTime">{{ __('User Start Time') }}</label>
+                         </div>
+
+                         <div class="input-name row">
+                                <input  name="userEndTime" id="officeStartTime" class="timepicker validate" type="text"  placeholder="{{ __('Add User End Time') }}">
+                                <label for="userEndTime">{{ __('User End Time') }}</label>
+                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
