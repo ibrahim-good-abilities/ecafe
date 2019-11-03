@@ -51,6 +51,7 @@
             <th>{{ __('Item Name') }}</th>
             <th>{{ __('Item Category') }}</th>
             <th>{{ __('Item Price') }}</th>
+            <th>{{ __('Item Order') }}</th>
             <th>{{ __('Settings') }}</th>
         </tr>
     </thead>
@@ -62,6 +63,7 @@
             <td>{{ $item->name }}</td>
             <td>{{ $item->category_name }}</td>
             <td>{{ number_format($item->price,2) }}</td>
+            <td>{{ $item->order }}</td>
             <td class="center-align">
                 <a  href="{{route('menu_edit',$item->id)}}">
                     <i class="material-icons">edit</i>

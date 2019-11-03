@@ -181,7 +181,9 @@
     "captain":"الكابتن",
     "Coupon Date": "وقت الكوبون",
     "Category Order":"ترتيب الصنف",
-    "Add Category Order":"ادخل ترتيب الصنف"
+    "Add Category Order":"ادخل ترتيب الصنف",
+    "Item Order" : "ترتيب المنتج",
+    "Add Item Order" : "ادخل ترتيب المنتج"
 
 
 }

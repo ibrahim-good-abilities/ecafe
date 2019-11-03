@@ -94,9 +94,15 @@ class IndexController extends Controller
                 $item_groups[$item->category_id][] = $item;
             endif;
         endforeach;
+
+        $new_item_group = [];
+        foreach($item_groups as $key => $item_group):
+            usort($item_group, function($a, $b) {return strcmp($a->order, $b->order);});
+            $new_item_group[$key] = $item_group;
+        endforeach;
         return view('captain.captain')
         ->with('categories',$categories)
-        ->with('item_groups',$item_groups)
+        ->with('item_groups',$new_item_group)
         ->with('orders',$orders);
     }
 

@@ -48,7 +48,6 @@
                             <div class="input-field col s12">
                                 <input value="0" placeholder="{{ __('Add Category Order') }}"  type="number" class="validate" name="category_order">
                                 <label for="first_name">{{ __('Category Order') }}</label>
-
                             </div>
                         </div>
 

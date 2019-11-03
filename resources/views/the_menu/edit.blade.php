@@ -54,6 +54,10 @@
                <input name="price" id="price" type="number" class="validate" placeholder="{{ __('Add Price') }}"value="{{$item->price}}">
                <label  >{{ __('Price') }}</label>
             </div>
+            <div class="input-alert col s12">
+               <input value="{{$item->order}}" value="0" name="item_order" id="alert-item_order" type="number" class="validate" placeholder="{{ __('Add Item Order') }}">
+               <label  >{{ __('Item Order') }}</label>
+            </div>
 
             <div class="col s12 file-field input-field">
                   <div class="row">

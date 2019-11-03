@@ -57,6 +57,10 @@
             </div>
 
 
+            <div class="input-alert col s12">
+               <input value="0" name="item_order" id="alert-item_order" type="number" class="validate" placeholder="{{ __('Add Item Order') }}">
+               <label  >{{ __('Item Order') }}</label>
+            </div>
 
             <div class="col s12 file-field input-field">
                <div class="btn float-left">

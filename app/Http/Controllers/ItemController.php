@@ -72,12 +72,12 @@ class ItemController extends Controller
 
         $Item = new Item();
         $Item->name = request('Item_Name');
-        $Item->alert_number=request('alert');
+        $Item->alert_number= request('alert');
         $Item->price = request('price');
-        $Item->cost=request('cost');
-        $Item->main_stock=request('quantity');
-        $Item->available_stock=0.0;
-        $Item->category_id=request('category');
+        $Item->cost = request('cost');
+        $Item->main_stock = request('quantity');
+        $Item->available_stock = 0.0;
+        $Item->category_id = request('category');
 
         if($request->hasFile('image')){
             $image = $request->file('image');
@@ -87,7 +87,7 @@ class ItemController extends Controller
             $Item->src = '/images/items/'.$name_img;
             $Item->update(['image' => $name_img]);
         }else{
-            $item->src = '/images/logo/logo.png';
+            $Item->src = '/images/logo/logo.png';
         }
 
         $Item->save();
@@ -111,6 +111,7 @@ class ItemController extends Controller
         $item->alert_number=request('alert');
         $item->price = request('price');
         $item->category_id=request('category');
+        $item->order = request('item_order');
         $item->is_menu=true;
         if($request->hasFile('image')){
             $image = $request->file('image');
@@ -220,6 +221,7 @@ class ItemController extends Controller
         $item->name = request('item_name');
         $item->price = request('price');
         $item->category_id=request('category');
+        $item->order = request('item_order');
         if($request->hasFile('image')){
             $image = $request->file('image');
             $name_img = time() . '.' . $image->getClientOriginalExtension();

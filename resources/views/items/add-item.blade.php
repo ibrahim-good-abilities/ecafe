@@ -75,6 +75,8 @@
             </div>
 
 
+
+
             <div class="col s12 file-field input-field">
                <div class="btn float-left">
                   <span>{{ __('Upload Image') }}</span>
