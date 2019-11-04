@@ -88,7 +88,7 @@
         </div>
     </div>
 </div>
-<div style="bottom: 120px; right: 19px;" class="fixed-action-btn direction-top">
+<!-- <div style="bottom: 120px; right: 19px;" class="fixed-action-btn direction-top">
 <a class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow" id="call_captain" data-sender="{{__('parista')}}">
 <i class="material-icons tooltipped" data-position="left" data-tooltip="{{__('Call Captain')}}">call</i>
 </a>
@@ -98,7 +98,7 @@
 <a class="btn-floating btn-large gradient-45deg-light-red-cyan gradient-shadow" id="call_cashier" data-sender="{{__('parista')}}">
 <i class="material-icons tooltipped" data-position="left" data-tooltip="{{__('Call Cashier')}}">call</i>
 </a>
-</div>
+</div> -->
 @section('page_js')
 <script src="{{asset('resources/vendors/slick/slick.min.js')}}" type="text/javascript"></script>
 <script src="https://js.pusher.com/5.0/pusher.min.js" type="text/javascript"></script>

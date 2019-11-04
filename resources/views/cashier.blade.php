@@ -169,7 +169,7 @@ $settings =  App\Http\Controllers\SettingController::getAll();
 
 
 </div>
-<div style="bottom: 120px; right: 19px;" class="fixed-action-btn direction-top">
+<!-- <div style="bottom: 120px; right: 19px;" class="fixed-action-btn direction-top">
 <a class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow" id="call_captain" data-sender="{{__('cashier')}}"
 >
 <i class="material-icons tooltipped" data-position="left" data-tooltip="{{__('Call Captain')}}">call</i>
@@ -180,7 +180,7 @@ $settings =  App\Http\Controllers\SettingController::getAll();
 <a class="btn-floating btn-large gradient-45deg-light-red-cyan gradient-shadow" id="call_parista" data-sender="{{__('cashier')}}">
 <i class="material-icons tooltipped" data-position="left" data-tooltip="{{__('Call Parista')}}">call</i>
 </a>
-</div>
+</div> -->
 
 
 

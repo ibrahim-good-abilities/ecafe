@@ -36,7 +36,7 @@
 </div>
 <input type="hidden" id ="_order_token" value="{{ csrf_token()}}"/>
 
-<div style="bottom: 185px; right: 19px;" class="fixed-action-btn direction-top">
+<!-- <div style="bottom: 185px; right: 19px;" class="fixed-action-btn direction-top">
 <a class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow" id="call_cashier"data-sender="{{__('captain')}}">
 <i class="material-icons tooltipped" data-position="left" data-tooltip="{{__('Call Cashier')}}">call</i>
 </a>
@@ -51,7 +51,7 @@
 <a href="{{ route('captain') }}" class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow">
 <i class="material-icons tooltipped" data-position="left" data-tooltip="{{__('Add New Order')}}">add</i>
 </a>
-</div>
+</div> -->
 
 @section('page_js')
 <script>
