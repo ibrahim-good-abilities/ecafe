@@ -330,7 +330,7 @@ div#active-orders {
     height: 50px;
     position: relative;
     display: inline-block;
-    width: 70%;
+    width: 65%;
     margin-left: 60px;
     -webkit-transition: .3s ease all;
     -moz-transition: .3s ease all;
@@ -388,4 +388,9 @@ div#active-orders {
 
 .order-number.selected a {
     color: white;
+}
+@media only screen and (max-width: 1000px){
+    div#active-orders {
+        width: 40%;
+    }
 }
